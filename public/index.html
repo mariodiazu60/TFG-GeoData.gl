@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" />
+    <title>GeoData.gl</title>
+</head>
+
+<body>
+    <div id="fondo">
+
+        <header>
+            <h1>GeoData.gl</h1>
+            <nav>
+                <ul>
+                    <li><a href="webapp.html?asistente">Web app</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="heroSection">
+
+            <div id="RRSS">
+                <p>Síguenos</p>
+                <img src="./assets/imgs/instagram.png" alt="">
+                <img src="./assets/imgs/twitter.png" alt="">
+
+            </div>
+
+            <div class="slide slide-active portada">
+                <p id="subtituloPortada">------- &nbsp; REPRESENTACIÓN DE DATOS GEOLOCALIZADOS</p>
+                <h2 id="tituloPortada">¿Preparado/a para llevar <br> tus datos a otro nivel?</h2>
+                <a id="btnPortada" href="webapp.html?asistente">Empieza ya</a>
+            </div>
+
+            <div class="slide step">
+                <div class="textoSlide">
+                    <p>01</p>
+                    <p>------- &nbsp; PRIMER PASO</p>
+                    <h3>Selecciona el <br> archivo de datos</h3>
+                    <p id="explicacionCarrusel">Los formatos admitidos son JSON y CSV. Los archivos deben
+                        contener una fila de cabecera y varias columnas. Cada
+                        columna debe contener un sólo ítem: una fecha, un número,
+                        un nombre etc. y contener un solo tipo de dato.</p>
+                </div>
+                <div class="imgSlide">
+                    <img src="./assets/imgs/datos-landing.png">
+                </div>
+            </div>
+
+
+            <div class="slide step">
+                <div class="textoSlide">
+                    <p>02</p>
+                    <p>------- &nbsp; SEGUNDO PASO</p>
+                    <h3>Elige el tipo de <br> representación</h3>
+                    <p id="explicacionCarrusel">Hay muchos tipos de representación, desde mapas de calor a
+                        mapas de densidad. Elige la que más se ajuste a lo que quieres representar.
+                        Recuerda que puedes añadir varios tipos de representación
+                        sobre un mismo mapa a modo de capas.</p>
+                </div>
+                <div class="imgSlide">
+                    <img src="./assets/imgs/tipo-represe-landing.png">
+                </div>
+            </div>
+
+            <div class="slide step">
+                <div class="textoSlide">
+                    <p>03</p>
+                    <p>------- &nbsp; TERCER PASO</p>
+                    <h3>Personaliza tu <br> representación</h3>
+                    <p id="explicacionCarrusel">Cambia los colores y el tema del mapa, decide que información quieres
+                        mostar.
+                        Representa tus datos de una manera única e impactante.</p>
+                    <a id="btnPortada" href="webapp.html?asistente">Empieza ya</a>
+                </div>
+
+
+                <div class="imgSlide">
+                    <img src="./assets/imgs/maps-landing.foto.png">
+                </div>
+            </div>
+
+
+            <div class="carruselControl">
+                <ol>
+                    <li> <img class="0 bola active" src="./assets/imgs/active.png"> </li>
+                    <li> <img class="1 bola" src="./assets/imgs/no-active.png"></li>
+                    <li> <img class="2 bola" src="./assets/imgs/no-active.png"></li>
+                    <li> <img class="3 bola" src="./assets/imgs/no-active.png"></li>
+                </ol>
+            </div>
+        </section>
+
+    </div>
+    <script src="./index.bundle.js"></script>
+</body>
+
+</html>

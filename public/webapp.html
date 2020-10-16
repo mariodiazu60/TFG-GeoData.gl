@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoData.gl - Sandbox</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="webapp.css" />
+</head>
+
+<body>
+
+
+    <section id="map">
+
+        <div id="asistente">
+            <div class="step step-active">
+                <div class="textoTop">
+                    <p>01/03</p>
+                    <p>------- &nbsp; PRIMER PASO</p>
+                    <h3>Selecciona el <br> archivo de datos</h3>
+                </div>
+
+                <div class="caja">
+                    <div>
+                        <p>Formatos soportados: </p>
+                        <span><img src="./assets/icons/icons8-json-80.png" alt="Json"></span>
+                        <span><img src="./assets/icons/icons8-csv-80.png" alt="CSV"></span>
+                    </div>
+                    <div id="input-archivo">
+                        <span><img src="./assets/icons/icons8-subir-80.png" alt=""></span>
+                        <p>Selecciona un archivo</p>
+                        <input type="file" name="archivosubido">
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <button style="background-color: grey; cursor: not-allowed;">Anterior Paso</button>
+                    <button class="0 btn-asistente">Siguiente Paso</button>
+                </div>
+
+            </div>
+
+            <div class="step ">
+                <div class="textoTop">
+                    <p>02/03</p>
+                    <p>------- &nbsp; SEGUNDO PASO</p>
+                    <h3>Selecciona la <br> de representación</h3>
+                </div>
+
+                <div class="caja">
+                    <div>
+                        <p>Podrás añadir, eliminar y combinar más representaciones más adelante</p>
+                    </div>
+                    <div id="representacion-btns">
+
+                        <div class="representacion-btn 0">
+                            <img src="./assets/icons/puntos.png" alt="representación por puntos">
+                            <p>Puntos</p>
+                        </div>
+
+                        <div class="representacion-btn 1">
+                            <img src="./assets/icons/chichetas.png" alt="representación por chichetas">
+                            <p>chichetas</p>
+                        </div>
+
+                        <div class="representacion-btn 2">
+                            <img src="./assets/icons/clusters.png" alt="representación por clusters">
+                            <p>Clusters</p>
+                        </div>
+
+                        <div class="representacion-btn 3">
+                            <img src="./assets/icons/hex.png" alt="representación por mapa de densidad de hexágonos">
+                            <p>Hexágonos (densidad)</p>
+                        </div>
+
+                        <div class="representacion-btn 4">
+                            <img src="./assets/icons/cuadrados.png"
+                                alt="representación por mapa de densidad de cuadrados">
+                            <p>Cuadrados (densidad)</p>
+                        </div>
+
+                        <div class="representacion-btn 5">
+                            <img src="./assets/icons/calor.png" alt="representación por mapa de calor">
+                            <p>Mapa de calor</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <button class="-1 btn-asistente">Anterior Paso</button>
+                    <button class="1 btn-asistente">Siguiente Paso</button>
+                </div>
+            </div>
+
+            <div class="step ">
+                <div class="textoTop">
+                    <p>03/03</p>
+                    <p>------- &nbsp; TERCER PASO</p>
+                    <h3>Personaliza tu <br> representación</h3>
+                </div>
+
+                <div class="caja">
+                    <div>
+                        <p>Podrás cambiar el tema más adelante.</p>
+                    </div>
+                    <div id="tema-btns">
+
+                        <div class="tema-btn 0">
+                            <img src="./assets/icons/satelite-min.png" alt="Tipo de mapa: satélite">
+                            <p>Satélite</p>
+                        </div>
+
+                        <div class="tema-btn 1">
+                            <img src="./assets/icons/estandar-min.png" alt="Tipo de mapa: estandar">
+                            <p>Estandar</p>
+                        </div>
+
+                        <div class="tema-btn 2">
+                            <img src="./assets/icons/elevacion-min.png" alt="Tipo de mapa: estandar con elevación">
+                            <p>Elevación</p>
+                        </div>
+
+                        <div class="tema-btn 3">
+                            <img src="./assets/icons/claro-min.png" alt="Tipo de mapa: colores claros">
+                            <p>Día</p>
+                        </div>
+
+                        <div class="tema-btn 4">
+                            <img src="./assets/icons/oscuro-min.png" alt="Tipo de mapa: colores oscuros">
+                            <p>Noche</p>
+                        </div>
+
+                        <div class="tema-btn 5 tema-btn-active">
+                            <img src="./assets/icons/geodata-min.png" alt="Tipo de mapa: colores oscuros 2">
+                            <p>Oscuro GeoData</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="buttons-container">
+                    <button class="-2 btn-asistente">Anterior Paso</button>
+                    <button class="2 btn-asistente">Siguiente Paso</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="menu">
+
+            <header>
+                <div class="title">
+                    <h1> <a href="./index.html"> GeoData.gl</a></h1>
+                    <span> <img src="./assets/icons/flecha-derecha.svg" alt=""></span>
+                </div>
+
+                <nav class="nav">
+                    <ul>
+                        <li class="0 btn">
+                            <span><img src="./assets/icons/capas.svg" alt="botón configurar interaccion"></span>
+                            <button>Capas</button>
+                        </li>
+                        <li class="1 btn">
+                            <span><img src="./assets/icons/filtrar.svg" alt="botón configurar filtros"></span>
+                            <button>Filtros</button>
+                        </li>
+                        <li class="2 btn">
+                            <span> <img src="./assets/icons/click.svg" alt="botón configurar interaccion"></span>
+                            <button>Interfaz</button>
+                        </li>
+                        <li class="3 btn">
+                            <span> <img src="./assets/icons/mapa-config.svg" alt="botón configurar mapa"></span>
+                            <button>Mapa</button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="panel panel-capas">
+                <div></div>
+            </div>
+            <div class="panel panel-filtros"></div>
+            <div class="panel panel-interaccion"></div>
+            <div class="panel panel-mapa panel-active">
+
+                <div class="0 btn-map">
+                    <img class="bola" src="./assets/imgs/no.svg" alt="">
+                    <p>Satélite</p>
+                    <img id="img-mapa" src="./assets/imgs/satelite-min.png" alt="">
+                </div>
+                <div class="1 btn-map">
+                    <img class="bola" src="./assets/imgs/no.svg" alt="">
+                    <p>Estandar</p>
+                    <img id="img-mapa" src="./assets/imgs/estandar-min.png" alt="">
+                </div>
+                <div class="2 btn-map">
+                    <img class="bola" src="./assets/imgs/no.svg" alt="">
+                    <p>Elevación</p>
+                    <img id="img-mapa" src="./assets/imgs/elevacion-min.png" alt="">
+                </div>
+                <div class="3 btn-map">
+                    <img class="bola" src="./assets/imgs/no.svg" alt="">
+                    <p>Claro</p>
+                    <img id="img-mapa" src="./assets/imgs/claro-min.png" alt="">
+                </div>
+                <div class="4 btn-map">
+                    <img class="bola" src="./assets/imgs/no.svg" alt="">
+                    <p>Noche</p>
+                    <img id="img-mapa" src="./assets/imgs/oscuro-min.png" alt="">
+                </div>
+                <div class="5 btn-map">
+                    <img class="bola" src="./assets/imgs/yes.svg" alt="">
+                    <p>Oscuro</p>
+                    <img id="img-mapa" src="./assets/imgs/geodata-min.png" alt="">
+                </div>
+            </div>
+
+            <footer>
+                <button>Generar Mapa</button>
+            </footer>
+
+
+        </div>
+    </section>
+
+
+
+    <script src="./webapp.bundle.js"></script>
+</body>
+
+
+</html>

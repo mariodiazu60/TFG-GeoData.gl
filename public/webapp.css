@@ -1,0 +1,402 @@
+@font-face {
+    font-family: "Barlow Bold Italic";
+    src: url("./assets/fonts/Barlow/Barlow-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: "Barlow Bold";
+    src: url("./assets/fonts/Barlow/Barlow-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Barlow Regular";
+    src: url("./assets/fonts/Barlow/Barlow-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Barlow Medium";
+    src: url("./assets/fonts/Barlow/Barlow-Medium.ttf");
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: "Barlow Regular", sans-serif;
+}
+
+:root{
+    --fondo : #2A2E47;
+    --white : #f8f8f8;
+    --azul  : #779ED2;
+    --rojo  : #FE5F55;
+    --verde : #70B77E;
+    --amarillo : #E8C547;
+}
+
+a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.nav{
+    overflow-y: hidden;
+}
+
+#map {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/*MODAL ASISTENTE*/
+#asistente{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 75vw;
+    height: 95vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background-color: var(--fondo);
+    z-index: 20;
+    border-radius: 30px;
+    color: var(--white);
+}
+
+
+/*ESTILOS GENERALES STEPS*/
+    .step{
+        display: none;
+    }
+    .step-active{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .textoTop{
+        width: 50%;
+        height: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 3vw;
+    }
+        .textoTop>p:nth-child(1){
+            position: absolute;
+            left: 47%;
+            top: 6%;
+            font-family: "Barlow Bold";
+            font-size: 12rem;
+            color: #3f4359;
+            height: 30vh;
+            padding-top: 5rem;
+            overflow: hidden;
+        }
+        .textoTop>p:nth-child(2){
+            color: var(--azul);
+            font-family: "Barlow Bold";
+            letter-spacing: 2px;
+        }
+        .textoTop>h3{
+            font-family: "Barlow Bold";
+            font-size: 3rem;
+            line-height: 118%;
+            width: 80%;
+        }
+
+    .caja{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: 0 auto;
+        height: 50%;
+    }
+        .caja>div:nth-child(1){
+            display: flex;
+            align-items: center;
+            height: 20%;
+        }
+            .caja>div:nth-child(1)>p{
+                font-size: 1.1rem;
+                overflow: hidden;
+            }
+            .caja>div:nth-child(1)>span>img{
+                width: 50px;
+                height: 50px;
+            }
+
+/*ESTILOS GENERALES STEPS*/
+
+/*ESTILOS STEP 1*/
+        #input-archivo{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 80%;
+            border: 1px solid var(--white);
+            padding-bottom: 3rem;
+        }
+            #input-archivo img{
+                width: 60px;
+            }
+            #input-archivo p{
+                font-size: 1.4rem;
+                margin: 2rem 0 ;
+            }
+        
+        .buttons-container{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 15%;
+        }
+            .buttons-container>button{
+                font-size: 1.2rem;
+                width: 15%;
+                height: 50%;
+                font-family: "Barlow Medium";
+                background-color: var(--verde);
+                border: none;
+                border-radius: 10px;
+                color: white;
+                cursor: pointer;
+            }
+/*ESTILOS STEP 1*/
+
+
+/*ESTILOS STEP 2 y CAJA INFERIOR DEL 1*/
+
+#tema-btns, #representacion-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 80%;
+    border: 1px solid var(--white);
+    padding-bottom: 3rem;
+    padding: .1rem 0;
+}
+    #tema-btns>div, #representacion-btns>div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 45%;
+        width: 30%;
+        cursor: pointer;
+    }
+
+        #tema-btns>div>img, #representacion-btns>div>img{
+            width: 33%;
+            margin-bottom: .5rem;
+            pointer-events: none;
+        }
+        #tema-btns>div>p, #representacion-btns>div>p{
+            font-size: 1.1rem;
+            font-family: "Barlow Medium";
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+.tema-btn-active, .representacion-btn-active{ 
+    background-color: var(--azul);
+}
+/*ESTILOS STEP 2*/
+/*MODAL ASISTENTE*/
+
+
+
+/*ESTILOS MENÚ */
+#menu{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+    width: 24vw;
+    height: 90vh;
+    background-color: var(--fondo);
+    border-radius: 0 30px 30px 0;   
+    color: var(--white); 
+    padding: 1.5rem 0;
+}
+/*ESTILO MENÚ*/
+
+
+
+/*ESTILO HEADER MENÚ*/
+    header{
+        width: 85%;
+        min-height: 15%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+        .title{
+            display: flex;
+            justify-content: space-between;
+            height: 30%;
+        }
+            .title h1 a{
+                flex: 6;
+                font-family: "Barlow Bold Italic";
+                font-size: 1.8rem;
+                height: 100%;
+                overflow-y: hidden;
+            }
+            .title span{
+                display: flex;
+                
+                width: 25px;
+                height: 25px;
+            }
+                .title span img{
+                    width: 25px;
+                    height: 25px;
+                }
+
+        ul{
+            padding: 2rem 0 1rem 0;
+            display: flex;
+            justify-content: start;
+            align-items: flex-start;
+        }
+
+        li{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            
+        }
+            li>span , li>button{
+                font-size: 1rem;
+                pointer-events: none;
+            }
+                .btn>span>img{
+                    width: 25px;
+                    height: 25px;
+                }
+                .btn>button{
+                    border: none;
+                    background: none;
+                    color: var(--white);
+                }
+/*ESTILO HEADER MENÚ*/
+    
+
+
+/*ESTILO PANEL MAPAS*/
+.panel-mapa{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 2rem;
+}
+    .btn-map{
+        height: 12%;
+        width: 100%;
+        border: white 1px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-y: hidden;
+        cursor: pointer;
+    }
+        .bola{
+            flex:.75;
+            width: 15px;
+            height: 15px;
+            pointer-events: none;
+        }
+        .btn-map>p{
+            flex: 3;
+            font-size: 1.1rem;
+            overflow-y: hidden;
+            pointer-events: none;
+        }
+        .btn-map>#img-mapa{
+            flex: 1.3;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+/*ESTILO PANEL MAPAS*/
+
+
+
+
+
+/*ESTILO FOOTER MENÚ*/
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10%;
+        width: 85%;
+        margin: 1rem auto auto auto;
+    }
+
+    footer>button{
+        font-family: "Barlow Medium";
+        font-size: 1.1rem;
+        background-color: var(--verde);
+        border: none;
+        border-radius: 10px;
+        width: 45%;
+        height: 70%;
+        color: white;
+        cursor: pointer;
+    }
+/*ESTILO FOOTER MENÚ*/
+
+
+
+/*ESTILO PANELES MENÚ*/
+    .panel-capas{
+        display: none;
+        background-color: #70B77E;
+    }
+    .panel-filtros{
+        display: none;
+        background-color: #779ED2;
+    }
+    .panel-interaccion{
+        display: none;
+        background-color: #E8C547;
+    }
+    .panel-mapa{
+        display: none;
+    }
+
+    .panel{
+        display: none;
+    }
+    .panel-active{
+        display: flex;
+        height: 70%;
+        width: 85%;
+        margin: 0 auto;
+        border-top: 1px var(--white) solid;
+    }
+
+/*ESTILO PANELES MENÚ*/
+
+
