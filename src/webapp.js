@@ -1,8 +1,9 @@
-//IMPORTS, VARS E INCIALIZACIÓN DEL MAPA
+//Imports, requires, variables/constantes globales
 const csv = require('csvtojson');
 import { MapboxLayer } from '@deck.gl/mapbox';
 import { ScatterplotLayer } from '@deck.gl/layers';
 import { HexagonLayer } from '@deck.gl/aggregation-layers';
+import { HeatmapLayer } from '@deck.gl/aggregation-layers';
 var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 mapboxgl.accessToken = 'pk.eyJ1IjoibWRuNiIsImEiOiJja2ZsZHRoMXAyMHk5MnlvMzJ3azliNzVoIn0.TVyz96dtNAH7PtNb8Yw_2g';
 const account = "mapbox://styles/mdn6/";
@@ -13,9 +14,18 @@ var map = new mapboxgl.Map({
     zoom: 3,
 });
 
-//Variables globales para las capas
-var data;
-var mostrarCapas = false;
+//Variables globales para el mapa
+var data;                           //Aquí guardamos el contenido del archivo en forma de json
+var capaPuntos = "";                //Var para guardar la capa de puntos
+var capaCalor = "";                 //Var para guardar la capa de calor
+var capaHex = "";                   //Var para guardar la capa de hex
+var nombreCampoLat = "";            //Aquí guardamos el nombre del campo de la lat
+var nombreCampoLon = "";            //Aquí guardamos el nombre del campo de la lon
+var nombreCampos = [];              //Nos guardamos el nombre de todos los campos del archivo
+var mostrarCapas = false;           //Flag para saber si hay que dibujar todas las capas
+var mostrarCapaPuntos = false;      //Flag para saber si hay que dibujar la capa de puntos
+var mostrarCapaCalor = false;       //Flag para saber si hay que dibujar la capa de calor
+var mostrarCapaHex = false;         //Flag para saber si hay que dibujar la capa de hexagonos
 
 //Selectores ---------------------------------------------------------------------------------------------
 //Para el asistente
@@ -34,6 +44,7 @@ const navPanelControl = document.querySelector(".nav");
 const paneles = document.querySelectorAll(".panel");
 const panelMapa = document.querySelector(".panel-mapa");
 const bolas = document.querySelectorAll(".bola");
+const infoBox = document.getElementById("infoBox");
 
 //Listeners ----------------------------------------------------------------------------------------------
 btnsSiguiente.forEach(btn => btn.addEventListener("click", stepControler));     //Controlamos las etapas del asistente (Asistente)
@@ -45,7 +56,6 @@ panelMapa.addEventListener("click", temasControler);                            
 
 
 //Controladores ------------------------------------------------------------------------------------------
-
 //Para el asistente de config.
 function inputController(e) {
     //Leemos el archivo del input con FileReader
@@ -56,23 +66,41 @@ function inputController(e) {
 
     var lector = new FileReader();
     lector.onload = function () {
-        //Comprobamos la extension
+        //Comprobar extension, parsear/convertir archivo, obtener lat/lon y crear las capas
         let extension = file.name.split('.').pop();
         if (extension === "json") {
             data = JSON.parse(lector.result)
-            console.log(data);
+            encontrarLatLon()
             crearCapas();
         } else if (extension === "csv") {
             (async () => {
                 data = await csv({ checkType: true }).fromString(lector.result);
+                encontrarLatLon()
                 crearCapas();
             })();
         }
     };
     lector.readAsText(file);
 }
-function stepControler(e) {
 
+function encontrarLatLon() {
+    //Iteramos sobre los nombres de los campos buscando lat y lon
+    let index = 0;
+    for (var key in data[0]) {
+        nombreCampos[index] = key;
+        if (key === "lat" || key === "lati" || key === "latitude" || key === "latitud") {
+            nombreCampoLat = key;
+            console.log("campo lat : " + nombreCampoLat);
+        }
+        else if (key === "lon" || key === "long" || key === "longitude" || key === "longitud") {
+            nombreCampoLon = key;
+            console.log("campo lon : " + nombreCampoLon);
+        }
+        index++;
+    }
+}
+
+function stepControler(e) {
     //Desactivamos todos los steps
     steps.forEach(step => {
         step.classList.remove("step-active")
@@ -100,9 +128,11 @@ function stepControler(e) {
             //accedemos a la web app
             asistente.style = "display: none;"
             menu.style = "display: flex;"
+            infoBox.style = "display: block;"
             break;
     }
 }
+
 function btnsControler(e) {
     //Comprobamos desde que interfaz se está llamando
     if (e.target.classList[0] === "representacion-btn") {
@@ -157,6 +187,7 @@ function panelControler(e) {
         default: break;
     }
 }
+
 function temasControler(e) {
     //Si e es un número: estamos llamando desde el asistente
     //Si no: estamos llamando desde el panel de
@@ -204,27 +235,50 @@ function temasControler(e) {
 
 
 
-
 //Controladores del mapa ----------------------------------------------------------------------------
 //Constructores de capas
-var myPointsLayer = "";
-var myHexLayer = "";
 function crearCapas() {
-    myPointsLayer = new MapboxLayer({
+    //Capa de puntos
+    capaPuntos = new MapboxLayer({
         id: 'points',
         type: ScatterplotLayer,
         data: data,
         radiusMinPixels: 3,
         radiusMaxPixels: 7,
-        getPosition: d => [d.longitude, d.latitude],
-        getFillColor: d => d.n_killed > 0 ? [200, 0, 40, 150] : [255, 140, 0, 100]
+        getPosition: d => [d[nombreCampoLon], d[nombreCampoLat]],
+        getFillColor: d => d.n_killed > 0 ? [200, 0, 40, 150] : [255, 140, 0, 100],
+        pickable: true,
+        onHover: ({ object, x, y }) => {
+            const info = document.getElementById("info");
+            console.log(x);
+            console.log(y);
+            if (object) {
+                info.innerHTML = "";
+                info.innerHTML = info.innerHTML + "<p>Coordenadas : [" + object[nombreCampoLat] + " , " + object[nombreCampoLon] + "]</p>";
+                for (let i = 0; i < nombreCampos.length; i++) {
+                    if (nombreCampos[i] !== nombreCampoLat && nombreCampos[i] !== nombreCampoLon) {
+                        info.innerHTML = info.innerHTML + "<p id>" + nombreCampos[i] + " : " + object[nombreCampos[i]] + "</p>";
+                    }
+                }
+            } else {
+                // info.innerHTML = "";
+            }
+        }
     });
 
-    myHexLayer = new MapboxLayer({
+    capaCalor = new MapboxLayer({
+        id: 'heat',
+        type: HeatmapLayer,
+        data: data,
+        getPosition: d => [d[nombreCampoLon], d[nombreCampoLat]],
+        radiusPixels: 50
+    });
+
+    capaHex = new MapboxLayer({
         id: 'hex',
         data: data,
         type: HexagonLayer,
-        getPosition: d => [d.longitude, d.latitude],
+        getPosition: d => [d[nombreCampoLon], d[nombreCampoLat]],
         getElevationWeight: d => (d.n_killed * 2) + d.n_injured,
         elevationScale: 100,
         extruded: true,
@@ -239,18 +293,22 @@ function crearCapas() {
 //Eventos del mapa ----------------------------------------------------------------------------------------
 map.on('load', () => {
     if (mostrarCapas) {
-        map.addLayer(myPointsLayer);
-        map.addLayer(myHexLayer);
+        // map.addLayer(capaPuntos);
+        map.addLayer(capaCalor);
+        // map.addLayer(capaHex);
     }
 });
 
 map.on('styledata', () => {
     if (mostrarCapas) {
         if (!map.getLayer('points')) {
-            map.addLayer(myPointsLayer);
+            // map.addLayer(capaPuntos);
+        }
+        if (!map.getLayer('heat')) {
+            map.addLayer(capaCalor);
         }
         if (!map.getLayer('hex')) {
-            map.addLayer(myHexLayer);
+            //  map.addLayer(capaHex);
         }
     }
 });
