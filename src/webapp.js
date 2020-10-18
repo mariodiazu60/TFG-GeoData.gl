@@ -1,4 +1,5 @@
 //IMPORTS, VARS E INCIALIZACIÓN DEL MAPA
+const csv = require('csvtojson');
 import { MapboxLayer } from '@deck.gl/mapbox';
 import { ScatterplotLayer } from '@deck.gl/layers';
 import { HexagonLayer } from '@deck.gl/aggregation-layers';
@@ -13,7 +14,8 @@ var map = new mapboxgl.Map({
 });
 
 //Variables globales para las capas
-const sourceData = './gundata.json';
+var data;
+var mostrarCapas = false;
 
 //Selectores ---------------------------------------------------------------------------------------------
 //Para el asistente
@@ -24,6 +26,7 @@ const btnsRepreContainer = document.getElementById("representacion-btns");
 const btnsTemaContainer = document.getElementById("tema-btns");
 const repreBtns = document.querySelectorAll(".representacion-btn");
 const temaBtns = document.querySelectorAll(".tema-btn");
+const input = document.getElementById("inputArchivo");
 
 //Para panel de control
 const menu = document.getElementById("menu");
@@ -33,15 +36,41 @@ const panelMapa = document.querySelector(".panel-mapa");
 const bolas = document.querySelectorAll(".bola");
 
 //Listeners ----------------------------------------------------------------------------------------------
-btnsSiguiente.forEach(btn => btn.addEventListener("click", stepControler));
-btnsRepreContainer.addEventListener("click", btnsControler);
-btnsTemaContainer.addEventListener("click", btnsControler);
-navPanelControl.addEventListener("click", panelControler);
-panelMapa.addEventListener("click", temasControler);
+btnsSiguiente.forEach(btn => btn.addEventListener("click", stepControler));     //Controlamos las etapas del asistente (Asistente)
+input.addEventListener("change", inputController);                              //Controlamos si suben un archivo (Asistente)
+btnsRepreContainer.addEventListener("click", btnsControler);                    //Controlamos los btns del tipo de representación (Asistente)
+btnsTemaContainer.addEventListener("click", btnsControler);                     //Controlamos los btns del tema del mapa (Asistente)
+navPanelControl.addEventListener("click", panelControler);                      //Controlamos las tabs del panel de control (web app)
+panelMapa.addEventListener("click", temasControler);                            //Controlamos los btns del temad del mapa (web app)
 
 
 //Controladores ------------------------------------------------------------------------------------------
+
 //Para el asistente de config.
+function inputController(e) {
+    //Leemos el archivo del input con FileReader
+    var file = e.target.files[0];
+    if (!file) {
+        return;
+    }
+
+    var lector = new FileReader();
+    lector.onload = function () {
+        //Comprobamos la extension
+        let extension = file.name.split('.').pop();
+        if (extension === "json") {
+            data = JSON.parse(lector.result)
+            console.log(data);
+            crearCapas();
+        } else if (extension === "csv") {
+            (async () => {
+                data = await csv({ checkType: true }).fromString(lector.result);
+                crearCapas();
+            })();
+        }
+    };
+    lector.readAsText(file);
+}
 function stepControler(e) {
 
     //Desactivamos todos los steps
@@ -167,6 +196,8 @@ function temasControler(e) {
             break;
         default: break;
     }
+    //Mostramos las capas
+    mostrarCapas = true;
 }
 
 
@@ -174,44 +205,52 @@ function temasControler(e) {
 
 
 
-//Desde aquí manejamos el mapa ----------------------------------------------------------------------------
+//Controladores del mapa ----------------------------------------------------------------------------
 //Constructores de capas
-const myPointsLayer = new MapboxLayer({
-    id: 'points',
-    type: ScatterplotLayer,
-    data: sourceData,
-    radiusMinPixels: 3,
-    radiusMaxPixels: 7,
-    getPosition: d => [d.longitude, d.latitude],
-    getFillColor: d => d.n_killed > 0 ? [200, 0, 40, 150] : [255, 140, 0, 100]
-});
-const myHexLayer = new MapboxLayer({
-    id: 'hex',
-    data: sourceData,
-    type: HexagonLayer,
-    getPosition: d => [d.longitude, d.latitude],
-    getElevationWeight: d => (d.n_killed * 2) + d.n_injured,
-    elevationScale: 100,
-    extruded: true,
-    radius: 1609,
-    opacity: 0.6,
-    coverage: 0.88,
-    getFillColor: d => d.n_killed > 0 ? [200, 0, 40, 150] : [255, 255, 0, 100]
-});
+var myPointsLayer = "";
+var myHexLayer = "";
+function crearCapas() {
+    myPointsLayer = new MapboxLayer({
+        id: 'points',
+        type: ScatterplotLayer,
+        data: data,
+        radiusMinPixels: 3,
+        radiusMaxPixels: 7,
+        getPosition: d => [d.longitude, d.latitude],
+        getFillColor: d => d.n_killed > 0 ? [200, 0, 40, 150] : [255, 140, 0, 100]
+    });
 
+    myHexLayer = new MapboxLayer({
+        id: 'hex',
+        data: data,
+        type: HexagonLayer,
+        getPosition: d => [d.longitude, d.latitude],
+        getElevationWeight: d => (d.n_killed * 2) + d.n_injured,
+        elevationScale: 100,
+        extruded: true,
+        radius: 1609,
+        opacity: 0.6,
+        coverage: 0.88,
+        getFillColor: d => d.n_killed > 0 ? [200, 0, 40, 150] : [255, 255, 0, 100]
+    });
+}
 
 
 //Eventos del mapa ----------------------------------------------------------------------------------------
 map.on('load', () => {
-    map.addLayer(myPointsLayer);
-    map.addLayer(myHexLayer);
+    if (mostrarCapas) {
+        map.addLayer(myPointsLayer);
+        map.addLayer(myHexLayer);
+    }
 });
 
 map.on('styledata', () => {
-    if (!map.getLayer('points')) {
-        map.addLayer(myPointsLayer);
-    }
-    if (!map.getLayer('hex')) {
-        map.addLayer(myHexLayer);
+    if (mostrarCapas) {
+        if (!map.getLayer('points')) {
+            map.addLayer(myPointsLayer);
+        }
+        if (!map.getLayer('hex')) {
+            map.addLayer(myHexLayer);
+        }
     }
 });
