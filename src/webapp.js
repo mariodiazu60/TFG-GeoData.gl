@@ -24,8 +24,14 @@ var nombreCampoLon = "";            //Aquí guardamos el nombre del campo de la 
 var nombreCampos = [];              //Nos guardamos el nombre de todos los campos del archivo
 var mostrarCapas = false;           //Flag para saber si hay que dibujar todas las capas
 var mostrarCapaPuntos = false;      //Flag para saber si hay que dibujar la capa de puntos
+var mostrarCapaChinchetas = false;  //Flag para saber si hay que dibujar la capa de chinchetas
+var mostrarCapaClusters = false;    //Flag para saber si hay que dibujar la capa de clusters
 var mostrarCapaCalor = false;       //Flag para saber si hay que dibujar la capa de calor
 var mostrarCapaHex = false;         //Flag para saber si hay que dibujar la capa de hexagonos
+var mostrarCapaCaminos = false;     //Flag para saber si hay que dibujar la capa de hexagonos
+
+
+
 
 //Selectores ---------------------------------------------------------------------------------------------
 //Para el asistente
@@ -88,11 +94,13 @@ function encontrarLatLon() {
     let index = 0;
     for (var key in data[0]) {
         nombreCampos[index] = key;
-        if (key === "lat" || key === "lati" || key === "latitude" || key === "latitud") {
+        if (key === "lat" || key === "lati" || key === "latitude" || key === "latitud" ||
+            key === "LAT" || key === "LATI" || key === "LATITUDE" || key === "LATITUD") {
             nombreCampoLat = key;
             console.log("campo lat : " + nombreCampoLat);
         }
-        else if (key === "lon" || key === "long" || key === "longitude" || key === "longitud") {
+        else if (key === "lon" || key === "long" || key === "longitude" || key === "longitud" ||
+            key === "LON" || key === "LONG" || key === "LONGITUDE" || key === "LONGITUD") {
             nombreCampoLon = key;
             console.log("campo lon : " + nombreCampoLon);
         }
@@ -135,13 +143,18 @@ function stepControler(e) {
 
 function btnsControler(e) {
     //Comprobamos desde que interfaz se está llamando
-    if (e.target.classList[0] === "representacion-btn") {
-        //Desactivamos todos los botones
-        repreBtns.forEach(btn => {
-            btn.classList.remove("representacion-btn-active");
-        });
-        //Activamos el botón correspondiente
-        e.target.classList.add("representacion-btn-active");
+    if (e.target.classList[0] === "representacion-btn" || e.target.classList[0] === "representacion-btn-active") {
+
+        //Si hacesmos click sobre un btn activo lo desactivamos
+        //Si no estaba activo lo activamos
+        if (e.target.classList[2] === "representacion-btn-active") {
+            e.target.classList.remove("representacion-btn-active");
+        } else {
+            //Activamos el botón correspondiente
+            e.target.classList.add("representacion-btn-active");
+        }
+        //Mandamos a capasControler el index para active o desactive
+        capasControler(e.target.classList[1]);
     }
     else if (e.target.classList[0] === "tema-btn") {
         //Desactivamos todos los botones
@@ -188,9 +201,80 @@ function panelControler(e) {
     }
 }
 
+function capasControler(e) {
+    //Si e es un número: estamos llamando desde el asistente
+    //Si no: estamos llamando desde el panel de config.
+    let index = 0;
+    if (e >= 0 && e < 6) {
+        index = e;
+
+    } else {
+        index = e.target.classList[0];
+    }
+
+    //Según el index activamos o desactivamos la capa que toque
+    switch (index) {
+        case "0": //Capa de puntos
+            if (mostrarCapaPuntos) {
+                mostrarCapaPuntos = false;
+                console.log("DESactivada capa de puntos");
+            } else {
+                mostrarCapaPuntos = true;
+                console.log("Activada capa de puntos");
+            }
+            break;
+        case "1": //Capa de chichetas
+            if (mostrarCapaChinchetas) {
+                mostrarCapaChinchetas = false;
+                console.log("DESactivada capa de chichets");
+            } else {
+                mostrarCapaChinchetas = true;
+                console.log("Activada capa de chichetas");
+            }
+            break;
+        case "2": //Capa de clusters
+            if (mostrarCapaClusters) {
+                mostrarCapaClusters = false;
+                console.log("DESactivada capa de cluster");
+            } else {
+                mostrarCapaClusters = true;
+                console.log("Activada capa de clusters");
+            }
+            break;
+        case "3": //Capa de calor
+            if (mostrarCapaCalor) {
+                mostrarCapaCalor = false;
+                console.log("DESactivada capa de cluster");
+            } else {
+                mostrarCapaCalor = true;
+                console.log("Activada capa de clusters");
+            }
+            break;
+        case "4": //Capa de hexágonos
+            if (mostrarCapaHex) {
+                mostrarCapaHex = false;
+                console.log("DESactivada capa de hex");
+            } else {
+                mostrarCapaHex = true;
+                console.log("Activada capa de hex");
+            }
+            break;
+        case "5": //Capa de caminos
+            if (mostrarCapaCaminos) {
+                mostrarCapaCaminos = false;
+                console.log("DESactivada capa de caminos");
+            } else {
+                mostrarCapaCaminos = true;
+                console.log("Activada capa de caminos");
+            }
+            break;
+        default: break;
+    }
+}
+
 function temasControler(e) {
     //Si e es un número: estamos llamando desde el asistente
-    //Si no: estamos llamando desde el panel de
+    //Si no: estamos llamando desde el panel de config.
     let index = 0;
     if (e >= 0 && e < 6) {
         index = e;
@@ -250,8 +334,6 @@ function crearCapas() {
         pickable: true,
         onHover: ({ object, x, y }) => {
             const info = document.getElementById("info");
-            console.log(x);
-            console.log(y);
             if (object) {
                 info.innerHTML = "";
                 info.innerHTML = info.innerHTML + "<p>Coordenadas : [" + object[nombreCampoLat] + " , " + object[nombreCampoLon] + "]</p>";
@@ -291,20 +373,12 @@ function crearCapas() {
 
 
 //Eventos del mapa ----------------------------------------------------------------------------------------
-map.on('load', () => {
-    if (mostrarCapas) {
-        // map.addLayer(capaPuntos);
-        map.addLayer(capaCalor);
-        // map.addLayer(capaHex);
-    }
-});
-
 map.on('styledata', () => {
     if (mostrarCapas) {
-        if (!map.getLayer('points')) {
-            // map.addLayer(capaPuntos);
+        if (mostrarCapaPuntos) {
+            map.addLayer(capaPuntos);
         }
-        if (!map.getLayer('heat')) {
+        if (mostrarCapaCalor) {
             map.addLayer(capaCalor);
         }
         if (!map.getLayer('hex')) {

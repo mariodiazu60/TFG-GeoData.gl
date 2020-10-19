@@ -191,7 +191,7 @@ ul{
     padding-bottom: 3rem;
     padding: .1rem 0;
 }
-    #tema-btns>div, #representacion-btns>div{
+    #tema-btns>div{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -200,7 +200,15 @@ ul{
         width: 30%;
         cursor: pointer;
     }
-
+    #representacion-btns>div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 45%;
+        width: 34%;
+        cursor: pointer;
+    }
         #tema-btns>div>img, #representacion-btns>div>img{
             width: 33%;
             margin-bottom: .5rem;
