@@ -14,9 +14,9 @@ mapboxgl.accessToken =
 const account = "mapbox://styles/mdn6/";
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/mdn6/ckfzc89xt07rg19o3ljldgzv0",
-  center: { lat: 40.0, lng: 2.0 },
-  zoom: 3,
+  style: "",
+  center: { lat: 0.0, lng: 0.0 },
+  zoom: 4,
 });
 
 //Variables globales para el mapa
@@ -29,7 +29,6 @@ var capaHex = ""; //Var para guardar la capa de hex
 var nombreCampoLat = ""; //Aquí guardamos el nombre del campo de la lat
 var nombreCampoLon = ""; //Aquí guardamos el nombre del campo de la lon
 var nombreCampos = []; //Nos guardamos el nombre de todos los campos del archivo
-var mostrarCapas = false; //Flag para saber si hay que dibujar todas las capas
 var mostrarCapaPuntos = false; //Flag para saber si hay que dibujar la capa de puntos
 var mostrarCapaChinchetas = false; //Flag para saber si hay que dibujar la capa de chinchetas
 var mostrarCapaCalor3D = false; //Flag para saber si hay que dibujar la capa de calor 3D
@@ -129,10 +128,12 @@ function encontrarLatLon() {
       console.log("campo lat : " + nombreCampoLat);
     } else if (
       key === "lon" ||
+      key === "lng" ||
       key === "long" ||
       key === "longitude" ||
       key === "longitud" ||
       key === "LON" ||
+      key === "LNG" ||
       key === "LONG" ||
       key === "LONGITUDE" ||
       key === "LONGITUD"
@@ -155,22 +156,21 @@ function stepControler(e) {
   //Activamos el step que correponda
   switch (e.target.classList[0]) {
     case "-2":
-      steps[1].classList.add("step-active");
       //volvemos al segundo paso
+      steps[1].classList.add("step-active");
       break;
     case "-1":
-      steps[0].classList.add("step-active");
       //volvemos al primer paso
+      steps[0].classList.add("step-active");
       break;
     case "0":
+      //pasamos al segundo paso siempre que se haya subido un doc
       if (docSubido) {
         steps[1].classList.add("step-active");
       } else {
         infoInput.innerHTML = "¡Ups! Selecciona un archivo de datos antes de continuar.";
         infoInput.style.color = "#fe5f55"
       }
-
-      //pasamos al segundo paso
       break;
     case "1":
       steps[2].classList.add("step-active");
@@ -181,6 +181,12 @@ function stepControler(e) {
       asistente.style = "display: none;";
       menu.style = "display: flex;";
       infoBox.style = "display: block;";
+      //Centramos el mapa en los datos
+      map.flyTo({
+        center: [data[0][nombreCampoLon], data[0][nombreCampoLat]],
+        speed: 0.35,
+        zoom: 10
+      });
       break;
   }
 }
@@ -191,14 +197,13 @@ function btnsControler(e) {
     e.target.classList[0] === "representacion-btn" ||
     e.target.classList[0] === "representacion-btn-active"
   ) {
-    //Si hacesmos click sobre un btn activo lo desactivamos
+    //Si hacemos click sobre un btn activo lo desactivamos
     //Si no estaba activo lo activamos
     if (e.target.classList[2] === "representacion-btn-active") {
       e.target.classList.remove("representacion-btn-active");
     } else {
-      //Activamos el botón correspondiente y activamos el flag de mostrar capas
+      //Activamos el botón correspondiente
       e.target.classList.add("representacion-btn-active");
-      mostrarCapas = true;
     }
     //Mandamos a capasControler el index para active o desactive
     capasControler(e.target.classList[1]);
@@ -248,6 +253,7 @@ function panelControler(e) {
 }
 
 function capasControler(e) {
+
   //Si e es un número: estamos llamando desde el asistente
   //Si no: estamos llamando desde el panel de config.
   let index = 0;
@@ -361,8 +367,6 @@ function temasControler(e) {
     default:
       break;
   }
-  //Mostramos las capas
-  mostrarCapas = true;
 }
 
 //Controladores del mapa ----------------------------------------------------------------------------
@@ -465,8 +469,8 @@ function crearCapas() {
     cellSize: 200,
     elevationScale: 10,
     colorDomain: [1, 100],
-    opacity: 0.7,
-    coverage: 0.7,
+    opacity: 0.6,
+    coverage: 0.75,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     onHover: ({ object, x, y }) => {
       const info = document.getElementById("info");
@@ -514,52 +518,61 @@ function crearCapas() {
 
 //Eventos del mapa ----------------------------------------------------------------------------------------
 map.on("styledata", () => {
-  if (mostrarCapas) {
-    if (mostrarCapaPuntos) {
-      map.addLayer(capaPuntos);
-    }
-    if (mostrarCapaChinchetas) {
-      map.addLayer(capaChinchetas);
-    }
-    if (mostrarCapaCalor3D) {
-      map.addLayer(capaCalor3D);
-    }
-    if (mostrarCapaCalor) {
-      map.addLayer(capaCalor);
-    }
-    if (!map.getLayer("hex")) {
-      //  map.addLayer(capaHex);
-    }
+
+  if (mostrarCapaPuntos) {
+    map.addLayer(capaPuntos);
+  }
+  if (mostrarCapaChinchetas) {
+    map.addLayer(capaChinchetas);
+  }
+  if (mostrarCapaCalor3D) {
+    map.addLayer(capaCalor3D);
+  }
+  if (mostrarCapaCalor) {
+    map.addLayer(capaCalor);
+  }
+  if (!map.getLayer("hex")) {
+    //  map.addLayer(capaHex);
   }
 });
 
 
 function updateLayers() {
-  if (mostrarCapas) {
-    if (mostrarCapaPuntos) {
-      map.addLayer(capaPuntos);
-    } else {
+
+  if (mostrarCapaPuntos) {
+    map.addLayer(capaPuntos);
+  } else {
+    if (map.getLayer('points')) {
       map.removeLayer('points');
     }
-    if (mostrarCapaChinchetas) {
-      map.addLayer(capaChinchetas);
-    } else {
+  }
+
+  if (mostrarCapaChinchetas) {
+    map.addLayer(capaChinchetas);
+  } else {
+    if (map.getLayer('icon-layer')) {
       map.removeLayer('icon-layer');
     }
-    if (mostrarCapaCalor3D) {
-      map.addLayer(capaCalor3D);
-    }
-    else {
+  }
+
+  if (mostrarCapaCalor3D) {
+    map.addLayer(capaCalor3D);
+  } else {
+    if (map.getLayer('heat3D')) {
       map.removeLayer('heat3D');
     }
-    if (mostrarCapaCalor) {
-      map.addLayer(capaCalor);
-    } else {
+  }
+
+  if (mostrarCapaCalor) {
+    map.addLayer(capaCalor);
+  } else {
+    if (map.getLayer('heat')) {
       map.removeLayer('heat');
     }
-    if (!map.getLayer('hex')) {
-      //  map.addLayer(capaHex);
-    }
+  }
+
+  if (!map.getLayer('hex')) {
+    //  map.addLayer(capaHex);
   }
   map.triggerRepaint();
 }
