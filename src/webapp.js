@@ -17,6 +17,7 @@ var map = new mapboxgl.Map({
   center: { lat: 40.0, lng: 2.0 },
   zoom: 3,
 });
+
 //Variables globales para el mapa
 var data; //Aquí guardamos el contenido del archivo en forma de json
 var capaPuntos = ""; //Var para guardar la capa de puntos
@@ -35,6 +36,9 @@ var mostrarCapaCalor = false; //Flag para saber si hay que dibujar la capa de ca
 var mostrarCapaHex = false; //Flag para saber si hay que dibujar la capa de hexagonos
 var mostrarCapaCaminos = false; //Flag para saber si hay que dibujar la capa de hexagonos
 
+//Variables globales para la interfaz
+var docSubido = false;
+
 //Selectores ---------------------------------------------------------------------------------------------
 //Para el asistente
 const asistente = document.getElementById("asistente");
@@ -42,9 +46,9 @@ const btnsSiguiente = document.querySelectorAll(".btn-asistente");
 const steps = document.querySelectorAll(".step");
 const btnsRepreContainer = document.getElementById("representacion-btns");
 const btnsTemaContainer = document.getElementById("tema-btns");
-const repreBtns = document.querySelectorAll(".representacion-btn");
 const temaBtns = document.querySelectorAll(".tema-btn");
 const input = document.getElementById("inputArchivo");
+const infoInput = document.getElementById("infoInput");
 
 //Para panel de control
 const menu = document.getElementById("menu");
@@ -71,21 +75,36 @@ function inputController(e) {
     return;
   }
 
+  //Avisamos de que estamos trabajando
+  infoInput.style.color = "#70b77e";
+  infoInput.innerHTML = "Leyendo el archivo...";
+
   var lector = new FileReader();
   lector.onload = function () {
-    //Comprobar extension, parsear/convertir archivo, obtener lat/lon y crear las capas
+    //Comprobar extension, parsear/convertir archivo, obtener lat/lon, crear las capas y mostrar mensaje
     let extension = file.name.split(".").pop();
-    if (extension === "json") {
+    if (extension === "json" && JSON.parse(lector.result)) {
       data = JSON.parse(lector.result);
+      docSubido = true;
       encontrarLatLon();
       crearCapas();
+      infoInput.innerHTML = "Archivo leído correctamente.";
+      infoInput.style.color = "#70b77e";
     } else if (extension === "csv") {
       (async () => {
         data = await csv({ checkType: true }).fromString(lector.result);
+        docSubido = true;
         encontrarLatLon();
         crearCapas();
+        infoInput.innerHTML = "Archivo leído correctamente.";
+        infoInput.style.color = "#70b77e"
       })();
     }
+    else {
+      infoInput.style.color = "#fe5f55";
+      infoInput.innerHTML = "¡Vaya! No conseguimos leer tu archivo. Inténtalo con otro archivo.";
+    }
+
   };
   lector.readAsText(file);
 }
@@ -125,9 +144,11 @@ function encontrarLatLon() {
 }
 
 function stepControler(e) {
-  //Desactivamos todos los steps
+  //Desactivamos todos los steps si ya tenemos un doc con datos
   steps.forEach((step) => {
-    step.classList.remove("step-active");
+    if (docSubido) {
+      step.classList.remove("step-active");
+    }
   });
 
   //Activamos el step que correponda
@@ -141,7 +162,13 @@ function stepControler(e) {
       //volvemos al primer paso
       break;
     case "0":
-      steps[1].classList.add("step-active");
+      if (docSubido) {
+        steps[1].classList.add("step-active");
+      } else {
+        infoInput.innerHTML = "¡Ups! Selecciona un archivo de datos antes de continuar.";
+        infoInput.style.color = "#fe5f55"
+      }
+
       //pasamos al segundo paso
       break;
     case "1":
@@ -447,7 +474,7 @@ function crearCapas() {
           " , " +
           object.points[0][nombreCampoLon] +
           "]</p>" +
-          "<p>Ítems en este área : [" +
+          "<p>Elementos en este área : " +
           object.count +
           " </p>";
       } else {

@@ -112,6 +112,7 @@ ul {
   font-size: 3rem;
   line-height: 118%;
   width: 80%;
+  overflow-y: hidden;
 }
 
 .caja {
@@ -151,9 +152,10 @@ ul {
 #input-archivo img {
   width: 60px;
 }
-#input-archivo p {
-  font-size: 1.4rem;
+#infoInput {
+  font-size: 1.2rem;
   margin: 2rem 0;
+  overflow-y: hidden;
 }
 
 .buttons-container {
@@ -250,6 +252,7 @@ ul {
   font-size: 1.4rem;
   display: flex;
   align-items: center;
+  overflow-y: hidden;
 }
 
 #info {
