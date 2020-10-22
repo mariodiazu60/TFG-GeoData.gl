@@ -1,5 +1,6 @@
 //Imports, requires, variables/constantes globales
 const csv = require("csvtojson");
+
 import { MapboxLayer } from "@deck.gl/mapbox";
 import { ScatterplotLayer } from "@deck.gl/layers";
 import { IconLayer } from "@deck.gl/layers";
@@ -195,8 +196,9 @@ function btnsControler(e) {
     if (e.target.classList[2] === "representacion-btn-active") {
       e.target.classList.remove("representacion-btn-active");
     } else {
-      //Activamos el botón correspondiente
+      //Activamos el botón correspondiente y activamos el flag de mostrar capas
       e.target.classList.add("representacion-btn-active");
+      mostrarCapas = true;
     }
     //Mandamos a capasControler el index para active o desactive
     capasControler(e.target.classList[1]);
@@ -255,7 +257,7 @@ function capasControler(e) {
     index = e.target.classList[0];
   }
 
-  //Según el index activamos o desactivamos la capa que toque
+  //Según el index activamos o desactivamos la capa que toque 
   switch (index) {
     case "0": //Capa de puntos
       if (mostrarCapaPuntos) {
@@ -314,6 +316,9 @@ function capasControler(e) {
     default:
       break;
   }
+
+  //Llamamos a update layer para que redibujar el mapa.
+  updateLayers();
 }
 
 function temasControler(e) {
@@ -527,3 +532,34 @@ map.on("styledata", () => {
     }
   }
 });
+
+
+function updateLayers() {
+  if (mostrarCapas) {
+    if (mostrarCapaPuntos) {
+      map.addLayer(capaPuntos);
+    } else {
+      map.removeLayer('points');
+    }
+    if (mostrarCapaChinchetas) {
+      map.addLayer(capaChinchetas);
+    } else {
+      map.removeLayer('icon-layer');
+    }
+    if (mostrarCapaCalor3D) {
+      map.addLayer(capaCalor3D);
+    }
+    else {
+      map.removeLayer('heat3D');
+    }
+    if (mostrarCapaCalor) {
+      map.addLayer(capaCalor);
+    } else {
+      map.removeLayer('heat');
+    }
+    if (!map.getLayer('hex')) {
+      //  map.addLayer(capaHex);
+    }
+  }
+  map.triggerRepaint();
+}
