@@ -18,6 +18,7 @@ var map = new mapboxgl.Map({
   center: { lat: 0.0, lng: 0.0 },
   zoom: 4,
 });
+map.addControl(new mapboxgl.NavigationControl(), "top-left");
 
 //Variables globales para el mapa
 var data; //Aquí guardamos el contenido del archivo en forma de json
@@ -38,6 +39,7 @@ var mostrarCapaCaminos = false; //Flag para saber si hay que dibujar la capa de 
 
 //Variables globales para la interfaz
 var docSubido = false;
+var temaElegido = false;
 
 //Selectores ---------------------------------------------------------------------------------------------
 //Para el asistente
@@ -49,6 +51,7 @@ const btnsTemaContainer = document.getElementById("tema-btns");
 const temaBtns = document.querySelectorAll(".tema-btn");
 const input = document.getElementById("inputArchivo");
 const infoInput = document.getElementById("infoInput");
+const infoTema = document.getElementById("infoTema");
 
 //Para panel de control
 const menu = document.getElementById("menu");
@@ -97,14 +100,13 @@ function inputController(e) {
         encontrarLatLon();
         crearCapas();
         infoInput.innerHTML = "Archivo leído correctamente.";
-        infoInput.style.color = "#70b77e"
+        infoInput.style.color = "#70b77e";
       })();
-    }
-    else {
+    } else {
       infoInput.style.color = "#fe5f55";
-      infoInput.innerHTML = "¡Vaya! No conseguimos leer tu archivo. Inténtalo con otro archivo.";
+      infoInput.innerHTML =
+        "¡Vaya! No conseguimos leer tu archivo. Inténtalo con otro archivo.";
     }
-
   };
   lector.readAsText(file);
 }
@@ -168,25 +170,36 @@ function stepControler(e) {
       if (docSubido) {
         steps[1].classList.add("step-active");
       } else {
-        infoInput.innerHTML = "¡Ups! Selecciona un archivo de datos antes de continuar.";
-        infoInput.style.color = "#fe5f55"
+        infoInput.innerHTML =
+          "¡Ups! Selecciona un archivo de datos antes de continuar.";
+        infoInput.style.color = "#fe5f55";
       }
       break;
     case "1":
-      steps[2].classList.add("step-active");
       //pasamos al tercer paso
+      steps[2].classList.add("step-active");
       break;
     case "2":
-      //accedemos a la web app
-      asistente.style = "display: none;";
-      menu.style = "display: flex;";
-      infoBox.style = "display: block;";
-      //Centramos el mapa en los datos
-      map.flyTo({
-        center: [data[0][nombreCampoLon], data[0][nombreCampoLat]],
-        speed: 0.35,
-        zoom: 10
-      });
+      //Si hemos elegido tema pasamos a la web app
+      if (temaElegido) {
+        asistente.style = "display: none;";
+        menu.style = "display: flex;";
+        infoBox.style = "display: block;";
+        //Centramos el mapa en los datos
+        map.flyTo({
+          center: [data[0][nombreCampoLon], data[0][nombreCampoLat]],
+          speed: 0.35,
+          zoom: 10,
+        });
+      } else {
+        //Si no hemos elegido tema nos quedamos en el mismo step
+        //Activamos el último step porque lo desactivamos con el foreach arriba
+        //Esto se podría hacer de otra forma (TO-IMPROVE si da tiempo)
+        steps[2].classList.add("step-active");
+        infoTema.innerHTML = "Selecciona un tema para el mapa";
+        infoTema.style.color = "#fe5f55";
+      }
+
       break;
   }
 }
@@ -214,6 +227,9 @@ function btnsControler(e) {
     });
     //Activamos el botón correspondiente
     e.target.classList.add("tema-btn-active");
+    //Activamos el flag de temaElegido
+    temaElegido = true;
+    console.log(temaElegido);
     //Mandamos a temasControler el index para que lo maneje
     temasControler(e.target.classList[1]);
   }
@@ -253,7 +269,6 @@ function panelControler(e) {
 }
 
 function capasControler(e) {
-
   //Si e es un número: estamos llamando desde el asistente
   //Si no: estamos llamando desde el panel de config.
   let index = 0;
@@ -263,7 +278,7 @@ function capasControler(e) {
     index = e.target.classList[0];
   }
 
-  //Según el index activamos o desactivamos la capa que toque 
+  //Según el index activamos o desactivamos la capa que toque
   switch (index) {
     case "0": //Capa de puntos
       if (mostrarCapaPuntos) {
@@ -333,6 +348,9 @@ function temasControler(e) {
   let index = 0;
   if (e >= 0 && e < 6) {
     index = e;
+    //Informamos de que se ha elegido un tema correctamente
+    infoTema.innerHTML = "¡Tema seleccionado! Puedes continuar.";
+    infoTema.style.color = "#70b77e";
   } else {
     index = e.target.classList[0];
   }
@@ -518,7 +536,6 @@ function crearCapas() {
 
 //Eventos del mapa ----------------------------------------------------------------------------------------
 map.on("styledata", () => {
-
   if (mostrarCapaPuntos) {
     map.addLayer(capaPuntos);
   }
@@ -536,42 +553,40 @@ map.on("styledata", () => {
   }
 });
 
-
 function updateLayers() {
-
   if (mostrarCapaPuntos) {
     map.addLayer(capaPuntos);
   } else {
-    if (map.getLayer('points')) {
-      map.removeLayer('points');
+    if (map.getLayer("points")) {
+      map.removeLayer("points");
     }
   }
 
   if (mostrarCapaChinchetas) {
     map.addLayer(capaChinchetas);
   } else {
-    if (map.getLayer('icon-layer')) {
-      map.removeLayer('icon-layer');
+    if (map.getLayer("icon-layer")) {
+      map.removeLayer("icon-layer");
     }
   }
 
   if (mostrarCapaCalor3D) {
     map.addLayer(capaCalor3D);
   } else {
-    if (map.getLayer('heat3D')) {
-      map.removeLayer('heat3D');
+    if (map.getLayer("heat3D")) {
+      map.removeLayer("heat3D");
     }
   }
 
   if (mostrarCapaCalor) {
     map.addLayer(capaCalor);
   } else {
-    if (map.getLayer('heat')) {
-      map.removeLayer('heat');
+    if (map.getLayer("heat")) {
+      map.removeLayer("heat");
     }
   }
 
-  if (!map.getLayer('hex')) {
+  if (!map.getLayer("hex")) {
     //  map.addLayer(capaHex);
   }
   map.triggerRepaint();

@@ -24,10 +24,9 @@
   box-sizing: border-box;
   overflow-x: hidden;
   font-family: "Barlow Regular", sans-serif;
-
 }
 
-body{
+body {
   background-color: #3f4359;
 }
 
@@ -171,7 +170,7 @@ ul {
 }
 .buttons-container > button {
   font-size: 1.2rem;
-  width: 15%;
+  width: 20%;
   height: 50%;
   font-family: "Barlow Medium";
   background-color: var(--verde);
@@ -179,6 +178,11 @@ ul {
   border-radius: 10px;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttons-container > button:hover {
+  background-color: #4c8f59;
 }
 /*ESTILOS STEP 1*/
 
@@ -205,6 +209,7 @@ ul {
   width: 30%;
   cursor: pointer;
 }
+
 #representacion-btns > div {
   display: flex;
   flex-direction: column;
@@ -230,7 +235,12 @@ ul {
 
 .tema-btn-active,
 .representacion-btn-active {
-  background-color: var(--azul);
+  background-color: var(--azul) !important;
+}
+
+#tema-btns > div:hover,
+#representacion-btns > div:hover {
+  background-color: #91b6e78f;
 }
 /*ESTILOS STEP 2*/
 /*MODAL ASISTENTE*/
