@@ -52,6 +52,7 @@ const temaBtns = document.querySelectorAll(".tema-btn");
 const input = document.getElementById("inputArchivo");
 const infoInput = document.getElementById("infoInput");
 const infoTema = document.getElementById("infoTema");
+const sectionMap = document.getElementById("map");
 
 //Para panel de control
 const menu = document.getElementById("menu");
@@ -182,6 +183,7 @@ function stepControler(e) {
     case "2":
       //Si hemos elegido tema pasamos a la web app
       if (temaElegido) {
+        sectionMap.style = "align-items: flex-end; justify-content:center;";
         asistente.style = "display: none;";
         menu.style = "display: flex;";
         infoBox.style = "display: block;";

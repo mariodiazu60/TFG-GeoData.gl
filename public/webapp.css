@@ -289,10 +289,10 @@ ul {
   flex-direction: column;
   align-items: center;
   z-index: 20;
-  width: 24vw;
-  height: 90vh;
+  width: 85vw;
+  height: 30vh;
   background-color: var(--fondo);
-  border-radius: 0 30px 30px 0;
+  border-radius: 30px 30px 0 0;
   color: var(--white);
   padding: 1.5rem 0;
 }
@@ -364,13 +364,13 @@ li > button {
 /*ESTILO PANEL MAPAS*/
 .panel-mapa {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-around;
   padding-top: 2rem;
 }
 .btn-map {
-  height: 12%;
-  width: 100%;
+  height: 50%;
+  width: 30%;
   border: white 1px solid;
   display: flex;
   align-items: center;
@@ -398,29 +398,6 @@ li > button {
 }
 /*ESTILO PANEL MAPAS*/
 
-/*ESTILO FOOTER MENÚ*/
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10%;
-  width: 85%;
-  margin: 1rem auto auto auto;
-}
-
-footer > button {
-  font-family: "Barlow Medium";
-  font-size: 1.1rem;
-  background-color: var(--verde);
-  border: none;
-  border-radius: 10px;
-  width: 45%;
-  height: 70%;
-  color: white;
-  cursor: pointer;
-}
-/*ESTILO FOOTER MENÚ*/
-
 /*ESTILO PANELES MENÚ*/
 .panel-capas {
   display: none;
@@ -443,8 +420,10 @@ footer > button {
 }
 .panel-active {
   display: flex;
-  height: 70%;
-  width: 85%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 90%;
   margin: 0 auto;
   border-top: 1px var(--white) solid;
 }
