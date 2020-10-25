@@ -18,7 +18,7 @@ var map = new mapboxgl.Map({
   center: { lat: 0.0, lng: 0.0 },
   zoom: 4,
 });
-map.addControl(new mapboxgl.NavigationControl(), "top-left");
+map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
 //Variables globales para el mapa
 var data; //Aquí guardamos el contenido del archivo en forma de json
@@ -36,7 +36,6 @@ var mostrarCapaCalor3D = false; //Flag para saber si hay que dibujar la capa de 
 var mostrarCapaCalor = false; //Flag para saber si hay que dibujar la capa de calor
 var mostrarCapaHex = false; //Flag para saber si hay que dibujar la capa de hexagonos
 var mostrarCapaCaminos = false; //Flag para saber si hay que dibujar la capa de hexagonos
-
 //Variables globales para la interfaz
 var docSubido = false;
 var temaElegido = false;
@@ -61,6 +60,7 @@ const paneles = document.querySelectorAll(".panel");
 const panelMapa = document.querySelector(".panel-mapa");
 const bolas = document.querySelectorAll(".bola");
 const infoBox = document.getElementById("infoBox");
+const expandir = document.getElementById("expandir");
 
 //Listeners ----------------------------------------------------------------------------------------------
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
@@ -69,7 +69,7 @@ btnsRepreContainer.addEventListener("click", btnsControler); //Controlamos los b
 btnsTemaContainer.addEventListener("click", btnsControler); //Controlamos los btns del tema del mapa (Asistente)
 navPanelControl.addEventListener("click", panelControler); //Controlamos las tabs del panel de control (web app)
 panelMapa.addEventListener("click", temasControler); //Controlamos los btns del temad del mapa (web app)
-
+expandir.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -111,7 +111,6 @@ function inputController(e) {
   };
   lector.readAsText(file);
 }
-
 function encontrarLatLon() {
   //Iteramos sobre los nombres de los campos buscando lat y lon
   let index = 0;
@@ -147,7 +146,6 @@ function encontrarLatLon() {
     index++;
   }
 }
-
 function stepControler(e) {
   //Desactivamos todos los steps si ya tenemos un doc con datos
   steps.forEach((step) => {
@@ -205,7 +203,6 @@ function stepControler(e) {
       break;
   }
 }
-
 function btnsControler(e) {
   //Comprobamos desde que interfaz se está llamando
   if (
@@ -239,10 +236,9 @@ function btnsControler(e) {
 
 //Para el menú de config.
 function panelControler(e) {
-  //Si clicas en ul se para ejecución
-  //Se hace así porque el pointer-events: none;
-  //Evita el click sobre los hijos de la lista y no lo queremos
-  if (e.target.tagName.toLowerCase() === "ul") {
+  //Si clicas en ul,span o nav se para ejecución
+  //Se hace así porque el pointer-events: none; evita el click sobre los hijos del item y no lo queremos
+  if (e.target.tagName.toLowerCase() === "ul" || e.target.tagName.toLowerCase() === "span" || e.target.tagName.toLowerCase() === "nav") {
     return;
   }
   //Desactivamos todos los paneles
@@ -269,7 +265,18 @@ function panelControler(e) {
       break;
   }
 }
-
+function expandirMenuControler(e) {
+  //La primera vez height del menu será cadena vacia, las siguientes 60/30vh
+  if (menu.style.height === "" || menu.style.height === "30vh") {
+    menu.style.height = "60vh";
+    expandir.style.transform = "rotate(90deg)";
+    infoBox.style.maxHeight = "30vh";
+  } else {
+    menu.style.height = "30vh";
+    infoBox.style.maxHeight = "60vh";
+    expandir.style.transform = "rotate(-90deg)";
+  }
+}
 function capasControler(e) {
   //Si e es un número: estamos llamando desde el asistente
   //Si no: estamos llamando desde el panel de config.
@@ -343,7 +350,6 @@ function capasControler(e) {
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
 }
-
 function temasControler(e) {
   //Si e es un número: estamos llamando desde el asistente
   //Si no: estamos llamando desde el panel de config.
@@ -409,6 +415,7 @@ function crearCapas() {
         info.innerHTML = "";
         info.innerHTML =
           info.innerHTML +
+          "<p>Representado " + data.length + " elementos </p>" +
           "<p>Coordenadas : [" +
           object[nombreCampoLat] +
           " , " +
@@ -421,7 +428,7 @@ function crearCapas() {
           ) {
             info.innerHTML =
               info.innerHTML +
-              "<p id>" +
+              "<p >" +
               nombreCampos[i] +
               " : " +
               object[nombreCampos[i]] +
@@ -455,6 +462,7 @@ function crearCapas() {
         info.innerHTML = "";
         info.innerHTML =
           info.innerHTML +
+          "<p>Representado " + data.length + " elementos </p>" +
           "<p>Coordenadas : [" +
           object[nombreCampoLat] +
           " , " +
@@ -467,7 +475,7 @@ function crearCapas() {
           ) {
             info.innerHTML =
               info.innerHTML +
-              "<p id>" +
+              "<p>" +
               nombreCampos[i] +
               " : " +
               object[nombreCampos[i]] +
@@ -498,6 +506,7 @@ function crearCapas() {
         info.innerHTML = "";
         info.innerHTML =
           info.innerHTML +
+          "<p>Representado " + data.length + " elementos </p>" +
           "<p>Coordenadas aprox. : [" +
           object.points[0][nombreCampoLat] +
           " , " +

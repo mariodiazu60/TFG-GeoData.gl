@@ -48,13 +48,7 @@ ul {
   list-style: none;
 }
 
-.nav {
-  overflow-y: hidden;
-}
-
 #map {
-  display: flex;
-  align-items: center;
   width: 100vw;
   height: 100vh;
 }
@@ -74,6 +68,7 @@ ul {
   z-index: 20;
   border-radius: 30px;
   color: var(--white);
+  margin: 1.2rem auto;
 }
 
 /*ESTILOS GENERALES STEPS*/
@@ -249,16 +244,17 @@ ul {
   display: none;
   position: absolute;
   right: 2%;
-  top: 5%;
+  top: 2%;
   background-color: var(--fondo);
   width: 22vw;
   min-height: 31vh;
-  max-height: 90vh;
+  max-height: 60vh;
   border-radius: 30px;
   opacity: 1;
-  z-index: 22;
+  z-index: 1;
   color: var(--white);
   padding: 1.5rem 0 1rem 1.2rem;
+  transition: 1s;
 }
 
 #infoBox > h2 {
@@ -282,74 +278,75 @@ ul {
   min-height: 5%;
   overflow: hidden;
 }
+.mapboxgl-ctrl-bottom-right{
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  margin: 0 2rem;
+}
+
+.mapboxgl-ctrl-icon, .mapboxgl-ctrl, .mapboxgl-ctrl-group{
+  overflow: hidden;
+}
 
 /*ESTILOS MENÚ */
 #menu {
   display: none;
   flex-direction: column;
   align-items: center;
-  z-index: 20;
+  z-index: 2;
   width: 85vw;
   height: 30vh;
   background-color: var(--fondo);
   border-radius: 30px 30px 0 0;
   color: var(--white);
-  padding: 1.5rem 0;
+  padding: 0 0 1rem;
+  box-shadow: 0 20px 50px #3f4359;
+  transition: 1s;  
+  position: absolute;
+  left: 7.5%;
+  bottom: 0%;
 }
 /*ESTILO MENÚ*/
 
 /*ESTILO HEADER MENÚ*/
-header {
+header {  
   width: 85%;
   min-height: 15%;
-  margin: 0 auto;
+  margin: .4rem auto;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
-}
-.title {
-  display: flex;
-  justify-content: space-between;
-  height: 30%;
-}
-.title h1 a {
-  flex: 6;
-  font-family: "Barlow Bold Italic";
-  font-size: 1.8rem;
-  height: 100%;
-  overflow-y: hidden;
-}
-.title span {
-  display: flex;
-
-  width: 25px;
-  height: 25px;
-}
-.title span img {
-  width: 25px;
-  height: 25px;
-}
-
-ul {
-  padding: 2rem 0 1rem 0;
-  display: flex;
-  justify-content: start;
-  align-items: flex-start;
-}
-
-li {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
-li > span,
-li > button {
-  font-size: 1rem;
-  pointer-events: none;
-}
+  .nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: hidden;
+  }
+    #expandir{
+      transform: rotate(-90deg);
+      cursor: pointer;
+      transition: 1.2s;
+    }
+    ul {
+      width: 90%;
+      display: flex;
+    }
+      li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    li > button {
+      font-size: 1.2rem;
+      pointer-events: none;
+    }
+
+
 .btn > span > img {
   width: 25px;
   height: 25px;
@@ -366,10 +363,11 @@ li > button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
   padding-top: 2rem;
 }
 .btn-map {
-  height: 50%;
+  height: 7vh;
   width: 30%;
   border: white 1px solid;
   display: flex;
@@ -377,6 +375,7 @@ li > button {
   justify-content: center;
   overflow-y: hidden;
   cursor: pointer;
+  margin: .5rem,0rem;
 }
 .bola {
   flex: 0.75;
