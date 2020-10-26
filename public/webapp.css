@@ -69,6 +69,7 @@ ul {
   border-radius: 30px;
   color: var(--white);
   margin: 1.2rem auto;
+  box-shadow: 0 20px 50px #4c516d;
 }
 
 /*ESTILOS GENERALES STEPS*/
@@ -358,13 +359,42 @@ header {
 }
 /*ESTILO HEADER MENÚ*/
 
+
+/*ESTILO PANELES MENÚ*/
+.panel-capas {
+  display: none;
+  background-color: #70b77e;
+}
+.panel-filtros {
+  display: none;
+  background-color: #779ed2;
+}
+.panel-interaccion {
+  display: none;
+}
+.panel-mapa {
+  display: none;
+}
+.panel {
+  display: none;
+}
+.panel-active {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  border-top: 1px var(--white) solid;
+}
+
+
+
 /*ESTILO PANEL MAPAS*/
 .panel-mapa {
-  display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 }
 .btn-map {
   height: 7vh;
@@ -397,34 +427,45 @@ header {
 }
 /*ESTILO PANEL MAPAS*/
 
-/*ESTILO PANELES MENÚ*/
-.panel-capas {
-  display: none;
-  background-color: #70b77e;
-}
-.panel-filtros {
-  display: none;
-  background-color: #779ed2;
-}
+
+/*ESTILO PANEL INTERACCIÓN*/
 .panel-interaccion {
-  display: none;
-  background-color: #e8c547;
-}
-.panel-mapa {
-  display: none;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2rem;
 }
 
-.panel {
-  display: none;
-}
-.panel-active {
+.cajas-interaccion{
+  flex: 1;
+  height: 7vh;
+  border: white 1px solid;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  height: 100%;
-  width: 90%;
-  margin: 0 auto;
-  border-top: 1px var(--white) solid;
+  align-items: center;
+  justify-content: center;
+  margin: .5rem 1rem;
+  padding-left: 1rem;
 }
+  .cajas-interaccion > label{
+    flex: 2;
+    font-size: 1.1rem;
+    overflow-y: hidden;
+  }
+
+  .input-container{
+    flex: .3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: white 1px solid ;
+  }
+/*ESTILO PANEL INTERACCIÓN*/
+
+
+
+
+
 
 /*ESTILO PANELES MENÚ*/

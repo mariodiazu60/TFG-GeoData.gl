@@ -16,6 +16,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.7.0",
     "csvtojson": "^2.0.10",
     "deck.gl": "^8.2.8",
     "mapbox-gl": "^1.12.0"

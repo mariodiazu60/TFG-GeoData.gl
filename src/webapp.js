@@ -1,13 +1,14 @@
 //Imports, requires, variables/constantes globales
 const csv = require("csvtojson");
-
 import { MapboxLayer } from "@deck.gl/mapbox";
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { ScatterplotLayer } from "@deck.gl/layers";
 import { IconLayer } from "@deck.gl/layers";
 import { GridLayer } from "@deck.gl/aggregation-layers";
 import { HeatmapLayer } from "@deck.gl/aggregation-layers";
 import { HexagonLayer } from "@deck.gl/aggregation-layers";
 
+//Variables globales para el mapa
 var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWRuNiIsImEiOiJja2ZsZHRoMXAyMHk5MnlvMzJ3azliNzVoIn0.TVyz96dtNAH7PtNb8Yw_2g";
@@ -19,8 +20,11 @@ var map = new mapboxgl.Map({
   zoom: 4,
 });
 map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
-
-//Variables globales para el mapa
+map.addControl(new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken,
+  language: 'es-ES',
+  mapboxgl: mapboxgl
+}), "top-left");
 var data; //Aquí guardamos el contenido del archivo en forma de json
 var capaPuntos = ""; //Var para guardar la capa de puntos
 var capaChinchetas = ""; //Var para guardar la capa de chinchetas
@@ -61,6 +65,11 @@ const panelMapa = document.querySelector(".panel-mapa");
 const bolas = document.querySelectorAll(".bola");
 const infoBox = document.getElementById("infoBox");
 const expandir = document.getElementById("expandir");
+const camposInteraccion = document.querySelectorAll(".campo-interaccion");
+const busqueda = document.querySelector(".mapboxgl-ctrl-geocoder");
+busqueda.style.display = "none";
+const controles = document.querySelector(".mapboxgl-ctrl-group");
+controles.style.display = "none";
 
 //Listeners ----------------------------------------------------------------------------------------------
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
@@ -69,7 +78,8 @@ btnsRepreContainer.addEventListener("click", btnsControler); //Controlamos los b
 btnsTemaContainer.addEventListener("click", btnsControler); //Controlamos los btns del tema del mapa (Asistente)
 navPanelControl.addEventListener("click", panelControler); //Controlamos las tabs del panel de control (web app)
 panelMapa.addEventListener("click", temasControler); //Controlamos los btns del temad del mapa (web app)
-expandir.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú
+camposInteraccion.forEach((campo) => campo.addEventListener("click", interaccionControler)); //Controlamos los ajustes de interacción (web app)
+expandir.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú (web app)
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -185,6 +195,8 @@ function stepControler(e) {
         asistente.style = "display: none;";
         menu.style = "display: flex;";
         infoBox.style = "display: block;";
+        busqueda.style.display = "block";
+        controles.style.display = "block";
         //Centramos el mapa en los datos
         map.flyTo({
           center: [data[0][nombreCampoLon], data[0][nombreCampoLat]],
@@ -194,7 +206,7 @@ function stepControler(e) {
       } else {
         //Si no hemos elegido tema nos quedamos en el mismo step
         //Activamos el último step porque lo desactivamos con el foreach arriba
-        //Esto se podría hacer de otra forma (TO-IMPROVE si da tiempo)
+        //Esto se podría hacer de otra forma (mejorar si da tiempo)
         steps[2].classList.add("step-active");
         infoTema.innerHTML = "Selecciona un tema para el mapa";
         infoTema.style.color = "#fe5f55";
@@ -350,6 +362,35 @@ function capasControler(e) {
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
 }
+function interaccionControler(e) {
+
+  switch (e.target.classList[1]) {
+    case "mostrarInfo":
+      console.log(infoBox.style.display);
+      if (infoBox.style.display === "block") {
+        infoBox.style.display = "none";
+      } else {
+        infoBox.style.display = "block";
+      }
+      break;
+
+    case "mostrarControles":
+      if (controles.style.display === "block") {
+        controles.style.display = "none";
+      } else {
+        controles.style.display = "block";
+      }
+      break;
+
+    case "mostrarBusqueda":
+      if (busqueda.style.display === "block") {
+        busqueda.style.display = "none";
+      } else {
+        busqueda.style.display = "block";
+      }
+      break;
+  }
+}
 function temasControler(e) {
   //Si e es un número: estamos llamando desde el asistente
   //Si no: estamos llamando desde el panel de config.
@@ -394,6 +435,7 @@ function temasControler(e) {
       break;
   }
 }
+
 
 //Controladores del mapa ----------------------------------------------------------------------------
 //Constructores de capas

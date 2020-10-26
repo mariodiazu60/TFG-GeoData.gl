@@ -7,6 +7,7 @@
     <title>GeoData.gl - Sandbox</title>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="webapp.css" />
+    <link rel="stylesheet" href="geocoder.css">
 </head>
 
 <body>
@@ -164,7 +165,29 @@
                 <div></div>
             </div>
             <div class="panel panel-filtros"></div>
-            <div class="panel panel-interaccion"></div>
+            <div class="panel panel-interaccion">
+                <div class="cajas-interaccion">
+                    <label for="inforCheck">Mostrar información</label>
+                    <div class="input-container">
+                        <input class="campo-interaccion mostrarInfo" type="checkbox" id="inforCheck" name="inforCheck"
+                            checked>
+                    </div>
+                </div>
+                <div class="cajas-interaccion">
+                    <label for="controlesCheck">Mostrar controles</label>
+                    <div class="input-container">
+                        <input class="campo-interaccion mostrarControles" type="checkbox" id="controlesCheck"
+                            name="controlesCheck" checked>
+                    </div>
+                </div>
+                <div class="cajas-interaccion">
+                    <label for="busquedaCheck">Mostrar barra de búsqueda</label>
+                    <div class="input-container">
+                        <input class="campo-interaccion mostrarBusqueda" type="checkbox" id="busquedaCheck"
+                            name="busquedaCheck" checked>
+                    </div>
+                </div>
+            </div>
             <div class="panel panel-mapa panel-active">
 
                 <div class="0 btn-map">
