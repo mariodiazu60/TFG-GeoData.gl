@@ -65,6 +65,7 @@ const panelMapa = document.querySelector(".panel-mapa");
 const bolas = document.querySelectorAll(".bola");
 const infoBox = document.getElementById("infoBox");
 const expandir = document.getElementById("expandir");
+const minimizar = document.getElementById("minimizar");
 const camposInteraccion = document.querySelectorAll(".campo-interaccion");
 const busqueda = document.querySelector(".mapboxgl-ctrl-geocoder");
 busqueda.style.display = "none";
@@ -80,6 +81,7 @@ navPanelControl.addEventListener("click", panelControler); //Controlamos las tab
 panelMapa.addEventListener("click", temasControler); //Controlamos los btns del temad del mapa (web app)
 camposInteraccion.forEach((campo) => campo.addEventListener("click", interaccionControler)); //Controlamos los ajustes de interacción (web app)
 expandir.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú (web app)
+minimizar.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú (web app)
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -250,7 +252,7 @@ function btnsControler(e) {
 function panelControler(e) {
   //Si clicas en ul,span o nav se para ejecución
   //Se hace así porque el pointer-events: none; evita el click sobre los hijos del item y no lo queremos
-  if (e.target.tagName.toLowerCase() === "ul" || e.target.tagName.toLowerCase() === "span" || e.target.tagName.toLowerCase() === "nav") {
+  if (e.target.tagName.toLowerCase() === "ul" || e.target.tagName.toLowerCase() === "span" || e.target.tagName.toLowerCase() === "nav" || e.target.tagName.toLowerCase() === "div") {
     return;
   }
   //Desactivamos todos los paneles
@@ -278,15 +280,24 @@ function panelControler(e) {
   }
 }
 function expandirMenuControler(e) {
+
   //La primera vez height del menu será cadena vacia, las siguientes 60/30vh
-  if (menu.style.height === "" || menu.style.height === "30vh") {
-    menu.style.height = "60vh";
-    expandir.style.transform = "rotate(90deg)";
-    infoBox.style.maxHeight = "30vh";
+  if (e.target.id === "expandir") {
+    if (menu.style.height === "" || menu.style.height === "30vh") {
+      menu.style.height = "60vh";
+      expandir.style.transform = "rotate(90deg)";
+      infoBox.style.maxHeight = "30vh";
+    } else {
+      menu.style.height = "30vh";
+      infoBox.style.maxHeight = "60vh";
+      expandir.style.transform = "rotate(-90deg)";
+    }
   } else {
-    menu.style.height = "30vh";
+    if (menu.style.height === "60vh") {
+      expandir.style.transform = "rotate(-90deg)";
+    }
+    menu.style.height = "10vh";
     infoBox.style.maxHeight = "60vh";
-    expandir.style.transform = "rotate(-90deg)";
   }
 }
 function capasControler(e) {
@@ -366,7 +377,6 @@ function interaccionControler(e) {
 
   switch (e.target.classList[1]) {
     case "mostrarInfo":
-      console.log(infoBox.style.display);
       if (infoBox.style.display === "block") {
         infoBox.style.display = "none";
       } else {
@@ -392,6 +402,10 @@ function interaccionControler(e) {
   }
 }
 function temasControler(e) {
+  //Si pulsamos fuera de los botones no hacemos nada
+  if (e.target != undefined && e.target.classList[0] === "panel") {
+    return;
+  }
   //Si e es un número: estamos llamando desde el asistente
   //Si no: estamos llamando desde el panel de config.
   let index = 0;

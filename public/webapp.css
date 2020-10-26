@@ -318,6 +318,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  overflow: hidden;
 }
   .nav{
     width: 100%;
@@ -326,11 +327,6 @@ header {
     align-items: center;
     overflow-y: hidden;
   }
-    #expandir{
-      transform: rotate(-90deg);
-      cursor: pointer;
-      transition: 1.2s;
-    }
     ul {
       width: 90%;
       display: flex;
@@ -347,11 +343,30 @@ header {
       pointer-events: none;
     }
 
+    .nav > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 10%;
+      overflow: hidden;
+    }
+    .nav > div > span {
+      width: auto;
+      height: auto;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    #expandir{
+      transform: rotate(-90deg);
+      transition: 1.2s;
+    }
 
-.btn > span > img {
-  width: 25px;
-  height: 25px;
-}
+      .nav > div > span > img {
+        width: 25px;
+        margin: .2rem;
+        overflow: hidden;
+      }
+
 .btn > button {
   border: none;
   background: none;
