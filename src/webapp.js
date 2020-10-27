@@ -175,8 +175,6 @@ function leerNombreCampos() {
     }
     index++;
   }
-
-  console.log(nombreCampos);
 }
 function stepControler(e) {
   //Desactivamos todos los steps si ya tenemos un doc con datos
@@ -473,7 +471,6 @@ function temasControler(e) {
 }
 
 function paramsInfoBoxControler(e) {
-  console.log(e.target);
   if (e.target.id === "infoParams") {
     return;
   }
