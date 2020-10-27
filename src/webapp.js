@@ -1,7 +1,7 @@
 //Imports, requires, variables/constantes globales
 const csv = require("csvtojson");
 import { MapboxLayer } from "@deck.gl/mapbox";
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { ScatterplotLayer } from "@deck.gl/layers";
 import { IconLayer } from "@deck.gl/layers";
 import { GridLayer } from "@deck.gl/aggregation-layers";
@@ -20,12 +20,15 @@ var map = new mapboxgl.Map({
   zoom: 4,
 });
 map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
-map.addControl(new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken,
-  language: 'es-ES',
-  placeholder: 'Buscar ciudad, región...',
-  mapboxgl: mapboxgl
-}), "top-left");
+map.addControl(
+  new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    language: "es-ES",
+    placeholder: "Buscar ciudad, región...",
+    mapboxgl: mapboxgl,
+  }),
+  "top-left"
+);
 var data; //Aquí guardamos el contenido del archivo en forma de json
 var capaPuntos = ""; //Var para guardar la capa de puntos
 var capaChinchetas = ""; //Var para guardar la capa de chinchetas
@@ -45,6 +48,7 @@ var mostrarCapaCaminos = false; //Flag para saber si hay que dibujar la capa de 
 //Variables globales para la interfaz
 var docSubido = false;
 var temaElegido = false;
+var lastObjectHovered = null; //último objeto para poder cambiar la info que muestra la infoBox
 
 //Selectores ---------------------------------------------------------------------------------------------
 //Para el asistente
@@ -82,10 +86,12 @@ btnsRepreContainer.addEventListener("click", btnsControler); //Controlamos los b
 btnsTemaContainer.addEventListener("click", btnsControler); //Controlamos los btns del tema del mapa (Asistente)
 navPanelControl.addEventListener("click", panelControler); //Controlamos las tabs del panel de control (web app)
 panelMapa.addEventListener("click", temasControler); //Controlamos los btns del temad del mapa (web app)
-camposInteraccion.forEach((campo) => campo.addEventListener("click", interaccionControler)); //Controlamos los ajustes de interacción (web app)
-expandir.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú (web app)
-minimizar.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú (web app)
-infoParams.addEventListener("click", paramsInfoControler);  //Controlamos que campos se muestra en infoBox (web app)
+camposInteraccion.forEach((campo) =>
+  campo.addEventListener("click", interaccionControler)
+); //Controlamos los ajustes de interacción (web app)
+expandir.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
+minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
+infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -164,29 +170,13 @@ function leerNombreCampos() {
       console.log("campo lon : " + nombreCampoLon);
     } else {
       //Si el campo no es ni lat ni lon añadimos el campo al panel de config
-      infoParams.innerHTML += " <div class='params'><p>" + nombreCampos[index] + "</p></div>"
+      infoParams.innerHTML +=
+        " <div class='params'><p>" + nombreCampos[index] + "</p></div>";
     }
     index++;
   }
 
   console.log(nombreCampos);
-}
-function paramsInfoControler(e) {
-  console.log(e.target);
-  if (e.target.id === "infoParams") {
-    return;
-  }
-  //Si es "" o verde es que está activo, lo desactivamos y eliminamos del array ded campos a mostrar
-  if (e.target.style.backgroundColor === "" || e.target.style.backgroundColor === "var(--verde)") {
-    e.target.style.backgroundColor = "var(--gris)";
-    nombreCamposMostrar.splice(nombreCamposMostrar.indexOf(e.target.children[0].innerText), 1);
-  }
-  //Si no, lo activamos y añadimos al array de campos a mostrar
-  else {
-    e.target.style.backgroundColor = "var(--verde)";
-    nombreCamposMostrar.push(e.target.children[0].innerText);
-  }
-  console.log(nombreCamposMostrar);
 }
 function stepControler(e) {
   //Desactivamos todos los steps si ya tenemos un doc con datos
@@ -281,7 +271,12 @@ function btnsControler(e) {
 function panelControler(e) {
   //Si clicas en ul,span o nav se para ejecución
   //Se hace así porque el pointer-events: none; evita el click sobre los hijos del item y no lo queremos
-  if (e.target.tagName.toLowerCase() === "ul" || e.target.tagName.toLowerCase() === "span" || e.target.tagName.toLowerCase() === "nav" || e.target.tagName.toLowerCase() === "div") {
+  if (
+    e.target.tagName.toLowerCase() === "ul" ||
+    e.target.tagName.toLowerCase() === "span" ||
+    e.target.tagName.toLowerCase() === "nav" ||
+    e.target.tagName.toLowerCase() === "div"
+  ) {
     return;
   }
   //Desactivamos todos los paneles
@@ -309,7 +304,6 @@ function panelControler(e) {
   }
 }
 function expandirMenuControler(e) {
-
   //La primera vez height del menu será cadena vacia, las siguientes 60/30vh
   if (e.target.id === "expandir") {
     if (menu.style.height === "" || menu.style.height === "30vh") {
@@ -403,7 +397,6 @@ function capasControler(e) {
   updateLayers();
 }
 function interaccionControler(e) {
-
   switch (e.target.classList[1]) {
     case "mostrarInfo":
       if (infoBox.style.display === "block") {
@@ -479,6 +472,64 @@ function temasControler(e) {
   }
 }
 
+function paramsInfoBoxControler(e) {
+  console.log(e.target);
+  if (e.target.id === "infoParams") {
+    return;
+  }
+  //Si es "" o verde es que está activo, lo desactivamos, eliminamos del array ded campos a mostrar
+  //y actualizamos la infoBox
+  if (
+    e.target.style.backgroundColor === "" ||
+    e.target.style.backgroundColor === "var(--verde)"
+  ) {
+    e.target.style.backgroundColor = "var(--gris)";
+    nombreCamposMostrar.splice(
+      nombreCamposMostrar.indexOf(e.target.children[0].innerText),
+      1
+    );
+    infoBoxControler(lastObjectHovered);
+  }
+  //Si no, lo activamos, añadimos al array de campos a mostrar y actualizamos la infobox
+  else {
+    e.target.style.backgroundColor = "var(--verde)";
+    nombreCamposMostrar.push(e.target.children[0].innerText);
+    infoBoxControler(lastObjectHovered);
+  }
+  console.log(nombreCamposMostrar);
+}
+function infoBoxControler(object) {
+  const info = document.getElementById("info");
+  if (object != null) {
+    info.innerHTML = "";
+    info.innerHTML =
+      info.innerHTML +
+      "<p>Representado " +
+      data.length +
+      " elementos </p>" +
+      "<p>Coordenadas : [" +
+      object[nombreCampoLat] +
+      " , " +
+      object[nombreCampoLon] +
+      "]</p>";
+
+    //Iteramos sobre nombreCamposMostrar para mostrar la info que elija el user
+    for (let i = 0; i < nombreCamposMostrar.length; i++) {
+      if (
+        nombreCamposMostrar[i] !== nombreCampoLat &&
+        nombreCamposMostrar[i] !== nombreCampoLon
+      ) {
+        info.innerHTML =
+          info.innerHTML +
+          "<p >" +
+          nombreCamposMostrar[i] +
+          " : " +
+          object[nombreCamposMostrar[i]] +
+          "</p>";
+      }
+    }
+  }
+}
 
 //Controladores del mapa ----------------------------------------------------------------------------
 //Constructores de capas
@@ -495,33 +546,10 @@ function crearCapas() {
       d.n_killed > 0 ? [200, 0, 40, 150] : [255, 140, 0, 100],
     pickable: true,
     onHover: ({ object }) => {
-      const info = document.getElementById("info");
-      if (object) {
-        info.innerHTML = "";
-        info.innerHTML =
-          info.innerHTML +
-          "<p>Representado " + data.length + " elementos </p>" +
-          "<p>Coordenadas : [" +
-          object[nombreCampoLat] +
-          " , " +
-          object[nombreCampoLon] +
-          "]</p>";
-
-        //Iteramos sobre nombreCamposMostrar para mostrar la info que elija el user
-        for (let i = 0; i < nombreCamposMostrar.length; i++) {
-          if (
-            nombreCamposMostrar[i] !== nombreCampoLat &&
-            nombreCamposMostrar[i] !== nombreCampoLon
-          ) {
-            info.innerHTML =
-              info.innerHTML +
-              "<p >" +
-              nombreCamposMostrar[i] +
-              " : " +
-              object[nombreCamposMostrar[i]] +
-              "</p>";
-          }
-        }
+      //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
+      if (object != undefined) {
+        lastObjectHovered = object;
+        infoBoxControler(object);
       }
     },
   });
@@ -541,34 +569,11 @@ function crearCapas() {
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     getColor: (d) => [Math.sqrt(d.exits), 140, 0],
     pickable: true,
-    onHover: ({ object, x, y }) => {
-      const info = document.getElementById("info");
-      if (object) {
-        info.innerHTML = "";
-        info.innerHTML =
-          info.innerHTML +
-          "<p>Representado " + data.length + " elementos </p>" +
-          "<p>Coordenadas : [" +
-          object[nombreCampoLat] +
-          " , " +
-          object[nombreCampoLon] +
-          "]</p>";
-        for (let i = 0; i < nombreCampos.length; i++) {
-          if (
-            nombreCampos[i] !== nombreCampoLat &&
-            nombreCampos[i] !== nombreCampoLon
-          ) {
-            info.innerHTML =
-              info.innerHTML +
-              "<p>" +
-              nombreCampos[i] +
-              " : " +
-              object[nombreCampos[i]] +
-              "</p>";
-          }
-        }
-      } else {
-        // info.innerHTML = "";
+    onHover: ({ object }) => {
+      //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
+      if (object != undefined) {
+        lastObjectHovered = object;
+        infoBoxControler(object);
       }
     },
   });
@@ -591,7 +596,9 @@ function crearCapas() {
         info.innerHTML = "";
         info.innerHTML =
           info.innerHTML +
-          "<p>Representado " + data.length + " elementos </p>" +
+          "<p>Representado " +
+          data.length +
+          " elementos </p>" +
           "<p>Coordenadas aprox. : [" +
           object.points[0][nombreCampoLat] +
           " , " +
