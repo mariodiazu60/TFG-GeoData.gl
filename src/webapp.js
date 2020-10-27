@@ -23,6 +23,7 @@ map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 map.addControl(new MapboxGeocoder({
   accessToken: mapboxgl.accessToken,
   language: 'es-ES',
+  placeholder: 'Buscar ciudad, región...',
   mapboxgl: mapboxgl
 }), "top-left");
 var data; //Aquí guardamos el contenido del archivo en forma de json
@@ -34,6 +35,7 @@ var capaHex = ""; //Var para guardar la capa de hex
 var nombreCampoLat = ""; //Aquí guardamos el nombre del campo de la lat
 var nombreCampoLon = ""; //Aquí guardamos el nombre del campo de la lon
 var nombreCampos = []; //Nos guardamos el nombre de todos los campos del archivo
+var nombreCamposMostrar = []; //Nos guardamos el nombre de los campos del archivo que hay que mostrar en la infobox
 var mostrarCapaPuntos = false; //Flag para saber si hay que dibujar la capa de puntos
 var mostrarCapaChinchetas = false; //Flag para saber si hay que dibujar la capa de chinchetas
 var mostrarCapaCalor3D = false; //Flag para saber si hay que dibujar la capa de calor 3D
@@ -71,6 +73,7 @@ const busqueda = document.querySelector(".mapboxgl-ctrl-geocoder");
 busqueda.style.display = "none";
 const controles = document.querySelector(".mapboxgl-ctrl-group");
 controles.style.display = "none";
+const infoParams = document.getElementById("infoParams");
 
 //Listeners ----------------------------------------------------------------------------------------------
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
@@ -82,6 +85,7 @@ panelMapa.addEventListener("click", temasControler); //Controlamos los btns del 
 camposInteraccion.forEach((campo) => campo.addEventListener("click", interaccionControler)); //Controlamos los ajustes de interacción (web app)
 expandir.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú (web app)
 minimizar.addEventListener("click", expandirMenuControler);  //Controlamos la expansión del menú (web app)
+infoParams.addEventListener("click", paramsInfoControler);  //Controlamos que campos se muestra en infoBox (web app)
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -102,7 +106,7 @@ function inputController(e) {
     if (extension === "json" && JSON.parse(lector.result)) {
       data = JSON.parse(lector.result);
       docSubido = true;
-      encontrarLatLon();
+      leerNombreCampos();
       crearCapas();
       infoInput.innerHTML = "Archivo leído correctamente.";
       infoInput.style.color = "#70b77e";
@@ -110,7 +114,7 @@ function inputController(e) {
       (async () => {
         data = await csv({ checkType: true }).fromString(lector.result);
         docSubido = true;
-        encontrarLatLon();
+        leerNombreCampos();
         crearCapas();
         infoInput.innerHTML = "Archivo leído correctamente.";
         infoInput.style.color = "#70b77e";
@@ -123,11 +127,15 @@ function inputController(e) {
   };
   lector.readAsText(file);
 }
-function encontrarLatLon() {
+function leerNombreCampos() {
+  //Vaciamos el innerHTML por si estuviera lleno, así no se duplica la info que esté dentro
+  infoParams.innerHTML = "";
+
   //Iteramos sobre los nombres de los campos buscando lat y lon
   let index = 0;
   for (var key in data[0]) {
     nombreCampos[index] = key;
+    nombreCamposMostrar[index] = key;
     if (
       key === "lat" ||
       key === "lati" ||
@@ -154,9 +162,31 @@ function encontrarLatLon() {
     ) {
       nombreCampoLon = key;
       console.log("campo lon : " + nombreCampoLon);
+    } else {
+      //Si el campo no es ni lat ni lon añadimos el campo al panel de config
+      infoParams.innerHTML += " <div class='params'><p>" + nombreCampos[index] + "</p></div>"
     }
     index++;
   }
+
+  console.log(nombreCampos);
+}
+function paramsInfoControler(e) {
+  console.log(e.target);
+  if (e.target.id === "infoParams") {
+    return;
+  }
+  //Si es "" o verde es que está activo, lo desactivamos y eliminamos del array ded campos a mostrar
+  if (e.target.style.backgroundColor === "" || e.target.style.backgroundColor === "var(--verde)") {
+    e.target.style.backgroundColor = "var(--gris)";
+    nombreCamposMostrar.splice(nombreCamposMostrar.indexOf(e.target.children[0].innerText), 1);
+  }
+  //Si no, lo activamos y añadimos al array de campos a mostrar
+  else {
+    e.target.style.backgroundColor = "var(--verde)";
+    nombreCamposMostrar.push(e.target.children[0].innerText);
+  }
+  console.log(nombreCamposMostrar);
 }
 function stepControler(e) {
   //Desactivamos todos los steps si ya tenemos un doc con datos
@@ -242,7 +272,6 @@ function btnsControler(e) {
     e.target.classList.add("tema-btn-active");
     //Activamos el flag de temaElegido
     temaElegido = true;
-    console.log(temaElegido);
     //Mandamos a temasControler el index para que lo maneje
     temasControler(e.target.classList[1]);
   }
@@ -465,7 +494,7 @@ function crearCapas() {
     getFillColor: (d) =>
       d.n_killed > 0 ? [200, 0, 40, 150] : [255, 140, 0, 100],
     pickable: true,
-    onHover: ({ object, x, y }) => {
+    onHover: ({ object }) => {
       const info = document.getElementById("info");
       if (object) {
         info.innerHTML = "";
@@ -477,22 +506,22 @@ function crearCapas() {
           " , " +
           object[nombreCampoLon] +
           "]</p>";
-        for (let i = 0; i < nombreCampos.length; i++) {
+
+        //Iteramos sobre nombreCamposMostrar para mostrar la info que elija el user
+        for (let i = 0; i < nombreCamposMostrar.length; i++) {
           if (
-            nombreCampos[i] !== nombreCampoLat &&
-            nombreCampos[i] !== nombreCampoLon
+            nombreCamposMostrar[i] !== nombreCampoLat &&
+            nombreCamposMostrar[i] !== nombreCampoLon
           ) {
             info.innerHTML =
               info.innerHTML +
               "<p >" +
-              nombreCampos[i] +
+              nombreCamposMostrar[i] +
               " : " +
-              object[nombreCampos[i]] +
+              object[nombreCamposMostrar[i]] +
               "</p>";
           }
         }
-      } else {
-        // info.innerHTML = "";
       }
     },
   });

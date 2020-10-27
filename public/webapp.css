@@ -36,7 +36,9 @@ body {
   --azul: #779ed2;
   --rojo: #fe5f55;
   --verde: #70b77e;
+  --verdeHover: #4c8f59;
   --amarillo: #e8c547;
+  --gris: #808080;
 }
 
 a {
@@ -178,7 +180,7 @@ ul {
 }
 
 .buttons-container > button:hover {
-  background-color: #4c8f59;
+  background-color: var(--verdeHover);
 }
 /*ESTILOS STEP 1*/
 
@@ -449,9 +451,44 @@ header {
   align-items: center;
   padding-top: 2rem;
 }
+.cajas-interaccion-grande{
+  width: 100%;
+  min-height: 7vh;
+  border: white 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: .5rem 1rem;
+  padding-left: 1rem;
+}
+  #infoParams{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .params{
+      width: 15%;
+      margin: .5rem;
+      padding: .5rem .75rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      background-color: var(--verde);
+      cursor: pointer;
+      transition: .5s;
+    }
+
+    .params:hover{
+      background-color: var(--verdeHover);
+    }
+    .params>p{
+      pointer-events: none;
+    }
 
 .cajas-interaccion{
-  flex: 1;
+  width: 30%;
   height: 7vh;
   border: white 1px solid;
   display: flex;
