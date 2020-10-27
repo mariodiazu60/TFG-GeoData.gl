@@ -144,31 +144,41 @@ function leerNombreCampos() {
     nombreCamposMostrar[index] = key;
     if (
       key === "lat" ||
-      key === "lati" ||
-      key === "latitude" ||
-      key === "latitud" ||
+      key === "Lat" ||
       key === "LAT" ||
+      key === "lati" ||
+      key === "Lati" ||
       key === "LATI" ||
+      key === "latitude" ||
+      key === "Latitude" ||
       key === "LATITUDE" ||
+      key === "latitud" ||
+      key === "Latitud" ||
       key === "LATITUD"
     ) {
       nombreCampoLat = key;
       console.log("campo lat : " + nombreCampoLat);
     } else if (
       key === "lon" ||
-      key === "lng" ||
-      key === "long" ||
-      key === "longitude" ||
-      key === "longitud" ||
+      key === "Lon" ||
       key === "LON" ||
+      key === "lng" ||
+      key === "Lng" ||
       key === "LNG" ||
+      key === "long" ||
+      key === "Long" ||
       key === "LONG" ||
+      key === "longitude" ||
+      key === "Longitude" ||
       key === "LONGITUDE" ||
+      key === "longitud" ||
+      key === "Longitud" ||
       key === "LONGITUD"
     ) {
       nombreCampoLon = key;
       console.log("campo lon : " + nombreCampoLon);
     } else {
+      console.log("ERROR: NO SE HAN ENCONTRADO LOS CAMPOS DE LAT Y LONG");
       //Si el campo no es ni lat ni lon añadimos el campo al panel de config
       infoParams.innerHTML +=
         " <div class='params'><p>" + nombreCampos[index] + "</p></div>";
