@@ -92,6 +92,8 @@ camposInteraccion.forEach((campo) =>
 expandir.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
+
+
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -133,6 +135,7 @@ function inputController(e) {
   };
   lector.readAsText(file);
 }
+
 function leerNombreCampos() {
   //Vaciamos el innerHTML por si estuviera lleno, así no se duplica la info que esté dentro
   infoParams.innerHTML = "";
@@ -186,6 +189,7 @@ function leerNombreCampos() {
     index++;
   }
 }
+
 function stepControler(e) {
   //Desactivamos todos los steps si ya tenemos un doc con datos
   steps.forEach((step) => {
@@ -245,6 +249,7 @@ function stepControler(e) {
       break;
   }
 }
+
 function btnsControler(e) {
   //Comprobamos desde que interfaz se está llamando
   if (
@@ -274,6 +279,7 @@ function btnsControler(e) {
     temasControler(e.target.classList[1]);
   }
 }
+
 
 //Para el menú de config.
 function panelControler(e) {
@@ -311,6 +317,7 @@ function panelControler(e) {
       break;
   }
 }
+
 function expandirMenuControler(e) {
   //La primera vez height del menu será cadena vacia, las siguientes 60/30vh
   if (e.target.id === "expandir") {
@@ -331,6 +338,7 @@ function expandirMenuControler(e) {
     infoBox.style.maxHeight = "60vh";
   }
 }
+
 function capasControler(e) {
   //Si e es un número: estamos llamando desde el asistente
   //Si no: estamos llamando desde el panel de config.
@@ -400,10 +408,10 @@ function capasControler(e) {
     default:
       break;
   }
-
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
 }
+
 function interaccionControler(e) {
   switch (e.target.classList[1]) {
     case "mostrarInfo":
@@ -431,6 +439,7 @@ function interaccionControler(e) {
       break;
   }
 }
+
 function temasControler(e) {
   //Si pulsamos fuera de los botones no hacemos nada
   if (e.target != undefined && e.target.classList[0] === "panel") {
