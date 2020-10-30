@@ -42,6 +42,7 @@
   display: none; /* hide input clear button in IE */
 }
 
+
 .mapboxgl-ctrl-geocoder--input:focus {
   color: white; /* fallback */
   color: white;

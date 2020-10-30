@@ -95,13 +95,13 @@ ul {
 }
 .textoTop > p:nth-child(1) {
   position: absolute;
-  left: 47%;
+  left: 49%;
   top: 6%;
   font-family: "Barlow Bold";
   font-size: 12rem;
   color: #3f4359;
   height: 30vh;
-  padding-top: 5rem;
+  padding-top: 4.75rem;
   overflow: hidden;
 }
 .textoTop > p:nth-child(2) {
@@ -111,10 +111,11 @@ ul {
 }
 .textoTop > h3 {
   font-family: "Barlow Bold";
-  font-size: 3rem;
+  font-size: 2.9rem;
   line-height: 118%;
-  width: 80%;
+  width: 90%;
   overflow-y: hidden;
+  margin-right: .5rem;
 }
 
 .caja {
@@ -247,7 +248,7 @@ ul {
   display: none;
   position: absolute;
   right: 2%;
-  top: 2%;
+  top: 7%;
   background-color: var(--fondo);
   width: 22vw;
   min-height: 31vh;
@@ -452,7 +453,7 @@ header {
   padding-top: 2rem;
 }
 .cajas-interaccion-grande{
-  width: 100%;
+  width: 96.5%;
   min-height: 7vh;
   border: white 1px solid;
   display: flex;
@@ -470,7 +471,7 @@ header {
   }
 
     .params{
-      width: 15%;
+      width: auto;
       margin: .5rem;
       padding: .5rem .75rem;
       font-size: 1.2rem;

@@ -334,8 +334,8 @@ function expandirMenuControler(e) {
     if (menu.style.height === "60vh") {
       expandir.style.transform = "rotate(-90deg)";
     }
-    menu.style.height = "10vh";
-    infoBox.style.maxHeight = "60vh";
+    menu.style.height = "12vh";
+    infoBox.style.maxHeight = "80vh";
   }
 }
 
