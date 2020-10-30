@@ -10,8 +10,7 @@ import { HexagonLayer } from "@deck.gl/aggregation-layers";
 
 //Variables globales para el mapa
 var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibWRuNiIsImEiOiJja2ZsZHRoMXAyMHk5MnlvMzJ3azliNzVoIn0.TVyz96dtNAH7PtNb8Yw_2g";
+mapboxgl.accessToken = "pk.eyJ1IjoibWRuNiIsImEiOiJja2ZsZHRoMXAyMHk5MnlvMzJ3azliNzVoIn0.TVyz96dtNAH7PtNb8Yw_2g";
 const account = "mapbox://styles/mdn6/";
 var map = new mapboxgl.Map({
   container: "map",
@@ -78,6 +77,7 @@ busqueda.style.display = "none";
 const controles = document.querySelector(".mapboxgl-ctrl-group");
 controles.style.display = "none";
 const infoParams = document.getElementById("infoParams");
+const filtroSelect = document.querySelectorAll(".filtroSelect");
 
 //Listeners ----------------------------------------------------------------------------------------------
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
@@ -86,13 +86,11 @@ btnsRepreContainer.addEventListener("click", btnsControler); //Controlamos los b
 btnsTemaContainer.addEventListener("click", btnsControler); //Controlamos los btns del tema del mapa (Asistente)
 navPanelControl.addEventListener("click", panelControler); //Controlamos las tabs del panel de control (web app)
 panelMapa.addEventListener("click", temasControler); //Controlamos los btns del temad del mapa (web app)
-camposInteraccion.forEach((campo) =>
-  campo.addEventListener("click", interaccionControler)
-); //Controlamos los ajustes de interacción (web app)
+camposInteraccion.forEach((campo) => campo.addEventListener("click", interaccionControler)); //Controlamos los ajustes de interacción (web app)
 expandir.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
-
+filtroSelect.forEach((select) => select.addEventListener("change", filtrosControler));
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -136,7 +134,7 @@ function inputController(e) {
 }
 
 function leerNombreCampos() {
-  //Vaciamos el innerHTML por si estuviera lleno, así no se duplica la info que esté dentro
+  //Vaciamos el innerHTML del selector de datos por si estuviera lleno, así no se duplica la info que esté dentro
   infoParams.innerHTML = "";
 
   //Iteramos sobre los nombres de los campos buscando lat y lon
@@ -180,9 +178,11 @@ function leerNombreCampos() {
       nombreCampoLon = key;
       console.log("campo lon : " + nombreCampoLon);
     } else {
-      //Si el campo no es ni lat ni lon añadimos el campo al panel de config
+      //Si el campo no es ni lat ni lon añadimos el campo en todos los sitios del menu de config
+      //En la caja de seleccion de datos
       infoParams.innerHTML +=
         " <div class='params'><p>" + nombreCampos[index] + "</p></div>";
+
     }
     index++;
   }
@@ -407,6 +407,10 @@ function capasControler(e) {
   }
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
+}
+
+function filtrosControler(e) {
+  console.log(e.target);
 }
 
 function interaccionControler(e) {
