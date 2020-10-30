@@ -115,7 +115,7 @@ ul {
   line-height: 118%;
   width: 90%;
   overflow-y: hidden;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .caja {
@@ -449,7 +449,7 @@ li > button {
   align-items: center;
   padding-top: 2rem;
 }
-.cajas-interaccion-grande{
+.cajas-interaccion-grande {
   width: 96.5%;
   min-height: 7vh;
   border: white 1px solid;
@@ -460,32 +460,30 @@ li > button {
   margin: 0.5rem 1rem;
   padding-left: 1rem;
 }
-  #infoParams{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
+#infoParams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.params {
+  width: auto;
+  margin: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  background-color: var(--verde);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.params:hover {
+  background-color: var(--verdeHover);
+}
+.params > p {
+  pointer-events: none;
+}
 
-    .params{
-      width: auto;
-      margin: .5rem;
-      padding: .5rem .75rem;
-      font-size: 1.2rem;
-      border-radius: 10px;
-      background-color: var(--verde);
-      cursor: pointer;
-      transition: .5s;
-    }
-
-    .params:hover{
-      background-color: var(--verdeHover);
-    }
-    .params>p{
-      pointer-events: none;
-    }
-
-.cajas-interaccion{
+.cajas-interaccion {
   width: 30%;
   height: 7vh;
   border: white 1px solid;
@@ -513,13 +511,46 @@ li > button {
 /*ESTILO PANEL INTERACCIÓN*/
 
 /*ESTILO PANEL FILTROS*/
-
 .panel-filtros {
   justify-content: space-around;
   align-items: center;
   padding-top: 2rem;
 }
 
+.contenedorFiltros {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+}
+.cajaFiltro {
+  display: flex;
+  width: 30%;
+  border: 1px solid var(--white);
+  padding: 1rem 0.5rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+.cajaFiltro > select {
+  background: none;
+  padding: 0.1rem;
+  color: white;
+  width: 50%;
+  font-size: 1.05rem;
+  flex: 0.5;
+  font-family: "Barlow Regular", sans-serif;
+}
+
+.cajaFiltro > .number {
+  flex: 0.3;
+  margin-left: 0.2rem;
+  padding-left: 0.5rem;
+}
+
+.cajaFiltro > .text {
+  flex: 0.4;
+  margin-left: 0.2rem;
+  padding-left: 0.5rem;
+}
 /*ESTILO PANEL FILTROS*/
 
 /*ESTILO PANELES MENÚ*/

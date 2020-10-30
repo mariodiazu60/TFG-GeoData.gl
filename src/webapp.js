@@ -10,7 +10,8 @@ import { HexagonLayer } from "@deck.gl/aggregation-layers";
 
 //Variables globales para el mapa
 var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
-mapboxgl.accessToken = "pk.eyJ1IjoibWRuNiIsImEiOiJja2ZsZHRoMXAyMHk5MnlvMzJ3azliNzVoIn0.TVyz96dtNAH7PtNb8Yw_2g";
+mapboxgl.accessToken =
+  "pk.eyJ1IjoibWRuNiIsImEiOiJja2ZsZHRoMXAyMHk5MnlvMzJ3azliNzVoIn0.TVyz96dtNAH7PtNb8Yw_2g";
 const account = "mapbox://styles/mdn6/";
 var map = new mapboxgl.Map({
   container: "map",
@@ -77,7 +78,7 @@ busqueda.style.display = "none";
 const controles = document.querySelector(".mapboxgl-ctrl-group");
 controles.style.display = "none";
 const infoParams = document.getElementById("infoParams");
-const filtroSelect = document.querySelectorAll(".filtroSelect");
+const addFilterButton = document.getElementById("addFilterButton");
 
 //Listeners ----------------------------------------------------------------------------------------------
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
@@ -86,11 +87,14 @@ btnsRepreContainer.addEventListener("click", btnsControler); //Controlamos los b
 btnsTemaContainer.addEventListener("click", btnsControler); //Controlamos los btns del tema del mapa (Asistente)
 navPanelControl.addEventListener("click", panelControler); //Controlamos las tabs del panel de control (web app)
 panelMapa.addEventListener("click", temasControler); //Controlamos los btns del temad del mapa (web app)
-camposInteraccion.forEach((campo) => campo.addEventListener("click", interaccionControler)); //Controlamos los ajustes de interacción (web app)
+camposInteraccion.forEach((campo) =>
+  campo.addEventListener("click", interaccionControler)
+); //Controlamos los ajustes de interacción (web app)
 expandir.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
-filtroSelect.forEach((select) => select.addEventListener("change", filtrosControler));
+addFilterButton.addEventListener("click", addHTMLFiltro);
+
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -182,7 +186,6 @@ function leerNombreCampos() {
       //En la caja de seleccion de datos
       infoParams.innerHTML +=
         " <div class='params'><p>" + nombreCampos[index] + "</p></div>";
-
     }
     index++;
   }
@@ -409,8 +412,72 @@ function capasControler(e) {
   updateLayers();
 }
 
-function filtrosControler(e) {
-  console.log(e.target);
+function addHTMLFiltro(e) {
+  var options;
+  var input;
+
+  //Iteramos para rellenar las options con los campos
+  for (let i = 0; i < nombreCampos.length; i++) {
+    options +=
+      "<option value=" + nombreCampos[i] + ">" + nombreCampos[i] + "</option>";
+  }
+
+  //Miramos el tipo del primer elemtno del json para poner el input correcto
+  for (var key in data[0]) {
+    console.log(data[0][key]);
+    console.log(typeof data[0][key]);
+    break;
+  }
+  switch (typeof data[0][key]) {
+    case "string":
+      input = '<input type="text" class="text">';
+      break;
+    case "number":
+      input =
+        '<input type="number" placeholder="Mínimo" class="filtroInput number 0"> <input type="number" placeholder="Máximo" class=" filtroInput number 1">';
+      break;
+  }
+
+  //Creamos el div con los options e input correctos
+  const contenedorFiltros = document.querySelector(".contenedorFiltros");
+  contenedorFiltros.innerHTML +=
+    ' <div class="cajaFiltro">' +
+    '<select name="campos" class="filtroSelect">' +
+    options +
+    "</select>" +
+    input +
+    "</div>";
+
+  //Cada vez que cambiamos el innerHTML recurperamos el hmtl y añadimos los listener
+  const filtroSelect = document.querySelectorAll(".filtroSelect");
+  filtroSelect.forEach((select) =>
+    select.addEventListener("change", typeOfInputControler)
+  );
+
+  /*
+  const filtroInput = document.querySelectorAll(".filtroInput");
+  filtroInput.forEach((input) =>
+    input.addEventListener("change", typeOfInputControler)
+  ); */
+}
+function typeOfInputControler(e) {
+  var input;
+
+  //Ver el tipeof del value del select
+  switch (typeof data[0][e.target.value]) {
+    case "string":
+      console.log("Este campo es un string");
+      //Eliminamos los inputs que haya
+      e.target.parentNode.children[1].remove();
+      e.target.parentNode.children[1].remove();
+      break;
+    case "number":
+      console.log("Este campo es un número");
+      //Eliminamos los input
+      e.target.parentNode.children[1].remove();
+      e.target.parentNode.children[1].remove();
+      break;
+  }
 }
 
 function interaccionControler(e) {
