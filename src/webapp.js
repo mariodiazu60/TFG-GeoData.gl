@@ -93,7 +93,6 @@ expandir.addEventListener("click", expandirMenuControler); //Controlamos la expa
 minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
 
-
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
 function inputController(e) {
@@ -181,7 +180,6 @@ function leerNombreCampos() {
       nombreCampoLon = key;
       console.log("campo lon : " + nombreCampoLon);
     } else {
-      console.log("ERROR: NO SE HAN ENCONTRADO LOS CAMPOS DE LAT Y LONG");
       //Si el campo no es ni lat ni lon añadimos el campo al panel de config
       infoParams.innerHTML +=
         " <div class='params'><p>" + nombreCampos[index] + "</p></div>";
@@ -279,7 +277,6 @@ function btnsControler(e) {
     temasControler(e.target.classList[1]);
   }
 }
-
 
 //Para el menú de config.
 function panelControler(e) {
@@ -439,56 +436,6 @@ function interaccionControler(e) {
       break;
   }
 }
-
-function temasControler(e) {
-  //Si pulsamos fuera de los botones no hacemos nada
-  if (e.target != undefined && e.target.classList[0] === "panel") {
-    return;
-  }
-  //Si e es un número: estamos llamando desde el asistente
-  //Si no: estamos llamando desde el panel de config.
-  let index = 0;
-  if (e >= 0 && e < 6) {
-    index = e;
-    //Informamos de que se ha elegido un tema correctamente
-    infoTema.innerHTML = "¡Tema seleccionado! Puedes continuar.";
-    infoTema.style.color = "#70b77e";
-  } else {
-    index = e.target.classList[0];
-  }
-
-  //Ponemos las bolas del panel en rojo
-  bolas.forEach((bola) => {
-    bola.src = "./assets/imgs/no.svg";
-  });
-  //Actualizamos la bola del tema asignado
-  bolas[index].src = "./assets/imgs/yes.svg";
-
-  //Cambiamos el tema del mapa
-  switch (index) {
-    case "0":
-      map.setStyle(account + "ckfzbshld135b19qx61b9midj");
-      break;
-    case "1":
-      map.setStyle(account + "ckfzc1hj713al19niu6ixn421");
-      break;
-    case "2":
-      map.setStyle(account + "ckfzc2og7138519ml3rpgkmyy");
-      break;
-    case "3":
-      map.setStyle(account + "ckfzbxsid07i319o3q6w1ru39");
-      break;
-    case "4":
-      map.setStyle(account + "ckfzc6vsx13fb19nydfwx65fw");
-      break;
-    case "5":
-      map.setStyle(account + "ckfzc89xt07rg19o3ljldgzv0");
-      break;
-    default:
-      break;
-  }
-}
-
 function paramsInfoBoxControler(e) {
   if (e.target.id === "infoParams") {
     return;
@@ -544,6 +491,55 @@ function infoBoxControler(object) {
           "</p>";
       }
     }
+  }
+}
+
+function temasControler(e) {
+  //Si pulsamos fuera de los botones no hacemos nada
+  if (e.target != undefined && e.target.classList[0] === "panel") {
+    return;
+  }
+  //Si e es un número: estamos llamando desde el asistente
+  //Si no: estamos llamando desde el panel de config.
+  let index = 0;
+  if (e >= 0 && e < 6) {
+    index = e;
+    //Informamos de que se ha elegido un tema correctamente
+    infoTema.innerHTML = "¡Tema seleccionado! Puedes continuar.";
+    infoTema.style.color = "#70b77e";
+  } else {
+    index = e.target.classList[0];
+  }
+
+  //Ponemos las bolas del panel en rojo
+  bolas.forEach((bola) => {
+    bola.src = "./assets/imgs/no.svg";
+  });
+  //Actualizamos la bola del tema asignado
+  bolas[index].src = "./assets/imgs/yes.svg";
+
+  //Cambiamos el tema del mapa
+  switch (index) {
+    case "0":
+      map.setStyle(account + "ckfzbshld135b19qx61b9midj");
+      break;
+    case "1":
+      map.setStyle(account + "ckfzc1hj713al19niu6ixn421");
+      break;
+    case "2":
+      map.setStyle(account + "ckfzc2og7138519ml3rpgkmyy");
+      break;
+    case "3":
+      map.setStyle(account + "ckfzbxsid07i319o3q6w1ru39");
+      break;
+    case "4":
+      map.setStyle(account + "ckfzc6vsx13fb19nydfwx65fw");
+      break;
+    case "5":
+      map.setStyle(account + "ckfzc89xt07rg19o3ljldgzv0");
+      break;
+    default:
+      break;
   }
 }
 

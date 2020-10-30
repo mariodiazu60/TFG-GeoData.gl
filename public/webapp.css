@@ -281,14 +281,16 @@ ul {
   min-height: 5%;
   overflow: hidden;
 }
-.mapboxgl-ctrl-bottom-right{
+.mapboxgl-ctrl-bottom-right {
   position: absolute;
   pointer-events: none;
   z-index: 2;
   margin: 0 2rem;
 }
 
-.mapboxgl-ctrl-icon, .mapboxgl-ctrl, .mapboxgl-ctrl-group{
+.mapboxgl-ctrl-icon,
+.mapboxgl-ctrl,
+.mapboxgl-ctrl-group {
   overflow: hidden;
 }
 
@@ -305,7 +307,7 @@ ul {
   color: var(--white);
   padding: 0 0 1rem;
   box-shadow: 0 20px 50px #3f4359;
-  transition: 1s;  
+  transition: 1s;
   position: absolute;
   left: 7.5%;
   bottom: 0%;
@@ -313,61 +315,61 @@ ul {
 /*ESTILO MENÚ*/
 
 /*ESTILO HEADER MENÚ*/
-header {  
+header {
   width: 85%;
   min-height: 15%;
-  margin: .4rem auto;
+  margin: 0.4rem auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
 }
-  .nav{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    overflow-y: hidden;
-  }
-    ul {
-      width: 90%;
-      display: flex;
-    }
-      li {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-      }
-    li > button {
-      font-size: 1.2rem;
-      pointer-events: none;
-    }
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow-y: hidden;
+}
+ul {
+  width: 90%;
+  display: flex;
+}
+li {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+li > button {
+  font-size: 1.2rem;
+  pointer-events: none;
+}
 
-    .nav > div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 10%;
-      overflow: hidden;
-    }
-    .nav > div > span {
-      width: auto;
-      height: auto;
-      cursor: pointer;
-      overflow: hidden;
-    }
-    #expandir{
-      transform: rotate(-90deg);
-      transition: 1.2s;
-    }
+.nav > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  overflow: hidden;
+}
+.nav > div > span {
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  overflow: hidden;
+}
+#expandir {
+  transform: rotate(-90deg);
+  transition: 1.2s;
+}
 
-      .nav > div > span > img {
-        width: 25px;
-        margin: .2rem;
-        overflow: hidden;
-      }
+.nav > div > span > img {
+  width: 25px;
+  margin: 0.2rem;
+  overflow: hidden;
+}
 
 .btn > button {
   border: none;
@@ -376,7 +378,6 @@ header {
 }
 /*ESTILO HEADER MENÚ*/
 
-
 /*ESTILO PANELES MENÚ*/
 .panel-capas {
   display: none;
@@ -384,7 +385,6 @@ header {
 }
 .panel-filtros {
   display: none;
-  background-color: #779ed2;
 }
 .panel-interaccion {
   display: none;
@@ -405,8 +405,6 @@ header {
   border-top: 1px var(--white) solid;
 }
 
-
-
 /*ESTILO PANEL MAPAS*/
 .panel-mapa {
   justify-content: space-around;
@@ -422,7 +420,7 @@ header {
   justify-content: center;
   overflow-y: hidden;
   cursor: pointer;
-  margin: .5rem,0rem;
+  margin: 0.5rem, 0rem;
 }
 .bola {
   flex: 0.75;
@@ -444,14 +442,13 @@ header {
 }
 /*ESTILO PANEL MAPAS*/
 
-
 /*ESTILO PANEL INTERACCIÓN*/
 .panel-interaccion {
   justify-content: space-around;
   align-items: center;
   padding-top: 2rem;
 }
-.cajas-interaccion-grande{
+.cajas-interaccion-grande {
   width: 100%;
   min-height: 7vh;
   border: white 1px solid;
@@ -459,35 +456,32 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: .5rem 1rem;
+  margin: 0.5rem 1rem;
   padding-left: 1rem;
 }
-  #infoParams{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-
-    .params{
-      width: 15%;
-      margin: .5rem;
-      padding: .5rem .75rem;
-      font-size: 1.2rem;
-      border-radius: 10px;
-      background-color: var(--verde);
-      cursor: pointer;
-      transition: .5s;
-    }
-
-    .params:hover{
-      background-color: var(--verdeHover);
-    }
-    .params>p{
-      pointer-events: none;
-    }
-
-.cajas-interaccion{
+#infoParams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.params {
+  width: 15%;
+  margin: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  background-color: var(--verde);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.params:hover {
+  background-color: var(--verdeHover);
+}
+.params > p {
+  pointer-events: none;
+}
+.cajas-interaccion {
   width: 30%;
   height: 7vh;
   border: white 1px solid;
@@ -495,29 +489,33 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: .5rem 1rem;
+  margin: 0.5rem 1rem;
   padding-left: 1rem;
 }
-  .cajas-interaccion > label{
-    flex: 2;
-    font-size: 1.1rem;
-    overflow-y: hidden;
-  }
-
-  .input-container{
-    flex: .3;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-left: white 1px solid ;
-  }
+.cajas-interaccion > label {
+  flex: 2;
+  font-size: 1.1rem;
+  overflow-y: hidden;
+}
+.input-container {
+  flex: 0.3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: white 1px solid;
+}
 /*ESTILO PANEL INTERACCIÓN*/
 
+/*ESTILO PANEL FILTROS*/
 
+.panel-filtros {
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2rem;
+}
 
-
-
+/*ESTILO PANEL FILTROS*/
 
 /*ESTILO PANELES MENÚ*/
