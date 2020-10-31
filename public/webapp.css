@@ -523,6 +523,9 @@ li > button {
   width: 90%;
 }
 .cajaFiltro {
+  display: none;
+}
+.cajaFiltroActive {
   display: flex;
   width: 30%;
   border: 1px solid var(--white);
@@ -530,7 +533,7 @@ li > button {
   margin: 0.5rem;
   text-align: center;
 }
-.cajaFiltro > select {
+.cajaFiltroActive > select {
   background: none;
   padding: 0.1rem;
   color: white;
@@ -540,13 +543,13 @@ li > button {
   font-family: "Barlow Regular", sans-serif;
 }
 
-.cajaFiltro > .number {
+.cajaFiltroActive > .number {
   flex: 0.3;
   margin-left: 0.2rem;
   padding-left: 0.5rem;
 }
 
-.cajaFiltro > .text {
+.cajaFiltroActive > .text {
   flex: 0.4;
   margin-left: 0.2rem;
   padding-left: 0.5rem;

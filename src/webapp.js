@@ -78,7 +78,9 @@ busqueda.style.display = "none";
 const controles = document.querySelector(".mapboxgl-ctrl-group");
 controles.style.display = "none";
 const infoParams = document.getElementById("infoParams");
+const contenedorFiltros = document.querySelector(".contenedorFiltros");
 const addFilterButton = document.getElementById("addFilterButton");
+
 
 //Listeners ----------------------------------------------------------------------------------------------
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
@@ -93,7 +95,8 @@ camposInteraccion.forEach((campo) =>
 expandir.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
-addFilterButton.addEventListener("click", addHTMLFiltro);
+addFilterButton.addEventListener("click", stateFilterControler);
+
 
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
@@ -189,6 +192,9 @@ function leerNombreCampos() {
     }
     index++;
   }
+
+  //Una vez leidos todos los campos montamos el panel de filtros
+  addHTMLFiltros();
 }
 
 function stepControler(e) {
@@ -412,70 +418,104 @@ function capasControler(e) {
   updateLayers();
 }
 
-function addHTMLFiltro(e) {
-  var options;
-  var input;
+function addHTMLFiltros() {
+  var div, options, input;
 
-  //Iteramos para rellenar las options con los campos
+  //Iteramos sobre los nombres de los campos para rellenar las options
   for (let i = 0; i < nombreCampos.length; i++) {
     options +=
       "<option value=" + nombreCampos[i] + ">" + nombreCampos[i] + "</option>";
   }
 
-  //Miramos el tipo del primer elemtno del json para poner el input correcto
-  for (var key in data[0]) {
-    console.log(data[0][key]);
-    console.log(typeof data[0][key]);
+  //Miramos el tipeof del primer elemento del json para poner el input correcto
+  for (let key in data[0]) {
+    switch (typeof data[0][key]) {
+      case "string":
+        input = '<input type="text" class="text">';
+        break;
+      case "number":
+        input =
+          '<input type="number" placeholder="Mínimo" id="0" class="number"> <input type="number" placeholder="Máximo"  id="1" class="number">';
+        break;
+    }
     break;
   }
-  switch (typeof data[0][key]) {
-    case "string":
-      input = '<input type="text" class="text">';
-      break;
-    case "number":
-      input =
-        '<input type="number" placeholder="Mínimo" class="filtroInput number 0"> <input type="number" placeholder="Máximo" class=" filtroInput number 1">';
-      break;
+
+  //Creamos todos los html de los filtros con los datos recuperados arriba
+  for (let x = 0; x < nombreCampos.length; x++) {
+    //Creamos el div con los options e input correctos
+    //Si es el primero ponemos la clase cajaFiltroActive, a los demás no para que no aparezcan de primeras
+    if (x == 0) {
+      div = ' <div class="cajaFiltro cajaFiltroActive">'
+    } else {
+      div = ' <div class="cajaFiltro">'
+    }
+    contenedorFiltros.innerHTML +=
+      div +
+      '<select name="campos" class="filtroSelect">' +
+      options +
+      "</select>" +
+      input +
+      "</div>";
   }
 
-  //Creamos el div con los options e input correctos
-  const contenedorFiltros = document.querySelector(".contenedorFiltros");
-  contenedorFiltros.innerHTML +=
-    ' <div class="cajaFiltro">' +
-    '<select name="campos" class="filtroSelect">' +
-    options +
-    "</select>" +
-    input +
-    "</div>";
-
-  //Cada vez que cambiamos el innerHTML recurperamos el hmtl y añadimos los listener
+  //Añadimos los listener a los select
   const filtroSelect = document.querySelectorAll(".filtroSelect");
   filtroSelect.forEach((select) =>
     select.addEventListener("change", typeOfInputControler)
   );
 
-  /*
-  const filtroInput = document.querySelectorAll(".filtroInput");
-  filtroInput.forEach((input) =>
-    input.addEventListener("change", typeOfInputControler)
-  ); */
 }
-function typeOfInputControler(e) {
-  var input;
 
+function stateFilterControler(e) {
+
+  //Si el elemento que llama a la func. es el botón de añadir añadimos el html para un nuevo filtro
+  if (e.target.id === "addFilterButton") {
+    for (var i = 0; i < contenedorFiltros.children.length; i++) {
+      if (contenedorFiltros.children[i].classList[1] === undefined) {
+        contenedorFiltros.children[i].classList.add("cajaFiltroActive");
+        break;
+      }
+    }
+  }
+  else if (e.target.id === "deleteFilterButton") {
+    //Apagamos el filtro
+  }
+}
+
+function typeOfInputControler(e) {
+
+  var input1 = e.target.parentNode.children[1];
+  var input2 = e.target.parentNode.children[2];
   //Ver el tipeof del value del select
   switch (typeof data[0][e.target.value]) {
     case "string":
-      console.log("Este campo es un string");
-      //Eliminamos los inputs que haya
-      e.target.parentNode.children[1].remove();
-      e.target.parentNode.children[1].remove();
+      console.log("El campo " + e.target.value + " es un string");
+
+      if (input1.classList[0] === "number") {
+        //Modificamos el primer input
+        input1.type = "text";
+        input1.placeholder = "Filtrar por...";
+        input1.classList.remove("number");
+        input1.classList.add("text");
+        //Ocultamos el segundo
+        input2.style.display = "none";
+      }
       break;
     case "number":
-      console.log("Este campo es un número");
-      //Eliminamos los input
-      e.target.parentNode.children[1].remove();
-      e.target.parentNode.children[1].remove();
+      console.log("El campo " + e.target.value + " es un número");
+      if (input1.classList[0] === "text") {
+        //Modificamos el primer input
+        input1.type = "number";
+        input1.placeholder = "Mínimo";
+        input1.classList.remove("text");
+        input1.classList.add("number");
+        //Mostramos el segundo
+        input2.style.display = "flex";
+      }
+      break;
+
+    default: console.log("El campo " + e.target.value + " es del tipo " + typeof data[0][e.target.value]);
       break;
   }
 }
