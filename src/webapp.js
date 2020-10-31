@@ -287,7 +287,10 @@ function btnsControler(e) {
   }
 }
 
-//Para el menú de config.
+
+
+
+//Para el menú de config. ------------------------------------------------------------------------------------------------
 function panelControler(e) {
   //Si clicas en ul,span o nav se para ejecución
   //Se hace así porque el pointer-events: none; evita el click sobre los hijos del item y no lo queremos
@@ -431,15 +434,18 @@ function addHTMLFiltros() {
   for (let key in data[0]) {
     switch (typeof data[0][key]) {
       case "string":
-        input = '<input type="text" class="text">';
+        input = '<input type="text" class="inputFilter text">';
         break;
       case "number":
         input =
-          '<input type="number" placeholder="Mínimo" id="0" class="number"> <input type="number" placeholder="Máximo"  id="1" class="number">';
+          '<input type="number" placeholder="Mínimo" id="0" class="inputFilter number"> <input type="number" placeholder="Máximo"  id="1" class="inputFilter number">';
         break;
     }
     break;
   }
+
+  //Vaciamos. Si hemos elegido varios archivos de datos tendríamos varios filtros si no los vaciamos
+  contenedorFiltros.innerHTML = ""
 
   //Creamos todos los html de los filtros con los datos recuperados arriba
   for (let x = 0; x < nombreCampos.length; x++) {
@@ -456,14 +462,22 @@ function addHTMLFiltros() {
       options +
       "</select>" +
       input +
+      "<button class='applyFilter'> A </button>" +
+      "<button class='deleteFilter'> B </button>" +
       "</div>";
   }
 
-  //Añadimos los listener a los select
+  //Añadimos los listener a los select, a los botones
   const filtroSelect = document.querySelectorAll(".filtroSelect");
   filtroSelect.forEach((select) =>
     select.addEventListener("change", typeOfInputControler)
   );
+
+  const applyFilterBtn = document.querySelectorAll(".applyFilter");
+  applyFilterBtn.forEach((btn) => btn.addEventListener("click", filterData));
+
+  const deleteFilterBtn = document.querySelectorAll(".deleteFilter");
+  deleteFilterBtn.forEach((btn) => btn.addEventListener("click", stateFilterControler));
 
 }
 
@@ -478,13 +492,15 @@ function stateFilterControler(e) {
       }
     }
   }
-  else if (e.target.id === "deleteFilterButton") {
+  //Si llamamos desde el botón borrar filtro, que tiene la clase deleteFilterButton ocultamos el filtro
+  else if (e.target.classList[0] === "deleteFilter") {
     //Apagamos el filtro
+    console.log("borrar filtro");
+    e.target.parentNode.classList.remove("cajaFiltroActive")
   }
 }
 
 function typeOfInputControler(e) {
-
   var input1 = e.target.parentNode.children[1];
   var input2 = e.target.parentNode.children[2];
   //Ver el tipeof del value del select
@@ -492,32 +508,47 @@ function typeOfInputControler(e) {
     case "string":
       console.log("El campo " + e.target.value + " es un string");
 
-      if (input1.classList[0] === "number") {
+      if (input1.classList[1] === "number") {
         //Modificamos el primer input
+        input1.value = "";
         input1.type = "text";
         input1.placeholder = "Filtrar por...";
         input1.classList.remove("number");
         input1.classList.add("text");
         //Ocultamos el segundo
+        input2.value = "";
         input2.style.display = "none";
       }
       break;
     case "number":
       console.log("El campo " + e.target.value + " es un número");
-      if (input1.classList[0] === "text") {
+      if (input1.classList[1] === "text") {
         //Modificamos el primer input
+        input1.value = "";
         input1.type = "number";
         input1.placeholder = "Mínimo";
         input1.classList.remove("text");
         input1.classList.add("number");
         //Mostramos el segundo
+        input2.value = "";
         input2.style.display = "flex";
+
       }
       break;
 
     default: console.log("El campo " + e.target.value + " es del tipo " + typeof data[0][e.target.value]);
       break;
   }
+}
+
+function filterData(e) {
+  console.log("Item a filtrar : " + e.target.parentNode.children[0].value);
+  if (typeof data[0][e.target.parentNode.children[0].value] === "number") {
+    console.log("Valores para filtrar: [" + e.target.parentNode.children[1].value + " , " + e.target.parentNode.children[2].value + "]");
+  } else {
+    console.log("Valores para filtrar: " + e.target.parentNode.children[1].value);
+  }
+
 }
 
 function interaccionControler(e) {
