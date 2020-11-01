@@ -30,6 +30,7 @@ map.addControl(
   "top-left"
 );
 var data; //Aquí guardamos el contenido del archivo en forma de json
+var filteredData; //Aquí guardamos el contenido del archivo en forma de json
 var capaPuntos = ""; //Var para guardar la capa de puntos
 var capaChinchetas = ""; //Var para guardar la capa de chinchetas
 var capaCalor3D = ""; //Var para guardar la capa de calor 3D
@@ -117,6 +118,7 @@ function inputController(e) {
     let extension = file.name.split(".").pop();
     if (extension === "json" && JSON.parse(lector.result)) {
       data = JSON.parse(lector.result);
+      filteredData = data;
       docSubido = true;
       leerNombreCampos();
       crearCapas();
@@ -125,6 +127,7 @@ function inputController(e) {
     } else if (extension === "csv") {
       (async () => {
         data = await csv({ checkType: true }).fromString(lector.result);
+        filteredData = data;
         docSubido = true;
         leerNombreCampos();
         crearCapas();
@@ -138,6 +141,8 @@ function inputController(e) {
     }
   };
   lector.readAsText(file);
+
+
 }
 
 function leerNombreCampos() {
@@ -439,7 +444,7 @@ function addHTMLFiltros() {
         break;
       case "number":
         input =
-          '<input type="number" placeholder="Mínimo" id="0" class="inputFilter number"> <input type="number" placeholder="Máximo"  id="1" class="inputFilter number">';
+          '<input type="number" placeholder="Mínimo" id="0" class="inputFilter number" step=0.001> <input type="number" placeholder="Máximo"  id="1" class="inputFilter number" step=0.001>';
         break;
     }
     break;
@@ -543,42 +548,51 @@ function typeOfInputControler(e) {
 }
 
 //Se llama al hacer click en aplicar filtros
-function filterData(e) {
+function filterData() {
   //Antes de filtrar recuperamos todos los filtros
   const cajasFiltros = document.querySelectorAll(".cajaFiltro")
 
-
   var contadorFiltrosActivos = 0;
-  //Iteramos sobre los filtros para buscar cuales están activos
+  filteredData = data;
+  //Iteramos sobre los filtro para filtrar los datos según los filtros activos
   cajasFiltros.forEach(cajaFiltro => {
-
     if (cajaFiltro.classList.contains("cajaFiltroActive")) {
       contadorFiltrosActivos++;
       if (typeof data[0][cajaFiltro.children[0].value] === "number") {
-        console.log("Item a filtrar : " + cajaFiltro.children[0].value);
-        console.log(cajaFiltro.children[1].value);
-        console.log(cajaFiltro.children[2].value);
-      }
-      else {
-        console.log("Item a filtrar : " + cajaFiltro.children[0].value);
-        console.log(cajaFiltro.children[1].value);
+
+        if (cajaFiltro.children[1].value != "" && cajaFiltro.children[2].value != "") {
+          filteredData = filteredData.filter(
+            d => d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value
+              && d[cajaFiltro.children[0].value] <= cajaFiltro.children[2].value
+          );
+        } else if (cajaFiltro.children[1].value == "") {
+          filteredData = filteredData.filter(d => d[cajaFiltro.children[0].value] <= cajaFiltro.children[2].value);
+        } else if (cajaFiltro.children[2].value == "") {
+          filteredData = filteredData.filter(d => d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value);
+        }
+        else {
+          console.log("ERROR, AÑADE ALMENOS UN VALOR PARA FILTRAR");
+        }
+
+      } else {
+        if (cajaFiltro.children[1].value !== "") {
+          filteredData = filteredData.filter(d => d[cajaFiltro.children[0].value] === cajaFiltro.children[1].value);
+          console.log('filtered data', filteredData);
+
+        } else {
+          console.log("ERROR, AÑADE UN VALOR PARA FILTRAR");
+        }
       }
     }
   });
 
+  //Si no hay filtros activos igualamos filteredData a los datos originales
   if (contadorFiltrosActivos == 0) {
     console.log("NO HAY FILTROS ACTIVOS");
+    filteredData = data;
   }
-
-
-  // console.log("Item a filtrar : " + e.target.parentNode.children[0].value);
-  // if (typeof data[0][e.target.parentNode.children[0].value] === "number") {
-  //   console.log("Valores para filtrar: [" + e.target.parentNode.children[1].value + " , " + e.target.parentNode.children[2].value + "]");
-  // } else {
-  //   console.log("Valores para filtrar: " + e.target.parentNode.children[1].value);
-  // }
-
-
+  console.log(filteredData);
+  updateLayers();
 
 }
 
@@ -641,7 +655,7 @@ function infoBoxControler(object) {
     info.innerHTML =
       info.innerHTML +
       "<p>Representado " +
-      data.length +
+      filteredData.length +
       " elementos </p>" +
       "<p>Coordenadas : [" +
       object[nombreCampoLat] +
@@ -723,7 +737,7 @@ function crearCapas() {
   capaPuntos = new MapboxLayer({
     id: "points",
     type: ScatterplotLayer,
-    data: data,
+    data: filteredData,
     radiusMinPixels: 3,
     radiusMaxPixels: 7,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
@@ -736,7 +750,7 @@ function crearCapas() {
         lastObjectHovered = object;
         infoBoxControler(object);
       }
-    },
+    }
   });
 
   const ICON_MAPPING = {
@@ -745,7 +759,7 @@ function crearCapas() {
   capaChinchetas = new MapboxLayer({
     id: "icon-layer",
     type: IconLayer,
-    data: data,
+    data: filteredData,
     iconAtlas:
       "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
     iconMapping: ICON_MAPPING,
@@ -766,7 +780,7 @@ function crearCapas() {
   capaCalor3D = new MapboxLayer({
     id: "heat3D",
     type: GridLayer,
-    data: data,
+    data: filteredData,
     pickable: true,
     extruded: true,
     cellSize: 200,
@@ -801,14 +815,14 @@ function crearCapas() {
   capaCalor = new MapboxLayer({
     id: "heat",
     type: HeatmapLayer,
-    data: data,
+    data: filteredData,
     radiusPixels: 50,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
   });
 
   capaHex = new MapboxLayer({
     id: "hex",
-    data: data,
+    data: filteredData,
     type: HexagonLayer,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     getElevationWeight: (d) => d.n_killed * 2 + d.n_injured,
@@ -841,8 +855,12 @@ map.on("styledata", () => {
   }
 });
 
+
 function updateLayers() {
   if (mostrarCapaPuntos) {
+    //Actualizamos el prop data con filteredData, borramos la capa y la redibujamos
+    capaPuntos.props.data = filteredData;
+    map.removeLayer("points");
     map.addLayer(capaPuntos);
   } else {
     if (map.getLayer("points")) {
@@ -851,6 +869,8 @@ function updateLayers() {
   }
 
   if (mostrarCapaChinchetas) {
+    capaChinchetas.props.data = filteredData;
+    map.removeLayer("icon-layer");
     map.addLayer(capaChinchetas);
   } else {
     if (map.getLayer("icon-layer")) {
@@ -859,6 +879,8 @@ function updateLayers() {
   }
 
   if (mostrarCapaCalor3D) {
+    capaCalor3D.props.data = filteredData;
+    map.removeLayer("heat3D");
     map.addLayer(capaCalor3D);
   } else {
     if (map.getLayer("heat3D")) {
@@ -867,6 +889,8 @@ function updateLayers() {
   }
 
   if (mostrarCapaCalor) {
+    capaCalor.props.data = filteredData;
+    map.removeLayer("heat");
     map.addLayer(capaCalor);
   } else {
     if (map.getLayer("heat")) {
@@ -879,3 +903,4 @@ function updateLayers() {
   }
   map.triggerRepaint();
 }
+
