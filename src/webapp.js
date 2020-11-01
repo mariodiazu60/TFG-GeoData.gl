@@ -421,6 +421,7 @@ function capasControler(e) {
   updateLayers();
 }
 
+//Se llama al leer el nombre de los campos del archivo
 function addHTMLFiltros() {
   var div, options, input;
 
@@ -462,8 +463,7 @@ function addHTMLFiltros() {
       options +
       "</select>" +
       input +
-      "<button class='applyFilter'> A </button>" +
-      "<button class='deleteFilter'> B </button>" +
+      "<button class='deleteFilter'> Borrar </button>" +
       "</div>";
   }
 
@@ -481,8 +481,8 @@ function addHTMLFiltros() {
 
 }
 
+//Se llama al darle a añadir o borrar un filtro
 function stateFilterControler(e) {
-
   //Si el elemento que llama a la func. es el botón de añadir añadimos el html para un nuevo filtro
   if (e.target.id === "addFilterButton") {
     for (var i = 0; i < contenedorFiltros.children.length; i++) {
@@ -500,6 +500,7 @@ function stateFilterControler(e) {
   }
 }
 
+//Se llama al cambiar de option en los selects del filtro
 function typeOfInputControler(e) {
   var input1 = e.target.parentNode.children[1];
   var input2 = e.target.parentNode.children[2];
@@ -541,13 +542,43 @@ function typeOfInputControler(e) {
   }
 }
 
+//Se llama al hacer click en aplicar filtros
 function filterData(e) {
-  console.log("Item a filtrar : " + e.target.parentNode.children[0].value);
-  if (typeof data[0][e.target.parentNode.children[0].value] === "number") {
-    console.log("Valores para filtrar: [" + e.target.parentNode.children[1].value + " , " + e.target.parentNode.children[2].value + "]");
-  } else {
-    console.log("Valores para filtrar: " + e.target.parentNode.children[1].value);
+  //Antes de filtrar recuperamos todos los filtros
+  const cajasFiltros = document.querySelectorAll(".cajaFiltro")
+
+
+  var contadorFiltrosActivos = 0;
+  //Iteramos sobre los filtros para buscar cuales están activos
+  cajasFiltros.forEach(cajaFiltro => {
+
+    if (cajaFiltro.classList.contains("cajaFiltroActive")) {
+      contadorFiltrosActivos++;
+      if (typeof data[0][cajaFiltro.children[0].value] === "number") {
+        console.log("Item a filtrar : " + cajaFiltro.children[0].value);
+        console.log(cajaFiltro.children[1].value);
+        console.log(cajaFiltro.children[2].value);
+      }
+      else {
+        console.log("Item a filtrar : " + cajaFiltro.children[0].value);
+        console.log(cajaFiltro.children[1].value);
+      }
+    }
+  });
+
+  if (contadorFiltrosActivos == 0) {
+    console.log("NO HAY FILTROS ACTIVOS");
   }
+
+
+  // console.log("Item a filtrar : " + e.target.parentNode.children[0].value);
+  // if (typeof data[0][e.target.parentNode.children[0].value] === "number") {
+  //   console.log("Valores para filtrar: [" + e.target.parentNode.children[1].value + " , " + e.target.parentNode.children[2].value + "]");
+  // } else {
+  //   console.log("Valores para filtrar: " + e.target.parentNode.children[1].value);
+  // }
+
+
 
 }
 
