@@ -24,7 +24,7 @@ map.addControl(
   new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     language: "es-ES",
-    placeholder: "Buscar ciudad, región...",
+    placeholder: "Buscar ciudad o región...",
     mapboxgl: mapboxgl,
   }),
   "top-left"

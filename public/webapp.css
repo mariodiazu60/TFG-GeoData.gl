@@ -582,3 +582,147 @@ li > button {
 /*ESTILO PANEL FILTROS*/
 
 /*ESTILO PANELES MENÚ*/
+
+
+
+
+
+
+
+
+/*MQ*/
+
+@media (max-width: 1300px) {
+
+  /*Asistente*/
+
+  .textoTop {
+    width: 100%;
+}
+  .textoTop > h3 {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: .4rem;
+  }
+
+  .textoTop > p:nth-child(1) {
+    display: none;
+  }
+
+  .caja > div:nth-child(1) > span > img {
+    width: 35px;
+    height: 35px;
+  }
+
+  #infoInput {
+    font-size: 1rem;
+    padding: 0 .3rem;
+    text-align: center;
+}
+
+  .btn-asistente {
+    font-size: 1rem;
+    width: 40%;
+  }
+
+  .caja > div:nth-child(1) > p {
+    font-size: .9rem;
+  }
+
+  #tema-btns > div > img, #representacion-btns > div > img {
+    width: 70%;
+  }
+
+  #tema-btns > div > p, #representacion-btns > div > p {
+    font-size: .85rem;
+    text-align: center;
+}
+
+
+  /*Infobox*/
+  #infoBox {
+    display: none;
+    position: absolute;
+    right: 3%;
+    top: 2%;
+    min-width: 45vw;
+    min-height: 10vh;
+  }
+  #info p {
+  font-size: 1rem;
+  }
+
+  .mapboxgl-ctrl-geocoder--input{
+    width: 40%;
+    font-size: 1rem;
+  }
+  .mapboxgl-ctrl-top-left{
+    width: 45%;
+  }
+  .mapboxgl-ctrl {
+    border-radius: 20px!important;
+  }
+
+    /*Menú config*/
+
+    header {
+      width: 97%;
+  }
+
+    li>button {
+     font-size: .95rem;
+    }
+    
+    #controlesMenu{
+      width: 15%;
+    }
+    #minimizar{
+      display: none;
+    }
+
+    .btn-map > #img-mapa {
+      display: none;
+    }
+
+    .btn-map > p {
+      font-size: .95rem;
+      text-align: center;
+    }
+    .bola {
+      width: 10px;
+      height: 10px;
+      padding-left: .1rem;
+    }
+
+    .cajas-interaccion {
+      width: 90%;
+      text-align: center;
+    }
+    .cajas-interaccion > label {
+      font-size: 1rem;
+    }
+
+    .panel-filtros>div{
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    #contenedorBtnsFiltros{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .btns-filtros{
+      width: 70%;
+      margin: .3rem;
+    }
+    .contenedorFiltros{
+      width: 100%;
+    }
+    .cajaFiltroActive{
+      width: 100%;
+    }
+
+ 
+}
