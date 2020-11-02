@@ -167,7 +167,7 @@ ul {
   align-items: center;
   height: 15%;
 }
-.buttons-container > button {
+.btn-asistente {
   font-size: 1.2rem;
   width: 20%;
   height: 50%;
@@ -512,15 +512,40 @@ li > button {
 
 /*ESTILO PANEL FILTROS*/
 .panel-filtros {
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding-top: 2rem;
+}
+
+#contenedorBtnsFiltros {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 15%;
+  height: 100%;
+}
+.btns-filtros {
+  font-size: 1.2rem;
+  width: 90%;
+  height: 6vh;
+  font-family: "Barlow Medium";
+  background-color: var(--verde);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btns-filtros:hover{
+  background-color: var(--verdeHover);
 }
 
 .contenedorFiltros {
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
+  width: 85%;
 }
 .cajaFiltro {
   display: none;

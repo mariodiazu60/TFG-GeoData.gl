@@ -296,6 +296,7 @@ function btnsControler(e) {
 
 
 //Para el menú de config. ------------------------------------------------------------------------------------------------
+//Se llama al cambiar de panel
 function panelControler(e) {
   //Si clicas en ul,span o nav se para ejecución
   //Se hace así porque el pointer-events: none; evita el click sobre los hijos del item y no lo queremos
@@ -332,6 +333,7 @@ function panelControler(e) {
   }
 }
 
+//Se llama cuando clickamos en expandir o contraer el menú
 function expandirMenuControler(e) {
   //La primera vez height del menu será cadena vacia, las siguientes 60/30vh
   if (e.target.id === "expandir") {
@@ -353,6 +355,7 @@ function expandirMenuControler(e) {
   }
 }
 
+//Se llama cuando activamos y desactivamos una capa
 function capasControler(e) {
   //Si e es un número: estamos llamando desde el asistente
   //Si no: estamos llamando desde el panel de config.
@@ -497,11 +500,10 @@ function stateFilterControler(e) {
       }
     }
   }
-  //Si llamamos desde el botón borrar filtro, que tiene la clase deleteFilterButton ocultamos el filtro
+  //Si llamamos desde el botón borrar filtro ocultamos el filtro y llamamos al filtrado para que actualice los datos
   else if (e.target.classList[0] === "deleteFilter") {
-    //Apagamos el filtro
-    console.log("borrar filtro");
     e.target.parentNode.classList.remove("cajaFiltroActive")
+    filterData();
   }
 }
 
@@ -741,8 +743,7 @@ function crearCapas() {
     radiusMinPixels: 3,
     radiusMaxPixels: 7,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
-    getFillColor: (d) =>
-      d.n_killed > 0 ? [200, 0, 40, 150] : [255, 140, 0, 100],
+    getFillColor: (d) => [255, 0, 102],
     pickable: true,
     onHover: ({ object }) => {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
@@ -766,7 +767,7 @@ function crearCapas() {
     getIcon: (d) => "marker",
     getSize: (d) => 30,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
-    getColor: (d) => [Math.sqrt(d.exits), 140, 0],
+    getColor: (d) => [255, 0, 102],
     pickable: true,
     onHover: ({ object }) => {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
