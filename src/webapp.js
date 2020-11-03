@@ -305,19 +305,14 @@ function btnsControler(e) {
 function panelControler(e) {
   //Si clicas en ul,span o nav se para ejecución
   //Se hace así porque el pointer-events: none; evita el click sobre los hijos del item y no lo queremos
-  if (
-    e.target.tagName.toLowerCase() === "ul" ||
-    e.target.tagName.toLowerCase() === "span" ||
-    e.target.tagName.toLowerCase() === "nav" ||
+  if (e.target.tagName.toLowerCase() === "ul" || e.target.tagName.toLowerCase() === "span" || e.target.tagName.toLowerCase() === "nav" ||
     e.target.tagName.toLowerCase() === "div"
-  ) {
-    return;
-  }
+  ) { return; }
+
   //Desactivamos todos los paneles
   paneles.forEach((panel) => {
     panel.classList.remove("panel-active");
   });
-
   //Gracias a la clase[0] sabemos sobre que li hemos hecho clic.
   //Activamos el panel que corresponda
   switch (e.target.classList[0]) {
@@ -336,6 +331,11 @@ function panelControler(e) {
     default:
       break;
   }
+  //Desactivamos los marcadores de todas las opciones y activamos sobre la que se ha hecho clic
+  for (let i = 0; i < e.target.parentNode.children.length; i++) {
+    e.target.parentNode.children[i].children[0].style.borderBottom = "2px solid var(--fondo)"
+  }
+  e.target.children[0].style.borderBottom = "2px solid var(--azul)"
 }
 
 //Se llama cuando clickamos en expandir o contraer el menú
@@ -579,7 +579,6 @@ function filterData() {
         }
         else {
           console.log("ERROR, AÑADE ALMENOS UN VALOR PARA FILTRAR");
-
         }
 
       } else {
@@ -589,7 +588,6 @@ function filterData() {
 
         } else {
           console.log("ERROR, AÑADE UN VALOR PARA FILTRAR");
-
         }
       }
     }

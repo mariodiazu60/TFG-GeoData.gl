@@ -575,6 +575,8 @@ li > button {
   display: flex;
   flex-wrap: wrap;
   width: 85%;
+  max-height: 75%;
+  margin-top: 1.5rem;
 }
 .cajaFiltro {
   display: none;
@@ -737,18 +739,20 @@ li > button {
 
     #contenedorBtnsFiltros{
       display: flex;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
       width: 100%;
       height: 30%;
     }
     .btns-filtros{
-      width: 70%;
+      width: 50%;
+      height: 70%;
       margin: .3rem;
     }
     .contenedorFiltros{
       width: 100%;
-      max-height: 60%;
+      margin-top: .1rem;
     }
     .cajaFiltroActive{
       width: 100%;
