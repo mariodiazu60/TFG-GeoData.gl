@@ -516,14 +516,14 @@ li > button {
   display: flex;
   width: 100%;
   height: 100%;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .panel-filtros {
   justify-content: flex-start;
   align-items: flex-start;
-  padding-top: 2rem;
+  padding-top: .2rem;
 }
 
 .contenedorFiltros{
@@ -539,7 +539,7 @@ li > button {
   justify-content: space-around;
   align-items: flex-start;
   width: 15%;
-  height: 100%;
+  height: 50%;
 }
 .btns-filtros {
   font-size: 1.2rem;
@@ -734,6 +734,7 @@ li > button {
     }
     .contenedorFiltros{
       width: 100%;
+      max-height: 60%;
     }
     .cajaFiltroActive{
       width: 100%;
