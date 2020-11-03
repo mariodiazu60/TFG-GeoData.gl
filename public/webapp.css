@@ -157,8 +157,20 @@ ul {
 }
 #infoInput {
   font-size: 1.2rem;
-  margin: 2rem 0;
+  margin: 1.5rem 0 1rem 0;
+  width: 100%;
+  text-align: center;
   overflow-y: hidden;
+}
+
+#inputArchivo
+{
+  width: 90%;
+  height: 50%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 4rem;
+  border: dashed white 1px;
 }
 
 .buttons-container {

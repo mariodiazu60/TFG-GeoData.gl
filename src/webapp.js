@@ -101,6 +101,8 @@ addFilterButton.addEventListener("click", stateFilterControler);
 
 //Controladores ------------------------------------------------------------------------------------------
 //Para el asistente de config.
+
+//Leemos el archivo y lo guardamos
 function inputController(e) {
   //Leemos el archivo del input con FileReader
   var file = e.target.files[0];
@@ -145,6 +147,7 @@ function inputController(e) {
 
 }
 
+//Leemos los campos del doc, los guardamos y añadimos elementos a la interfaz
 function leerNombreCampos() {
   //Vaciamos el innerHTML del selector de datos por si estuviera lleno, así no se duplica la info que esté dentro
   infoParams.innerHTML = "";
@@ -202,6 +205,7 @@ function leerNombreCampos() {
   addHTMLFiltros();
 }
 
+//Controlados para saber en que paso del asistente estamos
 function stepControler(e) {
   //Desactivamos todos los steps si ya tenemos un doc con datos
   steps.forEach((step) => {
@@ -262,6 +266,7 @@ function stepControler(e) {
   }
 }
 
+//Controladores para los botones de seleccion de mapas y capas
 function btnsControler(e) {
   //Comprobamos desde que interfaz se está llamando
   if (
@@ -574,7 +579,7 @@ function filterData() {
         }
         else {
           console.log("ERROR, AÑADE ALMENOS UN VALOR PARA FILTRAR");
-          filteredData = data;
+
         }
 
       } else {
@@ -584,7 +589,7 @@ function filterData() {
 
         } else {
           console.log("ERROR, AÑADE UN VALOR PARA FILTRAR");
-          filteredData = data;
+
         }
       }
     }
@@ -595,11 +600,14 @@ function filterData() {
     console.log("NO HAY FILTROS ACTIVOS");
     filteredData = data;
   }
-  console.log(filteredData);
+
+  //Actualizamos el mapa y la infobox para que no se quede con datos viejos
   updateLayers();
+  infoBoxControler("limpiarInfoBox");
 
 }
 
+//Controla que panel del menú está activo
 function interaccionControler(e) {
   switch (e.target.classList[1]) {
     case "mostrarInfo":
@@ -627,6 +635,8 @@ function interaccionControler(e) {
       break;
   }
 }
+
+//Controlamos que campos se muestran en la infobox
 function paramsInfoBoxControler(e) {
   if (e.target.id === "infoParams") {
     return;
@@ -652,13 +662,15 @@ function paramsInfoBoxControler(e) {
   }
   console.log(nombreCamposMostrar);
 }
+
+//Función que actualiza los datos dentro del html del infobox
 function infoBoxControler(object) {
   const info = document.getElementById("info");
-  if (object != null) {
+  if (object != null && object != "limpiarInfoBox") {
     info.innerHTML = "";
     info.innerHTML =
       info.innerHTML +
-      "<p>Representado " +
+      "<p id='numElems'>Representado " +
       filteredData.length +
       " elementos </p>" +
       "<p>Coordenadas : [" +
@@ -683,8 +695,17 @@ function infoBoxControler(object) {
       }
     }
   }
+  else {
+    info.innerHTML = "";
+    info.innerHTML =
+      info.innerHTML +
+      "<p id='numElems'>Representado " +
+      filteredData.length +
+      " elementos </p>"
+  }
 }
 
+//Controla que tema está activo
 function temasControler(e) {
   //Si pulsamos fuera de los botones no hacemos nada
   if (e.target != undefined && e.target.classList[0] === "panel") {
@@ -858,7 +879,7 @@ map.on("styledata", () => {
   }
 });
 
-
+//Redibuja el mapa con las capas que estén activas
 function updateLayers() {
   if (mostrarCapaPuntos) {
     //Actualizamos el prop data con filteredData, borramos la capa y la redibujamos
