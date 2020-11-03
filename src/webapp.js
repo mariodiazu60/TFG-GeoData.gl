@@ -567,13 +567,14 @@ function filterData() {
             d => d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value
               && d[cajaFiltro.children[0].value] <= cajaFiltro.children[2].value
           );
-        } else if (cajaFiltro.children[1].value == "") {
+        } else if (cajaFiltro.children[1].value == "" && cajaFiltro.children[2].value != "") {
           filteredData = filteredData.filter(d => d[cajaFiltro.children[0].value] <= cajaFiltro.children[2].value);
-        } else if (cajaFiltro.children[2].value == "") {
+        } else if (cajaFiltro.children[2].value == "" && cajaFiltro.children[1].value != "") {
           filteredData = filteredData.filter(d => d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value);
         }
         else {
           console.log("ERROR, AÑADE ALMENOS UN VALOR PARA FILTRAR");
+          filteredData = data;
         }
 
       } else {
@@ -583,6 +584,7 @@ function filterData() {
 
         } else {
           console.log("ERROR, AÑADE UN VALOR PARA FILTRAR");
+          filteredData = data;
         }
       }
     }
