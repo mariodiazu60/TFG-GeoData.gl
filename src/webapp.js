@@ -51,6 +51,7 @@ var mostrarCapaCaminos = false; //Flag para saber si hay que dibujar la capa de 
 var docSubido = false;
 var temaElegido = false;
 var lastObjectHovered = null; //último objeto para poder cambiar la info que muestra la infoBox
+var capasAsistente = true; //Flag para indicar al controlador de las capas que estamos activando y desactivando desde el asistente
 
 //Selectores ---------------------------------------------------------------------------------------------
 //Para el asistente
@@ -84,7 +85,8 @@ const contenedorFiltros = document.querySelector(".contenedorFiltros");
 const addFilterButton = document.getElementById("addFilterButton");
 const contenedorCapas = document.querySelector(".contenedorCapas");
 const addCapaButton = document.getElementById("addCapaButton");
-
+const deleteCapaButtons = document.querySelectorAll(".deleteCapaButton");
+const generarMapaCapas = document.getElementById("generarMapaCapas");
 
 //Listeners ----------------------------------------------------------------------------------------------
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
@@ -99,9 +101,10 @@ camposInteraccion.forEach((campo) =>
 expandir.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
-addFilterButton.addEventListener("click", stateFilterControler);
-addCapaButton.addEventListener("click", stateCapasControler);
-
+addFilterButton.addEventListener("click", stateFilterControler); //Controlamos los htmls de los filtros
+addCapaButton.addEventListener("click", stateCapasControler); //Añadimos los htmls de las capas
+deleteCapaButtons.forEach((btn) => btn.addEventListener("click", stateCapasControler));
+generarMapaCapas.addEventListener("click", stateCapasControler);
 
 
 //Controladores ------------------------------------------------------------------------------------------
@@ -233,6 +236,7 @@ function stepControler(e) {
       //pasamos al segundo paso siempre que se haya subido un doc
       if (docSubido) {
         steps[1].classList.add("step-active");
+        capasAsistente = true;
       } else {
         infoInput.innerHTML =
           "¡Ups! Selecciona un archivo de datos antes de continuar.";
@@ -246,6 +250,7 @@ function stepControler(e) {
     case "2":
       //Si hemos elegido tema pasamos a la web app
       if (temaElegido) {
+        capasAsistente = false;
         sectionMap.style = "align-items: flex-end; justify-content:center;";
         asistente.style = "display: none;";
         menu.style = "display: flex;";
@@ -342,7 +347,6 @@ function panelControler(e) {
   }
   e.target.children[0].style.borderBottom = "2px solid var(--azul)"
 }
-
 //Se llama cuando clickamos en expandir o contraer el menú
 function expandirMenuControler(e) {
   //La primera vez height del menu será cadena vacia, las siguientes 60/30vh
@@ -365,19 +369,12 @@ function expandirMenuControler(e) {
   }
 }
 
-//Se llama cuando activamos y desactivamos una capa
-function capasControler(e) {
-  let index = e;
-
-  //Desactivamos todos los html de las capas 
-  for (let i = 0; i < capasActivas.length; i++) {
-    contenedorCapas.children[i].classList.remove("cajaCapaActive");
-  }
-
+//Controla la activación y desactivación de una capa
+function capasControler(index, accion) {
   //Según el index activamos o desactivamos la capa que toque
   switch (index) {
     case "0": //Capa de puntos
-      if (mostrarCapaPuntos) {
+      if (accion === "eliminar") {
         mostrarCapaPuntos = false;
         removeElementCapasActivas("Puntos");
       } else {
@@ -386,7 +383,7 @@ function capasControler(e) {
       }
       break;
     case "1": //Capa de chichetas
-      if (mostrarCapaChinchetas) {
+      if (accion === "eliminar") {
         mostrarCapaChinchetas = false;
         removeElementCapasActivas("Chinchetas");
       } else {
@@ -395,7 +392,7 @@ function capasControler(e) {
       }
       break;
     case "2": //Capa de calor 3D
-      if (mostrarCapaCalor3D) {
+      if (accion === "eliminar") {
         mostrarCapaCalor3D = false;
         removeElementCapasActivas("Calor3D");;
       } else {
@@ -404,7 +401,7 @@ function capasControler(e) {
       }
       break;
     case "3": //Capa de calor
-      if (mostrarCapaCalor) {
+      if (accion === "eliminar") {
         mostrarCapaCalor = false;
         removeElementCapasActivas("Calor");
       } else {
@@ -413,7 +410,7 @@ function capasControler(e) {
       }
       break;
     case "4": //Capa de hexágonos
-      if (mostrarCapaHex) {
+      if (accion === "eliminar") {
         mostrarCapaHex = false;
         removeElementCapasActivas("Hexagonos");
       } else {
@@ -422,7 +419,7 @@ function capasControler(e) {
       }
       break;
     case "5": //Capa de caminos
-      if (mostrarCapaCaminos) {
+      if (accion === "eliminar") {
         mostrarCapaCaminos = false;
         removeElementCapasActivas("Caminos");
       } else {
@@ -435,16 +432,16 @@ function capasControler(e) {
       break;
   }
 
-  //Activamos los HTML necesarios
-  for (let i = 0; i < capasActivas.length; i++) {
-    contenedorCapas.children[i].classList.add("cajaCapaActive");
-    contenedorCapas.children[i].children[0].value = capasActivas[i];
+  //Si es la primera vez lo indicamos a stateCapasControler para generar los controles en el panel de capas
+  if (capasAsistente) {
+    console.log("Llamando a state por primera vez")
+    stateCapasControler();
   }
 
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
-}
 
+}
 function removeElementCapasActivas(elem) {
   const index = capasActivas.indexOf(elem);
   if (index > -1) {
@@ -452,23 +449,93 @@ function removeElementCapasActivas(elem) {
   }
 }
 
-//Se llama cuando se añade una capa desde el botón añadir capa, le dice a capasControler cuales activar
+
+//Se llama cuando se añade una capa, se elimina o se genera el mapa desde el menú de capas. Instruye a capasControler sobre que capas añadir y eliminar
 function stateCapasControler(e) {
-  console.log(e.target.id);
-  //Si el elemento que llama a la func. es el botón de añadir añadimos el html para la nueva capa
-  if (e.target.id === "addCapaButton") {
-    for (var i = 0; i < 6; i++) {
-      console.log(contenedorCapas.children[i]);
+  console.log("entro", capasAsistente);
+
+  //Si llamamos desde el asistente
+  if (capasAsistente) {
+    console.log("Recibiendo llamada del asistente")
+    for (let i = 0; i < capasActivas.length; i++) {
       if (contenedorCapas.children[i].classList[1] === undefined) {
-        capasControler(i.toString());
+        contenedorCapas.children[i].classList.add("cajaCapaActive");
+        contenedorCapas.children[i].children[0].value = capasActivas[i];
+      }
+    }
+  }
+
+  //Si el elemento que llama a la func. es el botón de generar mapa activamos las capas
+  if (e.target.id === "generarMapaCapas") {
+    for (let i = 0; i < 6; i++) {
+      if (contenedorCapas.children[i].classList[1] === "cajaCapaActive") {
+        switch (contenedorCapas.children[i].children[0].value) {
+          case "Puntos":
+            capasControler("0");
+            break;
+          case "Chinchetas":
+            capasControler("1");
+            break;
+          case "Calor3D":
+            capasControler("2");
+            break;
+          case "Calor":
+            capasControler("3");
+            break;
+          case "Hexagonos":
+            capasControler("4");
+            break;
+          case "Caminos":
+            capasControler("5");
+            break;
+
+          default:
+            break;
+        }
+      } else {
+        console.log("No hay capas activas");
+      }
+    }
+  }
+  //Si el elemento que llama a la func. es el botón de add capa añadimos el html
+  else if (e.target.id === "addCapaButton") {
+    for (let i = 0; i < 6; i++) {
+      if (contenedorCapas.children[i].classList[1] === undefined) {
+        contenedorCapas.children[i].classList.add("cajaCapaActive");
+        contenedorCapas.children[i].children[0].value = "";
         break;
       }
     }
   }
-  //Llamamos desde el btn borrar capa ocultamos el html, llamamos a capasControler para apagar la capa y actualizamos el mapa
-  else if (e.target.classList[0] === "deleteCapa") {
-    e.target.parentNode.classList.remove("cajaCapaActive")
-    updateLayers();
+  //Si llamamos desde el btn borrar capa: ocultamos el html, llamamos a capasControler para apagar la capa y actualizamos el mapa
+  else if (e.target.classList[0] === "deleteCapaButton") {
+    e.target.parentNode.classList.remove("cajaCapaActive");
+    switch (e.target.parentNode.children[0].value) {
+      case "Puntos":
+        capasControler("0", "eliminar");
+        break;
+      case "Chinchetas":
+        capasControler("1", "eliminar");
+        break;
+      case "Calor3D":
+        capasControler("2", "eliminar");
+        break;
+      case "Calor":
+        capasControler("3", "eliminar");
+        break;
+      case "Hexagonos":
+        capasControler("4", "eliminar");
+        break;
+      case "Caminos":
+        capasControler("5", "eliminar");
+        break;
+
+      default:
+        console.log("el select no indica ninguna capa");
+        break;
+    }
+
+    //updateLayers();
   }
 }
 
