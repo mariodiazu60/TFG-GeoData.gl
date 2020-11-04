@@ -30,6 +30,16 @@ body {
   background-color: #3f4359;
 }
 
+select {
+  background: var(--fondo);
+  padding: 0.1rem;
+  color: white;
+  width: 50%;
+  font-size: 1.05rem;
+  flex: 0.5;
+  font-family: "Barlow Regular", sans-serif;
+  border: 1px white solid;
+}
 :root {
   --fondo: #2a2e47;
   --white: #f8f8f8;
@@ -394,7 +404,6 @@ li > button {
 /*ESTILO PANELES MENÚ*/
 .panel-capas {
   display: none;
-  background-color: #70b77e;
 }
 .panel-filtros {
   display: none;
@@ -417,6 +426,32 @@ li > button {
   margin: 0 auto;
   border-top: 1px var(--white) solid;
 }
+
+
+/*ESTILO PANEL CAPAS*/
+.panel-capas>div{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .cajaFiltro {
+  display: none;
+} */
+.cajaCapa{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 30%;
+  border: 1px solid var(--white);
+  padding: 1rem 0.5rem;
+  margin: 0.5rem;
+  align-items: flex-start;
+}
+/*ESTILO PANEL CAPAS*/
+
 
 /*ESTILO PANEL MAPAS*/
 .panel-mapa {
@@ -546,11 +581,11 @@ li > button {
   width: 100%;
 }
 
-#contenedorBtnsFiltros {
+#contenedorBtnsFiltros, #contenedorBtnsCapas {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
   width: 15%;
   height: 80%;
 }
@@ -571,7 +606,7 @@ li > button {
   background-color: var(--verdeHover);
 }
 
-.contenedorFiltros {
+.contenedorFiltros, .contenedorCapas {
   display: flex;
   flex-wrap: wrap;
   width: 85%;
@@ -588,15 +623,6 @@ li > button {
   padding: 1rem 0.5rem;
   margin: 0.5rem;
   text-align: center;
-}
-.cajaFiltroActive > select {
-  background: var(--fondo);
-  padding: 0.1rem;
-  color: white;
-  width: 50%;
-  font-size: 1.05rem;
-  flex: 0.5;
-  font-family: "Barlow Regular", sans-serif;
 }
 
 .cajaFiltroActive > .number {
@@ -737,7 +763,7 @@ li > button {
       flex-direction: column-reverse;
     }
 
-    #contenedorBtnsFiltros{
+    #contenedorBtnsFiltros, #contenedorBtnsCapas{
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -750,7 +776,7 @@ li > button {
       height: 70%;
       margin: .3rem;
     }
-    .contenedorFiltros{
+    .contenedorFiltros, .contenedorCapas{
       width: 100%;
       margin-top: .1rem;
     }
