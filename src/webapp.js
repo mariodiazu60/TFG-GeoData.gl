@@ -31,6 +31,7 @@ map.addControl(
 );
 var data; //Aquí guardamos el contenido del archivo en forma de json
 var filteredData; //Aquí guardamos el contenido del archivo en forma de json
+var capasActivas = []; //Array con las capas activas en cada momento
 var capaPuntos = ""; //Var para guardar la capa de puntos
 var capaChinchetas = ""; //Var para guardar la capa de chinchetas
 var capaCalor3D = ""; //Var para guardar la capa de calor 3D
@@ -81,6 +82,8 @@ controles.style.display = "none";
 const infoParams = document.getElementById("infoParams");
 const contenedorFiltros = document.querySelector(".contenedorFiltros");
 const addFilterButton = document.getElementById("addFilterButton");
+const contenedorCapas = document.querySelector(".contenedorCapas");
+const addCapaButton = document.getElementById("addCapaButton");
 
 
 //Listeners ----------------------------------------------------------------------------------------------
@@ -97,6 +100,8 @@ expandir.addEventListener("click", expandirMenuControler); //Controlamos la expa
 minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
 addFilterButton.addEventListener("click", stateFilterControler);
+addCapaButton.addEventListener("click", stateCapasControler);
+
 
 
 //Controladores ------------------------------------------------------------------------------------------
@@ -362,13 +367,11 @@ function expandirMenuControler(e) {
 
 //Se llama cuando activamos y desactivamos una capa
 function capasControler(e) {
-  //Si e es un número: estamos llamando desde el asistente
-  //Si no: estamos llamando desde el panel de config.
-  let index = 0;
-  if (e >= 0 && e < 6) {
-    index = e;
-  } else {
-    index = e.target.classList[0];
+  let index = e;
+
+  //Desactivamos todos los html de las capas 
+  for (let i = 0; i < capasActivas.length; i++) {
+    contenedorCapas.children[i].classList.remove("cajaCapaActive");
   }
 
   //Según el index activamos o desactivamos la capa que toque
@@ -376,62 +379,97 @@ function capasControler(e) {
     case "0": //Capa de puntos
       if (mostrarCapaPuntos) {
         mostrarCapaPuntos = false;
-        console.log("DESactivada capa de puntos");
+        removeElementCapasActivas("Puntos");
       } else {
         mostrarCapaPuntos = true;
-        console.log("Activada capa de puntos");
+        capasActivas.push("Puntos");
       }
       break;
     case "1": //Capa de chichetas
       if (mostrarCapaChinchetas) {
         mostrarCapaChinchetas = false;
-        console.log("DESactivada capa de chichets");
+        removeElementCapasActivas("Chinchetas");
       } else {
         mostrarCapaChinchetas = true;
-        console.log("Activada capa de chichetas");
+        capasActivas.push("Chinchetas");
       }
       break;
     case "2": //Capa de calor 3D
       if (mostrarCapaCalor3D) {
         mostrarCapaCalor3D = false;
-        console.log("DESactivada capa de calor3D");
+        removeElementCapasActivas("Calor3D");;
       } else {
         mostrarCapaCalor3D = true;
-        console.log("Activada capa de calor3D");
+        capasActivas.push("Calor3D");
       }
       break;
     case "3": //Capa de calor
       if (mostrarCapaCalor) {
         mostrarCapaCalor = false;
-        console.log("DESactivada capa de cluster");
+        removeElementCapasActivas("Calor");
       } else {
         mostrarCapaCalor = true;
-        console.log("Activada capa de clusters");
+        capasActivas.push("Calor");
       }
       break;
     case "4": //Capa de hexágonos
       if (mostrarCapaHex) {
         mostrarCapaHex = false;
-        console.log("DESactivada capa de hex");
+        removeElementCapasActivas("Hexagonos");
       } else {
         mostrarCapaHex = true;
-        console.log("Activada capa de hex");
+        capasActivas.push("Hexagonos");
       }
       break;
     case "5": //Capa de caminos
       if (mostrarCapaCaminos) {
         mostrarCapaCaminos = false;
-        console.log("DESactivada capa de caminos");
+        removeElementCapasActivas("Caminos");
       } else {
         mostrarCapaCaminos = true;
-        console.log("Activada capa de caminos");
+        capasActivas.push("Caminos");
       }
       break;
+
     default:
       break;
   }
+
+  //Activamos los HTML necesarios
+  for (let i = 0; i < capasActivas.length; i++) {
+    contenedorCapas.children[i].classList.add("cajaCapaActive");
+    contenedorCapas.children[i].children[0].value = capasActivas[i];
+  }
+
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
+}
+
+function removeElementCapasActivas(elem) {
+  const index = capasActivas.indexOf(elem);
+  if (index > -1) {
+    capasActivas.splice(index, 1);
+  }
+}
+
+//Se llama cuando se añade una capa desde el botón añadir capa, le dice a capasControler cuales activar
+function stateCapasControler(e) {
+  console.log(e.target.id);
+  //Si el elemento que llama a la func. es el botón de añadir añadimos el html para la nueva capa
+  if (e.target.id === "addCapaButton") {
+    for (var i = 0; i < 6; i++) {
+      console.log(contenedorCapas.children[i]);
+      if (contenedorCapas.children[i].classList[1] === undefined) {
+        capasControler(i.toString());
+        break;
+      }
+    }
+  }
+  //Llamamos desde el btn borrar capa ocultamos el html, llamamos a capasControler para apagar la capa y actualizamos el mapa
+  else if (e.target.classList[0] === "deleteCapa") {
+    e.target.parentNode.classList.remove("cajaCapaActive")
+    updateLayers();
+  }
 }
 
 //Se llama al leer el nombre de los campos del archivo

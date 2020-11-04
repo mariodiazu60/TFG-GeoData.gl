@@ -437,10 +437,10 @@ li > button {
   align-items: center;
 }
 
-/* .cajaFiltro {
+.cajaCapa {
   display: none;
-} */
-.cajaCapa{
+} 
+.cajaCapaActive{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
