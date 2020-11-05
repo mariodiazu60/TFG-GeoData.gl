@@ -161,7 +161,9 @@ ul {
   height: 80%;
   border: 1px solid var(--white);
   padding-bottom: 3rem;
+  transition: .5s;
 }
+
 #input-archivo img {
   width: 60px;
 }
@@ -181,7 +183,12 @@ ul {
   margin: 0 auto;
   padding-top: 4rem;
   border: dashed white 1px;
+  transition: .5s;
 }
+#inputArchivo:hover, #inputArchivo:focus {
+  border: solid 1px white;
+  background-color: #91b6e78f;
+  }
 
 .buttons-container {
   display: flex;
@@ -431,11 +438,13 @@ li > button {
 /*ESTILO PANEL CAPAS*/
 .panel-capas>div{
   display: flex;
+  flex-wrap: wrap-reverse;
   width: 100%;
   height: 100%;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
+
 
 .cajaCapa {
   display: none;
@@ -564,8 +573,8 @@ li > button {
   display: flex;
   width: 100%;
   height: 100%;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .panel-filtros {
@@ -781,6 +790,10 @@ li > button {
       margin-top: .1rem;
     }
     .cajaFiltroActive{
+      width: 100%;
+    }
+
+    .cajaCapaActive{
       width: 100%;
     }
 

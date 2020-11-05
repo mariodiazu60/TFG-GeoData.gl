@@ -1,4 +1,4 @@
-//Imports, requires, variables/constantes globales
+//#region IMPORTS
 const csv = require("csvtojson");
 import { MapboxLayer } from "@deck.gl/mapbox";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
@@ -7,8 +7,9 @@ import { IconLayer } from "@deck.gl/layers";
 import { GridLayer } from "@deck.gl/aggregation-layers";
 import { HeatmapLayer } from "@deck.gl/aggregation-layers";
 import { HexagonLayer } from "@deck.gl/aggregation-layers";
+//#endregion
 
-//Variables globales para el mapa
+//#region VARIABLES DEL MAPA
 var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWRuNiIsImEiOiJja2ZsZHRoMXAyMHk5MnlvMzJ3azliNzVoIn0.TVyz96dtNAH7PtNb8Yw_2g";
@@ -29,6 +30,9 @@ map.addControl(
   }),
   "top-left"
 );
+//#endregion
+
+//#region VARIABLES GLOBALES
 var data; //Aquí guardamos el contenido del archivo en forma de json
 var filteredData; //Aquí guardamos el contenido del archivo en forma de json
 var capasActivas = []; //Array con las capas activas en cada momento
@@ -52,9 +56,9 @@ var docSubido = false;
 var temaElegido = false;
 var lastObjectHovered = null; //último objeto para poder cambiar la info que muestra la infoBox
 var capasAsistente = true; //Flag para indicar al controlador de las capas que estamos activando y desactivando desde el asistente
+//#endregion
 
-//Selectores ---------------------------------------------------------------------------------------------
-//Para el asistente
+//#region SELECTORES ASISTENTE DE CONFIGURACIÓN
 const asistente = document.getElementById("asistente");
 const btnsSiguiente = document.querySelectorAll(".btn-asistente");
 const steps = document.querySelectorAll(".step");
@@ -65,8 +69,9 @@ const input = document.getElementById("inputArchivo");
 const infoInput = document.getElementById("infoInput");
 const infoTema = document.getElementById("infoTema");
 const sectionMap = document.getElementById("map");
+//#endregion
 
-//Para panel de control
+//#region SELECTORES MENÚ
 const menu = document.getElementById("menu");
 const navPanelControl = document.querySelector(".nav");
 const paneles = document.querySelectorAll(".panel");
@@ -84,11 +89,12 @@ const infoParams = document.getElementById("infoParams");
 const contenedorFiltros = document.querySelector(".contenedorFiltros");
 const addFilterButton = document.getElementById("addFilterButton");
 const contenedorCapas = document.querySelector(".contenedorCapas");
+const capaSelect = document.querySelectorAll(".capaSelect")
 const addCapaButton = document.getElementById("addCapaButton");
 const deleteCapaButtons = document.querySelectorAll(".deleteCapaButton");
-const generarMapaCapas = document.getElementById("generarMapaCapas");
+//#endregion
 
-//Listeners ----------------------------------------------------------------------------------------------
+//#region LISTENERS
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
 input.addEventListener("change", inputController); //Controlamos si suben un archivo (Asistente)
 btnsRepreContainer.addEventListener("click", btnsControler); //Controlamos los btns del tipo de representación (Asistente)
@@ -104,13 +110,16 @@ infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que 
 addFilterButton.addEventListener("click", stateFilterControler); //Controlamos los htmls de los filtros
 addCapaButton.addEventListener("click", stateCapasControler); //Añadimos los htmls de las capas
 deleteCapaButtons.forEach((btn) => btn.addEventListener("click", stateCapasControler));
-generarMapaCapas.addEventListener("click", stateCapasControler);
+capaSelect.forEach((select) =>
+  select.addEventListener("click", stateCapasControler)
+);
+//#endregion
 
 
-//Controladores ------------------------------------------------------------------------------------------
-//Para el asistente de config.
 
-//Leemos el archivo y lo guardamos
+//#region CONTROLADORES ASISTENTE DE CONFIGURACIÓN
+
+//Se llama cuando se selcciona un doc desde el input
 function inputController(e) {
   //Leemos el archivo del input con FileReader
   var file = e.target.files[0];
@@ -121,7 +130,6 @@ function inputController(e) {
   //Avisamos de que estamos trabajando
   infoInput.style.color = "#70b77e";
   infoInput.innerHTML = "Leyendo el archivo...";
-
   var lector = new FileReader();
   lector.onload = function () {
     //Comprobar extension, parsear/convertir archivo, obtener lat/lon, crear las capas y mostrar mensaje
@@ -151,11 +159,9 @@ function inputController(e) {
     }
   };
   lector.readAsText(file);
-
-
 }
 
-//Leemos los campos del doc, los guardamos y añadimos elementos a la interfaz
+//Se llama desde INPUTCONTROLLER() --> Leemos los campos del documento, los guardamos y añadimos elementos a la interfaz
 function leerNombreCampos() {
   //Vaciamos el innerHTML del selector de datos por si estuviera lleno, así no se duplica la info que esté dentro
   infoParams.innerHTML = "";
@@ -213,7 +219,7 @@ function leerNombreCampos() {
   addHTMLFiltros();
 }
 
-//Controlados para saber en que paso del asistente estamos
+//Se llama desde los los botones del asistente "Siguiente/Anterior Paso" --> Controla en qué paso del asistente estamos
 function stepControler(e) {
   //Desactivamos todos los steps si ya tenemos un doc con datos
   steps.forEach((step) => {
@@ -276,23 +282,21 @@ function stepControler(e) {
   }
 }
 
-//Controladores para los botones de seleccion de mapas y capas
+//Se llama desde los los botones del asistente de selección de capas y temas -->  Llama a CAPASCONTROLER() o a TEMACONTROLER() para (des)activar temas y capas
 function btnsControler(e) {
-  //Comprobamos desde que interfaz se está llamando
-  if (
-    e.target.classList[0] === "representacion-btn" ||
-    e.target.classList[0] === "representacion-btn-active"
-  ) {
-    //Si hacemos click sobre un btn activo lo desactivamos
-    //Si no estaba activo lo activamos
+  //Comprobamos qué botón está llamando a la función
+  if (e.target.classList[0] === "representacion-btn" || e.target.classList[0] === "representacion-btn-active") {
+    //Al hacer click vemos le estado del botón
     if (e.target.classList[2] === "representacion-btn-active") {
+      //Dectivamos el botón correspondiente y la capa correspondiente
       e.target.classList.remove("representacion-btn-active");
+      capasControler(e.target.classList[1], "eliminar");
     } else {
-      //Activamos el botón correspondiente
+      //Activamos el botón correspondiente y la capa correspondiente
       e.target.classList.add("representacion-btn-active");
+      capasControler(e.target.classList[1]);
     }
-    //Mandamos a capasControler el index para active o desactive
-    capasControler(e.target.classList[1]);
+
   } else if (e.target.classList[0] === "tema-btn") {
     //Desactivamos todos los botones
     temaBtns.forEach((btn) => {
@@ -306,12 +310,14 @@ function btnsControler(e) {
     temasControler(e.target.classList[1]);
   }
 }
+//#endregion
 
 
 
 
-//Para el menú de config. ------------------------------------------------------------------------------------------------
-//Se llama al cambiar de panel
+//#region CONTROLADORES MENÚ
+
+//Se llama desde el nav del menú --> Desactiva los paneles y activa el panel que corresponda
 function panelControler(e) {
   //Si clicas en ul,span o nav se para ejecución
   //Se hace así porque el pointer-events: none; evita el click sobre los hijos del item y no lo queremos
@@ -347,7 +353,7 @@ function panelControler(e) {
   }
   e.target.children[0].style.borderBottom = "2px solid var(--azul)"
 }
-//Se llama cuando clickamos en expandir o contraer el menú
+//Se llama desde el nav del menú --> Controla la expansión del menú
 function expandirMenuControler(e) {
   //La primera vez height del menu será cadena vacia, las siguientes 60/30vh
   if (e.target.id === "expandir") {
@@ -369,11 +375,11 @@ function expandirMenuControler(e) {
   }
 }
 
-//Controla la activación y desactivación de una capa
+//Se llama desde BTNSCONTROLER() o desde STATECAPASCONTROLER() --> Controla la activación y desactivación de las capas
 function capasControler(index, accion) {
   //Según el index activamos o desactivamos la capa que toque
   switch (index) {
-    case "0": //Capa de puntos
+    case "Puntos": //Capa de puntos
       if (accion === "eliminar") {
         mostrarCapaPuntos = false;
         removeElementCapasActivas("Puntos");
@@ -382,7 +388,7 @@ function capasControler(index, accion) {
         capasActivas.push("Puntos");
       }
       break;
-    case "1": //Capa de chichetas
+    case "Chinchetas": //Capa de chichetas
       if (accion === "eliminar") {
         mostrarCapaChinchetas = false;
         removeElementCapasActivas("Chinchetas");
@@ -391,7 +397,7 @@ function capasControler(index, accion) {
         capasActivas.push("Chinchetas");
       }
       break;
-    case "2": //Capa de calor 3D
+    case "Calor3D": //Capa de calor 3D
       if (accion === "eliminar") {
         mostrarCapaCalor3D = false;
         removeElementCapasActivas("Calor3D");;
@@ -400,7 +406,7 @@ function capasControler(index, accion) {
         capasActivas.push("Calor3D");
       }
       break;
-    case "3": //Capa de calor
+    case "Calor": //Capa de calor
       if (accion === "eliminar") {
         mostrarCapaCalor = false;
         removeElementCapasActivas("Calor");
@@ -409,7 +415,7 @@ function capasControler(index, accion) {
         capasActivas.push("Calor");
       }
       break;
-    case "4": //Capa de hexágonos
+    case "Hexagono": //Capa de hexágonos
       if (accion === "eliminar") {
         mostrarCapaHex = false;
         removeElementCapasActivas("Hexagonos");
@@ -418,7 +424,7 @@ function capasControler(index, accion) {
         capasActivas.push("Hexagonos");
       }
       break;
-    case "5": //Capa de caminos
+    case "Caminos": //Capa de caminos
       if (accion === "eliminar") {
         mostrarCapaCaminos = false;
         removeElementCapasActivas("Caminos");
@@ -427,21 +433,18 @@ function capasControler(index, accion) {
         capasActivas.push("Caminos");
       }
       break;
-
     default:
       break;
   }
 
-  //Si es la primera vez lo indicamos a stateCapasControler para generar los controles en el panel de capas
+  //Si es la primera vez lo indicamos a stateCapasControler para generar los controles en la interfaz en el panel de capas
   if (capasAsistente) {
-    console.log("Llamando a state por primera vez")
     stateCapasControler();
   }
-
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
-
 }
+//Función auxiliar para eliminar un elemento concreto de un array
 function removeElementCapasActivas(elem) {
   const index = capasActivas.indexOf(elem);
   if (index > -1) {
@@ -449,14 +452,18 @@ function removeElementCapasActivas(elem) {
   }
 }
 
-
-//Se llama cuando se añade una capa, se elimina o se genera el mapa desde el menú de capas. Instruye a capasControler sobre que capas añadir y eliminar
+//Se llama desde el botón de borrar capa, la hacer click sobre los selects y options y desde el asistente de config --> Ordena a capasControler qué capas añadir y eliminar
 function stateCapasControler(e) {
-  console.log("entro", capasAsistente);
 
   //Si llamamos desde el asistente
   if (capasAsistente) {
     console.log("Recibiendo llamada del asistente")
+
+    //Desactivamos todas las cajas de capas
+    for (let i = 0; i < 6; i++) {
+      contenedorCapas.children[i].classList.remove("cajaCapaActive");
+    }
+    //Activamos las cajas necesarias
     for (let i = 0; i < capasActivas.length; i++) {
       if (contenedorCapas.children[i].classList[1] === undefined) {
         contenedorCapas.children[i].classList.add("cajaCapaActive");
@@ -465,40 +472,8 @@ function stateCapasControler(e) {
     }
   }
 
-  //Si el elemento que llama a la func. es el botón de generar mapa activamos las capas
-  if (e.target.id === "generarMapaCapas") {
-    for (let i = 0; i < 6; i++) {
-      if (contenedorCapas.children[i].classList[1] === "cajaCapaActive") {
-        switch (contenedorCapas.children[i].children[0].value) {
-          case "Puntos":
-            capasControler("0");
-            break;
-          case "Chinchetas":
-            capasControler("1");
-            break;
-          case "Calor3D":
-            capasControler("2");
-            break;
-          case "Calor":
-            capasControler("3");
-            break;
-          case "Hexagonos":
-            capasControler("4");
-            break;
-          case "Caminos":
-            capasControler("5");
-            break;
-
-          default:
-            break;
-        }
-      } else {
-        console.log("No hay capas activas");
-      }
-    }
-  }
   //Si el elemento que llama a la func. es el botón de add capa añadimos el html
-  else if (e.target.id === "addCapaButton") {
+  if (e.target.id === "addCapaButton") {
     for (let i = 0; i < 6; i++) {
       if (contenedorCapas.children[i].classList[1] === undefined) {
         contenedorCapas.children[i].classList.add("cajaCapaActive");
@@ -507,39 +482,27 @@ function stateCapasControler(e) {
       }
     }
   }
+
   //Si llamamos desde el btn borrar capa: ocultamos el html, llamamos a capasControler para apagar la capa y actualizamos el mapa
-  else if (e.target.classList[0] === "deleteCapaButton") {
+  if (e.target.classList[0] === "deleteCapaButton") {
     e.target.parentNode.classList.remove("cajaCapaActive");
-    switch (e.target.parentNode.children[0].value) {
-      case "Puntos":
-        capasControler("0", "eliminar");
-        break;
-      case "Chinchetas":
-        capasControler("1", "eliminar");
-        break;
-      case "Calor3D":
-        capasControler("2", "eliminar");
-        break;
-      case "Calor":
-        capasControler("3", "eliminar");
-        break;
-      case "Hexagonos":
-        capasControler("4", "eliminar");
-        break;
-      case "Caminos":
-        capasControler("5", "eliminar");
-        break;
+    capasControler(e.target.parentNode.children[0].value, "eliminar");
+  }
 
-      default:
-        console.log("el select no indica ninguna capa");
-        break;
-    }
 
-    //updateLayers();
+  //Si hacemos click sobre el select borramos la capa que haya.
+  if (e.target.tagName.toLowerCase() === "select" && e.target.value != "") {
+    capasControler(e.target.value, "eliminar");
+    console.log("valor para borrar " + e.target.value);
+  }
+  //Si click sobre el options ponemos la nueva
+  else if (e.target.tagName.toLowerCase() === "option" && e.target.value != "") {
+    console.log("valor para añadir " + e.target.value);
+    capasControler(e.target.value);
   }
 }
 
-//Se llama al leer el nombre de los campos del archivo
+//Se llama al leer el nombre de los campos del archivo para generar el html necesario
 function addHTMLFiltros() {
   var div, options, input;
 
@@ -565,7 +528,6 @@ function addHTMLFiltros() {
 
   //Vaciamos. Si hemos elegido varios archivos de datos tendríamos varios filtros si no los vaciamos
   contenedorFiltros.innerHTML = ""
-
   //Creamos todos los html de los filtros con los datos recuperados arriba
   for (let x = 0; x < nombreCampos.length; x++) {
     //Creamos el div con los options e input correctos
@@ -576,13 +538,8 @@ function addHTMLFiltros() {
       div = ' <div class="cajaFiltro">'
     }
     contenedorFiltros.innerHTML +=
-      div +
-      '<select name="campos" class="filtroSelect">' +
-      options +
-      "</select>" +
-      input +
-      "<button class='deleteFilter'> Borrar </button>" +
-      "</div>";
+      div + '<select name="campos" class="filtroSelect">' + options + "</select>" +
+      input + "<button class='deleteFilter'> Borrar </button>" + "</div>";
   }
 
   //Añadimos los listener a los select, a los botones
@@ -596,7 +553,6 @@ function addHTMLFiltros() {
 
   const deleteFilterBtn = document.querySelectorAll(".deleteFilter");
   deleteFilterBtn.forEach((btn) => btn.addEventListener("click", stateFilterControler));
-
 }
 
 //Se llama al darle a añadir o borrar un filtro
@@ -707,7 +663,6 @@ function filterData() {
   //Actualizamos el mapa y la infobox para que no se quede con datos viejos
   updateLayers();
   infoBoxControler("limpiarInfoBox");
-
 }
 
 //Controla que panel del menú está activo
@@ -744,8 +699,9 @@ function paramsInfoBoxControler(e) {
   if (e.target.id === "infoParams") {
     return;
   }
-  //Si es "" o verde es que está activo, lo desactivamos, eliminamos del array ded campos a mostrar
+  //Si es "" o verde es que está activo, lo desactivamos, eliminamos del array de campos a mostrar
   //y actualizamos la infoBox
+  //Si me da tiempo hay que cambiar esto porque mirar le color del fondo es una idea malísima. Si cambiara el nombre de esa ver de css no funcionaría.
   if (
     e.target.style.backgroundColor === "" ||
     e.target.style.backgroundColor === "var(--verde)"
@@ -771,17 +727,8 @@ function infoBoxControler(object) {
   const info = document.getElementById("info");
   if (object != null && object != "limpiarInfoBox") {
     info.innerHTML = "";
-    info.innerHTML =
-      info.innerHTML +
-      "<p id='numElems'>Representado " +
-      filteredData.length +
-      " elementos </p>" +
-      "<p>Coordenadas : [" +
-      object[nombreCampoLat] +
-      " , " +
-      object[nombreCampoLon] +
-      "]</p>";
-
+    info.innerHTML = info.innerHTML + "<p id='numElems'>Representado " + filteredData.length + " elementos </p>" +
+      "<p>Coordenadas : [" + object[nombreCampoLat] + " , " + object[nombreCampoLon] + "]</p>";
     //Iteramos sobre nombreCamposMostrar para mostrar la info que elija el user
     for (let i = 0; i < nombreCamposMostrar.length; i++) {
       if (
@@ -800,11 +747,7 @@ function infoBoxControler(object) {
   }
   else {
     info.innerHTML = "";
-    info.innerHTML =
-      info.innerHTML +
-      "<p id='numElems'>Representado " +
-      filteredData.length +
-      " elementos </p>"
+    info.innerHTML = info.innerHTML + "<p id='numElems'>Representado " + filteredData.length + " elementos </p>"
   }
 }
 
@@ -857,9 +800,12 @@ function temasControler(e) {
       break;
   }
 }
+//#endregion
 
-//Controladores del mapa ----------------------------------------------------------------------------
-//Constructores de capas
+
+
+
+//#region CONTROLADORES DEL MAPA
 function crearCapas() {
   //Capa de puntos
   capaPuntos = new MapboxLayer({
@@ -962,8 +908,6 @@ function crearCapas() {
       d.n_killed > 0 ? [200, 0, 40, 150] : [255, 255, 0, 100],
   });
 }
-
-//Eventos del mapa ----------------------------------------------------------------------------------------
 map.on("styledata", () => {
   if (mostrarCapaPuntos) {
     map.addLayer(capaPuntos);
@@ -982,7 +926,6 @@ map.on("styledata", () => {
   }
 });
 
-//Redibuja el mapa con las capas que estén activas
 function updateLayers() {
   if (mostrarCapaPuntos) {
     //Actualizamos el prop data con filteredData, borramos la capa y la redibujamos
@@ -1030,4 +973,4 @@ function updateLayers() {
   }
   map.triggerRepaint();
 }
-
+//#endregion
