@@ -30,6 +30,32 @@ map.addControl(
   }),
   "top-left"
 );
+//Objetos para guardar los props de cada capa
+var capaPuntosProps = {
+  mostrar: false,
+  campoColor: "DISTRICTE",  //Campo por el que colorear
+  valoresCamposColores: [],     //Distintos valores del campo a colorear
+  arrayColores: []
+},
+  capaChinchetasProps = {
+    mostrar: false,
+    campoColor: "",
+    valoresCamposColores: []
+  },
+  capaCalor3DProps = {
+    mostrar: false,
+  },
+  capaCalorProps = {
+    mostrar: false,
+  },
+  capaHexProps = {
+    mostrar: false,
+  },
+  capaCaminosProps = {
+    mostrar: false,
+  }
+
+
 //#endregion
 
 //#region VARIABLES GLOBALES
@@ -45,17 +71,12 @@ var nombreCampoLat = ""; //Aquí guardamos el nombre del campo de la lat
 var nombreCampoLon = ""; //Aquí guardamos el nombre del campo de la lon
 var nombreCampos = []; //Nos guardamos el nombre de todos los campos del archivo
 var nombreCamposMostrar = []; //Nos guardamos el nombre de los campos del archivo que hay que mostrar en la infobox
-var mostrarCapaPuntos = false; //Flag para saber si hay que dibujar la capa de puntos
-var mostrarCapaChinchetas = false; //Flag para saber si hay que dibujar la capa de chinchetas
-var mostrarCapaCalor3D = false; //Flag para saber si hay que dibujar la capa de calor 3D
-var mostrarCapaCalor = false; //Flag para saber si hay que dibujar la capa de calor
-var mostrarCapaHex = false; //Flag para saber si hay que dibujar la capa de hexagonos
-var mostrarCapaCaminos = false; //Flag para saber si hay que dibujar la capa de hexagonos
 //Variables globales para la interfaz
 var docSubido = false;
 var temaElegido = false;
 var lastObjectHovered = null; //último objeto para poder cambiar la info que muestra la infoBox
 var capasAsistente = true; //Flag para indicar al controlador de las capas que estamos activando y desactivando desde el asistente
+var options; //Nos guardamos el html de los options con todos los campos del doc para usarlo cada vez que se necesite
 //#endregion
 
 //#region SELECTORES ASISTENTE DE CONFIGURACIÓN
@@ -381,55 +402,55 @@ function capasControler(index, accion) {
   switch (index) {
     case "Puntos": //Capa de puntos
       if (accion === "eliminar") {
-        mostrarCapaPuntos = false;
+        capaPuntosProps.mostrar = false;
         removeElementCapasActivas("Puntos");
       } else {
-        mostrarCapaPuntos = true;
+        capaPuntosProps.mostrar = true;
         capasActivas.push("Puntos");
       }
       break;
     case "Chinchetas": //Capa de chichetas
       if (accion === "eliminar") {
-        mostrarCapaChinchetas = false;
+        capaChinchetasProps.mostrar = false;
         removeElementCapasActivas("Chinchetas");
       } else {
-        mostrarCapaChinchetas = true;
+        capaChinchetasProps.mostrar = true;
         capasActivas.push("Chinchetas");
       }
       break;
     case "Calor3D": //Capa de calor 3D
       if (accion === "eliminar") {
-        mostrarCapaCalor3D = false;
+        capaCalor3DProps.mostrar = false;
         removeElementCapasActivas("Calor3D");;
       } else {
-        mostrarCapaCalor3D = true;
+        capaCalor3DProps.mostrar = true;
         capasActivas.push("Calor3D");
       }
       break;
     case "Calor": //Capa de calor
       if (accion === "eliminar") {
-        mostrarCapaCalor = false;
+        capaCalorProps.mostrar = false;
         removeElementCapasActivas("Calor");
       } else {
-        mostrarCapaCalor = true;
+        capaCalorProps.mostrar = true;
         capasActivas.push("Calor");
       }
       break;
     case "Hexagono": //Capa de hexágonos
       if (accion === "eliminar") {
-        mostrarCapaHex = false;
+        capaHexProps.mostrar = false;
         removeElementCapasActivas("Hexagonos");
       } else {
-        mostrarCapaHex = true;
+        capaHexProps.mostrar = true;
         capasActivas.push("Hexagonos");
       }
       break;
     case "Caminos": //Capa de caminos
       if (accion === "eliminar") {
-        mostrarCapaCaminos = false;
+        capaCaminosProps.mostrar = false;
         removeElementCapasActivas("Caminos");
       } else {
-        mostrarCapaCaminos = true;
+        capaCaminosProps.mostrar = true;
         capasActivas.push("Caminos");
       }
       break;
@@ -454,7 +475,9 @@ function removeElementCapasActivas(elem) {
 
 //Se llama desde el botón de borrar capa, la hacer click sobre los selects y options y desde el asistente de config --> Ordena a capasControler qué capas añadir y eliminar
 function stateCapasControler(e) {
+  getValoresCampoColor(capaPuntosProps);
 
+  console.log(capaPuntosProps);
   //Si llamamos desde el asistente
   if (capasAsistente) {
     console.log("Recibiendo llamada del asistente")
@@ -468,6 +491,9 @@ function stateCapasControler(e) {
       if (contenedorCapas.children[i].classList[1] === undefined) {
         contenedorCapas.children[i].classList.add("cajaCapaActive");
         contenedorCapas.children[i].children[0].value = capasActivas[i];
+
+        //Añadimos los options al select de seleccion campo para colores
+        contenedorCapas.children[i].children[1].innerHTML = options;
       }
     }
   }
@@ -478,6 +504,9 @@ function stateCapasControler(e) {
       if (contenedorCapas.children[i].classList[1] === undefined) {
         contenedorCapas.children[i].classList.add("cajaCapaActive");
         contenedorCapas.children[i].children[0].value = "";
+
+        //Añadimos los options al select de seleccion campo para colores
+        contenedorCapas.children[i].children[1].innerHTML = options;
         break;
       }
     }
@@ -504,7 +533,7 @@ function stateCapasControler(e) {
 
 //Se llama al leer el nombre de los campos del archivo para generar el html necesario
 function addHTMLFiltros() {
-  var div, options, input;
+  var div, input;
 
   //Iteramos sobre los nombres de los campos para rellenar las options
   for (let i = 0; i < nombreCampos.length; i++) {
@@ -806,6 +835,47 @@ function temasControler(e) {
 
 
 //#region CONTROLADORES DEL MAPA
+
+
+function stringToAscii(string) {
+  let sum = 0;
+  for (let i = 0; i < string.length; i++) {
+    sum += string.charCodeAt(i);
+  }
+  return sum;
+}
+
+function getValoresCampoColor(capaProps) {
+  for (let i = 0; i < filteredData.length; i++) {
+    let sum = stringToAscii(filteredData[i][capaProps.campoColor]);
+
+    //Si no existe en el array lo metemos con push
+    if (capaProps.valoresCamposColores.indexOf(sum) === -1) {
+      capaProps.valoresCamposColores.push(sum);
+      console.log("new color");
+      capaProps.arrayColores.push(
+        [Math.floor(Math.random() * 255),
+        Math.floor(Math.random() * 255),
+        Math.floor(Math.random() * 255), 200]
+      );
+    }
+  }
+}
+
+var show = true;
+function getColors(d, capaProps) {
+  for (let i = 0; i < capaProps.valoresCamposColores.length; i++) {
+    if (i == 2 && show) {
+      show = false;
+      console.log("asci en array valores Campos ", stringToAscii(d[capaProps.campoColor]));
+      console.log("asci  ", capaProps.valoresCamposColores[i]);
+    }
+    if (stringToAscii(d[capaProps.campoColor]) === capaProps.valoresCamposColores[i]) {
+      return capaProps.arrayColores[i];
+    }
+  }
+}
+
 function crearCapas() {
   //Capa de puntos
   capaPuntos = new MapboxLayer({
@@ -815,7 +885,7 @@ function crearCapas() {
     radiusMinPixels: 3,
     radiusMaxPixels: 7,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
-    getFillColor: (d) => [255, 0, 102],
+    getFillColor: (d) => getColors(d, capaPuntosProps),
     pickable: true,
     onHover: ({ object }) => {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
@@ -824,7 +894,8 @@ function crearCapas() {
         infoBoxControler(object);
       }
     }
-  });
+  },
+  );
 
   const ICON_MAPPING = {
     marker: { x: 0, y: 0, width: 128, height: 128, mask: true },
@@ -909,16 +980,16 @@ function crearCapas() {
   });
 }
 map.on("styledata", () => {
-  if (mostrarCapaPuntos) {
+  if (capaPuntosProps.mostrar) {
     map.addLayer(capaPuntos);
   }
-  if (mostrarCapaChinchetas) {
+  if (capaChinchetasProps.mostrar) {
     map.addLayer(capaChinchetas);
   }
-  if (mostrarCapaCalor3D) {
+  if (capaCalor3DProps.mostrar) {
     map.addLayer(capaCalor3D);
   }
-  if (mostrarCapaCalor) {
+  if (capaCalorProps.mostrar) {
     map.addLayer(capaCalor);
   }
   if (!map.getLayer("hex")) {
@@ -927,7 +998,7 @@ map.on("styledata", () => {
 });
 
 function updateLayers() {
-  if (mostrarCapaPuntos) {
+  if (capaPuntosProps.mostrar) {
     //Actualizamos el prop data con filteredData, borramos la capa y la redibujamos
     capaPuntos.props.data = filteredData;
     map.removeLayer("points");
@@ -938,7 +1009,7 @@ function updateLayers() {
     }
   }
 
-  if (mostrarCapaChinchetas) {
+  if (capaChinchetasProps.mostrar) {
     capaChinchetas.props.data = filteredData;
     map.removeLayer("icon-layer");
     map.addLayer(capaChinchetas);
@@ -948,7 +1019,7 @@ function updateLayers() {
     }
   }
 
-  if (mostrarCapaCalor3D) {
+  if (capaCalor3DProps.mostrar) {
     capaCalor3D.props.data = filteredData;
     map.removeLayer("heat3D");
     map.addLayer(capaCalor3D);
@@ -958,7 +1029,7 @@ function updateLayers() {
     }
   }
 
-  if (mostrarCapaCalor) {
+  if (capaCalorProps.mostrar) {
     capaCalor.props.data = filteredData;
     map.removeLayer("heat");
     map.addLayer(capaCalor);
