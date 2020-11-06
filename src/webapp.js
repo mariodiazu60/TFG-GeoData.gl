@@ -32,15 +32,16 @@ map.addControl(
 );
 //Objetos para guardar los props de cada capa
 var capaPuntosProps = {
-  mostrar: false,
-  campoColor: "DISTRICTE",  //Campo por el que colorear
-  valoresCamposColores: [],     //Distintos valores del campo a colorear
-  arrayColores: []
-},
+    mostrar: false,
+    campoColor: "", //Campo por el que colorear
+    valoresCamposColores: [], //Distintos valores del campo a colorear
+    arrayColores: [],
+  },
   capaChinchetasProps = {
     mostrar: false,
-    campoColor: "",
-    valoresCamposColores: []
+    campoColor: "", //Campo por el que colorear
+    valoresCamposColores: [], //Distintos valores del campo a colorear
+    arrayColores: [],
   },
   capaCalor3DProps = {
     mostrar: false,
@@ -53,8 +54,7 @@ var capaPuntosProps = {
   },
   capaCaminosProps = {
     mostrar: false,
-  }
-
+  };
 
 //#endregion
 
@@ -110,9 +110,10 @@ const infoParams = document.getElementById("infoParams");
 const contenedorFiltros = document.querySelector(".contenedorFiltros");
 const addFilterButton = document.getElementById("addFilterButton");
 const contenedorCapas = document.querySelector(".contenedorCapas");
-const capaSelect = document.querySelectorAll(".capaSelect")
+const capaSelect = document.querySelectorAll(".capaSelect");
 const addCapaButton = document.getElementById("addCapaButton");
 const deleteCapaButtons = document.querySelectorAll(".deleteCapaButton");
+const selectCampoColor = document.querySelectorAll(".selectCampoColor");
 //#endregion
 
 //#region LISTENERS
@@ -130,13 +131,16 @@ minimizar.addEventListener("click", expandirMenuControler); //Controlamos la exp
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
 addFilterButton.addEventListener("click", stateFilterControler); //Controlamos los htmls de los filtros
 addCapaButton.addEventListener("click", stateCapasControler); //Añadimos los htmls de las capas
-deleteCapaButtons.forEach((btn) => btn.addEventListener("click", stateCapasControler));
+deleteCapaButtons.forEach((btn) =>
+  btn.addEventListener("click", stateCapasControler)
+);
 capaSelect.forEach((select) =>
   select.addEventListener("click", stateCapasControler)
 );
+selectCampoColor.forEach((select) =>
+  select.addEventListener("change", updateCampoColor)
+);
 //#endregion
-
-
 
 //#region CONTROLADORES ASISTENTE DE CONFIGURACIÓN
 
@@ -306,7 +310,10 @@ function stepControler(e) {
 //Se llama desde los los botones del asistente de selección de capas y temas -->  Llama a CAPASCONTROLER() o a TEMACONTROLER() para (des)activar temas y capas
 function btnsControler(e) {
   //Comprobamos qué botón está llamando a la función
-  if (e.target.classList[0] === "representacion-btn" || e.target.classList[0] === "representacion-btn-active") {
+  if (
+    e.target.classList[0] === "representacion-btn" ||
+    e.target.classList[0] === "representacion-btn-active"
+  ) {
     //Al hacer click vemos le estado del botón
     if (e.target.classList[2] === "representacion-btn-active") {
       //Dectivamos el botón correspondiente y la capa correspondiente
@@ -317,7 +324,6 @@ function btnsControler(e) {
       e.target.classList.add("representacion-btn-active");
       capasControler(e.target.classList[1]);
     }
-
   } else if (e.target.classList[0] === "tema-btn") {
     //Desactivamos todos los botones
     temaBtns.forEach((btn) => {
@@ -333,18 +339,20 @@ function btnsControler(e) {
 }
 //#endregion
 
-
-
-
 //#region CONTROLADORES MENÚ
 
 //Se llama desde el nav del menú --> Desactiva los paneles y activa el panel que corresponda
 function panelControler(e) {
   //Si clicas en ul,span o nav se para ejecución
   //Se hace así porque el pointer-events: none; evita el click sobre los hijos del item y no lo queremos
-  if (e.target.tagName.toLowerCase() === "ul" || e.target.tagName.toLowerCase() === "span" || e.target.tagName.toLowerCase() === "nav" ||
+  if (
+    e.target.tagName.toLowerCase() === "ul" ||
+    e.target.tagName.toLowerCase() === "span" ||
+    e.target.tagName.toLowerCase() === "nav" ||
     e.target.tagName.toLowerCase() === "div"
-  ) { return; }
+  ) {
+    return;
+  }
 
   //Desactivamos todos los paneles
   paneles.forEach((panel) => {
@@ -370,9 +378,10 @@ function panelControler(e) {
   }
   //Desactivamos los marcadores de todas las opciones y activamos sobre la que se ha hecho clic
   for (let i = 0; i < e.target.parentNode.children.length; i++) {
-    e.target.parentNode.children[i].children[0].style.borderBottom = "2px solid var(--fondo)"
+    e.target.parentNode.children[i].children[0].style.borderBottom =
+      "2px solid var(--fondo)";
   }
-  e.target.children[0].style.borderBottom = "2px solid var(--azul)"
+  e.target.children[0].style.borderBottom = "2px solid var(--azul)";
 }
 //Se llama desde el nav del menú --> Controla la expansión del menú
 function expandirMenuControler(e) {
@@ -421,7 +430,7 @@ function capasControler(index, accion) {
     case "Calor3D": //Capa de calor 3D
       if (accion === "eliminar") {
         capaCalor3DProps.mostrar = false;
-        removeElementCapasActivas("Calor3D");;
+        removeElementCapasActivas("Calor3D");
       } else {
         capaCalor3DProps.mostrar = true;
         capasActivas.push("Calor3D");
@@ -475,13 +484,8 @@ function removeElementCapasActivas(elem) {
 
 //Se llama desde el botón de borrar capa, la hacer click sobre los selects y options y desde el asistente de config --> Ordena a capasControler qué capas añadir y eliminar
 function stateCapasControler(e) {
-  getValoresCampoColor(capaPuntosProps);
-
-  console.log(capaPuntosProps);
   //Si llamamos desde el asistente
   if (capasAsistente) {
-    console.log("Recibiendo llamada del asistente")
-
     //Desactivamos todas las cajas de capas
     for (let i = 0; i < 6; i++) {
       contenedorCapas.children[i].classList.remove("cajaCapaActive");
@@ -493,7 +497,8 @@ function stateCapasControler(e) {
         contenedorCapas.children[i].children[0].value = capasActivas[i];
 
         //Añadimos los options al select de seleccion campo para colores
-        contenedorCapas.children[i].children[1].innerHTML = options;
+        contenedorCapas.children[i].children[1].innerHTML =
+          "<option value=''></option>" + options;
       }
     }
   }
@@ -506,7 +511,8 @@ function stateCapasControler(e) {
         contenedorCapas.children[i].children[0].value = "";
 
         //Añadimos los options al select de seleccion campo para colores
-        contenedorCapas.children[i].children[1].innerHTML = options;
+        contenedorCapas.children[i].children[1].innerHTML =
+          "<option value=''></option>" + options;
         break;
       }
     }
@@ -518,16 +524,35 @@ function stateCapasControler(e) {
     capasControler(e.target.parentNode.children[0].value, "eliminar");
   }
 
-
   //Si hacemos click sobre el select borramos la capa que haya.
   if (e.target.tagName.toLowerCase() === "select" && e.target.value != "") {
     capasControler(e.target.value, "eliminar");
     console.log("valor para borrar " + e.target.value);
   }
   //Si click sobre el options ponemos la nueva
-  else if (e.target.tagName.toLowerCase() === "option" && e.target.value != "") {
+  else if (
+    e.target.tagName.toLowerCase() === "option" &&
+    e.target.value != ""
+  ) {
     console.log("valor para añadir " + e.target.value);
     capasControler(e.target.value);
+  }
+}
+
+//Se llama cuando cambia el valor del select
+function updateCampoColor(e) {
+  switch (e.target.parentNode.children[0].value) {
+    case "Puntos": //Capa de puntos
+      capaPuntosProps.campoColor = e.target.value;
+      getValoresCampoColor(capaPuntosProps);
+      break;
+    case "Chinchetas": //Capa de chichetas
+      capaChinchetasProps.campoColor = e.target.value;
+      getValoresCampoColor(capaChinchetasProps);
+      break;
+    default:
+      console.log("Esta capa no se puede colorear");
+      break;
   }
 }
 
@@ -556,19 +581,24 @@ function addHTMLFiltros() {
   }
 
   //Vaciamos. Si hemos elegido varios archivos de datos tendríamos varios filtros si no los vaciamos
-  contenedorFiltros.innerHTML = ""
+  contenedorFiltros.innerHTML = "";
   //Creamos todos los html de los filtros con los datos recuperados arriba
   for (let x = 0; x < nombreCampos.length; x++) {
     //Creamos el div con los options e input correctos
     //Si es el primero ponemos la clase cajaFiltroActive, a los demás no para que no aparezcan de primeras
     if (x == 0) {
-      div = ' <div class="cajaFiltro cajaFiltroActive">'
+      div = ' <div class="cajaFiltro cajaFiltroActive">';
     } else {
-      div = ' <div class="cajaFiltro">'
+      div = ' <div class="cajaFiltro">';
     }
     contenedorFiltros.innerHTML +=
-      div + '<select name="campos" class="filtroSelect">' + options + "</select>" +
-      input + "<button class='deleteFilter'> Borrar </button>" + "</div>";
+      div +
+      '<select name="campos" class="filtroSelect">' +
+      options +
+      "</select>" +
+      input +
+      "<button class='deleteFilter'> Borrar </button>" +
+      "</div>";
   }
 
   //Añadimos los listener a los select, a los botones
@@ -581,7 +611,9 @@ function addHTMLFiltros() {
   applyFilterBtn.forEach((btn) => btn.addEventListener("click", filterData));
 
   const deleteFilterBtn = document.querySelectorAll(".deleteFilter");
-  deleteFilterBtn.forEach((btn) => btn.addEventListener("click", stateFilterControler));
+  deleteFilterBtn.forEach((btn) =>
+    btn.addEventListener("click", stateFilterControler)
+  );
 }
 
 //Se llama al darle a añadir o borrar un filtro
@@ -597,7 +629,7 @@ function stateFilterControler(e) {
   }
   //Si llamamos desde el botón borrar filtro ocultamos el filtro y llamamos al filtrado para que actualice los datos
   else if (e.target.classList[0] === "deleteFilter") {
-    e.target.parentNode.classList.remove("cajaFiltroActive")
+    e.target.parentNode.classList.remove("cajaFiltroActive");
     filterData();
   }
 }
@@ -635,11 +667,16 @@ function typeOfInputControler(e) {
         //Mostramos el segundo
         input2.value = "";
         input2.style.display = "flex";
-
       }
       break;
 
-    default: console.log("El campo " + e.target.value + " es del tipo " + typeof data[0][e.target.value]);
+    default:
+      console.log(
+        "El campo " +
+          e.target.value +
+          " es del tipo " +
+          typeof data[0][e.target.value]
+      );
       break;
   }
 }
@@ -647,35 +684,50 @@ function typeOfInputControler(e) {
 //Se llama al hacer click en aplicar filtros
 function filterData() {
   //Antes de filtrar recuperamos todos los filtros
-  const cajasFiltros = document.querySelectorAll(".cajaFiltro")
+  const cajasFiltros = document.querySelectorAll(".cajaFiltro");
 
   var contadorFiltrosActivos = 0;
   filteredData = data;
   //Iteramos sobre los filtro para filtrar los datos según los filtros activos
-  cajasFiltros.forEach(cajaFiltro => {
+  cajasFiltros.forEach((cajaFiltro) => {
     if (cajaFiltro.classList.contains("cajaFiltroActive")) {
       contadorFiltrosActivos++;
       if (typeof data[0][cajaFiltro.children[0].value] === "number") {
-
-        if (cajaFiltro.children[1].value != "" && cajaFiltro.children[2].value != "") {
+        if (
+          cajaFiltro.children[1].value != "" &&
+          cajaFiltro.children[2].value != ""
+        ) {
           filteredData = filteredData.filter(
-            d => d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value
-              && d[cajaFiltro.children[0].value] <= cajaFiltro.children[2].value
+            (d) =>
+              d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value &&
+              d[cajaFiltro.children[0].value] <= cajaFiltro.children[2].value
           );
-        } else if (cajaFiltro.children[1].value == "" && cajaFiltro.children[2].value != "") {
-          filteredData = filteredData.filter(d => d[cajaFiltro.children[0].value] <= cajaFiltro.children[2].value);
-        } else if (cajaFiltro.children[2].value == "" && cajaFiltro.children[1].value != "") {
-          filteredData = filteredData.filter(d => d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value);
-        }
-        else {
+        } else if (
+          cajaFiltro.children[1].value == "" &&
+          cajaFiltro.children[2].value != ""
+        ) {
+          filteredData = filteredData.filter(
+            (d) =>
+              d[cajaFiltro.children[0].value] <= cajaFiltro.children[2].value
+          );
+        } else if (
+          cajaFiltro.children[2].value == "" &&
+          cajaFiltro.children[1].value != ""
+        ) {
+          filteredData = filteredData.filter(
+            (d) =>
+              d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value
+          );
+        } else {
           console.log("ERROR, AÑADE ALMENOS UN VALOR PARA FILTRAR");
         }
-
       } else {
         if (cajaFiltro.children[1].value !== "") {
-          filteredData = filteredData.filter(d => d[cajaFiltro.children[0].value] === cajaFiltro.children[1].value);
-          console.log('filtered data', filteredData);
-
+          filteredData = filteredData.filter(
+            (d) =>
+              d[cajaFiltro.children[0].value] === cajaFiltro.children[1].value
+          );
+          console.log("filtered data", filteredData);
         } else {
           console.log("ERROR, AÑADE UN VALOR PARA FILTRAR");
         }
@@ -756,8 +808,16 @@ function infoBoxControler(object) {
   const info = document.getElementById("info");
   if (object != null && object != "limpiarInfoBox") {
     info.innerHTML = "";
-    info.innerHTML = info.innerHTML + "<p id='numElems'>Representado " + filteredData.length + " elementos </p>" +
-      "<p>Coordenadas : [" + object[nombreCampoLat] + " , " + object[nombreCampoLon] + "]</p>";
+    info.innerHTML =
+      info.innerHTML +
+      "<p id='numElems'>Representado " +
+      filteredData.length +
+      " elementos </p>" +
+      "<p>Coordenadas : [" +
+      object[nombreCampoLat] +
+      " , " +
+      object[nombreCampoLon] +
+      "]</p>";
     //Iteramos sobre nombreCamposMostrar para mostrar la info que elija el user
     for (let i = 0; i < nombreCamposMostrar.length; i++) {
       if (
@@ -773,10 +833,13 @@ function infoBoxControler(object) {
           "</p>";
       }
     }
-  }
-  else {
+  } else {
     info.innerHTML = "";
-    info.innerHTML = info.innerHTML + "<p id='numElems'>Representado " + filteredData.length + " elementos </p>"
+    info.innerHTML =
+      info.innerHTML +
+      "<p id='numElems'>Representado " +
+      filteredData.length +
+      " elementos </p>";
   }
 }
 
@@ -831,11 +894,7 @@ function temasControler(e) {
 }
 //#endregion
 
-
-
-
 //#region CONTROLADORES DEL MAPA
-
 
 function stringToAscii(string) {
   let sum = 0;
@@ -846,31 +905,42 @@ function stringToAscii(string) {
 }
 
 function getValoresCampoColor(capaProps) {
-  for (let i = 0; i < filteredData.length; i++) {
-    let sum = stringToAscii(filteredData[i][capaProps.campoColor]);
+  //Vaciamos el array para que no se llene infinitamente
+  capaProps.arrayColores = [];
+  capaProps.valoresCamposColores = [];
 
-    //Si no existe en el array lo metemos con push
-    if (capaProps.valoresCamposColores.indexOf(sum) === -1) {
-      capaProps.valoresCamposColores.push(sum);
-      console.log("new color");
-      capaProps.arrayColores.push(
-        [Math.floor(Math.random() * 255),
-        Math.floor(Math.random() * 255),
-        Math.floor(Math.random() * 255), 200]
-      );
+  if (capaProps.campoColor != "") {
+    for (let i = 0; i < filteredData.length; i++) {
+      let sum = stringToAscii(filteredData[i][capaProps.campoColor]);
+
+      //Si no existe en el array lo metemos con push
+      if (capaProps.valoresCamposColores.indexOf(sum) === -1) {
+        capaProps.valoresCamposColores.push(sum);
+        console.log("new color");
+        capaProps.arrayColores.push([
+          Math.floor(Math.random() * 255),
+          Math.floor(Math.random() * 255),
+          Math.floor(Math.random() * 255),
+          200,
+        ]);
+      }
     }
   }
+
+  //Cuando tenemos el valor del campo calor y los colores preparados redibujamos el mapa
+  //Y el constructor de la capa llamará a getColors para redibujar
+  updateLayers();
 }
 
-var show = true;
 function getColors(d, capaProps) {
+  if (capaProps.campoColor == "") {
+    return [255, 0, 102];
+  }
   for (let i = 0; i < capaProps.valoresCamposColores.length; i++) {
-    if (i == 2 && show) {
-      show = false;
-      console.log("asci en array valores Campos ", stringToAscii(d[capaProps.campoColor]));
-      console.log("asci  ", capaProps.valoresCamposColores[i]);
-    }
-    if (stringToAscii(d[capaProps.campoColor]) === capaProps.valoresCamposColores[i]) {
+    if (
+      stringToAscii(d[capaProps.campoColor]) ===
+      capaProps.valoresCamposColores[i]
+    ) {
       return capaProps.arrayColores[i];
     }
   }
@@ -893,9 +963,8 @@ function crearCapas() {
         lastObjectHovered = object;
         infoBoxControler(object);
       }
-    }
-  },
-  );
+    },
+  });
 
   const ICON_MAPPING = {
     marker: { x: 0, y: 0, width: 128, height: 128, mask: true },
@@ -910,7 +979,7 @@ function crearCapas() {
     getIcon: (d) => "marker",
     getSize: (d) => 30,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
-    getColor: (d) => [255, 0, 102],
+    getColor: (d) => getColors(d, capaChinchetasProps),
     pickable: true,
     onHover: ({ object }) => {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
