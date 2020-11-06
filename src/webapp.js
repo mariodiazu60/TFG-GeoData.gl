@@ -494,10 +494,10 @@ function stateCapasControler(e) {
     for (let i = 0; i < capasActivas.length; i++) {
       if (contenedorCapas.children[i].classList[1] === undefined) {
         contenedorCapas.children[i].classList.add("cajaCapaActive");
-        contenedorCapas.children[i].children[0].value = capasActivas[i];
+        contenedorCapas.children[i].children[1].value = capasActivas[i];
 
         //Añadimos los options al select de seleccion campo para colores
-        contenedorCapas.children[i].children[1].innerHTML =
+        contenedorCapas.children[i].children[3].innerHTML =
           "<option value=''></option>" + options;
       }
     }
@@ -509,10 +509,10 @@ function stateCapasControler(e) {
       for (let i = 0; i < 6; i++) {
         if (contenedorCapas.children[i].classList[1] === undefined) {
           contenedorCapas.children[i].classList.add("cajaCapaActive");
-          contenedorCapas.children[i].children[0].value = "";
+          contenedorCapas.children[i].children[1].value = "";
 
           //Añadimos los options al select de seleccion campo para colores
-          contenedorCapas.children[i].children[1].innerHTML =
+          contenedorCapas.children[i].children[3].innerHTML =
             "<option value=''></option>" + options;
           break;
         }
@@ -522,7 +522,7 @@ function stateCapasControler(e) {
     //Si llamamos desde el btn borrar capa: ocultamos el html, llamamos a capasControler para apagar la capa y actualizamos el mapa
     if (e.target.classList[0] === "deleteCapaButton") {
       e.target.parentNode.classList.remove("cajaCapaActive");
-      capasControler(e.target.parentNode.children[0].value, "eliminar");
+      capasControler(e.target.parentNode.children[1].value, "eliminar");
     }
 
     //Si hacemos click sobre el select borramos la capa que haya.
@@ -543,7 +543,7 @@ function stateCapasControler(e) {
 
 //Se llama cuando cambia el valor del select
 function updateCampoColor(e) {
-  switch (e.target.parentNode.children[0].value) {
+  switch (e.target.parentNode.children[1].value) {
     case "Puntos": //Capa de puntos
       capaPuntosProps.campoColor = e.target.value;
       getValoresCampoColor(capaPuntosProps);
