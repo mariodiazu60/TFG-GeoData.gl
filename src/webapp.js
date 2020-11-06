@@ -32,11 +32,11 @@ map.addControl(
 );
 //Objetos para guardar los props de cada capa
 var capaPuntosProps = {
-    mostrar: false,
-    campoColor: "", //Campo por el que colorear
-    valoresCamposColores: [], //Distintos valores del campo a colorear
-    arrayColores: [],
-  },
+  mostrar: false,
+  campoColor: "", //Campo por el que colorear
+  valoresCamposColores: [], //Distintos valores del campo a colorear
+  arrayColores: [],
+},
   capaChinchetasProps = {
     mostrar: false,
     campoColor: "", //Campo por el que colorear
@@ -503,39 +503,41 @@ function stateCapasControler(e) {
     }
   }
 
-  //Si el elemento que llama a la func. es el botón de add capa añadimos el html
-  if (e.target.id === "addCapaButton") {
-    for (let i = 0; i < 6; i++) {
-      if (contenedorCapas.children[i].classList[1] === undefined) {
-        contenedorCapas.children[i].classList.add("cajaCapaActive");
-        contenedorCapas.children[i].children[0].value = "";
+  if (e != undefined) {
+    //Si el elemento que llama a la func. es el botón de add capa añadimos el html
+    if (e.target.id === "addCapaButton") {
+      for (let i = 0; i < 6; i++) {
+        if (contenedorCapas.children[i].classList[1] === undefined) {
+          contenedorCapas.children[i].classList.add("cajaCapaActive");
+          contenedorCapas.children[i].children[0].value = "";
 
-        //Añadimos los options al select de seleccion campo para colores
-        contenedorCapas.children[i].children[1].innerHTML =
-          "<option value=''></option>" + options;
-        break;
+          //Añadimos los options al select de seleccion campo para colores
+          contenedorCapas.children[i].children[1].innerHTML =
+            "<option value=''></option>" + options;
+          break;
+        }
       }
     }
-  }
 
-  //Si llamamos desde el btn borrar capa: ocultamos el html, llamamos a capasControler para apagar la capa y actualizamos el mapa
-  if (e.target.classList[0] === "deleteCapaButton") {
-    e.target.parentNode.classList.remove("cajaCapaActive");
-    capasControler(e.target.parentNode.children[0].value, "eliminar");
-  }
+    //Si llamamos desde el btn borrar capa: ocultamos el html, llamamos a capasControler para apagar la capa y actualizamos el mapa
+    if (e.target.classList[0] === "deleteCapaButton") {
+      e.target.parentNode.classList.remove("cajaCapaActive");
+      capasControler(e.target.parentNode.children[0].value, "eliminar");
+    }
 
-  //Si hacemos click sobre el select borramos la capa que haya.
-  if (e.target.tagName.toLowerCase() === "select" && e.target.value != "") {
-    capasControler(e.target.value, "eliminar");
-    console.log("valor para borrar " + e.target.value);
-  }
-  //Si click sobre el options ponemos la nueva
-  else if (
-    e.target.tagName.toLowerCase() === "option" &&
-    e.target.value != ""
-  ) {
-    console.log("valor para añadir " + e.target.value);
-    capasControler(e.target.value);
+    //Si hacemos click sobre el select borramos la capa que haya.
+    if (e.target.tagName.toLowerCase() === "select" && e.target.value != "") {
+      capasControler(e.target.value, "eliminar");
+      console.log("valor para borrar " + e.target.value);
+    }
+    //Si click sobre el options ponemos la nueva
+    else if (
+      e.target.tagName.toLowerCase() === "option" &&
+      e.target.value != ""
+    ) {
+      console.log("valor para añadir " + e.target.value);
+      capasControler(e.target.value);
+    }
   }
 }
 
@@ -570,7 +572,7 @@ function addHTMLFiltros() {
   for (let key in data[0]) {
     switch (typeof data[0][key]) {
       case "string":
-        input = '<input type="text" class="inputFilter text">';
+        input = '<input type="text" class="inputFilter text"> <input type="number" placeholder="Máximo"  id="1" class="inputFilter number" step=0.001 style="display:none">';
         break;
       case "number":
         input =
@@ -636,6 +638,7 @@ function stateFilterControler(e) {
 
 //Se llama al cambiar de option en los selects del filtro
 function typeOfInputControler(e) {
+
   var input1 = e.target.parentNode.children[1];
   var input2 = e.target.parentNode.children[2];
   //Ver el tipeof del value del select
@@ -673,9 +676,9 @@ function typeOfInputControler(e) {
     default:
       console.log(
         "El campo " +
-          e.target.value +
-          " es del tipo " +
-          typeof data[0][e.target.value]
+        e.target.value +
+        " es del tipo " +
+        typeof data[0][e.target.value]
       );
       break;
   }
