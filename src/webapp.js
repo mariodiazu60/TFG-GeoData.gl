@@ -35,7 +35,7 @@ var capaPuntosProps = {
   mostrar: false,
   campoColor: "", //Campo por el que colorear
   valoresCamposColores: [], //Distintos valores del campo a colorear
-  arrayColores: [],
+  arrayColores: [], //Array de colores para cada valor 
 },
   capaChinchetasProps = {
     mostrar: false,
@@ -530,12 +530,22 @@ function stateCapasControler(e) {
       capasControler(e.target.value, "eliminar");
       console.log("valor para borrar " + e.target.value);
     }
-    //Si click sobre el options ponemos la nueva
+    //Si click sobre el options ponemos la capa nueva y copiamos el array de colores y valores de una capa a otra
     else if (
       e.target.tagName.toLowerCase() === "option" &&
       e.target.value != ""
     ) {
-      console.log("valor para añadir " + e.target.value);
+      if (e.target.value === "Puntos") {
+        capaPuntosProps.valoresCamposColores = capaChinchetas.valoresCamposColores;
+        capaPuntosProps.arrayColores = capaChinchetas.arrayColores;
+      }
+      else if (e.target.value === "Chinchetas") {
+        capaChinchetas.valoresCamposColores = capaPuntosProps.valoresCamposColores;
+        capaChinchetas.arrayColores = capaPuntosProps.arrayColores;
+      }
+      console.log(e.target.parentNode.parentNode.children[3]);
+      //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
+      updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
       capasControler(e.target.value);
     }
   }
@@ -543,6 +553,7 @@ function stateCapasControler(e) {
 
 //Se llama cuando cambia el valor del select
 function updateCampoColor(e) {
+  console.log(e);
   switch (e.target.parentNode.children[1].value) {
     case "Puntos": //Capa de puntos
       capaPuntosProps.campoColor = e.target.value;
@@ -899,10 +910,14 @@ function temasControler(e) {
 
 //#region CONTROLADORES DEL MAPA
 
-function stringToAscii(string) {
+function toAscii(value) {
   let sum = 0;
-  for (let i = 0; i < string.length; i++) {
-    sum += string.charCodeAt(i);
+  //Si el valor no es un string, lo pasamos a string para poder convertirlo a ascii
+  if (typeof value != 'string') {
+    value = value.toString();
+  }
+  for (let i = 0; i < value.length; i++) {
+    sum += value.charCodeAt(i);
   }
   return sum;
 }
@@ -914,7 +929,7 @@ function getValoresCampoColor(capaProps) {
 
   if (capaProps.campoColor != "") {
     for (let i = 0; i < filteredData.length; i++) {
-      let sum = stringToAscii(filteredData[i][capaProps.campoColor]);
+      let sum = toAscii(filteredData[i][capaProps.campoColor]);
 
       //Si no existe en el array lo metemos con push
       if (capaProps.valoresCamposColores.indexOf(sum) === -1) {
@@ -941,7 +956,7 @@ function getColors(d, capaProps) {
   }
   for (let i = 0; i < capaProps.valoresCamposColores.length; i++) {
     if (
-      stringToAscii(d[capaProps.campoColor]) ===
+      toAscii(d[capaProps.campoColor]) ===
       capaProps.valoresCamposColores[i]
     ) {
       return capaProps.arrayColores[i];
