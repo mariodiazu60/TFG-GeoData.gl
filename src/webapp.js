@@ -135,12 +135,14 @@ expandir.addEventListener("click", expandirMenuControler); //Controlamos la expa
 minimizar.addEventListener("click", expandirMenuControler); //Controlamos la expansión del menú (web app)
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
 addFilterButton.addEventListener("click", stateFilterControler); //Controlamos los htmls de los filtros
-addCapaButton.addEventListener("click", stateCapasControler); //Añadimos los htmls de las capas
+
+
+addCapaButton.addEventListener("click", capasHTMLAction); //Añadimos los htmls de las capas
 deleteCapaButtons.forEach((btn) =>
-  btn.addEventListener("click", stateCapasControler)
+  btn.addEventListener("click", capasHTMLAction)
 );
 capaSelect.forEach((select) =>
-  select.addEventListener("click", stateCapasControler)
+  select.addEventListener("change", switchCapas)
 );
 selectCampoColor.forEach((select) =>
   select.addEventListener("change", updateCampoColor)
@@ -413,7 +415,7 @@ function expandirMenuControler(e) {
   }
 }
 
-//Se llama desde BTNSCONTROLER() o desde STATECAPASCONTROLER() --> Controla la activación y desactivación de las capas
+//Se llama desde BTNSCONTROLER() o desde capasHTMLAction() --> Controla la activación y desactivación de las capas
 function capasControler(index, accion) {
   //Según el index activamos o desactivamos la capa que toque
   switch (index) {
@@ -475,9 +477,9 @@ function capasControler(index, accion) {
       break;
   }
 
-  //Si es la primera vez lo indicamos a stateCapasControler para generar los controles en la interfaz en el panel de capas
+  //Si es la primera vez lo indicamos a capasHTMLAction para generar los controles en la interfaz en el panel de capas
   if (capasAsistente) {
-    stateCapasControler();
+    capasHTMLAction();
   }
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
@@ -490,8 +492,8 @@ function removeElementCapasActivas(elem) {
   }
 }
 
-//Se llama desde el botón de borrar capa, la hacer click sobre los selects y options y desde el asistente de config --> Ordena a capasControler qué capas añadir y eliminar
-function stateCapasControler(e) {
+//Se llama desde el botón de borrar/añadir capa, desde el asistente de config --> Cambia la interfaz según lsa capas activas
+function capasHTMLAction(e) {
   //Si llamamos desde el asistente
   if (capasAsistente) {
     //Desactivamos todas las cajas de capas
@@ -534,36 +536,39 @@ function stateCapasControler(e) {
       e.target.parentNode.classList.remove("cajaCapaActive");
       capasControler(e.target.parentNode.children[1].value, "eliminar");
     }
+  }
+  HTMLCapasBuilder();
+}
 
-    //Si hacemos click sobre el select borramos la capa que haya.
-    if (e.target.tagName.toLowerCase() === "select" && e.target.value != "") {
-      capasControler(e.target.value, "eliminar");
-      console.log("valor para borrar " + e.target.value);
-    }
-    //Si click sobre el options ponemos la capa nueva y copiamos el array de colores y valores de una capa a otra
-    else if (
-      e.target.tagName.toLowerCase() === "option" &&
-      e.target.value != ""
-    ) {
+//Esta forma es mucho más ineficiente que la primera vesrión pero es la única que se me ocurre porque chrome no acepta eventos en los <option> :(
+function switchCapas(e) {
+
+  //Borramos las capa que estuvieran previamente activas
+  capasControler("Puntos", "eliminar");
+  capasControler("Chinchetas", "eliminar");
+  capasControler("Calor", "eliminar");
+  capasControler("Calor3D", "eliminar");
+  capasControler("Hexagonos", "eliminar");
+  capasControler("Caminos", "eliminar");
+
+  //Activamos las capas que deban estar activas
+  for (let i = 0; i < 6; i++) {
+    if (contenedorCapas.children[i].classList[1] === "cajaCapaActive") {
       if (e.target.value === "Puntos") {
-        capaPuntos.valoresCamposColores = capaChinchetas.valoresCamposColores;
         //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
         updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
       }
       else if (e.target.value === "Chinchetas") {
-        capaChinchetas.valoresCamposColores = capaPuntos.valoresCamposColores;
         //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
         updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
       }
-      capasControler(e.target.value);
+      capasControler(contenedorCapas.children[i].children[1].value);
     }
   }
-
-  HTMLCapasControler();
+  HTMLCapasBuilder();
 }
-
-//Se desde llama stateCapasControler. Se encarga de mostrar el HTML correcto para cada tipo de capa
-function HTMLCapasControler() {
+//Se desde llama capasHTMLAction. Se encarga de mostrar el HTML correcto para cada tipo de capa
+function HTMLCapasBuilder() {
   for (let i = 0; i < 6; i++) {
 
     //Agregamos o quitamos campos dependiendo del tipo de capa
