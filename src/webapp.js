@@ -46,6 +46,7 @@ var capaPuntos = {
     campoColor: "", //Campo por el que colorear
     valoresCamposColores: [], //Distintos valores del campo a colorear
     arrayColores: [],
+    tam: 20,
   },
   capaCalor3D = {
     capa: "",
@@ -546,13 +547,11 @@ function stateCapasControler(e) {
     ) {
       if (e.target.value === "Puntos") {
         capaPuntos.valoresCamposColores = capaChinchetas.valoresCamposColores;
-        capaPuntos.arrayColores = capaChinchetas.arrayColores;
         //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
         updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
       }
       else if (e.target.value === "Chinchetas") {
         capaChinchetas.valoresCamposColores = capaPuntos.valoresCamposColores;
-        capaChinchetas.arrayColores = capaPuntos.arrayColores;
         //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
         updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
       }
@@ -586,9 +585,11 @@ function HTMLCapasControler() {
         //select campo color
         contenedorCapas.children[i].children[3].style = "display:block";
         //p tamaño puntos
-        contenedorCapas.children[i].children[4].style = "display:none";
+        contenedorCapas.children[i].children[4].style = "display:block";
         //input tamaño puntos
-        contenedorCapas.children[i].children[5].style = "display:none";
+        contenedorCapas.children[i].children[5].style = "display:block";
+        contenedorCapas.children[i].children[5].value = "20";
+        contenedorCapas.children[i].children[5].max = "30";
         break;
 
       case "Hexagono":
@@ -1094,7 +1095,7 @@ function crearCapas() {
       "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
     iconMapping: ICON_MAPPING,
     getIcon: (d) => "marker",
-    getSize: (d) => 30,
+    getSize: (d) => 20,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     getColor: (d) => getColors(d, capaChinchetas),
     pickable: true,

@@ -30,7 +30,7 @@ body {
   background-color: #3f4359;
 }
 
-select {
+select, input {
   background: var(--fondo);
   padding: 0.1rem;
   color: white;
@@ -185,9 +185,10 @@ ul {
   height: 50%;
   text-align: center;
   margin: 0 auto;
-  padding-top: 4rem;
+  padding-top: 2.5rem;
   border: dashed white 1px;
   transition: .5s;
+  cursor: pointer;
 }
 #inputArchivo:hover, #inputArchivo:focus {
   border: solid 1px white;
@@ -466,11 +467,36 @@ li > button {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 30%;
+  width: 16%;
   border: 1px solid var(--white);
-  padding: 1rem 0.5rem;
+  padding: 0.5rem;
   margin: 0.5rem;
   align-items: flex-start;
+}
+
+.cajaCapaActive > select, .cajaCapaActive > input{
+  width: 100%;
+  padding: 0.25rem;
+  height: 10%;
+} 
+
+.cajaCapaActive>p{
+  padding: 0.6rem 0 .4rem 0;
+  font-size: 1.05rem;
+}
+
+.cajaCapaActive> button{
+    font-size: 1.2rem;
+    width: 100%;
+    height: auto;
+    margin-top: .5rem;
+    font-family: "Barlow Medium";
+    background-color: var(--rojo);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
 }
 /*ESTILO PANEL CAPAS*/
 
