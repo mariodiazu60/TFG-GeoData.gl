@@ -30,29 +30,37 @@ map.addControl(
   }),
   "top-left"
 );
+
 //Objetos para guardar los props de cada capa
-var capaPuntosProps = {
+var capaPuntos = {
+  capa: "",
   mostrar: false,
   campoColor: "", //Campo por el que colorear
   valoresCamposColores: [], //Distintos valores del campo a colorear
   arrayColores: [], //Array de colores para cada valor 
+  tam: 3,
 },
-  capaChinchetasProps = {
+  capaChinchetas = {
+    capa: "",
     mostrar: false,
     campoColor: "", //Campo por el que colorear
     valoresCamposColores: [], //Distintos valores del campo a colorear
     arrayColores: [],
   },
-  capaCalor3DProps = {
+  capaCalor3D = {
+    capa: "",
     mostrar: false,
   },
-  capaCalorProps = {
+  capaCalor = {
+    capa: "",
     mostrar: false,
   },
-  capaHexProps = {
+  ccapaHex = {
+    capa: "",
     mostrar: false,
   },
-  capaCaminosProps = {
+  capaCaminos = {
+    capa: "",
     mostrar: false,
   };
 
@@ -62,11 +70,6 @@ var capaPuntosProps = {
 var data; //Aquí guardamos el contenido del archivo en forma de json
 var filteredData; //Aquí guardamos el contenido del archivo en forma de json
 var capasActivas = []; //Array con las capas activas en cada momento
-var capaPuntos = ""; //Var para guardar la capa de puntos
-var capaChinchetas = ""; //Var para guardar la capa de chinchetas
-var capaCalor3D = ""; //Var para guardar la capa de calor 3D
-var capaCalor = ""; //Var para guardar la capa de calor
-var capaHex = ""; //Var para guardar la capa de hex
 var nombreCampoLat = ""; //Aquí guardamos el nombre del campo de la lat
 var nombreCampoLon = ""; //Aquí guardamos el nombre del campo de la lon
 var nombreCampos = []; //Nos guardamos el nombre de todos los campos del archivo
@@ -114,6 +117,7 @@ const capaSelect = document.querySelectorAll(".capaSelect");
 const addCapaButton = document.getElementById("addCapaButton");
 const deleteCapaButtons = document.querySelectorAll(".deleteCapaButton");
 const selectCampoColor = document.querySelectorAll(".selectCampoColor");
+const inputTamPuntos = document.querySelectorAll(".tamPuntos");
 //#endregion
 
 //#region LISTENERS
@@ -139,6 +143,9 @@ capaSelect.forEach((select) =>
 );
 selectCampoColor.forEach((select) =>
   select.addEventListener("change", updateCampoColor)
+);
+inputTamPuntos.forEach((input) =>
+  input.addEventListener("change", updateCampoTam)
 );
 //#endregion
 
@@ -411,55 +418,55 @@ function capasControler(index, accion) {
   switch (index) {
     case "Puntos": //Capa de puntos
       if (accion === "eliminar") {
-        capaPuntosProps.mostrar = false;
+        capaPuntos.mostrar = false;
         removeElementCapasActivas("Puntos");
       } else {
-        capaPuntosProps.mostrar = true;
+        capaPuntos.mostrar = true;
         capasActivas.push("Puntos");
       }
       break;
     case "Chinchetas": //Capa de chichetas
       if (accion === "eliminar") {
-        capaChinchetasProps.mostrar = false;
+        capaChinchetas.mostrar = false;
         removeElementCapasActivas("Chinchetas");
       } else {
-        capaChinchetasProps.mostrar = true;
+        capaChinchetas.mostrar = true;
         capasActivas.push("Chinchetas");
       }
       break;
     case "Calor3D": //Capa de calor 3D
       if (accion === "eliminar") {
-        capaCalor3DProps.mostrar = false;
+        capaCalor3D.mostrar = false;
         removeElementCapasActivas("Calor3D");
       } else {
-        capaCalor3DProps.mostrar = true;
+        capaCalor3D.mostrar = true;
         capasActivas.push("Calor3D");
       }
       break;
     case "Calor": //Capa de calor
       if (accion === "eliminar") {
-        capaCalorProps.mostrar = false;
+        capaCalor.mostrar = false;
         removeElementCapasActivas("Calor");
       } else {
-        capaCalorProps.mostrar = true;
+        capaCalor.mostrar = true;
         capasActivas.push("Calor");
       }
       break;
     case "Hexagono": //Capa de hexágonos
       if (accion === "eliminar") {
-        capaHexProps.mostrar = false;
+        ccapaHex.mostrar = false;
         removeElementCapasActivas("Hexagonos");
       } else {
-        capaHexProps.mostrar = true;
+        ccapaHex.mostrar = true;
         capasActivas.push("Hexagonos");
       }
       break;
     case "Caminos": //Capa de caminos
       if (accion === "eliminar") {
-        capaCaminosProps.mostrar = false;
+        capaCaminos.mostrar = false;
         removeElementCapasActivas("Caminos");
       } else {
-        capaCaminosProps.mostrar = true;
+        capaCaminos.mostrar = true;
         capasActivas.push("Caminos");
       }
       break;
@@ -499,6 +506,8 @@ function stateCapasControler(e) {
         //Añadimos los options al select de seleccion campo para colores
         contenedorCapas.children[i].children[3].innerHTML =
           "<option value=''></option>" + options;
+
+
       }
     }
   }
@@ -536,38 +545,128 @@ function stateCapasControler(e) {
       e.target.value != ""
     ) {
       if (e.target.value === "Puntos") {
-        capaPuntosProps.valoresCamposColores = capaChinchetas.valoresCamposColores;
-        capaPuntosProps.arrayColores = capaChinchetas.arrayColores;
+        capaPuntos.valoresCamposColores = capaChinchetas.valoresCamposColores;
+        capaPuntos.arrayColores = capaChinchetas.arrayColores;
+        //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
+        updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
       }
       else if (e.target.value === "Chinchetas") {
-        capaChinchetas.valoresCamposColores = capaPuntosProps.valoresCamposColores;
-        capaChinchetas.arrayColores = capaPuntosProps.arrayColores;
+        capaChinchetas.valoresCamposColores = capaPuntos.valoresCamposColores;
+        capaChinchetas.arrayColores = capaPuntos.arrayColores;
+        //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
+        updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
       }
-      console.log(e.target.parentNode.parentNode.children[3]);
-      //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
-      updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
       capasControler(e.target.value);
     }
   }
+
+  HTMLCapasControler();
 }
+
+//Se desde llama stateCapasControler. Se encarga de mostrar el HTML correcto para cada tipo de capa
+function HTMLCapasControler() {
+  for (let i = 0; i < 6; i++) {
+
+    //Agregamos o quitamos campos dependiendo del tipo de capa
+    switch (contenedorCapas.children[i].children[1].value) {
+      case "Puntos":
+        //p campo color
+        contenedorCapas.children[i].children[2].style = "display:block";
+        //select campo color
+        contenedorCapas.children[i].children[3].style = "display:block";
+        //p tamaño puntos
+        contenedorCapas.children[i].children[4].style = "display:block";
+        //input tamaño puntos
+        contenedorCapas.children[i].children[5].style = "display:block";
+        break;
+
+      case "Chinchetas":
+        //p campo color
+        contenedorCapas.children[i].children[2].style = "display:block";
+        //select campo color
+        contenedorCapas.children[i].children[3].style = "display:block";
+        //p tamaño puntos
+        contenedorCapas.children[i].children[4].style = "display:none";
+        //input tamaño puntos
+        contenedorCapas.children[i].children[5].style = "display:none";
+        break;
+
+      case "Hexagono":
+        //p campo color
+        contenedorCapas.children[i].children[2].style = "display:none";
+        //select campo color
+        contenedorCapas.children[i].children[3].style = "display:none";
+        //p tamaño puntos
+        contenedorCapas.children[i].children[4].style = "display:none";
+        //input tamaño puntos
+        contenedorCapas.children[i].children[5].style = "display:none";
+        break;
+
+      case "Caminos":
+        //p campo color
+        contenedorCapas.children[i].children[2].style = "display:none";
+        //select campo color
+        contenedorCapas.children[i].children[3].style = "display:none";
+        //p tamaño puntos
+        contenedorCapas.children[i].children[4].style = "display:none";
+        //input tamaño puntos
+        contenedorCapas.children[i].children[5].style = "display:none";
+        break;
+
+      //Calor y calor3D van al default porque no tienen personalización
+      default:
+        //p campo color
+        contenedorCapas.children[i].children[2].style = "display:none";
+        //select campo color
+        contenedorCapas.children[i].children[3].style = "display:none";
+        //p tamaño puntos
+        contenedorCapas.children[i].children[4].style = "display:none";
+        //input tamaño puntos
+        contenedorCapas.children[i].children[5].style = "display:none";
+        break;
+    }
+
+    //Descativamos el valor de los options del select de los tipo de representación que que ya están activas
+    for (let x = 0; x < 6; x++) {
+      if (capasActivas.indexOf(contenedorCapas.children[i].children[1].children[x].value) === -1) {
+        contenedorCapas.children[i].children[1].children[x].style = "display:inline";
+      } else {
+        contenedorCapas.children[i].children[1].children[x].style = "display:none";
+      }
+    }
+  }
+}
+
+//#region FUNCS PARA UPDATEAR VALORES DE CAPAS
+
+
 
 //Se llama cuando cambia el valor del select
 function updateCampoColor(e) {
   console.log(e);
   switch (e.target.parentNode.children[1].value) {
     case "Puntos": //Capa de puntos
-      capaPuntosProps.campoColor = e.target.value;
-      getValoresCampoColor(capaPuntosProps);
+      capaPuntos.campoColor = e.target.value;
+      getValoresCampoColor(capaPuntos);
       break;
     case "Chinchetas": //Capa de chichetas
-      capaChinchetasProps.campoColor = e.target.value;
-      getValoresCampoColor(capaChinchetasProps);
+      capaChinchetas.campoColor = e.target.value;
+      getValoresCampoColor(capaChinchetas);
       break;
     default:
       console.log("Esta capa no se puede colorear");
       break;
   }
 }
+
+function updateCampoTam(e) {
+  capaPuntos.tam = e.target.value;
+  capaPuntos.capa.props.radiusMinPixels = e.target.value;
+  updateLayers();
+}
+//#endregion
+
+
 
 //Se llama al leer el nombre de los campos del archivo para generar el html necesario
 function addHTMLFiltros() {
@@ -931,7 +1030,7 @@ function getValoresCampoColor(capaProps) {
     for (let i = 0; i < filteredData.length; i++) {
       let sum = toAscii(filteredData[i][capaProps.campoColor]);
 
-      //Si no existe en el array lo metemos con push
+      //Si no existe el valor en el array lo metemos con push
       if (capaProps.valoresCamposColores.indexOf(sum) === -1) {
         capaProps.valoresCamposColores.push(sum);
         console.log("new color");
@@ -954,6 +1053,7 @@ function getColors(d, capaProps) {
   if (capaProps.campoColor == "") {
     return [255, 0, 102];
   }
+
   for (let i = 0; i < capaProps.valoresCamposColores.length; i++) {
     if (
       toAscii(d[capaProps.campoColor]) ===
@@ -966,14 +1066,13 @@ function getColors(d, capaProps) {
 
 function crearCapas() {
   //Capa de puntos
-  capaPuntos = new MapboxLayer({
+  capaPuntos.capa = new MapboxLayer({
     id: "points",
     type: ScatterplotLayer,
     data: filteredData,
-    radiusMinPixels: 3,
-    radiusMaxPixels: 7,
+    radiusMinPixels: capaPuntos.tam,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
-    getFillColor: (d) => getColors(d, capaPuntosProps),
+    getFillColor: (d) => getColors(d, capaPuntos),
     pickable: true,
     onHover: ({ object }) => {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
@@ -987,7 +1086,7 @@ function crearCapas() {
   const ICON_MAPPING = {
     marker: { x: 0, y: 0, width: 128, height: 128, mask: true },
   };
-  capaChinchetas = new MapboxLayer({
+  capaChinchetas.capa = new MapboxLayer({
     id: "icon-layer",
     type: IconLayer,
     data: filteredData,
@@ -997,7 +1096,7 @@ function crearCapas() {
     getIcon: (d) => "marker",
     getSize: (d) => 30,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
-    getColor: (d) => getColors(d, capaChinchetasProps),
+    getColor: (d) => getColors(d, capaChinchetas),
     pickable: true,
     onHover: ({ object }) => {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
@@ -1008,7 +1107,7 @@ function crearCapas() {
     },
   });
 
-  capaCalor3D = new MapboxLayer({
+  capaCalor3D.capa = new MapboxLayer({
     id: "heat3D",
     type: GridLayer,
     data: filteredData,
@@ -1018,7 +1117,7 @@ function crearCapas() {
     elevationScale: 10,
     colorDomain: [1, 100],
     opacity: 0.6,
-    coverage: 0.75,
+    coverage: 0.9,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     onHover: ({ object, x, y }) => {
       const info = document.getElementById("info");
@@ -1043,7 +1142,7 @@ function crearCapas() {
     },
   });
 
-  capaCalor = new MapboxLayer({
+  capaCalor.capa = new MapboxLayer({
     id: "heat",
     type: HeatmapLayer,
     data: filteredData,
@@ -1051,7 +1150,7 @@ function crearCapas() {
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
   });
 
-  capaHex = new MapboxLayer({
+  ccapaHex.capa = new MapboxLayer({
     id: "hex",
     data: filteredData,
     type: HexagonLayer,
@@ -1067,59 +1166,59 @@ function crearCapas() {
   });
 }
 map.on("styledata", () => {
-  if (capaPuntosProps.mostrar) {
-    map.addLayer(capaPuntos);
+  if (capaPuntos.mostrar) {
+    map.addLayer(capaPuntos.capa);
   }
-  if (capaChinchetasProps.mostrar) {
-    map.addLayer(capaChinchetas);
+  if (capaChinchetas.mostrar) {
+    map.addLayer(capaChinchetas.capa);
   }
-  if (capaCalor3DProps.mostrar) {
-    map.addLayer(capaCalor3D);
+  if (capaCalor3D.mostrar) {
+    map.addLayer(capaCalor3D.capa);
   }
-  if (capaCalorProps.mostrar) {
-    map.addLayer(capaCalor);
+  if (capaCalor.mostrar) {
+    map.addLayer(capaCalor.capa);
   }
   if (!map.getLayer("hex")) {
-    //  map.addLayer(capaHex);
+    //  map.addLayer(ccapaHex.capa);
   }
 });
 
 function updateLayers() {
-  if (capaPuntosProps.mostrar) {
+  if (capaPuntos.mostrar) {
     //Actualizamos el prop data con filteredData, borramos la capa y la redibujamos
-    capaPuntos.props.data = filteredData;
+    capaPuntos.capa.props.data = filteredData;
     map.removeLayer("points");
-    map.addLayer(capaPuntos);
+    map.addLayer(capaPuntos.capa);
   } else {
     if (map.getLayer("points")) {
       map.removeLayer("points");
     }
   }
 
-  if (capaChinchetasProps.mostrar) {
-    capaChinchetas.props.data = filteredData;
+  if (capaChinchetas.mostrar) {
+    capaChinchetas.capa.props.data = filteredData;
     map.removeLayer("icon-layer");
-    map.addLayer(capaChinchetas);
+    map.addLayer(capaChinchetas.capa);
   } else {
     if (map.getLayer("icon-layer")) {
       map.removeLayer("icon-layer");
     }
   }
 
-  if (capaCalor3DProps.mostrar) {
-    capaCalor3D.props.data = filteredData;
+  if (capaCalor3D.mostrar) {
+    capaCalor3D.capa.props.data = filteredData;
     map.removeLayer("heat3D");
-    map.addLayer(capaCalor3D);
+    map.addLayer(capaCalor3D.capa);
   } else {
     if (map.getLayer("heat3D")) {
       map.removeLayer("heat3D");
     }
   }
 
-  if (capaCalorProps.mostrar) {
-    capaCalor.props.data = filteredData;
+  if (capaCalor.mostrar) {
+    capaCalor.capa.props.data = filteredData;
     map.removeLayer("heat");
-    map.addLayer(capaCalor);
+    map.addLayer(capaCalor.capa);
   } else {
     if (map.getLayer("heat")) {
       map.removeLayer("heat");
@@ -1127,7 +1226,7 @@ function updateLayers() {
   }
 
   if (!map.getLayer("hex")) {
-    //  map.addLayer(capaHex);
+    //  map.addLayer(ccapaHex.capa);
   }
   map.triggerRepaint();
 }

@@ -167,6 +167,10 @@ ul {
 #input-archivo img {
   width: 60px;
 }
+#input-archivo>span{
+  overflow: hidden;
+  margin-top: .5rem;
+}
 #infoInput {
   font-size: 1.2rem;
   margin: 1.5rem 0 1rem 0;
@@ -436,6 +440,15 @@ li > button {
 
 
 /*ESTILO PANEL CAPAS*/
+
+.contenedorCapas {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  max-height: 95%;
+  margin-top: 1.5rem;
+}
+
 .panel-capas>div{
   display: flex;
   flex-wrap: wrap-reverse;
@@ -443,8 +456,8 @@ li > button {
   height: 100%;
   justify-content: center;
   align-items: flex-end;
+  overflow-y: hidden;
 }
-
 
 .cajaCapa {
   display: none;
@@ -615,7 +628,7 @@ li > button {
   background-color: var(--verdeHover);
 }
 
-.contenedorFiltros, .contenedorCapas {
+.contenedorFiltros {
   display: flex;
   flex-wrap: wrap;
   width: 85%;
@@ -785,7 +798,12 @@ li > button {
       height: 70%;
       margin: .3rem;
     }
-    .contenedorFiltros, .contenedorCapas{
+    .contenedorFiltros{
+      width: 100%;
+      margin-top: .1rem;
+    }
+    .contenedorCapas{
+      max-height: 68%;
       width: 100%;
       margin-top: .1rem;
     }
