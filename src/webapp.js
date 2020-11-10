@@ -395,19 +395,19 @@ function panelControler(e) {
 }
 //Se llama desde el nav del menú --> Controla la expansión del menú
 function expandirMenuControler(e) {
-  //La primera vez height del menu será cadena vacia, las siguientes 60/30vh
+  //La primera vez height del menu será cadena vacia, las siguientes 50/30vh
   if (e.target.id === "expandir") {
     if (menu.style.height === "" || menu.style.height === "30vh") {
-      menu.style.height = "60vh";
+      menu.style.height = "50vh";
       expandir.style.transform = "rotate(90deg)";
-      infoBox.style.maxHeight = "30vh";
+      infoBox.style.maxHeight = "40vh";
     } else {
       menu.style.height = "30vh";
       infoBox.style.maxHeight = "60vh";
       expandir.style.transform = "rotate(-90deg)";
     }
   } else {
-    if (menu.style.height === "60vh") {
+    if (menu.style.height === "50vh") {
       expandir.style.transform = "rotate(-90deg)";
     }
     menu.style.height = "12vh";
@@ -590,11 +590,9 @@ function HTMLCapasBuilder() {
         //select campo color
         contenedorCapas.children[i].children[3].style = "display:block";
         //p tamaño puntos
-        contenedorCapas.children[i].children[4].style = "display:block";
+        contenedorCapas.children[i].children[4].style = "display:none";
         //input tamaño puntos
-        contenedorCapas.children[i].children[5].style = "display:block";
-        contenedorCapas.children[i].children[5].value = "20";
-        contenedorCapas.children[i].children[5].max = "30";
+        contenedorCapas.children[i].children[5].style = "display:none";
         break;
 
       case "Hexagono":
@@ -652,6 +650,7 @@ function updateCampoColor(e) {
   console.log(e);
   switch (e.target.parentNode.children[1].value) {
     case "Puntos": //Capa de puntos
+      console.log(e.target.value);
       capaPuntos.campoColor = e.target.value;
       getValoresCampoColor(capaPuntos);
       break;
@@ -688,11 +687,11 @@ function addHTMLFiltros() {
   for (let key in data[0]) {
     switch (typeof data[0][key]) {
       case "string":
-        input = '<input type="text" class="inputFilter text"> <input type="number" placeholder="Máximo"  id="1" class="inputFilter number" step=0.001 style="display:none">';
+        input = '<input type="text" class="inputFilter text"> <input type="number" placeholder="Máx."  id="1" class="inputFilter number" step=0.001 style="display:none">';
         break;
       case "number":
         input =
-          '<input type="number" placeholder="Mínimo" id="0" class="inputFilter number" step=0.001> <input type="number" placeholder="Máximo"  id="1" class="inputFilter number" step=0.001>';
+          '<input type="number" placeholder="Mín." id="0" class="inputFilter number" step=0.001> <input type="number" placeholder="Máx."  id="1" class="inputFilter number" step=0.001>';
         break;
     }
     break;
@@ -703,19 +702,15 @@ function addHTMLFiltros() {
   //Creamos todos los html de los filtros con los datos recuperados arriba
   for (let x = 0; x < nombreCampos.length; x++) {
     //Creamos el div con los options e input correctos
-    //Si es el primero ponemos la clase cajaFiltroActive, a los demás no para que no aparezcan de primeras
-    if (x == 0) {
-      div = ' <div class="cajaFiltro cajaFiltroActive">';
-    } else {
-      div = ' <div class="cajaFiltro">';
-    }
+    div = ' <div class="cajaFiltro">';
+
     contenedorFiltros.innerHTML +=
       div +
       '<select name="campos" class="filtroSelect">' +
       options +
       "</select>" +
       input +
-      "<button class='deleteFilter'> Borrar </button>" +
+      "<button class='deleteFilter'> Borrar filtro </button>" +
       "</div>";
   }
 
@@ -780,7 +775,7 @@ function typeOfInputControler(e) {
         //Modificamos el primer input
         input1.value = "";
         input1.type = "number";
-        input1.placeholder = "Mínimo";
+        input1.placeholder = "Mín.";
         input1.classList.remove("text");
         input1.classList.add("number");
         //Mostramos el segundo
@@ -1029,15 +1024,15 @@ function toAscii(value) {
 
 function getValoresCampoColor(capaProps) {
   //Vaciamos el array para que no se llene infinitamente
+
   capaProps.arrayColores = [];
   capaProps.valoresCamposColores = [];
 
   if (capaProps.campoColor != "") {
     for (let i = 0; i < filteredData.length; i++) {
       let sum = toAscii(filteredData[i][capaProps.campoColor]);
-
       //Si no existe el valor en el array lo metemos con push
-      if (capaProps.valoresCamposColores.indexOf(sum) === -1) {
+      if (capaProps.valoresCamposColores.indexOf(sum) == -1) {
         capaProps.valoresCamposColores.push(sum);
         console.log("new color");
         capaProps.arrayColores.push([
@@ -1050,12 +1045,15 @@ function getValoresCampoColor(capaProps) {
     }
   }
 
+
   //Cuando tenemos el valor del campo calor y los colores preparados redibujamos el mapa
   //Y el constructor de la capa llamará a getColors para redibujar
   updateLayers();
 }
 
 function getColors(d, capaProps) {
+  console.log(capaProps.valoresCamposColores);
+  console.log(capaProps.arrayColores);
   if (capaProps.campoColor == "") {
     return [255, 0, 102];
   }
