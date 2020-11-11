@@ -33,13 +33,13 @@ map.addControl(
 
 //Objetos para guardar los props de cada capa
 var capaPuntos = {
-  capa: "",
-  mostrar: false,
-  campoColor: "", //Campo por el que colorear
-  valoresCamposColores: [], //Distintos valores del campo a colorear
-  arrayColores: [], //Array de colores para cada valor 
-  tam: 3,
-},
+    capa: "",
+    mostrar: false,
+    campoColor: "", //Campo por el que colorear
+    valoresCamposColores: [], //Distintos valores del campo a colorear
+    arrayColores: [], //Array de colores para cada valor
+    tam: 3,
+  },
   capaChinchetas = {
     capa: "",
     mostrar: false,
@@ -59,7 +59,7 @@ var capaPuntos = {
   capaHex = {
     capa: "",
     mostrar: false,
-    campoAltura: ""
+    campoAltura: "",
   },
   capaCaminos = {
     capa: "",
@@ -75,6 +75,7 @@ var capasActivas = []; //Array con las capas activas en cada momento
 var nombreCampoLat = ""; //Aquí guardamos el nombre del campo de la lat
 var nombreCampoLon = ""; //Aquí guardamos el nombre del campo de la lon
 var nombreCampos = []; //Nos guardamos el nombre de todos los campos del archivo
+var nombreCamposNumber = []; //Nos guardamos el nombre de los campos de tipo número del archivo
 var nombreCamposMostrar = []; //Nos guardamos el nombre de los campos del archivo que hay que mostrar en la infobox
 //Variables globales para la interfaz
 var docSubido = false;
@@ -120,6 +121,7 @@ const addCapaButton = document.getElementById("addCapaButton");
 const deleteCapaButtons = document.querySelectorAll(".deleteCapaButton");
 const selectCampoColor = document.querySelectorAll(".selectCampoColor");
 const inputTamPuntos = document.querySelectorAll(".tamPuntos");
+const selectAltura = document.querySelectorAll(".selectAltura");
 //#endregion
 
 //#region LISTENERS
@@ -137,20 +139,22 @@ minimizar.addEventListener("click", expandirMenuControler); //Controlamos la exp
 infoParams.addEventListener("click", paramsInfoBoxControler); //Controlamos que campos se muestra en infoBox (web app)
 addFilterButton.addEventListener("click", stateFilterControler); //Controlamos los htmls de los filtros
 
-
 addCapaButton.addEventListener("click", capasHTMLAction); //Añadimos los htmls de las capas
 deleteCapaButtons.forEach((btn) =>
   btn.addEventListener("click", capasHTMLAction)
 );
-capaSelect.forEach((select) =>
-  select.addEventListener("change", switchCapas)
-);
+capaSelect.forEach((select) => select.addEventListener("change", switchCapas));
 selectCampoColor.forEach((select) =>
   select.addEventListener("change", updateCampoColor)
 );
 inputTamPuntos.forEach((input) =>
   input.addEventListener("change", updateCampoTam)
 );
+
+selectAltura.forEach((select) =>
+  select.addEventListener("change", updateCampoAltura)
+);
+
 //#endregion
 
 //#region CONTROLADORES ASISTENTE DE CONFIGURACIÓN
@@ -205,6 +209,10 @@ function leerNombreCampos() {
   //Iteramos sobre los nombres de los campos buscando lat y lon
   let index = 0;
   for (var key in data[0]) {
+    if (typeof data[0].key != "string") {
+      nombreCamposNumber.push(key);
+    }
+
     nombreCampos[index] = key;
     nombreCamposMostrar[index] = key;
     if (
@@ -349,9 +357,6 @@ function btnsControler(e) {
   }
 }
 //#endregion
-
-
-
 
 //#region CONTROLADORES MENÚ
 
@@ -528,6 +533,26 @@ function capasHTMLAction(e) {
           //Añadimos los options al select de seleccion campo para colores
           contenedorCapas.children[i].children[3].innerHTML =
             "<option value=''></option>" + options;
+
+          let auxOptions;
+          //Añadimos los options de la altura para la capa de hexágonos
+          for (let i = 0; i < nombreCamposNumber; i++) {
+            auxOptions +=
+              "<option value=" +
+              nombreCamposNumber[i] +
+              ">" +
+              nombreCamposNumber[i] +
+              "</option>";
+            console.log(auxOptions);
+          }
+
+          contenedorCapas.children[i].children[7].innerHTML =
+            "<option value=''></option>" + options;
+
+          //Añadimos los options al select de altura para la capa de hexágonos
+
+          contenedorCapas.children[i].children[7].innerHTML =
+            "<option value=''></option>" + options;
           break;
         }
       }
@@ -544,7 +569,6 @@ function capasHTMLAction(e) {
 
 //Esta forma es mucho más ineficiente que la primera vesrión pero es la única que se me ocurre porque chrome no acepta eventos en los <option> :(
 function switchCapas(e) {
-
   //Borramos las capa que estuvieran previamente activas
   capasControler("Puntos", "eliminar");
   capasControler("Chinchetas", "eliminar");
@@ -558,11 +582,14 @@ function switchCapas(e) {
     if (contenedorCapas.children[i].classList[1] === "cajaCapaActive") {
       if (e.target.value === "Puntos") {
         //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
-        updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
-      }
-      else if (e.target.value === "Chinchetas") {
+        updateCampoColor({
+          target: e.target.parentNode.parentNode.children[3],
+        });
+      } else if (e.target.value === "Chinchetas") {
         //Pasamos un obj a updateCampoColor porque espera un evento para buscar el target
-        updateCampoColor({ target: e.target.parentNode.parentNode.children[3] });
+        updateCampoColor({
+          target: e.target.parentNode.parentNode.children[3],
+        });
       }
       capasControler(contenedorCapas.children[i].children[1].value);
     }
@@ -572,7 +599,6 @@ function switchCapas(e) {
 //Se desde llama capasHTMLAction. Se encarga de mostrar el HTML correcto para cada tipo de capa
 function HTMLCapasBuilder() {
   for (let i = 0; i < 6; i++) {
-
     //Agregamos o quitamos campos dependiendo del tipo de capa
     switch (contenedorCapas.children[i].children[1].value) {
       case "Puntos":
@@ -654,21 +680,22 @@ function HTMLCapasBuilder() {
 
     //Descativamos el valor de los options del select de los tipo de representación que que ya están activas
     for (let x = 0; x < 6; x++) {
-      if (capasActivas.indexOf(contenedorCapas.children[i].children[1].children[x].value) === -1) {
-        contenedorCapas.children[i].children[1].children[x].style = "display:inline";
+      if (
+        capasActivas.indexOf(
+          contenedorCapas.children[i].children[1].children[x].value
+        ) === -1
+      ) {
+        contenedorCapas.children[i].children[1].children[x].style =
+          "display:inline";
       } else {
-        contenedorCapas.children[i].children[1].children[x].style = "display:none";
+        contenedorCapas.children[i].children[1].children[x].style =
+          "display:none";
       }
     }
-
   }
 }
 
-
-
-
 //#region FUNCS PARA UPDATEAR VALORES DE CAPAS
-
 
 //Se llama cuando cambia el valor del select
 function updateCampoColor(e) {
@@ -702,8 +729,6 @@ function updateCampoAltura(e) {
 }
 //#endregion
 
-
-
 //Se llama al leer el nombre de los campos del archivo para generar el html necesario
 function addHTMLFiltros() {
   var div, input;
@@ -718,7 +743,8 @@ function addHTMLFiltros() {
   for (let key in data[0]) {
     switch (typeof data[0][key]) {
       case "string":
-        input = '<input type="text" class="inputFilter text"> <input type="number" placeholder="Máx."  id="1" class="inputFilter number" step=0.001 style="display:none">';
+        input =
+          '<input type="text" class="inputFilter text"> <input type="number" placeholder="Máx."  id="1" class="inputFilter number" step=0.001 style="display:none">';
         break;
       case "number":
         input =
@@ -780,7 +806,6 @@ function stateFilterControler(e) {
 
 //Se llama al cambiar de option en los selects del filtro
 function typeOfInputControler(e) {
-
   var input1 = e.target.parentNode.children[1];
   var input2 = e.target.parentNode.children[2];
   //Ver el tipeof del value del select
@@ -818,9 +843,9 @@ function typeOfInputControler(e) {
     default:
       console.log(
         "El campo " +
-        e.target.value +
-        " es del tipo " +
-        typeof data[0][e.target.value]
+          e.target.value +
+          " es del tipo " +
+          typeof data[0][e.target.value]
       );
       break;
   }
@@ -1045,7 +1070,7 @@ function temasControler(e) {
 function toAscii(value) {
   let sum = 0;
   //Si el valor no es un string, lo pasamos a string para poder convertirlo a ascii
-  if (typeof value != 'string') {
+  if (typeof value != "string") {
     //Podríamos retornar el value en realidad.
     value = value.toString();
   }
@@ -1090,14 +1115,16 @@ function getColors(d, capaProps) {
 
   for (let i = 0; i < capaProps.valoresCamposColores.length; i++) {
     if (
-      toAscii(d[capaProps.campoColor]) ===
-      capaProps.valoresCamposColores[i]
+      toAscii(d[capaProps.campoColor]) === capaProps.valoresCamposColores[i]
     ) {
       return capaProps.arrayColores[i];
     }
   }
 }
 
+function getAltura(d) {
+  console.log(d[capaHex.campoAltura]);
+}
 function crearCapas() {
   //Capa de puntos
   capaPuntos.capa = new MapboxLayer({
@@ -1188,14 +1215,15 @@ function crearCapas() {
     id: "hex",
     data: filteredData,
     type: HexagonLayer,
-    getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
-    getElevationWeight: (d) => d.Casos_Activos,
+    getElevationWeight: (d) => getAltura(d),
     elevationScale: 50,
+    getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     extruded: true,
     radius: 1609,
     opacity: 0.6,
     coverage: 0.88,
-    getFillColor: (d) => d.Casos_Activos > 10 ? [200, 0, 40, 150] : [255, 255, 0, 100],
+    getFillColor: (d) =>
+      d.Casos_Activos > 10 ? [200, 0, 40, 150] : [255, 255, 0, 100],
   });
 }
 map.on("styledata", () => {
@@ -1211,8 +1239,8 @@ map.on("styledata", () => {
   if (capaCalor.mostrar) {
     map.addLayer(capaCalor.capa);
   }
-  if (!map.getLayer("hex")) {
-    //  map.addLayer(capaHex.capa);
+  if (capaHex.mostrar) {
+    map.addLayer(capaHex.capa);
   }
 });
 
