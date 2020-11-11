@@ -56,9 +56,10 @@ var capaPuntos = {
     capa: "",
     mostrar: false,
   },
-  ccapaHex = {
+  capaHex = {
     capa: "",
     mostrar: false,
+    campoAltura: ""
   },
   capaCaminos = {
     capa: "",
@@ -349,6 +350,9 @@ function btnsControler(e) {
 }
 //#endregion
 
+
+
+
 //#region CONTROLADORES MENÚ
 
 //Se llama desde el nav del menú --> Desactiva los paneles y activa el panel que corresponda
@@ -455,12 +459,12 @@ function capasControler(index, accion) {
         capasActivas.push("Calor");
       }
       break;
-    case "Hexagono": //Capa de hexágonos
+    case "Hexagonos": //Capa de hexágonos
       if (accion === "eliminar") {
-        ccapaHex.mostrar = false;
+        capaHex.mostrar = false;
         removeElementCapasActivas("Hexagonos");
       } else {
-        ccapaHex.mostrar = true;
+        capaHex.mostrar = true;
         capasActivas.push("Hexagonos");
       }
       break;
@@ -509,8 +513,6 @@ function capasHTMLAction(e) {
         //Añadimos los options al select de seleccion campo para colores
         contenedorCapas.children[i].children[3].innerHTML =
           "<option value=''></option>" + options;
-
-
       }
     }
   }
@@ -582,6 +584,10 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[4].style = "display:block";
         //input tamaño puntos
         contenedorCapas.children[i].children[5].style = "display:block";
+        //p altura hexágonos
+        contenedorCapas.children[i].children[6].style = "display:none";
+        //input altura hexágonos
+        contenedorCapas.children[i].children[7].style = "display:none";
         break;
 
       case "Chinchetas":
@@ -593,9 +599,13 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[4].style = "display:none";
         //input tamaño puntos
         contenedorCapas.children[i].children[5].style = "display:none";
+        //p altura hexágonos
+        contenedorCapas.children[i].children[6].style = "display:none";
+        //input altura hexágonos
+        contenedorCapas.children[i].children[7].style = "display:none";
         break;
 
-      case "Hexagono":
+      case "Hexagonos":
         //p campo color
         contenedorCapas.children[i].children[2].style = "display:none";
         //select campo color
@@ -604,6 +614,10 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[4].style = "display:none";
         //input tamaño puntos
         contenedorCapas.children[i].children[5].style = "display:none";
+        //p altura hexágonos
+        contenedorCapas.children[i].children[6].style = "display:block";
+        //input altura hexágonos
+        contenedorCapas.children[i].children[7].style = "display:block";
         break;
 
       case "Caminos":
@@ -615,6 +629,10 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[4].style = "display:none";
         //input tamaño puntos
         contenedorCapas.children[i].children[5].style = "display:none";
+        //p altura hexágonos
+        contenedorCapas.children[i].children[6].style = "display:none";
+        //input altura hexágonos
+        contenedorCapas.children[i].children[7].style = "display:none";
         break;
 
       //Calor y calor3D van al default porque no tienen personalización
@@ -627,6 +645,10 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[4].style = "display:none";
         //input tamaño puntos
         contenedorCapas.children[i].children[5].style = "display:none";
+        //p altura hexágonos
+        contenedorCapas.children[i].children[6].style = "display:none";
+        //input altura hexágonos
+        contenedorCapas.children[i].children[7].style = "display:none";
         break;
     }
 
@@ -638,11 +660,14 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[1].children[x].style = "display:none";
       }
     }
+
   }
 }
 
-//#region FUNCS PARA UPDATEAR VALORES DE CAPAS
 
+
+
+//#region FUNCS PARA UPDATEAR VALORES DE CAPAS
 
 
 //Se llama cuando cambia el valor del select
@@ -667,6 +692,12 @@ function updateCampoColor(e) {
 function updateCampoTam(e) {
   capaPuntos.tam = e.target.value;
   capaPuntos.capa.props.radiusMinPixels = e.target.value;
+  updateLayers();
+}
+
+function updateCampoAltura(e) {
+  capaHex.campoAltura = e.target.value;
+  capaHex.capa.props.getElevationWeight = e.target.value;
   updateLayers();
 }
 //#endregion
@@ -855,6 +886,7 @@ function filterData() {
     filteredData = data;
   }
 
+  console.log(filteredData);
   //Actualizamos el mapa y la infobox para que no se quede con datos viejos
   updateLayers();
   infoBoxControler("limpiarInfoBox");
@@ -1014,6 +1046,7 @@ function toAscii(value) {
   let sum = 0;
   //Si el valor no es un string, lo pasamos a string para poder convertirlo a ascii
   if (typeof value != 'string') {
+    //Podríamos retornar el value en realidad.
     value = value.toString();
   }
   for (let i = 0; i < value.length; i++) {
@@ -1045,15 +1078,12 @@ function getValoresCampoColor(capaProps) {
     }
   }
 
-
   //Cuando tenemos el valor del campo calor y los colores preparados redibujamos el mapa
-  //Y el constructor de la capa llamará a getColors para redibujar
+  //Y el constructor de la capa llamará a getColors para dibujar con los colores correctos
   updateLayers();
 }
 
 function getColors(d, capaProps) {
-  console.log(capaProps.valoresCamposColores);
-  console.log(capaProps.arrayColores);
   if (capaProps.campoColor == "") {
     return [255, 0, 102];
   }
@@ -1098,7 +1128,7 @@ function crearCapas() {
       "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
     iconMapping: ICON_MAPPING,
     getIcon: (d) => "marker",
-    getSize: (d) => 20,
+    getSize: (d) => 25,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     getColor: (d) => getColors(d, capaChinchetas),
     pickable: true,
@@ -1154,19 +1184,18 @@ function crearCapas() {
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
   });
 
-  ccapaHex.capa = new MapboxLayer({
+  capaHex.capa = new MapboxLayer({
     id: "hex",
     data: filteredData,
     type: HexagonLayer,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
-    getElevationWeight: (d) => d.n_killed * 2 + d.n_injured,
-    elevationScale: 100,
+    getElevationWeight: (d) => d.Casos_Activos,
+    elevationScale: 50,
     extruded: true,
     radius: 1609,
     opacity: 0.6,
     coverage: 0.88,
-    getFillColor: (d) =>
-      d.n_killed > 0 ? [200, 0, 40, 150] : [255, 255, 0, 100],
+    getFillColor: (d) => d.Casos_Activos > 10 ? [200, 0, 40, 150] : [255, 255, 0, 100],
   });
 }
 map.on("styledata", () => {
@@ -1183,7 +1212,7 @@ map.on("styledata", () => {
     map.addLayer(capaCalor.capa);
   }
   if (!map.getLayer("hex")) {
-    //  map.addLayer(ccapaHex.capa);
+    //  map.addLayer(capaHex.capa);
   }
 });
 
@@ -1229,9 +1258,16 @@ function updateLayers() {
     }
   }
 
-  if (!map.getLayer("hex")) {
-    //  map.addLayer(ccapaHex.capa);
+  if (capaHex.mostrar) {
+    capaHex.capa.props.data = filteredData;
+    map.removeLayer("hex");
+    map.addLayer(capaHex.capa);
+  } else {
+    if (map.getLayer("hex")) {
+      map.removeLayer("hex");
+    }
   }
+
   map.triggerRepaint();
 }
 //#endregion
