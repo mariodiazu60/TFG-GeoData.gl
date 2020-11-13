@@ -7,7 +7,7 @@ import { IconLayer } from "@deck.gl/layers";
 import { GridLayer } from "@deck.gl/aggregation-layers";
 import { HeatmapLayer } from "@deck.gl/aggregation-layers";
 import { HexagonLayer } from "@deck.gl/aggregation-layers";
-import { ArcLayer } from '@deck.gl/layers';
+import { ArcLayer } from "@deck.gl/layers";
 //#endregion
 
 //#region VARIABLES DEL MAPA
@@ -34,13 +34,13 @@ map.addControl(
 
 //Objetos para guardar los props de cada capa
 var capaPuntos = {
-  capa: "",
-  mostrar: false,
-  campoColor: "", //Campo por el que colorear
-  valoresCamposColores: [], //Distintos valores del campo a colorear
-  arrayColores: [], //Array de colores para cada valor
-  tam: 3,
-},
+    capa: "",
+    mostrar: false,
+    campoColor: "", //Campo por el que colorear
+    valoresCamposColores: [], //Distintos valores del campo a colorear
+    arrayColores: [], //Array de colores para cada valor
+    tam: 3,
+  },
   capaChinchetas = {
     capa: "",
     mostrar: false,
@@ -67,10 +67,13 @@ var capaPuntos = {
   capaCaminos = {
     capa: "",
     mostrar: false,
-    campoLatOrig: "",
-    campoLonOrig: "",
-    campoLatDestino: "",
-    campoLonDestino: ""
+    campoLatOrig: "lat_origen",
+    campoLonOrig: "lon_origen",
+    campoLatDestino: "lat_destino",
+    campoLonDestino: "lon_destino",
+    campoColor: "", //Campo por el que colorear
+    valoresCamposColores: [], //Distintos valores del campo a colorear
+    arrayColores: [],
   };
 
 //#endregion
@@ -167,9 +170,7 @@ selectAltura.forEach((select) =>
   select.addEventListener("change", updateCamposHex)
 );
 
-radioHex.forEach((input) =>
-  input.addEventListener("change", updateCamposHex)
-);
+radioHex.forEach((input) => input.addEventListener("change", updateCamposHex));
 
 elevacionHex.forEach((input) =>
   input.addEventListener("change", updateCamposHex)
@@ -541,23 +542,37 @@ function capasHTMLAction(e) {
     //Hay que hacerlo por si se deseleccionan capas en el asistente que no se queden las cajas activas
     for (let i = 0; i < 6; i++) {
       //Añadimos los options al select de seleccion campo para colores antes de desactivar las cajas
-      contenedorCapas.children[i].children[3].innerHTML = "<option value=''></option>" + options;
+      contenedorCapas.children[i].children[3].innerHTML =
+        "<option value=''></option>" + options;
 
       //Añadimos los options al select de altura para la caja de hex.
       options = ""; //La reusamos porque la línea anterior es el último sitio en el que se usa para el otro select
       for (let i = 0; i < nombreCampos.length; i++) {
-        if (typeof data[0][nombreCampos[i]] === "number" && (nombreCampos[i] != nombreCampoLat && nombreCampos[i] != nombreCampoLon)) {
+        if (
+          typeof data[0][nombreCampos[i]] === "number" &&
+          nombreCampos[i] != nombreCampoLat &&
+          nombreCampos[i] != nombreCampoLon
+        ) {
           options +=
-            "<option value=" + nombreCampos[i] + ">" + nombreCampos[i] + "</option>";
+            "<option value=" +
+            nombreCampos[i] +
+            ">" +
+            nombreCampos[i] +
+            "</option>";
         }
       }
       //Input altura hexágonos
-      contenedorCapas.children[i].children[7].innerHTML = "<option value=''></option>" + options;
+      contenedorCapas.children[i].children[7].innerHTML =
+        "<option value=''></option>" + options;
       //Input coordenas caminos hexágonos
-      contenedorCapas.children[i].children[13].innerHTML = "<option value=''></option>" + options;
-      contenedorCapas.children[i].children[14].innerHTML = "<option value=''></option>" + options
-      contenedorCapas.children[i].children[16].innerHTML = "<option value=''></option>" + options
-      contenedorCapas.children[i].children[17].innerHTML = "<option value=''></option>" + options
+      contenedorCapas.children[i].children[13].innerHTML =
+        "<option value=''></option>" + options;
+      contenedorCapas.children[i].children[14].innerHTML =
+        "<option value=''></option>" + options;
+      contenedorCapas.children[i].children[16].innerHTML =
+        "<option value=''></option>" + options;
+      contenedorCapas.children[i].children[17].innerHTML =
+        "<option value=''></option>" + options;
 
       //Desactivamos
       contenedorCapas.children[i].classList.remove("cajaCapaActive");
@@ -570,9 +585,7 @@ function capasHTMLAction(e) {
         contenedorCapas.children[i].children[1].value = capasActivas[i];
       }
     }
-  }
-
-  else if (e != undefined) {
+  } else if (e != undefined) {
     //Si el elemento que llama a la func. es el botón de add capa añadimos el html
     if (e.target.id === "addCapaButton") {
       for (let i = 0; i < 6; i++) {
@@ -625,7 +638,6 @@ function switchCapas(e) {
 }
 //Se desde llama capasHTMLAction. Se encarga de mostrar el HTML correcto para cada tipo de capa
 function HTMLCapasBuilder() {
-
   for (let i = 0; i < 6; i++) {
     //Iteramos en los hijos de cada caja de capa y desactivamos todos los hijos
     for (let x = 2; x < contenedorCapas.children[i].children.length - 1; x++) {
@@ -652,7 +664,8 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[2].style = "display:block";
         //select campo color
         contenedorCapas.children[i].children[3].style = "display:block";
-        contenedorCapas.children[i].children[3].value = capaChinchetas.campoColor;
+        contenedorCapas.children[i].children[3].value =
+          capaChinchetas.campoColor;
         break;
 
       case "Hexagonos":
@@ -670,10 +683,16 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[10].style = "display:block";
         //input escala hexágonos
         contenedorCapas.children[i].children[11].style = "display:block";
-        contenedorCapas.children[i].children[11].value = capaHex.campoEscalaElevacion;
+        contenedorCapas.children[i].children[11].value =
+          capaHex.campoEscalaElevacion;
         break;
 
       case "Caminos":
+        //p campo color
+        contenedorCapas.children[i].children[2].style = "display:block";
+        //select campo color
+        contenedorCapas.children[i].children[3].style = "display:block";
+        contenedorCapas.children[i].children[3].value = capaCaminos.campoColor;
         //p coordenadas para caminos
         contenedorCapas.children[i].children[12].style = "display:block";
         contenedorCapas.children[i].children[15].style = "display:block";
@@ -701,8 +720,6 @@ function HTMLCapasBuilder() {
     }
   }
 }
-
-
 
 //Se llama al leer el nombre de los campos del archivo para generar el html necesario
 function addHTMLFiltros() {
@@ -818,9 +835,9 @@ function typeOfInputControler(e) {
     default:
       console.log(
         "El campo " +
-        e.target.value +
-        " es del tipo " +
-        typeof data[0][e.target.value]
+          e.target.value +
+          " es del tipo " +
+          typeof data[0][e.target.value]
       );
       break;
   }
@@ -953,14 +970,14 @@ function paramsInfoBoxControler(e) {
 function infoBoxControler(object, mostrarCoords) {
   const info = document.getElementById("info");
   if (object != null && object != "limpiarInfoBox") {
-
     let coords = "";
     if (mostrarCoords) {
-      coords = "<p>Coordenadas : [" +
+      coords =
+        "<p>Coordenadas : [" +
         object[nombreCampoLat] +
         " , " +
         object[nombreCampoLon] +
-        "]</p>"
+        "]</p>";
     }
 
     info.innerHTML = "";
@@ -968,8 +985,8 @@ function infoBoxControler(object, mostrarCoords) {
       info.innerHTML +
       "<p id='numElems'>Representado " +
       filteredData.length +
-      " elementos </p>" + coords
-      ;
+      " elementos </p>" +
+      coords;
     //Iteramos sobre nombreCamposMostrar para mostrar la info que elija el user
     for (let i = 0; i < nombreCamposMostrar.length; i++) {
       if (
@@ -1061,6 +1078,11 @@ function updateCampoColor(e) {
       capaChinchetas.campoColor = e.target.value;
       getValoresCampoColor(capaChinchetas);
       break;
+
+    case "Caminos": //Capa de chichetas
+      capaCaminos.campoColor = e.target.value;
+      getValoresCampoColor(capaCaminos);
+      break;
     default:
       break;
   }
@@ -1073,7 +1095,6 @@ function updateCampoTam(e) {
 }
 
 function updateCamposHex(e) {
-
   switch (e.target.classList[0]) {
     case "selectAltura":
       capaHex.campoAltura = e.target.value;
@@ -1093,7 +1114,6 @@ function updateCamposHex(e) {
 }
 
 function updateCamposCaminos(e) {
-
   switch (e.target.classList[0]) {
     case "inputLatOrigen":
       capaCaminos.campoLatOrig = e.target.value;
@@ -1112,19 +1132,25 @@ function updateCamposCaminos(e) {
       break;
   }
 
-  if (capaCaminos.campoLatOrig, capaCaminos.campoLonOrig, capaCaminos.campoLatDestino, capaCaminos.campoLonDestino !== "") {
+  if (
+    (capaCaminos.campoLatOrig,
+    capaCaminos.campoLonOrig,
+    capaCaminos.campoLatDestino,
+    capaCaminos.campoLonDestino !== "")
+  ) {
     //Centramos el mapa en los datos
     map.flyTo({
-      center: [data[0][capaCaminos.campoLonOrig], data[0][capaCaminos.campoLatOrig]],
+      center: [
+        data[0][capaCaminos.campoLonOrig],
+        data[0][capaCaminos.campoLatOrig],
+      ],
       speed: 0.35,
       zoom: 10,
     });
     updateLayers();
   }
-
 }
 //#endregion
-
 
 function toAscii(value) {
   let sum = 0;
@@ -1179,8 +1205,6 @@ function getColors(d, capaProps) {
     }
   }
 }
-
-
 
 function crearCapas() {
   //Capa de puntos
@@ -1279,7 +1303,8 @@ function crearCapas() {
     radius: capaHex.campoRadio,
     opacity: 0.5,
     coverage: 1,
-    getFillColor: (d) => d[capaHex.campoAltura] > 30 ? [200, 0, 40, 150] : [255, 255, 0, 100],
+    getFillColor: (d) =>
+      d[capaHex.campoAltura] > 30 ? [200, 0, 40, 150] : [255, 255, 0, 100],
     pickable: true,
     onHover: ({ object }) => {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
@@ -1298,18 +1323,24 @@ function crearCapas() {
             " , " +
             object.position[1].toFixed(3) +
             "]</p>" +
-            "<p>Representado " + object.points.length + " en este área.</p>";
+            "<p>Representado " +
+            object.points.length +
+            " en este área.</p>";
 
           let sum = 0;
           //Iteramos sobre los points para sacar la suma de los valores de la altura
           for (let i = 0; i < object.points.length; i++) {
-            sum += object.points[i][capaHex.campoAltura]
+            sum += object.points[i][capaHex.campoAltura];
           }
           //Añadimos la suma de los valores de la altura a la info box
-          info.innerHTML = info.innerHTML + "<p>" + capaHex.campoAltura + " totales : " + sum.toString() + "</p>";
-        }
-
-        else {
+          info.innerHTML =
+            info.innerHTML +
+            "<p>" +
+            capaHex.campoAltura +
+            " totales : " +
+            sum.toString() +
+            "</p>";
+        } else {
           info.innerHTML = "";
           info.innerHTML =
             info.innerHTML +
@@ -1325,12 +1356,19 @@ function crearCapas() {
     id: "caminos",
     data: filteredData,
     type: ArcLayer,
-    getHeight: 0.3,
+    getHeight: 0.45,
     getWidth: (d) => 5,
-    getSourcePosition: (d) => [d[capaCaminos.campoLonOrig], d[capaCaminos.campoLatOrig]],
-    getTargetPosition: (d) => [d[capaCaminos.campoLonDestino], d[capaCaminos.campoLatDestino]],
-    getSourceColor: (d) => [Math.sqrt(72633), 140, 0],
-    getTargetColor: (d) => [Math.sqrt(74735), 140, 0],
+    getSourcePosition: (d) => [
+      d[capaCaminos.campoLonOrig],
+      d[capaCaminos.campoLatOrig],
+    ],
+    getTargetPosition: (d) => [
+      d[capaCaminos.campoLonDestino],
+      d[capaCaminos.campoLatDestino],
+    ],
+
+    getTargetColor: (d) => getColors(d, capaCaminos),
+    getSourceColor: (d) => getColors(d, capaCaminos),
     pickable: true,
     onHover: ({ object }) => {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
