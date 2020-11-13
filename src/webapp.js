@@ -7,6 +7,7 @@ import { IconLayer } from "@deck.gl/layers";
 import { GridLayer } from "@deck.gl/aggregation-layers";
 import { HeatmapLayer } from "@deck.gl/aggregation-layers";
 import { HexagonLayer } from "@deck.gl/aggregation-layers";
+import { ArcLayer } from '@deck.gl/layers';
 //#endregion
 
 //#region VARIABLES DEL MAPA
@@ -66,6 +67,10 @@ var capaPuntos = {
   capaCaminos = {
     capa: "",
     mostrar: false,
+    campoLatOrig: "",
+    campoLonOrig: "",
+    campoLatDestino: "",
+    campoLonDestino: ""
   };
 
 //#endregion
@@ -125,7 +130,10 @@ const inputTamPuntos = document.querySelectorAll(".tamPuntos");
 const selectAltura = document.querySelectorAll(".selectAltura");
 const radioHex = document.querySelectorAll(".radioHex");
 const elevacionHex = document.querySelectorAll(".elevacionHex");
-
+const latOrigen = document.querySelectorAll(".inputLatOrigen");
+const lonOrigen = document.querySelectorAll(".inputLonOrigen");
+const latDestino = document.querySelectorAll(".inputLatDestino");
+const lonDestino = document.querySelectorAll(".inputLonDestino");
 //#endregion
 
 //#region LISTENERS
@@ -167,6 +175,21 @@ elevacionHex.forEach((input) =>
   input.addEventListener("change", updateCamposHex)
 );
 
+latOrigen.forEach((select) =>
+  select.addEventListener("change", updateCamposCaminos)
+);
+
+lonOrigen.forEach((select) =>
+  select.addEventListener("change", updateCamposCaminos)
+);
+
+latDestino.forEach((select) =>
+  select.addEventListener("change", updateCamposCaminos)
+);
+
+lonDestino.forEach((select) =>
+  select.addEventListener("change", updateCamposCaminos)
+);
 
 //#endregion
 
@@ -486,9 +509,11 @@ function capasControler(index, accion) {
       break;
     case "Caminos": //Capa de caminos
       if (accion === "eliminar") {
+        console.log("desactivando caminos");
         capaCaminos.mostrar = false;
         removeElementCapasActivas("Caminos");
       } else {
+        console.log("activando caminos");
         capaCaminos.mostrar = true;
         capasActivas.push("Caminos");
       }
@@ -526,7 +551,13 @@ function capasHTMLAction(e) {
             "<option value=" + nombreCampos[i] + ">" + nombreCampos[i] + "</option>";
         }
       }
+      //Input altura hexágonos
       contenedorCapas.children[i].children[7].innerHTML = "<option value=''></option>" + options;
+      //Input coordenas caminos hexágonos
+      contenedorCapas.children[i].children[13].innerHTML = "<option value=''></option>" + options;
+      contenedorCapas.children[i].children[14].innerHTML = "<option value=''></option>" + options
+      contenedorCapas.children[i].children[16].innerHTML = "<option value=''></option>" + options
+      contenedorCapas.children[i].children[17].innerHTML = "<option value=''></option>" + options
 
       //Desactivamos
       contenedorCapas.children[i].classList.remove("cajaCapaActive");
@@ -594,28 +625,12 @@ function switchCapas(e) {
 }
 //Se desde llama capasHTMLAction. Se encarga de mostrar el HTML correcto para cada tipo de capa
 function HTMLCapasBuilder() {
+
   for (let i = 0; i < 6; i++) {
-    //Desactivamos todo
-    //p campo color
-    contenedorCapas.children[i].children[2].style = "display:none";
-    //select campo color
-    contenedorCapas.children[i].children[3].style = "display:none";
-    //p tamaño puntos
-    contenedorCapas.children[i].children[4].style = "display:none";
-    //input tamaño puntos
-    contenedorCapas.children[i].children[5].style = "display:none";
-    //p altura hexágonos
-    contenedorCapas.children[i].children[6].style = "display:none";
-    //input altura hexágonos
-    contenedorCapas.children[i].children[7].style = "display:none";
-    //p radio hexágonos
-    contenedorCapas.children[i].children[8].style = "display:none";
-    //input radio hexágonos
-    contenedorCapas.children[i].children[9].style = "display:none";
-    //p escala hexágonos
-    contenedorCapas.children[i].children[10].style = "display:none";
-    //input escala hexágonos
-    contenedorCapas.children[i].children[11].style = "display:none";
+    //Iteramos en los hijos de cada caja de capa y desactivamos todos los hijos
+    for (let x = 2; x < contenedorCapas.children[i].children.length - 1; x++) {
+      contenedorCapas.children[i].children[x].style = "display:none";
+    }
 
     //Activamos los campos dependiendo del tipo de capa
     switch (contenedorCapas.children[i].children[1].value) {
@@ -659,7 +674,14 @@ function HTMLCapasBuilder() {
         break;
 
       case "Caminos":
-
+        //p coordenadas para caminos
+        contenedorCapas.children[i].children[12].style = "display:block";
+        contenedorCapas.children[i].children[15].style = "display:block";
+        //inputs coordenadas para caminos
+        contenedorCapas.children[i].children[13].style = "display:block";
+        contenedorCapas.children[i].children[14].style = "display:block";
+        contenedorCapas.children[i].children[16].style = "display:block";
+        contenedorCapas.children[i].children[17].style = "display:block";
         break;
     }
 
@@ -928,20 +950,26 @@ function paramsInfoBoxControler(e) {
 }
 
 //Función que actualiza los datos dentro del html del infobox
-function infoBoxControler(object) {
+function infoBoxControler(object, mostrarCoords) {
   const info = document.getElementById("info");
   if (object != null && object != "limpiarInfoBox") {
+
+    let coords = "";
+    if (mostrarCoords) {
+      coords = "<p>Coordenadas : [" +
+        object[nombreCampoLat] +
+        " , " +
+        object[nombreCampoLon] +
+        "]</p>"
+    }
+
     info.innerHTML = "";
     info.innerHTML =
       info.innerHTML +
       "<p id='numElems'>Representado " +
       filteredData.length +
-      " elementos </p>" +
-      "<p>Coordenadas : [" +
-      object[nombreCampoLat] +
-      " , " +
-      object[nombreCampoLon] +
-      "]</p>";
+      " elementos </p>" + coords
+      ;
     //Iteramos sobre nombreCamposMostrar para mostrar la info que elija el user
     for (let i = 0; i < nombreCamposMostrar.length; i++) {
       if (
@@ -1063,6 +1091,38 @@ function updateCamposHex(e) {
   }
   updateLayers();
 }
+
+function updateCamposCaminos(e) {
+
+  switch (e.target.classList[0]) {
+    case "inputLatOrigen":
+      capaCaminos.campoLatOrig = e.target.value;
+      break;
+
+    case "inputLonOrigen":
+      capaCaminos.campoLonOrig = e.target.value;
+      break;
+
+    case "inputLatDestino":
+      capaCaminos.campoLatDestino = e.target.value;
+      break;
+
+    case "inputLonDestino":
+      capaCaminos.campoLonDestino = e.target.value;
+      break;
+  }
+
+  if (capaCaminos.campoLatOrig, capaCaminos.campoLonOrig, capaCaminos.campoLatDestino, capaCaminos.campoLonDestino !== "") {
+    //Centramos el mapa en los datos
+    map.flyTo({
+      center: [data[0][capaCaminos.campoLonOrig], data[0][capaCaminos.campoLatOrig]],
+      speed: 0.35,
+      zoom: 10,
+    });
+    updateLayers();
+  }
+
+}
 //#endregion
 
 
@@ -1121,6 +1181,7 @@ function getColors(d, capaProps) {
 }
 
 
+
 function crearCapas() {
   //Capa de puntos
   capaPuntos.capa = new MapboxLayer({
@@ -1135,7 +1196,7 @@ function crearCapas() {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
       if (object != undefined) {
         lastObjectHovered = object;
-        infoBoxControler(object);
+        infoBoxControler(object, true);
       }
     },
   });
@@ -1159,7 +1220,7 @@ function crearCapas() {
       //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
       if (object != undefined) {
         lastObjectHovered = object;
-        infoBoxControler(object);
+        infoBoxControler(object, true);
       }
     },
   });
@@ -1259,7 +1320,28 @@ function crearCapas() {
       }
     },
   });
+
+  capaCaminos.capa = new MapboxLayer({
+    id: "caminos",
+    data: filteredData,
+    type: ArcLayer,
+    getHeight: 0.3,
+    getWidth: (d) => 5,
+    getSourcePosition: (d) => [d[capaCaminos.campoLonOrig], d[capaCaminos.campoLatOrig]],
+    getTargetPosition: (d) => [d[capaCaminos.campoLonDestino], d[capaCaminos.campoLatDestino]],
+    getSourceColor: (d) => [Math.sqrt(72633), 140, 0],
+    getTargetColor: (d) => [Math.sqrt(74735), 140, 0],
+    pickable: true,
+    onHover: ({ object }) => {
+      //Nos guardamos el object sobre el que hacemos over y llamamos a infoBoxControler para actualizar la info
+      if (object != undefined) {
+        lastObjectHovered = object;
+        infoBoxControler(object, false);
+      }
+    },
+  });
 }
+
 map.on("styledata", () => {
   if (capaPuntos.mostrar) {
     map.addLayer(capaPuntos.capa);
@@ -1275,6 +1357,9 @@ map.on("styledata", () => {
   }
   if (capaHex.mostrar) {
     map.addLayer(capaHex.capa);
+  }
+  if (capaCaminos.mostrar) {
+    map.addLayer(capaCaminos.capa);
   }
 });
 
@@ -1329,6 +1414,18 @@ function updateLayers() {
   } else {
     if (map.getLayer("hex")) {
       map.removeLayer("hex");
+    }
+  }
+
+  if (capaCaminos.mostrar) {
+    capaCaminos.capa.props.data = filteredData;
+    if (map.getLayer("caminos")) {
+      map.removeLayer("caminos");
+    }
+    map.addLayer(capaCaminos.capa);
+  } else {
+    if (map.getLayer("caminos")) {
+      map.removeLayer("caminos");
     }
   }
 
