@@ -286,7 +286,7 @@ ul {
   top: 1.5%;
   background-color: var(--fondo);
   width: 22vw;
-  min-height: 31vh;
+  min-height: 10vh;
   max-height: 60vh;
   border-radius: 30px;
   opacity: 1;

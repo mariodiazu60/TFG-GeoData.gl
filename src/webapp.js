@@ -520,15 +520,15 @@ function capasControler(index, accion) {
         capasActivas.push("Hexagonos");
       }
       break;
-    case "Caminos": //Capa de caminos
+    case "Arcos": //Capa de arcos
       if (accion === "eliminar") {
-        console.log("desactivando caminos");
+        console.log("desactivando arcos");
         capaCaminos.mostrar = false;
-        removeElementCapasActivas("Caminos");
+        removeElementCapasActivas("Arcos");
       } else {
-        console.log("activando caminos");
+        console.log("activando arcos");
         capaCaminos.mostrar = true;
-        capasActivas.push("Caminos");
+        capasActivas.push("Arcos");
       }
       break;
     default:
@@ -576,7 +576,7 @@ function capasHTMLAction(e) {
       //Input altura hexágonos
       contenedorCapas.children[i].children[7].innerHTML =
         "<option value=''></option>" + options;
-      //Input coordenas caminos hexágonos
+      //Input coordenas arcos hexágonos
       contenedorCapas.children[i].children[13].innerHTML =
         "<option value=''></option>" + options;
       contenedorCapas.children[i].children[14].innerHTML =
@@ -627,7 +627,7 @@ function switchCapas(e) {
   capasControler("Calor", "eliminar");
   capasControler("Calor3D", "eliminar");
   capasControler("Hexagonos", "eliminar");
-  capasControler("Caminos", "eliminar");
+  capasControler("Arcos", "eliminar");
 
   //Activamos las capas que deban estar activas
   for (let i = 0; i < 6; i++) {
@@ -709,16 +709,16 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[11].value = capaHex.campoEscalaElevacion;
         break;
 
-      case "Caminos":
+      case "Arcos":
         //p campo color
         contenedorCapas.children[i].children[2].style = "display:block";
         //select campo color
         contenedorCapas.children[i].children[3].style = "display:block";
         contenedorCapas.children[i].children[3].value = capaCaminos.campoColor;
-        //p coordenadas para caminos
+        //p coordenadas para arcos
         contenedorCapas.children[i].children[12].style = "display:block";
         contenedorCapas.children[i].children[15].style = "display:block";
-        //inputs coordenadas para caminos
+        //inputs coordenadas para arcos
         contenedorCapas.children[i].children[13].style = "display:block";
         contenedorCapas.children[i].children[14].style = "display:block";
         contenedorCapas.children[i].children[16].style = "display:block";
@@ -1102,7 +1102,7 @@ function updateCampoColor(e) {
       getValoresCampoColor(capaChinchetas);
       break;
 
-    case "Caminos": //Capa de chichetas
+    case "Arcos": //Capa de chichetas
       capaCaminos.campoColor = e.target.value;
       getValoresCampoColor(capaCaminos);
       break;
@@ -1390,7 +1390,7 @@ function crearCapas() {
   });
 
   capaCaminos.capa = new MapboxLayer({
-    id: "caminos",
+    id: "arcos",
     data: filteredData,
     type: ArcLayer,
     getHeight: 0.45,
@@ -1494,13 +1494,13 @@ function updateLayers() {
 
   if (capaCaminos.mostrar) {
     capaCaminos.capa.props.data = filteredData;
-    if (map.getLayer("caminos")) {
-      map.removeLayer("caminos");
+    if (map.getLayer("arcos")) {
+      map.removeLayer("arcos");
     }
     map.addLayer(capaCaminos.capa);
   } else {
-    if (map.getLayer("caminos")) {
-      map.removeLayer("caminos");
+    if (map.getLayer("arcos")) {
+      map.removeLayer("arcos");
     }
   }
 

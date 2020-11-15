@@ -7,6 +7,7 @@
 :root{
     --white : #f8f8f8;
     --azul  :   #779ED2;
+    --fondo: #2a2e47;
 }
 a{
     color: var(--white);
@@ -239,6 +240,7 @@ header{
 
 @media (max-width: 1400px){
 
+    
 body{
     overflow: hidden;
 }
@@ -328,4 +330,41 @@ header nav ul{
         line-height: 130%;
         max-width: 80%;
     }
+}
+
+
+
+
+
+/*DATOS HTML*/
+
+.cajaDatos {
+    font-family: "Barlow Regular", sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border: solid 1px white;
+    margin: 2rem 1rem;
+    padding: 1rem;
+    color: #f8f8f8;
+    background-color: var(--fondo);
+}
+.cajaDatos>h2, .cajaDatos>p, .cajaDatos>a {
+    padding: 1rem;
+}
+
+.cajaDatos>p, .cajaDatos>a {
+    font-size: 1.3rem;
+}
+
+.cajaDatos>a, .cajaDatos>p>a  {
+    font-size: 1.3rem;
+    color: var(--azul);
+    text-decoration: underline;
+}
+.sectionDatos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
