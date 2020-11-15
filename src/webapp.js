@@ -34,13 +34,13 @@ map.addControl(
 
 //Objetos para guardar los props de cada capa
 var capaPuntos = {
-    capa: "",
-    mostrar: false,
-    campoColor: "", //Campo por el que colorear
-    valoresCamposColores: [], //Distintos valores del campo a colorear
-    arrayColores: [], //Array de colores para cada valor
-    tam: 3,
-  },
+  capa: "",
+  mostrar: false,
+  campoColor: "", //Campo por el que colorear
+  valoresCamposColores: [], //Distintos valores del campo a colorear
+  arrayColores: [], //Array de colores para cada valor
+  tam: 3,
+},
   capaChinchetas = {
     capa: "",
     mostrar: false,
@@ -52,6 +52,8 @@ var capaPuntos = {
   capaCalor3D = {
     capa: "",
     mostrar: false,
+    anchoCelda: 100,
+    escalaElevacion: 10
   },
   capaCalor = {
     capa: "",
@@ -67,10 +69,10 @@ var capaPuntos = {
   capaCaminos = {
     capa: "",
     mostrar: false,
-    campoLatOrig: "lat_origen",
-    campoLonOrig: "lon_origen",
-    campoLatDestino: "lat_destino",
-    campoLonDestino: "lon_destino",
+    campoLatOrig: "",
+    campoLonOrig: "",
+    campoLatDestino: "",
+    campoLonDestino: "",
     campoColor: "", //Campo por el que colorear
     valoresCamposColores: [], //Distintos valores del campo a colorear
     arrayColores: [],
@@ -129,6 +131,8 @@ const capaSelect = document.querySelectorAll(".capaSelect");
 const addCapaButton = document.getElementById("addCapaButton");
 const deleteCapaButtons = document.querySelectorAll(".deleteCapaButton");
 const selectCampoColor = document.querySelectorAll(".selectCampoColor");
+const inputAnchoCalor3D = document.querySelectorAll(".radioCalor3D");
+const inputAlturaCalor3D = document.querySelectorAll(".elevacionCalor3D");
 const inputTamPuntos = document.querySelectorAll(".tamPuntos");
 const selectAltura = document.querySelectorAll(".selectAltura");
 const radioHex = document.querySelectorAll(".radioHex");
@@ -164,6 +168,14 @@ selectCampoColor.forEach((select) =>
 );
 inputTamPuntos.forEach((input) =>
   input.addEventListener("change", updateCampoTam)
+);
+
+inputAnchoCalor3D.forEach((input) =>
+  input.addEventListener("change", updateCamposCalor3D)
+);
+
+inputAlturaCalor3D.forEach((input) =>
+  input.addEventListener("change", updateCamposCalor3D)
 );
 
 selectAltura.forEach((select) =>
@@ -664,8 +676,19 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[2].style = "display:block";
         //select campo color
         contenedorCapas.children[i].children[3].style = "display:block";
-        contenedorCapas.children[i].children[3].value =
-          capaChinchetas.campoColor;
+        contenedorCapas.children[i].children[3].value = capaChinchetas.campoColor;
+        break;
+
+
+      case "Calor3D":
+        //input ancho celda calor3D
+        contenedorCapas.children[i].children[18].style = "display:block";
+        contenedorCapas.children[i].children[19].style = "display:block";
+        contenedorCapas.children[i].children[19].value = capaCalor3D.anchoCelda;
+        //input elevación celda calor3D
+        contenedorCapas.children[i].children[20].style = "display:block";
+        contenedorCapas.children[i].children[21].style = "display:block";
+        contenedorCapas.children[i].children[21].value = capaCalor3D.escalaElevacion;
         break;
 
       case "Hexagonos":
@@ -683,8 +706,7 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[10].style = "display:block";
         //input escala hexágonos
         contenedorCapas.children[i].children[11].style = "display:block";
-        contenedorCapas.children[i].children[11].value =
-          capaHex.campoEscalaElevacion;
+        contenedorCapas.children[i].children[11].value = capaHex.campoEscalaElevacion;
         break;
 
       case "Caminos":
@@ -702,6 +724,7 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[16].style = "display:block";
         contenedorCapas.children[i].children[17].style = "display:block";
         break;
+
     }
 
     //Descativamos el valor de los options del select de los tipo de representación que que ya están activas
@@ -736,7 +759,7 @@ function addHTMLFiltros() {
     switch (typeof data[0][key]) {
       case "string":
         input =
-          '<input type="text" class="inputFilter text"> <input type="number" placeholder="Máx."  id="1" class="inputFilter number" step=0.001 style="display:none">';
+          '<input type="text" placeholder="Filtrar por..." class="inputFilter text"> <input type="number" placeholder="Máx."  id="1" class="inputFilter number" step=0.001 style="display:none">';
         break;
       case "number":
         input =
@@ -835,9 +858,9 @@ function typeOfInputControler(e) {
     default:
       console.log(
         "El campo " +
-          e.target.value +
-          " es del tipo " +
-          typeof data[0][e.target.value]
+        e.target.value +
+        " es del tipo " +
+        typeof data[0][e.target.value]
       );
       break;
   }
@@ -1094,6 +1117,22 @@ function updateCampoTam(e) {
   updateLayers();
 }
 
+function updateCamposCalor3D(e) {
+  switch (e.target.classList[0]) {
+    case "radioCalor3D":
+      capaCalor3D.anchoCelda = parseInt(e.target.value);
+      capaCalor3D.capa.props.cellSize = capaCalor3D.anchoCelda;
+      break;
+
+    case "elevacionCalor3D":
+      capaCalor3D.escalaElevacion = parseInt(e.target.value);
+      capaCalor3D.capa.props.elevationScale = capaCalor3D.escalaElevacion;
+      break;
+
+  }
+  updateLayers();
+}
+
 function updateCamposHex(e) {
   switch (e.target.classList[0]) {
     case "selectAltura":
@@ -1134,9 +1173,9 @@ function updateCamposCaminos(e) {
 
   if (
     (capaCaminos.campoLatOrig,
-    capaCaminos.campoLonOrig,
-    capaCaminos.campoLatDestino,
-    capaCaminos.campoLonDestino !== "")
+      capaCaminos.campoLonOrig,
+      capaCaminos.campoLatDestino,
+      capaCaminos.campoLonDestino !== "")
   ) {
     //Centramos el mapa en los datos
     map.flyTo({
@@ -1154,9 +1193,8 @@ function updateCamposCaminos(e) {
 
 function toAscii(value) {
   let sum = 0;
-  //Si el valor no es un string, lo pasamos a string para poder convertirlo a ascii
+  //Si el valor no es un string, lo devolvemos directamente sin pasarlo a ASCII porque no es necesario.
   if (typeof value != "string") {
-    //Podríamos retornar el value en realidad.
     value = value.toString();
   }
   for (let i = 0; i < value.length; i++) {
@@ -1167,7 +1205,6 @@ function toAscii(value) {
 
 function getValoresCampoColor(capaProps) {
   //Vaciamos el array para que no se llene infinitamente
-
   capaProps.arrayColores = [];
   capaProps.valoresCamposColores = [];
 
@@ -1255,8 +1292,8 @@ function crearCapas() {
     data: filteredData,
     pickable: true,
     extruded: true,
-    cellSize: 200,
-    elevationScale: 10,
+    cellSize: capaCalor3D.anchoCelda,
+    elevationScale: capaCalor3D.escalaElevacion,
     colorDomain: [1, 100],
     opacity: 0.6,
     coverage: 0.9,
