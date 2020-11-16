@@ -1,4 +1,4 @@
-lat_orig , long_orig , lat_esp, lon_esp, País_de_origen, Continente, #personas
+lat_orig , long_orig , lat_esp, lon_esp, Origen, Continente, #personas
 50.503887,4.469936,40.4167,-3.70325,Bélgica,Europa,4502
 42.733883,25.48583,40.4167,-3.70325,Bulgaria,Europa,5351
 56.26392,9.501785,40.4167,-3.70325,Dinamarca,Europa,1056
@@ -19,6 +19,7 @@ lat_orig , long_orig , lat_esp, lon_esp, País_de_origen, Continente, #personas
 48.37,31.16,40.4167,-3.70325,Ucrania,Europa,7856
 47.005,28.857,40.4167,-3.70325,Moldavia,Europa,1538
 55.7508,37.61,40.4167,-3.70325,Rusia,Europa,8858
+
 28.033,1.6596,40.4167,-3.70325,Argelia,África,217
 13.443182,-15.310139,40.4167,-3.70325,Gambia,África,121
 7.946,-1.023,40.4167,-3.70325,Ghana,África,66
@@ -30,3 +31,26 @@ lat_orig , long_orig , lat_esp, lon_esp, País_de_origen, Continente, #personas
 9.0819,8.675,40.4167,-3.70325,Nigeria,África,32
 14.497,-14.45,40.4167,-3.70325,Senegal,África,297
 
+
+
+37.0902,-95.71,40.4167,-3.70325, Estados Unidos de América, América , 10282
+56.13,-106.346,40.4167,-3.70325, Canada, América , 1229
+
+23.634,-102.552,40.4167,-3.70325, México,  América,6348
+21.521,-77.78,40.4167,-3.70325, Cuba,  América, 13712
+18.735,-70.162,40.4167,-3.70325, República Dominicana,  América,8694
+
+-38.416,-63.616,40.4167,-3.70325, Argentina, América , 25633
+-16.29,-63.58,40.4167,-3.70325, Bolivia, América , 6157
+-14.23,-51.92,40.4167,-3.70325, Brasil, América , 16685
+ 4.5708,-74.297,40.4167,-3.70325, Colombia, América , 76193
+-35.675,-71.5429,40.4167,-3.70325, Chile, América , 5448
+-1.831,-78.183,40.4167,-3.70325, Ecuador, América , 11088
+-23.442, -58.443,40.4167,-3.70325, Paraguay, América , 11865
+
+
+23.684994,90.3563,40.4167,-3.70325, Bangladesh, Asia, 2460
+35.8616,104.195,40.4167,-3.70325, China, Asia, 12071
+14.6042,120.982,40.4167,-3.70325, Filipinas, Asia, 2867
+20.593,78.9628,40.4167,-3.70325, India, Asia, 6867
+ 30.3753,69.345,40.4167,-3.70325, Pakistán, Asia, 10989
