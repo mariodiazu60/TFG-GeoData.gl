@@ -576,7 +576,7 @@ function capasHTMLAction(e) {
       //Input altura hexágonos
       contenedorCapas.children[i].children[7].innerHTML =
         "<option value=''></option>" + options;
-      //Input coordenas arcos hexágonos
+      //Input coordenas arcos
       contenedorCapas.children[i].children[13].innerHTML =
         "<option value=''></option>" + options;
       contenedorCapas.children[i].children[14].innerHTML =
@@ -719,6 +719,7 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[12].style = "display:block";
         contenedorCapas.children[i].children[15].style = "display:block";
         //inputs coordenadas para arcos
+        contenedorCapas.children[i].children[13].style = "display:block";
         contenedorCapas.children[i].children[13].style = "display:block";
         contenedorCapas.children[i].children[14].style = "display:block";
         contenedorCapas.children[i].children[16].style = "display:block";
@@ -1191,6 +1192,7 @@ function updateCamposCaminos(e) {
 }
 //#endregion
 
+
 function toAscii(value) {
   let sum = 0;
   //Si el valor no es un string, lo devolvemos directamente sin pasarlo a ASCII porque no es necesario.
@@ -1304,7 +1306,7 @@ function crearCapas() {
         info.innerHTML = "";
         info.innerHTML =
           info.innerHTML +
-          "<p>Representado " +
+          "<p>Representando " +
           data.length +
           " elementos </p>" +
           "<p>Coordenadas aprox. : [" +
@@ -1352,7 +1354,7 @@ function crearCapas() {
           info.innerHTML = "";
           info.innerHTML =
             info.innerHTML +
-            "<p id='numElems'>Representado " +
+            "<p id='numElems'>Representando " +
             filteredData.length +
             " elementos </p>" +
             "<p>Coordenadas aprox. : [" +
@@ -1362,7 +1364,7 @@ function crearCapas() {
             "]</p>" +
             "<p>Representado " +
             object.points.length +
-            " en este área.</p>";
+            " elementos en este área.</p>";
 
           let sum = 0;
           //Iteramos sobre los points para sacar la suma de los valores de la altura
