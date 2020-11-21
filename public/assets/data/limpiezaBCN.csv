@@ -1,0 +1,866 @@
+Nmero_punt_crtic;Codi_Districte;Nom_Districte;Codi_Barri;Nom_Barri;Nom_Carrer;Nmero;Latitud;Longitud;Motiu;Nombre_visites_setembre_2017;Estat_setembre_2017;Nombre_visites_octubre_2017;Estat_octubre_2017;Nombre_visites_novembre_2017;Estat_novembre_2017;Nombre_visites_desembre_2017;Estat_desembre_2017;Nombre_visites_gener_2018;Estat_gener_2018
+864;1;Ciutat Vella;1;el Raval;Carrer Arc de la Verge;1;41.383648;2.164903;Poca afluncia de gent;19;6.1;16;7.4;17;2.9;16;3.3;20;3.6
+865;1;Ciutat Vella;1;el Raval;Carrer Sant Erasme;3;41.38129;2.164533;Mal s de contenidors i/o papereres;18;7.8;18;9.8;18;13.6;16;4.7;19;10.5
+866;1;Ciutat Vella;1;el Raval;Carrer Lluna ;29;41.381584;2.165298;Efecte crida;18;6.9;18;7.2;18;5.5;16;6.4;18;5
+867;1;Ciutat Vella;1;el Raval;Carrer Guifr ;16;41.381287;2.165995;Efecte crida;19;6.7;18;10;18;10.1;16;4.3;19;6.9
+868;1;Ciutat Vella;1;el Raval;Plaa Caramelles ;1;41.38237;2.167744;Propietaris danimals incvics;19;6.2;19;3.1;18;3.8;16;5.5;19;3.9
+869;1;Ciutat Vella;1;el Raval;Carrer del Carme ;50;41.381256;2.168395;Mal s de contenidors i/o papereres;19;8;19;8.3;18;11.4;16;7.7;19;8.2
+870;1;Ciutat Vella;1;el Raval;Carrer Agust Duran SanPere;6;41.381325;2.168168;Problemtica social;19;2.6;19;4;18;5.3;16;3.8;19;3.5
+871;1;Ciutat Vella;1;el Raval;Carrer Peu de la Creu ;11;41.381454;2.167407;Mal s de contenidors i/o papereres;19;15.7;19;11.2;18;12.7;16;14.2;19;7.2
+872;1;Ciutat Vella;1;el Raval;Carrer Erasme Janer;4;41.379845;2.166108;Mal s de contenidors i/o papereres;20;7.2;18;9.6;18;12.2;16;14.8;19;10.6
+873;1;Ciutat Vella;1;el Raval;Carrer Sant Antoni Abat;6;41.379417;2.165574;Mal s de contenidors i/o papereres;20;15;18;10;18;16.5;16;15.8;19;13.5
+874;1;Ciutat Vella;1;el Raval;Carrer Sant Climent ;23;41.378506;2.16551;Efecte crida;23;5;18;8.3;18;4.9;16;7.5;20;11
+875;1;Ciutat Vella;1;el Raval;Placeta Martina Castells ;1;41.379772;2.166827;Mala praxis comercial;20;15.8;18;7.4;18;10.8;11;4.3;18;4.2
+876;1;Ciutat Vella;1;el Raval;Carrer Malnom ;1;41.380627;2.167949;Problemtica social;19;4;18;4.9;18;3.3;16;4.6;19;3.7
+877;1;Ciutat Vella;1;el Raval;Carrer Picalquers ;1;41.380665;2.168612;Problemtica social;19;12.1;18;8;18;12.7;16;13.1;19;12.3
+878;1;Ciutat Vella;1;el Raval;Jardins Rubi i Luch;1;41.38073;2.170163;Problemtica social;21;6.9;19;4.3;18;4.7;16;3.2;19;2.9
+879;1;Ciutat Vella;1;el Raval;Carrer Egipcaques;3;41.38089;2.168989;Mal s de contenidors i/o papereres;19;7.6;19;9.3;18;10.4;16;7.3;20;6.9
+880;1;Ciutat Vella;1;el Raval;Plaa Gardunya ;1;41.381252;2.17052;Fora afluncia de gent;19;7.1;19;5.8;17;5.3;16;4.1;19;5.4
+881;1;Ciutat Vella;1;el Raval;Plaa Sant Agust;0;41.38073;2.171528;Mala praxis comercial;19;9.2;19;14.6;18;6.2;16;6.7;19;11.9
+882;1;Ciutat Vella;1;el Raval;Carrer Robador;53;41.378761;2.171453;Efecte crida;23;3.4;19;3.6;18;5.8;16;6.4;20;8.3
+883;1;Ciutat Vella;1;el Raval;Plaa Salvador Segu;1;41.37878;2.170497;Mal s de contenidors i/o papereres;23;5.3;19;5.5;18;3.6;16;4.1;20;7.6
+884;1;Ciutat Vella;1;el Raval;Carrer Aurora ;11;41.378757;2.168208;Efecte crida;23;7.3;18;11.1;18;15.1;16;18.5;19;16.1
+885;1;Ciutat Vella;1;el Raval;Carrer Aurora ;25;41.377934;2.167251;Efecte crida;23;10.8;18;7.5;18;16.1;16;15.7;19;18.9
+886;1;Ciutat Vella;1;el Raval;Carrer Sant Rafael ;42;41.378326;2.1683;Mal s de contenidors i/o papereres;23;13.3;17;14.8;18;17.1;16;17.1;19;17.8
+887;1;Ciutat Vella;1;el Raval;Carrer Bertomeu ;8;41.377926;2.168872;Mal s de contenidors i/o papereres;23;8.7;17;9.5;18;10.4;16;9;20;9.3
+888;1;Ciutat Vella;1;el Raval;Carrer Riereta ;31;41.377712;2.169048;Poca afluncia de gent;23;2;17;2.3;18;2.1;16;1.1;19;0.6
+889;1;Ciutat Vella;1;el Raval;Carrer Vistalegre;21;41.378281;2.166277;Mal s de la recollida pneumtica;23;13.7;18;12.6;18;16.3;16;15.1;20;20.6
+890;1;Ciutat Vella;1;el Raval;Carrer Reina Amlia;2;41.378021;2.165321;Mala praxis comercial;23;5.8;19;6.7;17;12;16;11.4;20;7.9
+891;1;Ciutat Vella;1;el Raval;Carrer Reina Amlia;11;41.37775;2.165885;Mal s de contenidors i/o papereres;23;8.2;19;9.2;17;15.4;16;11.5;20;9.5
+892;1;Ciutat Vella;1;el Raval;Ronda Sant Pau;30;41.376316;2.166279;Mal s de contenidors i/o papereres;23;3.8;19;4.6;17;8.2;16;8.8;20;7.3
+893;1;Ciutat Vella;1;el Raval;Plaa Josep Maria Folch i Torres;1;41.376438;2.167012;Mal s de la recollida pneumtica;6;1.6;12;1.8;17;1.8;16;2.6;20;1.5
+894;1;Ciutat Vella;1;el Raval;Carrer Lleialitat;3;41.377327;2.167082;Mal s de la recollida pneumtica;23;3.8;19;5.1;17;12.6;16;14.9;20;10.8
+895;1;Ciutat Vella;1;el Raval;Carrer Hort de la Bomba ;2;41.376831;2.168197;Mal s de la recollida pneumtica;23;4.8;19;3.6;18;10.1;16;11.6;20;8.3
+896;1;Ciutat Vella;1;el Raval;Carrer Carretes ;77;41.376507;2.168965;Mal s de la recollida pneumtica;23;3.7;19;3;18;4.7;16;7.2;20;6.3
+897;1;Ciutat Vella;1;el Raval;Jardins de Sant Pau del Camp;88;41.376499;2.170023;Efecte crida;21;8.2;19;11.7;18;13.9;16;14.5;20;10.7
+898;1;Ciutat Vella;1;el Raval;Carrer Gurdia ;15;41.377625;2.174375;Efecte crida;21;12.6;19;13.2;18;11;16;16.3;20;12
+899;1;Ciutat Vella;1;el Raval;Carrer Nou de la Rambla ;9;41.378708;2.173891;Mal s de contenidors i/o papereres;21;9.8;19;11.4;18;7.7;16;7.8;20;5.8
+900;1;Ciutat Vella;1;el Raval;Carrer Lancaster ;24;41.378155;2.174939;Problemtica social;21;15;19;17.1;18;29.8;16;9.8;20;10.6
+901;1;Ciutat Vella;1;el Raval;Carrer Tallers ;32;41.384857;2.168211;Mal s del porta a porta;20;9.7;19;5.3;18;8.6;16;7.6;19;10.6
+902;1;Ciutat Vella;1;el Raval;Carrer Tallers ;13;41.384712;2.169438;Mala praxis comercial;19;6.7;19;6.4;18;4;16;4.2;19;6.3
+903;1;Ciutat Vella;1;el Raval;Carrer d'en Roig;1;41.380135;2.169013;Efecte crida;19;6;19;5.8;18;10.2;15;7.8;20;5.3
+904;1;Ciutat Vella;1;el Raval;Carrer de Valldoncella;49;41.382671;2.164182;Mal s de la recollida pneumtica;19;8.6;18;11.5;18;6.8;16;8.9;19;9.8
+905;1;Ciutat Vella;1;el Raval;Carrer de la Riera Baixa;26;41.380554;2.167642;Efecte crida;19;6.9;18;11.9;18;4;16;6.2;19;5.6
+906;1;Ciutat Vella;1;el Raval;Passatge Elisabets;9;41.383362;2.169362;Mal s de contenidors i/o papereres;21;18.2;19;8.8;18;16.9;16;18;19;13.8
+907;1;Ciutat Vella;1;el Raval;Carrer Cardona;2;41.3811;2.165286;Mal s de contenidors i/o papereres;19;8.9;18;6.8;18;11.5;16;5;19;9.8
+908;1;Ciutat Vella;1;el Raval;Plaa Hort de la Bomba;1;41.376667;2.168171;Mal s de la recollida pneumtica;23;3.5;19;2.5;18;6.4;16;11.9;20;5.7
+909;1;Ciutat Vella;1;el Raval;Carrer de Sant Josep Oriol;13;41.378586;2.170474;Mal s de la recollida pneumtica;23;2.4;19;6;18;1.7;16;4.3;20;3.4
+910;1;Ciutat Vella;1;el Raval;Carrer Robadors ;26;41.379379;2.17085;Efecte crida;23;4.4;18;6.1;18;10.1;16;6.2;20;6.7
+911;1;Ciutat Vella;1;el Raval;Carrer parlament ;56;41.377369;2.163978;Fora afluncia de gent;18;12.2;10;9.7;19;9.2;9;12.9;14;6.2
+912;1;Ciutat Vella;1;el Raval;Nou de la Rambla;96;41.375702;2.17068;Fora afluncia de gent;21;5.3;19;4;18;6.5;16;6.4;20;1.9
+913;1;Ciutat Vella;1;el Raval;Peu de la Creu;28;41.380733;2.166371;Fora afluncia de gent;19;4.3;18;3.9;18;1.8;16;2.2;19;3.7
+914;1;Ciutat Vella;1;el Raval;Robadors;6--10;41.380138;2.170283;Fora afluncia de gent;23;10;19;17.5;18;16.3;16;14.6;20;18.7
+915;1;Ciutat Vella;1;el Raval;Vistalegre;1;41.378956;2.167148;Fora afluncia de gent;23;9.2;18;6.4;18;9.7;16;14.8;19;11.1
+916;1;Ciutat Vella;1;el Raval;plaa Vazquez Montalban;1;41.378849;2.16978;Fora afluncia de gent;23;6;18;8.5;18;6.6;16;17.6;20;11.8
+917;1;Ciutat Vella;1;el Raval;Sant Climent;3;41.379044;2.16523;Fora afluncia de gent;23;6.7;18;7.3;18;6.7;16;8.1;20;5.6
+918;1;Ciutat Vella;1;el Raval;C arretes;47;41.377155;2.167936;Fora afluncia de gent;23;8.6;19;9.2;18;20.3;16;15.7;20;19.7
+919;1;Ciutat Vella;1;el Raval;carrer UNI ;34;41.378193;2.17202;Fora afluncia de gent;21;10.8;19;9.6;18;15.7;16;9.8;20;14.1
+920;1;Ciutat Vella;2;el Barri Gtic;Plaa Vila de Madrid;1;41.38448;2.172439;Mal s de la recollida pneumtica;23;6.9;19;5;18;4;16;5.2;19;6.6
+921;1;Ciutat Vella;2;el Barri Gtic;Carrer Vidre ;8;41.379795;2.176125;Mal s del porta a porta;22;7.8;17;6.1;17;8.3;15;7.6;19;7.2
+922;1;Ciutat Vella;2;el Barri Gtic;Placeta de Sant Francesc ;4;41.380116;2.176429;Mal s del porta a porta;22;7.9;17;8;17;6.9;16;6;19;5.7
+923;1;Ciutat Vella;2;el Barri Gtic;Carrer De la Lleona;9;41.380974;2.17598;Mal s del porta a porta;22;12.7;17;10.6;17;9.3;16;10.4;19;8.8
+924;1;Ciutat Vella;2;el Barri Gtic;Carrer Lled;1;41.382923;2.178566;Mal s de contenidors i/o papereres;23;6.2;19;6.1;18;4.4;16;5.2;19;4.9
+925;1;Ciutat Vella;2;el Barri Gtic;Carrer Sos-Tinent Navarro;7;41.383224;2.179229;Mal s de contenidors i/o papereres;23;1;18;4.2;18;1.4;16;1.2;19;1.6
+926;1;Ciutat Vella;2;el Barri Gtic;Carrer Sos-Tinent Navarro;6;41.383488;2.178752;Efecte crida;23;3.3;18;1.7;18;2.3;16;2.4;19;3
+927;1;Ciutat Vella;2;el Barri Gtic;Carrer Regomir;4;41.3815;2.178958;Mal s de contenidors i/o papereres;23;8;18;7;18;4.7;16;4.4;19;3.3
+928;1;Ciutat Vella;2;el Barri Gtic;Carrer Regomir ;23;41.381226;2.179586;Mal s del porta a porta;23;1.1;17;2;18;4.1;16;0.7;19;3.1
+929;1;Ciutat Vella;2;el Barri Gtic;Plaa Traginers;1;41.38221;2.179884;Mal s de contenidors i/o papereres;23;5.7;17;5.3;18;5;16;5.2;19;12.8
+930;1;Ciutat Vella;2;el Barri Gtic;Carrer Pom d'Or;2;41.382282;2.180058;Mal s de contenidors i/o papereres;23;5.1;18;2.1;18;3.5;16;2.4;19;5.3
+931;1;Ciutat Vella;2;el Barri Gtic;Carrer Merc ;23;41.38073;2.180774;Mal s de contenidors i/o papereres;22;5.9;17;3;18;6;16;2.3;19;3.6
+932;1;Ciutat Vella;2;el Barri Gtic;Plaa Antonio Lpez;5;41.381165;2.181501;Mala praxis comercial;23;7.7;18;11.4;18;10.9;16;9.3;19;8.2
+933;1;Ciutat Vella;2;el Barri Gtic;Plaa Duc de Medinaceli;1;41.378357;2.179326;Mala praxis comercial;23;9.8;18;8.8;18;8.4;16;15.6;19;9.4
+934;1;Ciutat Vella;2;el Barri Gtic;Carrer Josep Anselm Clav ;2;41.377625;2.178159;Mala praxis comercial;23;19.8;18;16.9;17;18.4;16;14.2;19;17.1
+935;1;Ciutat Vella;2;el Barri Gtic;Plaa Joaquim Xirau;1;41.378677;2.176707;Mala praxis comercial;23;9;18;10.3;17;14.1;16;11.6;19;12.6
+936;1;Ciutat Vella;2;el Barri Gtic;Carrer Escudellers ;47;41.380081;2.176819;Mal s del porta a porta;22;3.9;17;5.1;17;5.7;16;3.4;19;6.1
+937;1;Ciutat Vella;2;el Barri Gtic;Carrer Escudellers ;56;41.380493;2.177851;Mala praxis comercial;22;5.7;17;6.4;17;4.9;16;4;19;3.1
+938;1;Ciutat Vella;2;el Barri Gtic;Carrer Rosa;3;41.380104;2.177823;Mal s del porta a porta;22;6.3;17;6.7;17;11;16;6.7;19;10.1
+939;1;Ciutat Vella;2;el Barri Gtic;Carrer D'en Serra;2;41.380085;2.177935;Mal s del porta a porta;22;13.5;17;16.7;17;19.3;16;20.8;19;23.6
+940;1;Ciutat Vella;2;el Barri Gtic;Carrer Cdols ;22;41.379345;2.178565;Mal s de contenidors i/o papereres;23;5.6;18;9.7;18;9.1;16;7;19;8.2
+941;1;Ciutat Vella;2;el Barri Gtic;Plaa Vuit de Mar;1;41.385487;2.174601;Mal s de contenidors i/o papereres;23;7.2;19;9.2;18;16.3;16;7.9;19;13.4
+942;1;Ciutat Vella;2;el Barri Gtic;Carrer Obradors;1;41.379932;2.176854;Mal s de contenidors i/o papereres;22;10.6;18;10.2;17;10.4;16;14.1;19;8.8
+943;1;Ciutat Vella;2;el Barri Gtic;Passatge del Rellotge;1;41.380123;2.177219;Mal s del porta a porta;22;5.3;17;5;17;7.4;16;3.7;19;8.3
+944;1;Ciutat Vella;2;el Barri Gtic;Carrer de Sils;3;41.378227;2.177816;Mal s de la recollida pneumtica;23;4.9;18;5.6;17;5.1;16;2.2;19;6.5
+945;1;Ciutat Vella;2;el Barri Gtic;Carrer Escudellers Blancs;1;41.380672;2.175855;Efecte crida;22;15.5;17;18.3;17;13.4;16;16.6;19;13.5
+946;1;Ciutat Vella;2;el Barri Gtic;Passeig Colom;6;41.38047;2.181315;Fora afluncia de gent;23;8.2;18;8.7;18;14;16;9;19;6.5
+947;1;Ciutat Vella;2;el Barri Gtic;Carrer de Marquet;1;41.380875;2.180539;Fora afluncia de gent;23;4.4;17;4.2;18;3.7;16;7.7;19;4.8
+948;1;Ciutat Vella;2;el Barri Gtic;Carrer Nou de Sant Francesc;13;41.379036;2.177316;Fora afluncia de gent;22;6.7;18;4.6;17;13.9;16;9.9;19;16.3
+949;1;Ciutat Vella;3;la Barceloneta;Carrer Ginebra  ;1;41.381367;2.187214;Mala praxis comercial;19;7.7;18;8.1;17;3.1;9;2.6;19;2.8
+950;1;Ciutat Vella;3;la Barceloneta;Carrer Ginebra  ;19;41.381718;2.188775;Mal s de contenidors i/o papereres;19;11.9;18;14.2;17;10.7;10;8.9;19;9.4
+951;1;Ciutat Vella;3;la Barceloneta;Carrer Atlntida ;70;41.377697;2.190608;Mala praxis comercial;19;3.2;17;3.9;17;1.5;9;5.4;17;4.3
+952;1;Ciutat Vella;3;la Barceloneta;Carrer Maquinista ;44;41.380981;2.189796;Mala praxis comercial;19;5.5;18;5.3;17;5.7;10;5.3;19;6
+953;1;Ciutat Vella;3;la Barceloneta;Carrer Maquinista ;55;41.3811;2.190353;Mala praxis comercial;19;5.5;18;5;17;4.5;10;6.2;19;3.8
+954;1;Ciutat Vella;3;la Barceloneta;Plaa Hilari Salvad ;1;41.37928;2.191357;Problemtica social;19;6;17;8;17;11.4;4;0;9;0
+955;1;Ciutat Vella;3;la Barceloneta;Carrer Salamanca ;18;41.380478;2.190837;Mala praxis comercial;19;2.3;18;2.6;17;3.2;10;2.3;19;0.9
+956;1;Ciutat Vella;3;la Barceloneta;Carrer Sant Carles ;18;41.379154;2.189476;Sistema de recollida saturat;19;4.1;17;4;17;4.4;10;4.1;19;4.4
+957;1;Ciutat Vella;3;la Barceloneta;Carrer Almirall Cervera ;34;41.378674;2.191177;Mala praxis comercial;19;1.7;17;1.6;17;0.7;10;0.4;18;1.2
+958;1;Ciutat Vella;3;la Barceloneta;Carrer Almirall Aixada ;27;41.377708;2.191074;Mala praxis comercial;19;3.8;17;4.2;17;4.4;10;2;17;2.5
+959;1;Ciutat Vella;3;la Barceloneta;Carrer de la Drassana;8;41.375595;2.189607;Mala praxis comercial;19;7.8;17;8.9;17;7;9;6.7;17;3.8
+960;1;Ciutat Vella;3;la Barceloneta;Carrer Meer;62;41.3769;2.190527;Mala praxis comercial;19;2.9;17;3.1;17;5.5;10;1.1;17;3.3
+961;1;Ciutat Vella;3;la Barceloneta;Carrer del Mar;37;41.379501;2.188062;Mala praxis comercial;19;1.7;17;1.8;17;1.6;9;0.7;19;9.2
+962;1;Ciutat Vella;3;la Barceloneta;Carrer del Mar;52;41.379326;2.188058;Mala praxis comercial;19;2.8;17;3;17;2.2;9;2.4;19;3.5
+963;1;Ciutat Vella;3;la Barceloneta;Plaa Antoni Genesc i Coromines;1;41.38076;2.191195;Efecte crida;19;8.6;18;11.8;17;9.3;10;8.1;19;14
+964;1;Ciutat Vella;3;la Barceloneta;Cermeo;17;41.382202;2.190221;Fora afluncia de gent;19;6.7;18;5.2;17;2.8;10;7.1;19;2.7
+965;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Sant Pere Ms Alt;27;41.388241;2.176398;Alt s de lespai pblic;19;2.6;20;3;18;8.7;14;3.4;19;2.9
+966;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Sant Pere Mitj ;10;41.387085;2.176655;Poca afluncia de gent;19;7.4;19;12.1;18;11.2;14;14.4;20;9.2
+967;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Sant Pere Ms Baix;57;41.388306;2.178701;Mal s de contenidors i/o papereres;19;7.1;19;5.4;18;8.4;14;9.2;20;5.4
+968;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer dels Ocells;2;41.389198;2.179937;Poca afluncia de gent;18;6.8;19;4.6;18;7.2;14;8.8;19;5.5
+969;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer de Cortines ;3;41.388821;2.179985;Mal s del porta a porta;18;10;19;6.3;18;6.6;14;6.9;19;6.6
+970;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Portal Nou;22;41.388683;2.180775;Efecte crida;18;8.2;19;8.4;18;12.8;14;6.1;19;12.7
+971;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer dels Petons;14;41.388935;2.181134;Poca afluncia de gent;18;5.1;18;5.2;18;5.1;14;7.3;19;4.3
+972;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Pou de la Figuera ;10;41.387424;2.179669;Mal s de contenidors i/o papereres;19;16.3;19;22.1;18;16.9;14;13.2;20;13.4
+973;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer dels Mercaders ;40;41.385906;2.176995;Mal s de contenidors i/o papereres;18;2.7;19;3.5;19;3.5;14;2.9;20;2.1
+974;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Plaa de les Beates ;2;41.386192;2.176799;Mal s de contenidors i/o papereres;19;4.9;19;13.2;19;11.4;14;6.8;20;5.1
+975;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Avinguda Francesc Camb;27;41.386185;2.17756;Mal s de contenidors i/o papereres;19;19.9;19;12.2;19;12.8;14;9.9;20;13.1
+976;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Arc de Sant Sivestre ;3;41.385208;2.178504;Efecte crida;19;1.9;19;6.9;19;2.5;14;3.1;20;2.6
+977;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer de l'Oli ;4;41.384804;2.178492;Poca afluncia de gent;19;3.7;19;1.8;19;6.2;14;4.9;20;1.7
+978;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Plaa de la Llana;0;41.385185;2.179488;Mal s de contenidors i/o papereres;19;7.6;19;7.3;19;7.7;14;7.9;19;6.5
+979;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Volta d'en Coromines ;1;41.384624;2.179106;Mal s de contenidors i/o papereres;19;2.9;19;3.5;18;4.3;14;4.5;20;2.3
+980;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Pou de la Cadena ;5;41.384735;2.179527;Efecte crida;19;1.3;19;1.6;19;1.2;14;1.8;20;1.8
+981;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Boquer;11;41.385521;2.180037;Mal s del porta a porta;19;3.4;19;4.6;19;5.5;14;4.4;20;6.4
+982;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Colomines ;1;41.385803;2.179069;Mal s de contenidors i/o papereres;18;4.3;19;8;19;3.2;14;14.7;20;7
+983;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Colomines ;5;41.385643;2.178997;Mal s de la recollida pneumtica;19;6.1;19;5.5;19;4.4;14;11.1;20;8.1
+984;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Plaa Sant Cugat;1;41.3867;2.179946;Mal s de contenidors i/o papereres;19;2.4;19;2;19;2.2;14;3.3;20;6.3
+985;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Princesa;31;41.385712;2.180881;Mal s de contenidors i/o papereres;19;20.7;19;10.3;19;12.9;14;13.9;20;15.7
+986;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Brossol;1;41.383865;2.18048;Fora afluncia de gent;19;8.7;19;5.4;19;5.2;14;6.7;20;2.4
+987;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Manresa ;6;41.383385;2.180298;Mal s de la recollida pneumtica;19;6.2;19;6.4;19;5.8;14;2.4;20;6.9
+988;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Abaixadors ;14;41.383278;2.181374;Mal s de contenidors i/o papereres;19;16.4;19;16.7;19;19.9;14;22.9;20;14.5
+989;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Joan Massana;2;41.382469;2.181077;Mal s de contenidors i/o papereres;19;5.6;19;3.2;19;7.5;14;5.7;20;8
+990;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Pla de Palau;7;41.38324;2.182946;Mala praxis comercial;19;11;18;10.5;19;6.2;14;14.6;20;7.9
+991;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Avinguda Doctor Aiguader;5;41.382656;2.186647;Zona turstica;18;7;18;9.8;18;9.2;14;4;20;3.4
+992;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer de Sid;1;41.385132;2.178943;Efecte crida;19;11;19;7.3;19;10.7;14;6.6;20;12.9
+993;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Avinguda de Francesc Camb;1;41.385715;2.176987;Mal s de contenidors i/o papereres;18;10.5;19;11;17;17;14;10.6;20;9.7
+994;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Arc de Sant Onofre;1;41.384666;2.178849;Efecte crida;19;5.7;19;2.8;19;2.3;14;4.1;20;4.7
+995;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Volta dels Jueus;1;41.388695;2.180428;Efecte crida;18;6.4;19;5.4;18;10.4;14;7.2;19;9.8
+996;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Plegamans;1;41.383274;2.181395;Mal s del porta a porta;19;6.2;19;6.4;19;5;14;3.2;20;5.3
+997;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Carrer Flor de Lliri;1;41.385506;2.179436;Mal s de contenidors i/o papereres;19;6.7;19;8.9;19;8.6;14;7.7;20;6.7
+998;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Mercaders;12;41.385006;2.178515;Fora afluncia de gent;20;5.9;19;14.8;18;8.7;14;10;20;4.6
+999;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Mare de deu del Pilar;0;41.387154;2.176736;Fora afluncia de gent;19;14.5;19;13.6;18;15.6;14;12.5;20;6.6
+1000;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Mendez nuez;2;41.389355;2.178379;Fora afluncia de gent;18;12.7;19;13.8;18;14.5;14;17.4;19;9
+1001;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Antic de Sant Joan;8;41.384884;2.183414;Fora afluncia de gent;19;20.9;19;12.4;14;12.7;13;7.6;20;9.3
+1002;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Avinguda Marqus de l'Argenteria;5;41.383781;2.184315;Fora afluncia de gent;20;9.6;18;4.5;19;9;14;9.4;19;7.4
+1003;1;Ciutat Vella;4;Sant Pere; Santa Caterina i la Ribera;Princesa;14;41.384846;2.179899;Fora afluncia de gent;19;16.4;19;14.9;19;16;14;12.6;20;15.5
+1004;2;Eixample ;5;el Fort Pienc;Carrer Marina;201;41.400333;2.178831;Propietaris danimals incvics;21;7.7;18;7.8;18;7.5;13;9;19;8.6
+1005;2;Eixample ;5;el Fort Pienc;Passatge Pags;9;41.397594;2.177752;Propietaris danimals incvics;23;4.9;19;4.5;17;8.2;13;4.2;17;4.6
+1006;2;Eixample ;5;el Fort Pienc;Plaa Tetuan;49;41.39492;2.175556;Propietaris danimals incvics;21;11.4;17;6.9;17;8.8;12;10;17;8.8
+1007;2;Eixample ;5;el Fort Pienc;Carrer Ausies Marc;76;41.394142;2.180176;Alt s de lespai pblic;22;1.2;19;2.5;17;2.9;12;2.5;17;3.6
+1008;2;Eixample ;5;el Fort Pienc;Carrer Ribes;39;41.395767;2.182153;Alt s de lespai pblic;22;4.5;19;4.9;17;4.6;13;5.1;17;5.5
+1009;2;Eixample ;5;el Fort Pienc;Carrer  Sardenya;168;41.396374;2.183536;Problemtica social;24;3.4;18;2.5;16;0.9;13;2;17;1.3
+1010;2;Eixample ;5;el Fort Pienc;Carrer Marina;115;41.395134;2.185663;Propietaris danimals incvics;22;8.7;19;9.1;16;11.8;12;7.3;17;7.5
+1011;2;Eixample ;6;la Sagrada Famlia;Carrer Npols;254;41.401276;2.171717;Poca afluncia de gent;22;1.4;17;0.8;18;1.1;13;2;19;1.6
+1012;2;Eixample ;6;la Sagrada Famlia;Plaa de la Sagrada Famlia;0;41.403419;2.173287;Zona turstica;22;4.9;18;4.5;17;3.4;13;4.5;19;5.1
+1013;2;Eixample ;6;la Sagrada Famlia;Carrer Provena;468;41.405186;2.175439;Zona turstica;20;4;18;2.1;18;1.4;13;2.9;19;3.3
+1014;2;Eixample ;6;la Sagrada Famlia;Passatge Cars;1;41.406845;2.176332;Poca afluncia de gent;22;15.3;17;2.2;18;1.7;13;3.3;18;2.7
+1015;2;Eixample ;6;la Sagrada Famlia;Passatge de Canadell;1;41.407711;2.175234;Poca afluncia de gent;22;2.8;18;2.4;18;3.6;13;12.4;19;3.9
+1016;2;Eixample ;6;la Sagrada Famlia;Carrer Marina;358;41.407753;2.170209;Propietaris danimals incvics;19;8.2;16;6.5;18;6.6;13;6.5;18;7.4
+1017;2;Eixample ;6;la Sagrada Famlia;Carrer Crsega;641;41.409874;2.176928;Propietaris danimals incvics;22;3.6;18;7.2;18;6.7;13;8.2;19;8
+1018;2;Eixample ;6;la Sagrada Famlia;Carrer Rossell;490;41.409004;2.178412;Propietaris danimals incvics;22;7.6;18;5;18;4.2;13;4.8;19;7
+1019;2;Eixample ;6;la Sagrada Famlia;Passatge Vilaret;45;41.406929;2.178298;Propietaris danimals incvics;21;9.2;18;10.4;18;9.1;13;10.5;19;14
+1020;2;Eixample ;6;la Sagrada Famlia;Carrer Enamorats;70;41.404537;2.181882;Propietaris danimals incvics;21;5.6;18;6.1;18;5.5;13;5.9;19;8.5
+1021;2;Eixample ;6;la Sagrada Famlia;Plaa Hispanitat;1;41.401596;2.179056;Presncia danimals i/o alimentadors daquests;21;10.3;18;6.4;18;5.2;13;9.2;19;9
+1022;2;Eixample ;6;la Sagrada Famlia;Passatge Font;1;41.402287;2.175712;Mal s de contenidors i/o papereres;21;7.2;19;9.4;18;6.4;13;6.9;19;8.5
+1023;2;Eixample ;6;la Sagrada Famlia;Passatge Maiol;1;41.401901;2.17439;Propietaris danimals incvics;21;7.1;19;5.2;17;5;13;4.6;19;5.1
+1024;2;Eixample ;6;la Sagrada Famlia;Carrer Calabria;90;41.379131;2.156119;Propietaris danimals incvics;19;7.5;19;6.9;19;9;9;10.1;13;9.9
+1025;2;Eixample ;6;la Sagrada Famlia;Passatge Sim;1;41.404076;2.172752;Fora afluncia de gent;20;8.1;19;5.2;18;4.4;13;5.4;18;6.5
+1026;2;Eixample ;6;la Sagrada Famlia;Castillejos;317;41.408424;2.175751;Fora afluncia de gent;22;8.8;18;7.6;18;8.8;13;6.7;19;8.3
+1027;2;Eixample ;6;la Sagrada Famlia;Corsega;319;41.408932;2.175719;Fora afluncia de gent;22;6.1;18;6.2;18;3;13;1.6;19;5.5
+1028;2;Eixample ;6;la Sagrada Famlia;Consell de cent;528;41.402607;2.181094;Fora afluncia de gent;21;9;18;6.8;18;4.2;13;6.1;19;6.7
+1029;2;Eixample ;6;la Sagrada Famlia;Valencia;431;41.402313;2.176062;Fora afluncia de gent;20;6.7;19;4.1;18;5.5;13;5.2;19;11.1
+1030;2;Eixample ;7;la Dreta de l'Eixample;Carrer Consell de Cent;56;41.393261;2.169771;Alt s de lespai pblic;20;2;18;4.9;15;5.3;13;5.2;17;7.8
+1031;2;Eixample ;7;la Dreta de l'Eixample;Carrer Pau Claris;118;41.392204;2.167848;Mala praxis comercial;24;7.2;18;7.6;17;8;13;10.7;17;4.1
+1032;2;Eixample ;7;la Dreta de l'Eixample;Carrer Arag;299;41.394444;2.167892;Alt s de lespai pblic;19;5.5;18;4.1;16;3.8;13;3.4;17;4.9
+1033;2;Eixample ;7;la Dreta de l'Eixample;Gran Via de les Corts Catalans;657;41.393524;2.173343;Problemtica social;21;4.9;18;2.6;17;2.9;13;4;17;6
+1034;2;Eixample ;7;la Dreta de l'Eixample;Carrer Roger de Flor;162;41.397327;2.174768;Alt s de lespai pblic;22;1.9;17;1.6;17;1.3;13;1.5;17;2.4
+1035;2;Eixample ;7;la Dreta de l'Eixample;Carrer Roger de Flor;198;41.398884;2.172711;Propietaris danimals incvics;21;2.9;16;3.8;18;3.3;13;5.5;18;3.9
+1036;2;Eixample ;7;la Dreta de l'Eixample;Carrer  Bailn;144;41.399124;2.167757;Mal s de contenidors i/o papereres;21;5;17;4.4;18;5.6;13;3.5;17;5.2
+1037;2;Eixample ;7;la Dreta de l'Eixample;Passatge Mercader;9;41.392666;2.159749;Mal s de contenidors i/o papereres;24;5.8;18;6.9;16;6;13;8;17;5.6
+1038;2;Eixample ;7;la Dreta de l'Eixample;Passatge de Domingo;8;41.39291;2.162458;Mal s de contenidors i/o papereres;24;8;18;15.6;16;7.1;13;7.8;17;4.5
+1039;2;Eixample ;7;la Dreta de l'Eixample;Rossell;254;41.396866;2.162146;Fora afluncia de gent;22;10.3;18;6.3;18;7.5;13;19.7;18;11.8
+1040;2;Eixample ;7;la Dreta de l'Eixample;Pau Claris;184;41.396233;2.162581;Fora afluncia de gent;21;3.8;18;4.2;18;3.7;12;4.4;18;4.4
+1041;2;Eixample ;7;la Dreta de l'Eixample;Plaa urquinaona;1;41.389053;2.172542;Fora afluncia de gent;20;6.4;18;4.7;17;4.5;13;6.1;17;4.1
+1042;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Carrer Arag;160;41.38599;2.156697;Propietaris danimals incvics;15;7.7;18;6.9;18;8.6;10;7.7;14;5.8
+1043;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Carrer Rossell;151;41.388653;2.150969;Alt s de lespai pblic;18;2.8;16;3.4;19;3.9;10;2.6;14;2.6
+1044;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Carrer Casanova;203;41.393166;2.148451;Mal s de contenidors i/o papereres;17;8.4;17;12;18;12.6;10;15.9;15;17.3
+1045;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Carrer Paris;207;41.394436;2.15412;Mal s de contenidors i/o papereres;17;5.9;17;4.8;17;12.7;10;5.5;15;8.3
+1046;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Carrer Rossell;191;41.392025;2.155467;Alt s de lespai pblic;17;2.6;18;4.5;18;4.2;11;4.4;15;4.4
+1047;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Carrer Enric Granados;78;41.392643;2.155988;Mal s de contenidors i/o papereres;17;3.7;15;5;18;9.9;11;5;15;4.2
+1048;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Carrer Provena;226;41.391186;2.156818;Mal s de contenidors i/o papereres;17;6.4;17;9.5;18;11.9;12;9.3;14;11.8
+1049;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Plaa Letamendi;13;41.388885;2.160213;Fora afluncia de gent;17;6.9;17;8;19;7.7;11;10.3;14;9.1
+1050;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Plaa Letamendi;36;41.388809;2.161287;Propietaris danimals incvics;17;8.6;17;10.8;19;10.4;11;8;14;5.4
+1051;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Carrer Diputaci;198;41.385635;2.161016;Propietaris danimals incvics;17;5.1;18;8.3;17;8.8;10;22.1;14;9.5
+1052;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Passatge de Gaiol;1;41.400707;2.172698;Poca afluncia de gent;22;5.1;18;4;18;3.5;13;5.2;19;2.7
+1053;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Corsega;195;41.390312;2.151032;Fora afluncia de gent;17;0.4;17;0.2;19;0.3;10;0.6;15;0.6
+1054;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Paris;201;41.393845;2.153471;Fora afluncia de gent;14;8.6;17;6.5;18;6.4;11;8.9;15;10.5
+1055;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Rossell;173;41.390575;2.153673;Fora afluncia de gent;17;3.9;17;4;15;3.9;11;3;14;2.2
+1056;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Londres;96;41.393726;2.151139;Fora afluncia de gent;17;9.5;17;7.2;18;18.5;10;13.6;15;9.8
+1057;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Casanova;228;41.392639;2.149332;Fora afluncia de gent;17;12.3;17;4.5;18;8.2;10;11.9;15;11.2
+1058;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Casanova;187;41.392136;2.149842;Fora afluncia de gent;17;11;17;8.4;18;6.3;10;7.3;15;8.1
+1059;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Vilarroel;58;41.383343;2.159277;Fora afluncia de gent;17;12.1;18;11.8;18;14.5;10;17.5;14;16.3
+1060;2;Eixample ;8;l'Antiga Esquerra de l'Eixample;Diputaci;224;41.386806;2.162348;Fora afluncia de gent;17;6.1;18;13.4;19;16.1;10;16.9;14;17.1
+1061;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer Comte Borrell;148;41.382778;2.15537;Mal s de contenidors i/o papereres;15;10.1;19;7.2;19;7.6;9;11.7;15;8
+1062;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer comte borrell;157;41.382462;2.155006;Alt s de lespai pblic;16;7.4;19;5.9;19;5.4;9;7;15;5.1
+1063;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer Comte Borrell;228;41.386768;2.150353;Mal s de contenidors i/o papereres;19;4;16;2;18;5.6;10;3.7;14;2.8
+1064;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer de Viladomat;279;41.387451;2.145883;Alt s de lespai pblic;18;2.4;16;4;18;3.8;10;4.9;15;2.7
+1065;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer Calbria;263;41.387028;2.145135;Efecte crida;18;8.1;16;5.9;18;5.8;10;8.3;15;8.5
+1066;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer Rossell;63;41.385513;2.145993;Presncia danimals i/o alimentadors daquests;18;12.1;16;7.3;18;10.3;10;9.1;14;7.7
+1067;2;Eixample ;9;la Nova Esquerra de l'Eixample;Avinguda de  Roma;80;41.383179;2.148807;Propietaris danimals incvics;19;5.7;19;4.3;19;5.7;9;5.9;15;5.3
+1068;2;Eixample ;9;la Nova Esquerra de l'Eixample;Avinguda de  Roma;34;41.381989;2.14656;Propietaris danimals incvics;19;9.2;18;10.4;19;12.7;9;10.1;15;6.4
+1069;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer Vilamar;91;41.380711;2.146047;Propietaris danimals incvics;18;5.6;19;7.7;19;14.2;9;10.3;15;11.3
+1070;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer Vilamar;78;41.378677;2.149603;Mal s de contenidors i/o papereres;20;7.5;20;8.2;19;5.7;9;15.1;15;9.5
+1071;2;Eixample ;9;la Nova Esquerra de l'Eixample;Diputaci;14;41.376976;2.148459;Alt s de lespai pblic;20;22.9;20;8.9;19;9;9;14.3;15;10.5
+1072;2;Eixample ;9;la Nova Esquerra de l'Eixample;Rocafort;87;41.378864;2.152808;Propietaris danimals incvics;17;9.2;19;8.5;19;9;9;7.6;15;7.4
+1073;2;Eixample ;9;la Nova Esquerra de l'Eixample;Carrer Villarroel;70;41.383781;2.158698;Propietaris danimals incvics;14;6.9;17;8.5;18;9.9;10;10.8;14;8.8
+1074;2;Eixample ;9;la Nova Esquerra de l'Eixample;Corsega;99;41.386322;2.145741;Fora afluncia de gent;19;5.4;16;3.6;18;4;10;6;14;4.8
+1075;2;Eixample ;9;la Nova Esquerra de l'Eixample;Viladomat;244;41.387356;2.147188;Fora afluncia de gent;19;6.1;16;5;18;6.8;10;9;15;8.5
+1076;2;Eixample ;9;la Nova Esquerra de l'Eixample;Llan;25;41.37904;2.146755;Fora afluncia de gent;19;8.5;19;6.9;19;5.9;9;9.9;15;7.1
+1077;2;Eixample ;10;Sant Antoni;Carrer Seplveda;86;41.379292;2.157486;Propietaris danimals incvics;19;6.7;19;7.3;19;7.1;9;7.8;14;4.1
+1078;2;Eixample ;10;Sant Antoni;Avinguda Mistral;6;41.377617;2.159171;Fora afluncia de gent;18;7.6;19;8.3;19;7.2;8;9.7;14;9.7
+1079;2;Eixample ;10;Sant Antoni;Avinguda Mistral;34;41.376926;2.156922;Propietaris danimals incvics;18;7.1;19;6.4;19;6.7;9;6.6;13;7.7
+1080;2;Eixample ;10;Sant Antoni;Avinguda Mistral;46;41.376396;2.155272;Mal s de contenidors i/o papereres;18;7.2;19;5.7;19;6.6;9;7.6;12;3.9
+1081;2;Eixample ;10;Sant Antoni;Avinguda Mistral;68;41.375706;2.152812;Propietaris danimals incvics;18;7.3;19;7.1;19;6.3;8;4;11;0
+1082;2;Eixample ;10;Sant Antoni;Carrer Compte Borrell;58;41.377899;2.161819;Mal s de contenidors i/o papereres;17;8.2;18;5.5;19;4.9;9;4.1;14;5.7
+1083;2;Eixample ;10;Sant Antoni;Carrer comte borrell;44-56;41.377399;2.162763;Alt s de lespai pblic;17;1.6;18;2.6;19;2;9;2.6;14;4.1
+1084;2;Eixample ;10;Sant Antoni;Carrer Marqus del Campo Sagrado;35;41.376644;2.165392;Problemtica social;18;10.3;18;9.7;19;15.6;9;12.6;14;13.3
+1085;2;Eixample ;10;Sant Antoni;Carrer Marqus del Campo Sagrado;26;41.376179;2.164732;Problemtica social;18;6.3;18;5.9;19;8.2;9;7.1;14;6.7
+1086;2;Eixample ;10;Sant Antoni;Carrer Manso;28;41.376385;2.160248;Presncia danimals i/o alimentadors daquests;18;3.5;19;2.4;19;3.4;9;2.8;14;3.4
+1087;2;Eixample ;10;Sant Antoni;Carrer Tamatit;126;41.377079;2.159071;Poca afluncia de gent;18;6.9;19;5;19;6.5;9;4.9;14;6.6
+1088;2;Eixample ;10;Sant Antoni;Carrer Floridablanca;125;41.380943;2.161692;Propietaris danimals incvics;18;7.2;18;7.4;19;7.7;9;9.2;14;7.9
+1089;2;Eixample ;10;Sant Antoni;Passatge Sant Antoni abat;1;41.379635;2.160982;Fora afluncia de gent;17;17.6;18;7.3;19;11.4;9;11.2;14;8.3
+1090;2;Eixample ;10;Sant Antoni;Ronda Sant antoni;15;41.379932;2.163224;Fora afluncia de gent;18;9.2;17;15;19;11.9;9;12.8;14;15.7
+1091;2;Eixample ;10;Sant Antoni;Plaa Goya;1;41.383778;2.163574;Fora afluncia de gent;18;8.7;18;8.6;19;5.8;9;5.2;14;9.4
+1092;3;Sants-Montjuc;11;el Poble Sec;Plaa de Margarida Xirgu;0;41.370804;2.157593;Propietaris danimals incvics;23;4.5;17;4.1;16;4.4;8;6.1;12;4.3
+1093;3;Sants-Montjuc;11;el Poble Sec;Carrer Blai;63;41.374664;2.16188;Mal s de contenidors i/o papereres;23;1;16;2.8;17;2.3;10;2.1;13;1.6
+1094;3;Sants-Montjuc;11;el Poble Sec;Carrer Margarit;18;41.373814;2.163597;Mal s de contenidors i/o papereres;23;9.1;5;9.8;15;7.4;10;14;12;6.8
+1095;3;Sants-Montjuc;11;el Poble Sec;Carrer Tapioles;20;41.373577;2.164381;Mal s de contenidors i/o papereres;23;3.7;15;8;16;5.2;10;3.3;12;8.6
+1096;3;Sants-Montjuc;11;el Poble Sec;Carrer Poeta Cabanyes;36;41.37336;2.165032;Mal s de contenidors i/o papereres;23;10.5;15;7;16;14.7;10;14.6;12;15.4
+1097;3;Sants-Montjuc;11;el Poble Sec;Carrer Nou de la Rambla;165;41.372128;2.167121;Mal s de contenidors i/o papereres;22;1.3;15;1.3;9;1.4;3;0;12;0.8
+1098;3;Sants-Montjuc;11;el Poble Sec;Parc de la Primavera;0;41.37088;2.167176;Propietaris danimals incvics;6;1.7;5;1.6;4;0;4;1.5;4;2.1
+1099;3;Sants-Montjuc;11;el Poble Sec;Jardins de les Tres Xemeneies;0;41.374096;2.172111;Alt s de lespai pblic;22;1.8;16;1.6;17;0.6;10;0.8;12;2.9
+1100;3;Sants-Montjuc;11;el Poble Sec;Carrer Nou de la Rambla;120;41.374264;2.169238;Mal s de contenidors i/o papereres;22;1.3;15;2.7;16;1.5;10;0.3;12;2.8
+1101;3;Sants-Montjuc;11;el Poble Sec;Plaa de Navas;3;41.374023;2.159078;Alt s de lespai pblic;23;1.1;17;0.8;17;0.9;8;1.8;12;1.5
+1102;3;Sants-Montjuc;11;el Poble Sec;Plaa de la Bella Dorita;1;41.374725;2.167401;Fora afluncia de gent;22;1.6;15;2.2;16;1.9;10;2.7;11;1.6
+1103;3;Sants-Montjuc;11;el Poble Sec;Plaa del Sortidor;1;41.372345;2.162394;Fora afluncia de gent;23;2.1;15;3;16;2;10;1.3;12;2.3
+1104;3;Sants-Montjuc;11;el Poble Sec;Plaa del Doctor Pere Franquesa;1;41.372307;2.158548;Propietaris danimals incvics;23;0.8;17;1.6;16;0.1;9;0.3;12;1.8
+1105;3;Sants-Montjuc;11;el Poble Sec;Plaa Santa Madrona;2;41.373463;2.156411;Presncia danimals i/o alimentadors daquests;23;3.7;17;0.3;16;0;8;1.8;12;0.3
+1106;3;Sants-Montjuc;11;el Poble Sec;Carrer de la Frana Xica;35b;41.372112;2.15692;Propietaris danimals incvics;23;5.9;17;4.8;16;4.2;8;4.7;12;4.2
+1107;3;Sants-Montjuc;11;el Poble Sec;Carrer de la Concrdia;47;41.372112;2.158734;Mal s de contenidors i/o papereres;23;1.9;17;1.8;16;2.7;9;10.3;12;3.2
+1108;3;Sants-Montjuc;11;el Poble Sec;Carrer Annbal;4;41.371746;2.162336;Mal s de contenidors i/o papereres;23;0.1;15;1.2;16;0.2;10;0.2;12;0.4
+1109;3;Sants-Montjuc;11;el Poble Sec;Carrer Magalh?es;22;41.371941;2.164525;Mal s de contenidors i/o papereres;22;1.5;15;2.6;16;5.4;10;1.9;12;2.4
+1110;3;Sants-Montjuc;11;el Poble Sec;Carrer Magalh?es;10;41.371723;2.16555;Mal s de contenidors i/o papereres;22;4.1;15;2.5;16;2;10;1.7;12;1.7
+1111;3;Sants-Montjuc;11;el Poble Sec;Carrer del Roser;50;41.372608;2.1661;Mal s de contenidors i/o papereres;22;4.4;15;2.1;16;2.1;10;4.1;12;2.1
+1112;3;Sants-Montjuc;11;el Poble Sec;Carrer Elkano;19;41.372791;2.164192;Mal s de contenidors i/o papereres;23;1.2;15;0.9;16;2.1;10;4.4;12;2.1
+1113;3;Sants-Montjuc;11;el Poble Sec;Carrer Elkano;27;41.372974;2.16358;Mal s de contenidors i/o papereres;23;0.2;15;1.1;16;0.2;10;0;12;2.5
+1114;3;Sants-Montjuc;11;el Poble Sec;Carrer de la Concrdia;3;41.37389;2.160633;Mal s de contenidors i/o papereres;15;1;11;0;16;0;8;0;10;0
+1115;3;Sants-Montjuc;11;el Poble Sec;Carrer Bbila;2;41.373455;2.158559;Mal s de contenidors i/o papereres;23;5.9;17;6.2;17;7.6;8;9.7;12;6.2
+1116;3;Sants-Montjuc;11;el Poble Sec;Carrer Lleida;15;41.373264;2.15503;Mal s de contenidors i/o papereres;23;2.4;17;2.8;16;0.4;8;0.4;12;1.5
+1117;3;Sants-Montjuc;11;el Poble Sec;Carrer Ricart;36;41.372787;2.157561;Mal s de contenidors i/o papereres;23;1.6;17;0.6;16;1.8;8;0.8;12;1.1
+1118;3;Sants-Montjuc;11;el Poble Sec;Carrer Ricart;27b;41.373207;2.157841;Mal s de contenidors i/o papereres;23;1;17;0.2;16;4.2;8;3.4;12;1.7
+1119;3;Sants-Montjuc;11;el Poble Sec;Carrer Magalh?es;38;41.372261;2.163345;Mal s de contenidors i/o papereres;23;1.7;15;2.9;16;3.7;10;2.2;12;3.5
+1120;3;Sants-Montjuc;11;el Poble Sec;Carrer de Salv;2;41.374626;2.166683;Mal s de contenidors i/o papereres;22;2.4;15;2.1;16;3.9;10;2.4;11;3.5
+1121;3;Sants-Montjuc;11;el Poble Sec;Avinguda del Parallel;141;41.374809;2.158257;Mal s de contenidors i/o papereres;23;1.1;17;2.2;16;4.5;8;6.6;12;1.7
+1122;3;Sants-Montjuc;11;el Poble Sec;Avinguda del Parallel;159;41.374798;2.156837;Mal s de contenidors i/o papereres;23;4.4;17;1.6;16;2.7;8;4.7;12;2.7
+1123;3;Sants-Montjuc;11;el Poble Sec;Carrer de la Font Honrada;4;41.374397;2.155798;Mal s de contenidors i/o papereres;23;1.2;17;2.5;16;6;8;1;12;5.5
+1124;3;Sants-Montjuc;11;el Poble Sec;Carrer de la Font Honrada;12;41.374134;2.155811;Mal s de contenidors i/o papereres;8;0;17;1.3;16;0.4;8;1;12;0.4
+1125;3;Sants-Montjuc;11;el Poble Sec;Avinguda de la Reina Maria Cristina;8b;41.373749;2.149961;Fora afluncia de gent;23;1.7;20;0;16;0.7;8;0;13;0.1
+1126;3;Sants-Montjuc;11;el Poble Sec;Avinguda de la Reina Maria Cristina;4;41.373032;2.150707;Fora afluncia de gent;23;0.2;18;0.3;16;0.2;8;0;13;0
+1127;3;Sants-Montjuc;11;el Poble Sec;Carrer Olivera;34;41.373676;2.157589;Fora afluncia de gent;23;4.6;17;5;16;4;8;5.3;12;3
+1128;3;Sants-Montjuc;11;el Poble Sec;Carrer de la Font-Trobada;17;41.370712;2.166523;Fora afluncia de gent;6;3;5;3.2;4;3.8;4;4.8;4;5.9
+1129;3;Sants-Montjuc;11;el Poble Sec;Jardins de les Hortes de Sant Bertran;1;41.372444;2.173553;Fora afluncia de gent;6;13.5;5;13.2;4;20;4;9.6;4;20.8
+1130;3;Sants-Montjuc;12;la Marina del Prat Vermell;Plaa del Nou;0;41.35318;2.141477;Fora afluncia de gent;4;3.2;7;4.3;4;3;4;3.2;4;1
+1131;3;Sants-Montjuc;12;la Marina del Prat Vermell;Plaa de Falset;0;41.352398;2.142053;Fora afluncia de gent;4;16.8;6;8.8;4;7;4;7.6;3;11.3
+1132;3;Sants-Montjuc;12;la Marina del Prat Vermell;Carrer de l'Estany;27;41.355637;2.14028;Fora afluncia de gent;4;0.9;4;0.6;4;0.5;4;0.5;3;1
+1133;3;Sants-Montjuc;13;la Marina de Port;Carrer de Mare de Du del Port;413;41.36491;2.138964;Mal s de contenidors i/o papereres;17;1.5;16;0.4;11;0.3;5;0;10;0.2
+1134;3;Sants-Montjuc;14;la Font de la Guatlla;Parc de la Font Florida;1;41.366634;2.141035;Propietaris danimals incvics;18;7.3;15;2.9;11;3.4;5;2;10;1.5
+1135;3;Sants-Montjuc;13;la Marina de Port;Parc de Can Sabat;0;41.363605;2.137903;Propietaris danimals incvics;17;5.2;16;3.2;11;2.5;5;0.6;10;2
+1136;3;Sants-Montjuc;13;la Marina de Port;Carrer Mineria;56;41.366886;2.140002;Mal s de contenidors i/o papereres;17;1.2;15;0.1;11;1.4;5;1;10;0.6
+1137;3;Sants-Montjuc;13;la Marina de Port;Jardins dels Drets Humans;0;41.361355;2.136333;Propietaris danimals incvics;17;4.2;15;2.3;11;2;5;1.8;9;2.4
+1138;3;Sants-Montjuc;13;la Marina de Port;Carrer Plat;4;41.35812;2.13474;Mal s de contenidors i/o papereres;16;4.1;14;1.2;11;4.4;5;6.2;9;3.2
+1139;3;Sants-Montjuc;13;la Marina de Port;Carrer Foneria;39;41.360916;2.139579;Mal s de contenidors i/o papereres;17;2.5;16;3.8;11;6.1;5;2.8;10;1.8
+1140;3;Sants-Montjuc;13;la Marina de Port;Carrer Aviador Franco;14;41.36058;2.141285;Propietaris danimals incvics;17;7.3;16;12.7;11;5.9;5;6.4;10;7
+1141;3;Sants-Montjuc;13;la Marina de Port;Carrer Mare de Du del Port;279;41.35976;2.141735;Mal s de contenidors i/o papereres;17;3.3;16;1.9;11;0.7;5;0.8;10;1.5
+1142;3;Sants-Montjuc;13;la Marina de Port;Jardins de la Mediterrnia;0;41.359673;2.140805;Mal s de contenidors i/o papereres;17;6.5;16;6.7;11;7.5;5;7;10;7.2
+1143;3;Sants-Montjuc;13;la Marina de Port;Carrer Qumica;1;41.365955;2.138194;Efecte crida;17;4;16;4;11;5.1;5;9;10;6.5
+1144;3;Sants-Montjuc;13;la Marina de Port;Carrer del Marbre;2;41.36132;2.147849;Mal s de contenidors i/o papereres;3;1.4;5;0;4;0.6;3;0;4;0
+1145;3;Sants-Montjuc;13;la Marina de Port;Carrer de Can Clos;8;41.361351;2.146984;Mal s de contenidors i/o papereres;3;0;5;0;4;1.3;3;0.3;3;0
+1146;3;Sants-Montjuc;13;la Marina de Port;Carrer del Radi;6;41.362816;2.13468;Fora afluncia de gent;18;6.2;14;4.8;11;1.1;5;2.4;9;4
+1147;3;Sants-Montjuc;13;la Marina de Port;Jardins de Can Ferrero;0;41.358185;2.142036;Fora afluncia de gent;17;6.2;14;4.6;11;3.3;5;2;10;2.3
+1148;3;Sants-Montjuc;13;la Marina de Port;Jardins del Pont Rom;0;41.358955;2.143947;Fora afluncia de gent;17;5.5;14;5;11;2.6;5;4;10;2.4
+1149;3;Sants-Montjuc;13;la Marina de Port;Carrer Mare de Du del Port;333;41.36142;2.139696;Fora afluncia de gent;10;3;16;1.3;11;1.7;5;1.8;10;2
+1150;3;Sants-Montjuc;13;la Marina de Port;Carrer Mare de Du del Port;339;41.36195;2.139581;Fora afluncia de gent;17;1.5;16;3.9;11;3.5;5;0.2;10;1.1
+1151;3;Sants-Montjuc;13;la Marina de Port;Carrer del Foc;25;41.354164;2.136349;Fora afluncia de gent;5;2.6;4;4.8;4;2.6;4;5;4;2.6
+1152;3;Sants-Montjuc;13;la Marina de Port;Carrer del Foc;37;41.354385;2.136899;Fora afluncia de gent;4;0.6;4;1.5;4;0.6;4;0;4;0.6
+1153;3;Sants-Montjuc;13;la Marina de Port;Plaa de Llorca;0;41.364418;2.141341;Fora afluncia de gent;5;6.6;5;3.6;4;4.6;3;4.6;3;3.6
+1154;3;Sants-Montjuc;13;la Marina de Port;Carrer Segura;17;41.365444;2.140891;Fora afluncia de gent;2;2.3;4;1.6;4;2.9;3;6.5;3;2.7
+1155;3;Sants-Montjuc;13;la Marina de Port;Jardins del Pont Rom;1;41.359135;2.144222;Fora afluncia de gent;17;5.2;14;5.9;11;3.6;5;7.8;10;4.2
+1156;3;Sants-Montjuc;13;la Marina de Port;Jardins dels Drets Humans;1;41.360744;2.136703;Fora afluncia de gent;17;5.9;15;5.1;11;3.2;5;2.8;10;2.6
+1157;3;Sants-Montjuc;13;la Marina de Port;Parc de Can Sabat;1;41.362392;2.138633;Fora afluncia de gent;17;5.7;16;5.3;11;4.4;5;1.6;10;2.2
+1158;3;Sants-Montjuc;14;la Font de la Guatlla;Carrer Sant Fructus;42;41.371056;2.145867;Fora afluncia de gent;4;0.6;5;0;4;2.4;3;0;3;0
+1159;3;Sants-Montjuc;14;la Font de la Guatlla;Carrer Chopin;7;41.370716;2.146521;Fora afluncia de gent;4;1.8;5;5.6;4;0.6;3;6.6;3;0.9
+1160;3;Sants-Montjuc;14;la Font de la Guatlla;Carrer de la Font Florida;90;41.368053;2.142831;Fora afluncia de gent;5;0.8;5;0.4;4;0;3;0;3;2
+1161;3;Sants-Montjuc;15;Hostafrancs;Carrer vint-i-sis de gener de 1641;45;41.375069;2.141453;Mal s de contenidors i/o papereres;24;3.9;12;4.9;16;1.9;7;3.4;16;0.9
+1162;3;Sants-Montjuc;15;Hostafrancs;Carrer vint-i-sis de gener de 1641;32;41.374249;2.141516;Mal s de contenidors i/o papereres;24;1.8;11;2.3;17;2.8;7;1.9;16;0.6
+1163;3;Sants-Montjuc;15;Hostafrancs;Carrer vint-i-sis de gener de 1641;18;41.373638;2.141496;Mal s de contenidors i/o papereres;24;1.1;11;3.1;17;3.3;7;7.4;14;0.7
+1164;3;Sants-Montjuc;15;Hostafrancs;Carrer Vilardell;49;41.374519;2.145334;Presncia danimals i/o alimentadors daquests;24;4.2;11;2.2;16;0.9;7;0;15;1.1
+1165;3;Sants-Montjuc;15;Hostafrancs;Carrer Noguera Pallaresa;5;41.371475;2.136373;Mal s de contenidors i/o papereres;26;2;10;0.2;17;1.3;7;0.9;15;0.9
+1166;3;Sants-Montjuc;15;Hostafrancs;Carrer Moians;47 B;41.372944;2.142443;Mal s de contenidors i/o papereres;24;2.6;11;2.2;17;1.1;7;1.1;15;2.3
+1167;3;Sants-Montjuc;15;Hostafrancs;Carrer Leiva;20;41.373753;2.142749;Mal s de contenidors i/o papereres;24;0.9;11;1.7;17;0.4;7;2.6;15;0.9
+1168;3;Sants-Montjuc;15;Hostafrancs;Carrer Moians;82;41.375099;2.142587;Mal s de contenidors i/o papereres;24;1;12;1.4;16;0.2;7;2;15;0.7
+1169;3;Sants-Montjuc;15;Hostafrancs;Carrer Vilardell;24;41.374603;2.142988;Mal s de contenidors i/o papereres;24;2.4;11;5.2;16;1.9;7;0.6;15;3.1
+1170;3;Sants-Montjuc;15;Hostafrancs;Carrer liga;12;41.373596;2.143376;Mal s de contenidors i/o papereres;24;1.7;11;2.8;17;0.5;7;2.3;15;0.3
+1171;3;Sants-Montjuc;15;Hostafrancs;Carretera de la Bordeta;53;41.372913;2.143228;Mal s de contenidors i/o papereres;24;3.5;11;3.1;18;3.9;7;1.7;15;2.6
+1172;3;Sants-Montjuc;15;Hostafrancs;Carrer Leiva;31;41.373787;2.14378;Mal s de contenidors i/o papereres;24;1.4;11;1.7;17;3.7;7;1.2;15;2.2
+1173;3;Sants-Montjuc;15;Hostafrancs;Carrer Vilardell;46;41.374561;2.14443;Mala praxis comercial;24;6.5;9;5.7;16;2.5;7;1.1;15;2.5
+1174;3;Sants-Montjuc;15;Hostafrancs;Carrer Vilardell;50;41.374561;2.14473;Mal s de contenidors i/o papereres;24;0.2;9;0.4;16;0.6;7;0;15;0.1
+1175;3;Sants-Montjuc;15;Hostafrancs;Carrer Cap de Guaita;16;41.374935;2.14612;Mal s de contenidors i/o papereres;24;0.3;13;0.6;16;0.2;7;0;15;0.4
+1176;3;Sants-Montjuc;15;Hostafrancs;Carretera de la Bordeta;40;41.373615;2.145574;Alt s de lespai pblic;24;5.5;11;4.8;17;3;7;1.6;15;5.8
+1177;3;Sants-Montjuc;15;Hostafrancs;Carrer de Vilardell;20;41.374535;2.142726;Fora afluncia de gent;24;2.8;11;1.4;16;3.6;7;0;15;1.4
+1178;3;Sants-Montjuc;15;Hostafrancs;Plaa d'Herenni;4;41.376549;2.143476;Fora afluncia de gent;25;4.1;12;4.1;16;5.1;7;3.3;16;2.9
+1179;3;Sants-Montjuc;15;Hostafrancs;Carrer Vidriol;1;41.374565;2.145655;Fora afluncia de gent;24;1.6;11;0.8;16;0.6;7;1.8;15;0.6
+1180;3;Sants-Montjuc;15;Hostafrancs;Carrer de Vilardell;15;41.374676;2.142762;Fora afluncia de gent;24;0.7;11;2.5;16;3.9;7;0.4;15;0.2
+1181;3;Sants-Montjuc;15;Hostafrancs;Plaa d'Herenni;7;41.376366;2.143083;Fora afluncia de gent;25;4.6;12;4.3;16;5.5;7;3;16;3.9
+1182;3;Sants-Montjuc;15;Hostafrancs;Plaa d'Herenni;8;41.376308;2.14299;Fora afluncia de gent;25;4.2;12;0.6;16;3.9;7;0.6;16;1.2
+1183;3;Sants-Montjuc;15;Hostafrancs;Plaa Espanya;2;41.374775;2.148322;Fora afluncia de gent;23;0.9;21;2.1;16;0;8;0.6;13;3.3
+1184;3;Sants-Montjuc;16;la Bordeta;Jardins de Celestina Vigneaux;0;41.371246;2.141265;Propietaris danimals incvics;25;7.3;10;6.3;17;6.1;7;3.1;15;3.1
+1185;3;Sants-Montjuc;16;la Bordeta;Plaa de la Vidriera;1;41.372849;2.141169;Mal s de contenidors i/o papereres;24;6.4;11;5.6;17;4.7;7;6.7;15;5.4
+1186;3;Sants-Montjuc;16;la Bordeta;Rambla Badal;110;41.370728;2.132073;Mal s de contenidors i/o papereres;17;0.8;14;2.5;11;1.4;5;0.4;9;0.7
+1187;3;Sants-Montjuc;16;la Bordeta;Rambla Badal;34;41.367077;2.134297;Fora afluncia de gent;16;4.5;14;4.9;11;1.6;5;2.4;9;1.6
+1188;3;Sants-Montjuc;16;la Bordeta;Rambla Badal;35;41.366859;2.133894;Fora afluncia de gent;16;5.3;14;3.3;11;0.8;5;3.4;9;2.6
+1189;3;Sants-Montjuc;16;la Bordeta;Rambla Badal;36;41.36718;2.134227;Fora afluncia de gent;16;4.1;14;0;11;1.4;5;0.6;9;0.5
+1190;3;Sants-Montjuc;16;la Bordeta;Rambla Badal;39;41.36705;2.133763;Fora afluncia de gent;16;1.9;14;0.8;11;1.1;5;3.6;9;0.6
+1191;3;Sants-Montjuc;16;la Bordeta;Rambla Badal;113;41.371197;2.132078;Fora afluncia de gent;17;6.8;14;5.2;11;4.6;5;6.8;9;6.5
+1192;3;Sants-Montjuc;16;la Bordeta;Plaa de la Farga;0;41.372375;2.138676;Fora afluncia de gent;26;4.4;10;2.9;17;3.3;7;0.9;15;3
+1193;3;Sants-Montjuc;16;la Bordeta;Plaa del Fnix;0;41.370213;2.134679;Fora afluncia de gent;25;0.2;10;0.4;17;0.2;7;0.6;15;0.3
+1194;3;Sants-Montjuc;16;la Bordeta;Carrer Alpens;32;41.372879;2.139945;Fora afluncia de gent;25;1.9;10;1.8;17;1.5;7;0.6;15;4.4
+1195;3;Sants-Montjuc;17;Sants-Badal;Carrer Juan de Sada;47;41.377438;2.127857;Mal s de contenidors i/o papereres;15;2.5;9;2.9;2;2;1;0;1;0
+1196;3;Sants-Montjuc;17;Sants-Badal;Carrer Begur;6;41.375313;2.129194;Mal s de contenidors i/o papereres;15;0.9;11;2.7;16;1.3;7;2.9;15;3.6
+1197;3;Sants-Montjuc;17;Sants-Badal;Plaa de l'Olivereta;0;41.372547;2.128605;Fora afluncia de gent;15;6.1;11;4.4;16;5.5;8;3.2;15;4.5
+1198;3;Sants-Montjuc;17;Sants-Badal;Carrer Canalejas;61;41.372925;2.130411;Mal s de contenidors i/o papereres;15;3.2;11;1.1;16;1.1;8;1.3;15;1.3
+1199;3;Sants-Montjuc;17;Sants-Badal;Carrer Canalejas;107;41.371876;2.128022;Propietaris danimals incvics;15;1.3;11;1.2;16;0.7;8;2.1;15;2.3
+1200;3;Sants-Montjuc;17;Sants-Badal;Carrer Pavia;32;41.372665;2.131239;Mal s de contenidors i/o papereres;18;2.3;11;3.5;16;2.9;8;2.7;15;2.9
+1201;3;Sants-Montjuc;17;Sants-Badal;Carrer Begur;80;41.372089;2.131444;Mal s de contenidors i/o papereres;17;2.1;11;1.4;16;2.7;8;4.1;15;2.8
+1202;3;Sants-Montjuc;17;Sants-Badal;Carrer de Begur;51;41.373329;2.130495;Fora afluncia de gent;15;7.7;11;2.7;16;2;8;1.3;15;2.4
+1203;3;Sants-Montjuc;17;Sants-Badal;Carrer de Sugranyes;64;41.373016;2.129212;Fora afluncia de gent;15;5.4;11;3.8;16;4.5;8;4.5;15;5.7
+1204;3;Sants-Montjuc;18;Sants;Jardins de Can Mantega;1;41.37912;2.132743;Fora afluncia de gent;15;4.9;13;3.5;16;5.2;8;2.8;15;4.5
+1205;3;Sants-Montjuc;18;Sants;Plaa dels Pasos Catalans;7;41.379868;2.141285;Fora afluncia de gent;15;1.6;13;0.6;16;0;8;0.2;15;0.8
+1206;3;Sants-Montjuc;18;Sants;Carrer Guitard;36;41.381588;2.138228;Mal s de contenidors i/o papereres;15;1.5;13;1.5;16;3.5;8;4;15;1.4
+1207;3;Sants-Montjuc;18;Sants;Carrer Melcior de Palau;140;41.381283;2.13876;Mal s de contenidors i/o papereres;15;3.1;13;0.4;16;0.2;8;0;15;0.5
+1208;3;Sants-Montjuc;18;Sants;Carrer Melcior de Palau;136;41.380943;2.137879;Mal s de contenidors i/o papereres;15;1.9;13;0.6;16;0.2;8;0.9;15;1.2
+1209;3;Sants-Montjuc;18;Sants;Carrer d'Antoni Capmany;71;41.373859;2.133737;Propietaris danimals incvics;16;6.1;12;5.7;16;5;8;3.5;15;3.8
+1210;3;Sants-Montjuc;18;Sants;Plaa Bonet i Muix;1;41.374519;2.136278;Fora afluncia de gent;25;10.5;10;6.8;16;8.2;7;10.6;15;10.5
+1211;3;Sants-Montjuc;18;Sants;Plaa Ibria;4;41.374069;2.137075;Sistema de recollida saturat;25;0.2;10;3.6;16;1.8;7;0.7;15;1.1
+1212;3;Sants-Montjuc;18;Sants;Carrer Sant Crist;49;41.374523;2.138134;Mal s de contenidors i/o papereres;25;1.4;10;5.5;5;0;6;0.7;15;0.6
+1213;3;Sants-Montjuc;18;Sants;Carrer Sant Crist;31;41.374672;2.139103;Mal s de contenidors i/o papereres;25;0.2;11;0;16;0.2;7;0;15;0.2
+1214;3;Sants-Montjuc;18;Sants;Carrer Sant Crist;38;41.374718;2.138977;Mala praxis comercial;25;3.2;11;3.4;16;2;7;3.3;16;0.3
+1215;3;Sants-Montjuc;18;Sants;Carrer del Priorat;11x;41.374481;2.13965;Propietaris danimals incvics;0;0;10;6.2;17;5;7;4.3;16;5.8
+1216;3;Sants-Montjuc;18;Sants;Plaa de Joan Corrades;1;41.373062;2.144343;Mal s de contenidors i/o papereres;24;4.5;11;3;17;4.2;7;6.5;15;0.6
+1217;3;Sants-Montjuc;18;Sants;Rambla de Brasil;4;41.375858;2.130812;Propietaris danimals incvics;15;3.9;12;3.7;16;4;8;2.6;15;2.7
+1218;3;Sants-Montjuc;18;Sants;Rambla de Brasil;21;41.377838;2.129705;Fora afluncia de gent;15;5.1;12;3;16;1.9;8;3.1;15;3.2
+1219;3;Sants-Montjuc;18;Sants;Carrer Viriat;35;41.3801;2.140306;Fora afluncia de gent;15;1.3;13;2.6;13;3.5;0;0;2;0
+1220;3;Sants-Montjuc;18;Sants;Passeig de Sant Antoni;51;41.377605;2.13911;Fora afluncia de gent;16;6;14;5.5;16;3.3;9;4.1;16;5.6
+1221;3;Sants-Montjuc;18;Sants;Parc de l'Espanya Industrial;0;41.37738;2.140831;Fora afluncia de gent;16;6.5;17;3.7;16;5.5;9;4.1;15;4.6
+1222;3;Sants-Montjuc;18;Sants;Rambla Badal;148;41.373074;2.131512;Fora afluncia de gent;16;4.6;11;2.4;16;3.3;8;2.4;15;2.3
+1223;3;Sants-Montjuc;18;Sants;Violant d'Hongria Reina d'Arag;104;41.379253;2.132487;Fora afluncia de gent;15;5.3;13;4.3;16;4.5;8;3.3;16;4.7
+1224;3;Sants-Montjuc;18;Sants;Passatge del Vapor Vell;1;41.376686;2.134662;Fora afluncia de gent;16;1.2;13;1.2;16;0.2;8;0.2;15;0
+1225;3;Sants-Montjuc;18;Sants;Carrer Fernndez Dur;30;41.374004;2.136222;Fora afluncia de gent;25;0.4;10;1.2;17;1.1;7;0.2;15;0.4
+1226;3;Sants-Montjuc;18;Sants;Carrer Sant Jordi;11;41.374847;2.133804;Fora afluncia de gent;16;0.8;13;3.3;15;3.9;8;1;15;3.4
+1227;4;Les Corts;19;les Corts;Jardins d'Olga Sacharoff;0;41.391594;2.132804;Propietaris danimals incvics;28;3.6;16;5.4;13;5.5;8;5.9;11;3.5
+1228;4;Les Corts;19;les Corts;Carrer de Montnegre;54;41.388897;2.14051;Mal s de contenidors i/o papereres;28;4.3;16;4.1;19;4.9;11;9.6;19;8.6
+1229;4;Les Corts;19;les Corts;Plaa de Valdivia;0;41.388885;2.132197;Propietaris danimals incvics;28;5.2;17;4.8;18;5.9;12;5.5;20;5.7
+1230;4;Les Corts;19;les Corts;Jardins de Clara Campoamor;0;41.387615;2.129752;Propietaris danimals incvics;28;2.4;16;1.1;18;3.3;12;4.4;20;4.8
+1231;4;Les Corts;19;les Corts;Carrer de Joan Gell;217;41.387875;2.12843;Mal s de contenidors i/o papereres;28;3;16;4.2;18;3.1;14;7.5;20;5
+1232;4;Les Corts;19;les Corts;Carrer Montnegre;1;41.386696;2.137727;Propietaris danimals incvics;26;3.7;17;2.2;19;3.9;11;3.7;19;5.3
+1233;4;Les Corts;19;les Corts;Plaa de les Corts;0;41.385681;2.136725;Propietaris danimals incvics;28;4.1;16;2.6;19;4.2;11;4.5;20;5.8
+1234;4;Les Corts;19;les Corts;Carrer Guitard;43b;41.38269;2.13722;Mal s de contenidors i/o papereres;28;1.6;17;7.5;19;1.9;13;6.2;21;2.9
+1235;4;Les Corts;19;les Corts;Carrer dels Comtes de Bell-lloc;161;41.383621;2.134946;Propietaris danimals incvics;28;4.1;18;3.3;18;4.4;13;4.2;21;5.4
+1236;4;Les Corts;19;les Corts;Carrer dels Comtes de Bell-lloc;195;41.384365;2.134445;Propietaris danimals incvics;28;3.3;19;2.8;19;4.6;13;5.2;21;5.5
+1237;4;Les Corts;19;les Corts;Jardins de Can Cuis;0;41.385132;2.135675;Propietaris danimals incvics;28;6.3;19;5.3;19;6;13;3.8;21;5.8
+1238;4;Les Corts;19;les Corts;Jardins de les Infantes;0;41.385098;2.133664;Propietaris danimals incvics;28;1.7;18;1.3;18;2.2;13;3.6;21;5.4
+1239;4;Les Corts;19;les Corts;Plaa del Sol de Baix;0;41.381996;2.129257;Propietaris danimals incvics;28;4.2;15;1.6;18;3.6;14;3.9;20;5
+1240;4;Les Corts;19;les Corts;Plaa de la Concordia;11;41.386574;2.132394;Fora afluncia de gent;28;0;17;0;19;0;13;0;21;0
+1241;4;Les Corts;19;les Corts;Carrer Galileu;330;41.386471;2.131088;Mal s de contenidors i/o papereres;27;4.9;16;5.7;18;7.2;12;4.3;21;6.7
+1242;4;Les Corts;19;les Corts;Plaa Comas;10;41.385132;2.130039;Mal s de contenidors i/o papereres;27;1.5;16;1.1;18;1.6;14;1.5;20;2.3
+1243;4;Les Corts;19;les Corts;Carrer Numncia;142;41.388718;2.133997;Fora afluncia de gent;28;4.2;17;0.5;18;0;11;0.6;19;1.8
+1244;4;Les Corts;19;les Corts;Carrer Marqus de Sentmenat;59;41.385582;2.137965;Fora afluncia de gent;28;3.9;18;5.9;20;3.7;12;7.8;20;5.9
+1245;4;Les Corts;19;les Corts;Carrer Entena;312;41.389362;2.138903;Fora afluncia de gent;28;3.4;17;2.7;20;1.9;11;3.8;20;1.7
+1246;4;Les Corts;19;les Corts;Travessera de les Corts;349;41.389542;2.13911;Fora afluncia de gent;28;3.1;17;1.4;19;4.4;11;3.8;19;5.8
+1247;4;Les Corts;19;les Corts;Carrer del Taqugraf Garriga;154;41.389923;2.139018;Fora afluncia de gent;28;5.4;17;3.9;19;3.7;11;3.8;19;7.1
+1248;4;Les Corts;19;les Corts;Carrer Montnegre;25;41.387592;2.13888;Fora afluncia de gent;28;2.7;17;1.9;19;2.1;11;4.2;19;4.6
+1249;4;Les Corts;19;les Corts;Passatge de Castells;4;41.388191;2.13917;Fora afluncia de gent;28;0.1;17;0.2;19;0.1;10;0.6;19;2.6
+1250;4;Les Corts;19;les Corts;Carrer Gelabert;12;41.387772;2.141729;Fora afluncia de gent;28;1.3;18;1.2;19;2.9;12;1.8;19;3
+1251;4;Les Corts;19;les Corts;Jardins de Joan Altisent;0;41.387508;2.141941;Fora afluncia de gent;28;5.4;18;5.6;19;5.6;11;6;19;6.2
+1252;4;Les Corts;19;les Corts;Cam Vell de Sarri;27;41.387775;2.142508;Fora afluncia de gent;28;5;18;4.2;19;5.4;12;5.7;19;6.1
+1253;4;Les Corts;19;les Corts;Carrer Marqus de Sentmenat;83;41.385399;2.14085;Fora afluncia de gent;29;3.9;19;3.7;19;5.1;13;5.3;19;4.8
+1254;4;Les Corts;19;les Corts;Carrer de Caba;21;41.386005;2.141651;Fora afluncia de gent;28;5.9;18;5.9;19;6;13;7;19;7.4
+1255;4;Les Corts;19;les Corts;Carrer de Breda;22;41.386406;2.141426;Fora afluncia de gent;28;2.5;18;3.9;19;2.2;11;4.5;19;2.3
+1256;4;Les Corts;19;les Corts;Carrer Guitard;51;41.38316;2.137133;Fora afluncia de gent;28;2.3;17;1.9;18;3.5;13;5.5;21;2.8
+1257;4;Les Corts;19;les Corts;Carrer Guitard;45;41.382881;2.137323;Fora afluncia de gent;28;2.6;17;5.8;19;4;13;7;21;6.1
+1258;4;Les Corts;19;les Corts;Carrer Marqus de Sentmenat;28;41.384823;2.136384;Fora afluncia de gent;28;3.8;19;0.7;19;1.1;13;2.6;21;2.8
+1259;4;Les Corts;19;les Corts;Carrer Marqus de Sentmenat;20;41.384724;2.135472;Fora afluncia de gent;28;5;18;3.6;18;3.1;13;8.5;21;3.4
+1260;4;Les Corts;19;les Corts;Carrer Fgols;16;41.381542;2.129707;Fora afluncia de gent;28;1.1;16;0.9;18;2.1;13;1.6;20;1.3
+1261;4;Les Corts;19;les Corts;Carrer Marqus de Sentmenat;4;41.384453;2.134003;Fora afluncia de gent;28;3.3;18;3.9;18;3.2;13;2.7;21;4.3
+1262;4;Les Corts;19;les Corts;Carrer Vallespir;187;41.384682;2.133492;Fora afluncia de gent;28;1.2;19;0.4;18;1.4;8;1.2;19;0.3
+1263;4;Les Corts;19;les Corts;Carrer de Can Segalar;18-20;41.388561;2.13237;Fora afluncia de gent;28;0.2;17;0.6;18;0.2;12;0;20;0.1
+1264;4;Les Corts;19;les Corts;Carrer Galileu;320;41.385693;2.131448;Fora afluncia de gent;27;4.4;16;7.7;18;5.4;12;5.4;21;4.1
+1265;4;Les Corts;19;les Corts;Carrer Can Segalar;1;41.388042;2.130478;Fora afluncia de gent;28;5.6;16;7.4;18;5.4;13;8.5;20;5
+1266;4;Les Corts;19;les Corts;Carrer Fgols;11;41.381886;2.13074;Fora afluncia de gent;28;2.2;16;2.1;18;4;13;2;20;2.4
+1267;4;Les Corts;19;les Corts;Carrer Evarist Arns;47;41.383118;2.134311;Fora afluncia de gent;28;2.9;17;1.5;18;1.6;13;2.5;20;4.7
+1268;4;Les Corts;19;les Corts;Carrer Can Segalar;2;41.388062;2.131114;Fora afluncia de gent;28;6;17;5.6;18;6;12;5.7;20;6
+1269;4;Les Corts;19;les Corts;Carrer Llu;15;41.381294;2.13086;Fora afluncia de gent;28;3.6;16;3.4;18;6;13;5.4;20;5.9
+1270;4;Les Corts;19;les Corts;Carrer Marqus de Sentmenat;15;41.38485;2.134557;Fora afluncia de gent;28;2.9;18;1.3;18;3.4;13;3.1;21;2.4
+1271;4;Les Corts;20;la Maternitat i Sant Ramon;Jardins d'Ernest Lluch;0;41.378441;2.113546;Propietaris danimals incvics;28;2.8;17;2.4;15;2.8;9;1.3;15;3.5
+1272;4;Les Corts;20;la Maternitat i Sant Ramon;Jardins de Josep Munt;0;41.378529;2.116465;Poca afluncia de gent;28;6.2;17;5.9;16;5.5;9;4.9;15;6.1
+1273;4;Les Corts;20;la Maternitat i Sant Ramon;Avinguda de Sant Ramon Nonat;18;41.376579;2.116854;Mala praxis comercial;28;1.6;16;2.8;16;2.5;9;2.3;15;1
+1274;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer de Felipe de Paz;30;41.378361;2.12431;Mal s de contenidors i/o papereres;28;2.5;17;2.2;16;3;9;4.2;16;2.6
+1275;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer de Felipe de Paz;1;41.379711;2.126613;Mal s de contenidors i/o papereres;28;1.9;17;5.1;16;2.5;10;5.7;16;5.2
+1276;4;Les Corts;20;la Maternitat i Sant Ramon;Travessera de les Corts;37;41.376698;2.119479;Fora afluncia de gent;28;3.8;19;3.6;16;2.8;9;0.6;15;1.5
+1277;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer Pintor Tapir;7;41.377098;2.119469;Fora afluncia de gent;28;3.1;20;1.9;16;1.1;10;3.2;15;2.5
+1278;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer Comandante Bentez;6;41.379272;2.127702;Fora afluncia de gent;28;1.8;18;3.2;16;3.6;9;3.1;16;5.4
+1279;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer Comandante Bentez;12;41.379826;2.126965;Fora afluncia de gent;28;4.9;17;2.4;16;5.5;10;8.1;14;3
+1280;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer Comandante Bentez;30;41.380535;2.125815;Fora afluncia de gent;28;1.8;19;4;15;3.2;10;2.5;16;1.8
+1281;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer Pintor Tapir;14;41.377903;2.118743;Fora afluncia de gent;28;5.3;19;5.8;16;5.9;10;4.9;15;5.7
+1282;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer Benavent;35;41.378551;2.124928;Fora afluncia de gent;28;2.6;16;1;16;2.9;9;3;16;3.7
+1283;4;Les Corts;20;la Maternitat i Sant Ramon;Carrer Benavent;3;41.377697;2.125632;Fora afluncia de gent;28;3.3;16;6.9;16;4.7;9;2.5;16;4.5
+1284;4;Les Corts;21;Pedralbes;Carrer de Robert Gerhard;1;41.390297;2.126628;Mal s de contenidors i/o papereres;29;3;14;0.6;13;1.6;8;1;11;3.9
+1285;4;Les Corts;21;Pedralbes;Carrer dels Lamote de Grignon;1;41.390823;2.126186;Mal s de contenidors i/o papereres;29;3.1;14;3.9;13;4.8;8;2.6;11;3.8
+1286;4;Les Corts;21;Pedralbes;Carrer de Manila;40;41.389732;2.125524;Alt s de lespai pblic;29;3.6;14;0.6;13;1.5;8;1.9;11;1.6
+1287;4;Les Corts;21;Pedralbes;Carrer de Robert Gerhard;4;41.390663;2.126541;Fora afluncia de gent;29;5.8;14;6;13;6;8;6;11;5.1
+1288;4;Les Corts;21;Pedralbes;Carrer Jordi Girona;4;41.387241;2.112755;Fora afluncia de gent;27;1.7;14;3.1;13;3.7;8;2.3;11;1.9
+1289;4;Les Corts;21;Pedralbes;Carrer Doctor Trias i Pujol;2;41.390198;2.123472;Fora afluncia de gent;29;5;14;2.7;13;4.6;8;3.8;11;4.2
+1290;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Plaa dels pins deVallvidrera;1;41.409115;2.101955;Propietaris danimals incvics;5;6.6;4;4.9;5;5;3;4.3;3;4.3
+1291;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Plaa Tulipa;1;41.427849;2.096604;Efecte crida;5;38.4;4;7.4;5;45;4;11.5;3;2.1
+1292;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Carrer Via Lctia ;4;41.429405;2.099197;Mal s de contenidors i/o papereres;5;4.6;4;3.8;5;2.8;4;1.9;3;1.3
+1293;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Carrer Violer;1;41.42749;2.099306;Mal s de contenidors i/o papereres;5;4.2;4;7.3;5;10.8;4;10.2;3;12.9
+1294;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Carrer Palafolls;31;41.409527;2.11395;Mal s de contenidors i/o papereres;4;17.7;4;6.7;5;4.8;4;6.1;3;12.6
+1295;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Carrer Major del Rectoret;11;41.421707;2.095907;Fora afluncia de gent;5;5.6;4;2.8;5;3.2;4;5.6;3;2.3
+1296;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Drecera de Vallvidrera;0;41.409412;2.110388;Mal s de contenidors i/o papereres;3;5.4;4;2.2;5;4.4;4;7.9;3;3.7
+1297;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Navarro i Reverter;23;41.41584;2.106181;Mal s de contenidors i/o papereres;3;2.3;4;0.3;5;5.8;4;6;3;3.7
+1298;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Algarves;26;41.414871;2.108161;Mal s de contenidors i/o papereres;3;6.1;4;4.9;5;1.6;4;2.6;3;4.5
+1299;5;Sarri-Sant Gervasi;22;Vallvidrera; el Tibidabo i les Planes;Reis Catlics;1;41.413589;2.10381;Mal s de contenidors i/o papereres;3;0;4;1.3;5;0.8;4;4.5;3;0.6
+1300;5;Sarri-Sant Gervasi;23;Sarri;Carrer dels Caponata;6;41.395973;2.122256;Mal s de contenidors i/o papereres;18;12.5;16;12;20;7.2;15;7;15;16.1
+1301;5;Sarri-Sant Gervasi;23;Sarri;Carrer del Pedr de la Creu ;30;41.397614;2.121977;Mal s de contenidors i/o papereres;18;4.7;16;3.5;20;4.9;15;5.6;17;4.2
+1302;5;Sarri-Sant Gervasi;23;Sarri;Jardins Villa Amlia;1;41.392555;2.122641;Propietaris danimals incvics;19;5.1;16;4.2;20;5.1;15;3.6;15;4.1
+1303;5;Sarri-Sant Gervasi;23;Sarri;Jardins Villa Cecilia;1;41.393784;2.121873;Alt s de lespai pblic;19;10.9;16;5.4;20;5.9;15;6.8;15;7
+1304;5;Sarri-Sant Gervasi;23;Sarri;Carrer Jord;13;41.396935;2.121254;Poca afluncia de gent;18;2.3;16;1.1;20;2.6;15;3.7;15;5.5
+1305;5;Sarri-Sant Gervasi;23;Sarri;Carrer Canyelles ;3;41.396572;2.121233;Poca afluncia de gent;18;1.4;16;0;20;0.9;15;0.8;15;0.3
+1306;5;Sarri-Sant Gervasi;23;Sarri;Carrer Osi;48;41.396294;2.121782;Fora afluncia de gent;18;4.6;16;1.2;20;4.6;15;3.1;15;3.7
+1307;5;Sarri-Sant Gervasi;23;Sarri;Parc de Joan Revents;1;41.403049;2.116476;Fora afluncia de gent;18;8.2;16;7.1;20;9.4;15;8.2;14;8
+1308;5;Sarri-Sant Gervasi;23;Sarri;Plaa Sant Vicen de Sarri;1;41.397202;2.124094;Fora afluncia de gent;18;3.2;16;8.5;19;5.2;15;6.4;15;7
+1309;5;Sarri-Sant Gervasi;23;Sarri;Carrer Fontcuberta;31;41.396156;2.123049;Fora afluncia de gent;18;13.6;16;11.3;20;9.7;15;13.8;15;12
+1310;5;Sarri-Sant Gervasi;24;les Tres Torres;Jardins del Doctor Roig i Ravents;1;41.4034;2.130257;Propietaris danimals incvics;19;10.5;15;5;18;3.4;12;2.2;15;3
+1311;5;Sarri-Sant Gervasi;24;les Tres Torres;Passatge Ricard Zamora;8;41.393116;2.13434;Mal s de contenidors i/o papereres;16;7.8;15;4.4;18;4.4;12;3.9;15;5.1
+1312;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Carrer Muntaner;544;41.405285;2.13522;Mal s de contenidors i/o papereres;22;3.5;16;4.3;11;2.8;10;1;19;1.5
+1313;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Carrer Sant Gervasi de Cassoles;85;41.405952;2.136009;Mal s de contenidors i/o papereres;22;0;16;0.1;11;0.8;10;0;19;0.7
+1314;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Passatge de Maluquer;12;41.408913;2.136659;Propietaris danimals incvics;21;14.8;16;9.1;11;8.7;10;9.8;18;9.7
+1315;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Carrer Pujol;6;41.404564;2.136931;Mala praxis comercial;22;7.4;16;1.8;11;1.5;10;5;19;8.1
+1316;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Plaa Joaquim Folguera;6;41.405731;2.138469;Mala praxis comercial;22;13.6;16;13.1;11;4.3;10;19.5;19;13.9
+1317;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Carrer Mandri;30;41.403004;2.13415;Fora afluncia de gent;19;11.8;15;5.6;18;4.9;12;10.3;15;2.9
+1318;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Jardins de Ca n'Altimira;1;41.403984;2.132078;Fora afluncia de gent;19;6.5;15;5.5;18;6.5;12;4.4;15;5.2
+1319;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Plaa de Ferran Casablancas;1;41.401211;2.133564;Fora afluncia de gent;19;5.4;15;4.1;18;4.5;12;3.7;15;4.7
+1320;5;Sarri-Sant Gervasi;25;Sant Gervasi - la Bonanova;Plaa Camp;3;41.403519;2.136152;Fora afluncia de gent;22;4.1;16;6;11;6.8;10;9.1;18;6.8
+1321;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Tur Parc;1;41.39455;2.140714;Propietaris danimals incvics;18;8;16;6.7;18;7.2;14;6.4;15;7
+1322;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer de Vila Arrufat;5;41.3983;2.134053;Mal s de contenidors i/o papereres;18;2.3;15;1.5;18;1.8;12;4.6;15;1.3
+1323;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Calaf;20;41.397076;2.143592;Propietaris danimals incvics;22;14.2;17;9;10;10.3;14;13;21;11.5
+1324;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Aribau;218;41.394936;2.150698;Mala praxis comercial;22;20.6;16;12.7;10;14.7;14;13.8;21;13.1
+1325;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Travessera de Grcia;56;41.396126;2.149656;Fora afluncia de gent;22;1.3;17;0.9;10;0.2;14;0.8;21;0.6
+1326;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer de Tuset;14;41.395683;2.152377;Mala praxis comercial;22;13.8;17;13;10;5.4;14;11.9;21;9.8
+1327;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Regs;22;41.399136;2.151396;Mal s de contenidors i/o papereres;22;9;17;5.3;10;3.3;14;4.1;21;3.3
+1328;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Lincoln ;9;41.400188;2.150345;Mala praxis comercial;22;9.7;17;4.4;10;6.6;14;7.6;21;7.7
+1329;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Via Augusta;81;41.400814;2.150302;Poca afluncia de gent;22;0.9;17;0.8;10;0.8;15;0.8;21;0.3
+1330;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Plaa Molina;1;41.401234;2.146742;Mala praxis comercial;28;18.1;18;10.3;10;7.4;15;7.9;23;5.7
+1331;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Madrazo;49;41.399845;2.148547;Mal s de contenidors i/o papereres;22;3.2;17;1;10;3.1;14;4.9;21;1
+1332;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Madrazo;49;41.399845;2.148547;Mal s de contenidors i/o papereres;22;0.4;17;0.5;10;0.2;14;2.3;21;0.1
+1333;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Alfons XII;23;41.398438;2.149641;Mal s de contenidors i/o papereres;22;5.8;17;4.3;10;2.2;14;5.3;21;2.9
+1334;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Brusi;61;41.402328;2.144082;Mal s de contenidors i/o papereres;20;6.9;16;5;11;3.8;10;3.6;18;4.6
+1335;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Montecassino;4;41.401787;2.141919;Mal s de contenidors i/o papereres;19;4;16;2.1;10;2.7;10;4;19;2
+1336;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Gualbes;3;41.401974;2.139991;Propietaris danimals incvics;19;8.8;16;7;11;6.5;10;6.8;19;4.8
+1337;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Jardins de Moragas;0;41.398251;2.145237;Propietaris danimals incvics;22;7.4;17;6.7;10;7;14;7.2;21;5.6
+1338;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Alfons XII;56;41.400063;2.147879;Fora afluncia de gent;23;2.1;17;4.6;10;2.7;15;3.5;21;5.9
+1339;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Aribau;272;41.397442;2.14788;Fora afluncia de gent;22;4.1;17;5.2;10;3.4;14;5.2;21;5.1
+1340;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Dnia;16;41.398174;2.149209;Fora afluncia de gent;22;13.9;17;9.9;10;3.1;14;5.9;21;7.1
+1341;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Muntaner;450;41.401535;2.139689;Fora afluncia de gent;19;2.9;16;1.9;11;1.2;10;1.3;19;1
+1342;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Tuset;26;41.396114;2.151777;Fora afluncia de gent;22;9.9;17;7.1;10;10.4;14;11.1;21;9.2
+1343;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Tuset;36;41.396572;2.151127;Fora afluncia de gent;22;14.5;18;11.5;9;13.7;14;18.3;21;10.8
+1344;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Jard de les Tres Torres;1;41.398693;2.134115;Fora afluncia de gent;18;13.2;15;6.1;18;7;12;3.7;15;5.4
+1345;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Travessera de Grcia;41;41.395023;2.147825;Fora afluncia de gent;22;12;17;10.9;8;1.8;9;11.5;21;3.8
+1346;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Travessera de Grcia;43;41.395287;2.148244;Fora afluncia de gent;22;2.6;17;2.1;8;9.3;14;4.7;21;3.7
+1347;5;Sarri-Sant Gervasi;26;Sant Gervasi - Galvany;Carrer Sant Elias;9;41.401573;2.145111;Fora afluncia de gent;24;11.8;17;9.1;11;6.2;14;7.9;23;3.5
+1348;5;Sarri-Sant Gervasi;27;el Putxet i el Farr;Ronda del General Mitre;203B;41.405388;2.142608;Mal s de la recollida pneumtica;22;11.8;16;12.3;11;8.3;10;6.5;19;4.9
+1349;5;Sarri-Sant Gervasi;27;el Putxet i el Farr;Carrer Marmell;13;41.410099;2.141712;Propietaris danimals incvics;19;7.9;16;5.6;11;5.8;10;4.8;17;6.4
+1350;5;Sarri-Sant Gervasi;27;el Putxet i el Farr;Carrer del Francol;10;41.404736;2.148204;Propietaris danimals incvics;24;3.5;17;3.6;11;4.2;12;2.9;24;2
+1351;5;Sarri-Sant Gervasi;27;el Putxet i el Farr;Carrer Jules Verne;11;41.405014;2.143981;Propietaris danimals incvics;22;7.8;16;6.7;11;9.7;10;7.2;19;6.8
+1352;5;Sarri-Sant Gervasi;27;el Putxet i el Farr;Ronda del General Mitre;195;41.405106;2.142017;Fora afluncia de gent;22;5.8;16;6.5;11;7.9;9;3.2;18;3
+1353;6;Grcia;28;Vallcarca i els Penitents;Carrer Canaan;5;41.420609;2.139025;Punt poc accessible per els serveis de neteja;23;5.5;16;3.5;17;3.2;5;3.2;7;3.8
+1354;6;Grcia;28;Vallcarca i els Penitents;Carrer Trullols;40;41.420586;2.137477;Propietaris danimals incvics;23;4.9;16;5.5;18;5.7;5;5.8;7;5.6
+1355;6;Grcia;28;Vallcarca i els Penitents;Plaa Alfonso Comn;1;41.414886;2.137511;Propietaris danimals incvics;24;3.6;17;3.3;18;5.2;6;4.8;7;3.3
+1356;6;Grcia;28;Vallcarca i els Penitents;Avinguda Vallcarca;18;41.40852;2.149123;Mal s de la recollida pneumtica;23;1.1;18;1.9;16;9.4;6;4.1;14;3.2
+1357;6;Grcia;28;Vallcarca i els Penitents;Baixada de la Glria;9;41.410507;2.147853;Punt poc accessible per els serveis de neteja;26;1;18;1.7;16;4.1;6;3.5;14;2.8
+1358;6;Grcia;28;Vallcarca i els Penitents;Carrer Cardedeu;24;41.416656;2.144275;Fora afluncia de gent;23;0.7;17;1.2;17;2.1;5;1.2;7;1.8
+1359;6;Grcia;29;el Coll;Parc de la Creueta del Coll;1;41.418659;2.146812;Propietaris danimals incvics;23;2.4;17;3.2;17;2.7;5;2;7;2.3
+1360;6;Grcia;29;el Coll;Carrer del Portell;24;41.418449;2.151086;Propietaris danimals incvics;23;1.5;17;2.5;17;2.5;5;0.8;7;1
+1361;6;Grcia;29;el Coll;Beat Almat;52;41.417904;2.148449;Fora afluncia de gent;23;0.9;16;0.3;17;1.1;5;1.4;7;1.2
+1362;6;Grcia;29;el Coll;Carrer Duran i Borrell;4;41.417873;2.149307;Fora afluncia de gent;23;0.7;16;1;17;2.4;5;2;7;0.2
+1363;6;Grcia;29;el Coll;Carrer Mora d'Ebre;64;41.417713;2.148809;Fora afluncia de gent;23;0.3;16;0.7;17;0.9;5;0;7;1.3
+1364;6;Grcia;29;el Coll;Passeig Mare de Du del Coll;73;41.417652;2.147586;Fora afluncia de gent;23;0.2;17;1.8;17;1.8;5;1.8;7;0.2
+1365;6;Grcia;29;el Coll;Carrer Font del Coll;11;41.419647;2.150123;Fora afluncia de gent;23;2.9;16;4.4;17;5.5;5;5.8;7;2
+1366;6;Grcia;30;la Salut;Carrer Larrard;40;41.412155;2.154268;Mal s de contenidors i/o papereres;26;0.4;17;2;16;3.5;6;1.4;14;1.9
+1367;6;Grcia;30;la Salut;Carrer Pare Jacint Alegre;8;41.412037;2.156199;Mal s de contenidors i/o papereres;26;0;17;0.6;16;2.4;6;1;13;0
+1368;6;Grcia;30;la Salut;Travessera de Dalt;58;41.409466;2.154861;Fora afluncia de gent;25;3.9;17;3.2;16;7.8;6;13.2;14;7.3
+1369;6;Grcia;30;la Salut;Travessera de Dalt;90;41.410645;2.156846;Fora afluncia de gent;25;1.5;17;2.2;16;1.7;6;1;14;0.4
+1370;6;Grcia;31;la Vila de Grcia;Plaa Lesseps ;12;41.407166;2.151069;Alt s de lespai pblic;25;2.4;17;2.3;16;1.1;6;4;14;4.1
+1371;6;Grcia;31;la Vila de Grcia;Carrer de Nil i Fabra;14;41.405903;2.151423;Mala praxis comercial;24;5.9;17;2.7;16;3.1;5;0.6;14;5.1
+1372;6;Grcia;31;la Vila de Grcia;Carrer Santa Rosa;4;41.403217;2.152726;Alt s de lespai pblic;27;0.6;13;0.3;16;0;9;0.9;16;0.3
+1373;6;Grcia;31;la Vila de Grcia;Carrer Astries;15;41.402924;2.153467;Fora afluncia de gent;28;0.5;12;0.2;16;0.7;9;0.2;15;0
+1374;6;Grcia;31;la Vila de Grcia;Carrer Astries;20;41.403053;2.153835;Mala praxis comercial;28;6.5;12;3.3;16;3.4;9;3.3;15;7.8
+1375;6;Grcia;31;la Vila de Grcia;Plaa Anna Frank;1;41.402649;2.154635;Poca afluncia de gent;28;0;12;0;16;0;9;0.1;15;0.1
+1376;6;Grcia;31;la Vila de Grcia;Plaa del Diamant;1;41.403976;2.156099;Mala praxis comercial;27;1.6;12;0.9;16;2.4;9;2;15;3.2
+1377;6;Grcia;31;la Vila de Grcia;Plaa del Sol;1;41.401737;2.156958;Alt s de lespai pblic;28;0.2;12;0;16;0;9;0;15;0
+1378;6;Grcia;31;la Vila de Grcia;Carrer Torrent de l'Olla;118;41.402164;2.15721;Mala praxis comercial;28;3.6;12;6.6;16;7.2;9;7;15;5.9
+1379;6;Grcia;31;la Vila de Grcia;Travessera de Grcia;173;41.401684;2.158285;Mala praxis comercial;27;3.4;13;5.5;19;1.9;12;2.8;17;5.2
+1380;6;Grcia;31;la Vila de Grcia;Plaa del Nord;6;41.406956;2.155813;Alt s de lespai pblic;27;1.5;12;2.3;16;1.8;10;5.4;15;2.6
+1381;6;Grcia;31;la Vila de Grcia;Carrer del Rob ;17;41.405273;2.156203;Mala praxis comercial;27;1.4;12;2.8;16;0.8;9;0.6;15;0.5
+1382;6;Grcia;31;la Vila de Grcia;Plaa Virreina;1;41.404865;2.157584;Alt s de lespai pblic;27;1.2;11;0.5;16;1.4;10;2.6;15;1.3
+1383;6;Grcia;31;la Vila de Grcia;Carrer Torrijos;72;41.404701;2.157531;Fora afluncia de gent;27;0.7;12;1.9;16;0.7;10;1.4;15;0.5
+1384;6;Grcia;31;la Vila de Grcia;Carrer Torrijos;54;41.403923;2.158331;Mala praxis comercial;27;1.1;12;0.8;17;3.1;10;1.6;15;0.9
+1385;6;Grcia;31;la Vila de Grcia;Plaa de a Revoluci;1;41.402561;2.158421;Mala praxis comercial;28;3.2;12;1.9;16;2;9;1;15;2.7
+1386;6;Grcia;31;la Vila de Grcia;Carrer Mare de Du dels Desemparats;2;41.40126;2.159712;Mal s de contenidors i/o papereres;27;3.6;12;0.5;19;2.7;12;3.3;17;2
+1387;6;Grcia;31;la Vila de Grcia;Carrer Siracusa;16;41.401501;2.1605;Mal s de contenidors i/o papereres;27;1.2;12;0.9;19;1.7;12;2.4;17;2.5
+1388;6;Grcia;31;la Vila de Grcia;Carrer Tordera;28;41.401207;2.161018;Mal s de contenidors i/o papereres;27;0.9;12;1.4;19;1.7;12;4.4;17;2.5
+1389;6;Grcia;31;la Vila de Grcia;Plaa Vila de Grcia;2;41.40007;2.157844;Mala praxis comercial;27;13.3;14;4;19;1.5;12;4.9;17;4.9
+1390;6;Grcia;31;la Vila de Grcia;Plaa Nicols Salmern;13;41.398048;2.157296;Mal s de contenidors i/o papereres;27;3.3;12;1.1;19;2.4;12;3.2;17;3.5
+1391;6;Grcia;31;la Vila de Grcia;Placeta Sant Miquel;1;41.39835;2.15573;Alt s de lespai pblic;27;0.3;12;0.3;19;0.4;12;0;17;0.1
+1392;6;Grcia;31;la Vila de Grcia;Carrer Venus;5;41.399727;2.162195;Mal s de contenidors i/o papereres;27;1.4;12;1.6;19;1;12;1.4;17;0.8
+1393;6;Grcia;31;la Vila de Grcia;Carrer Abd Terradas ;28;41.400185;2.163379;Propietaris danimals incvics;27;2.2;12;2.1;19;3.5;12;2.8;17;1.8
+1394;6;Grcia;31;la Vila de Grcia;Rambla Prat;25;41.401077;2.151548;Mal s de la recollida pneumtica;27;0.7;13;0.4;16;3.8;9;0.6;16;1.2
+1395;6;Grcia;31;la Vila de Grcia;Rambla Prat;11;41.401379;2.152026;Mal s de la recollida pneumtica;27;2.2;13;4.1;16;2.5;9;3.1;16;3.2
+1396;6;Grcia;31;la Vila de Grcia;Rambla Prat;1;41.401913;2.152866;Mal s de la recollida pneumtica;27;3.4;13;1.9;16;1.5;9;1.4;16;1.6
+1397;6;Grcia;31;la Vila de Grcia;Plaa Llibertat;1;41.399891;2.153011;Mala praxis comercial;27;6.9;14;5.3;16;14.2;9;4.4;16;9.8
+1398;6;Grcia;31;la Vila de Grcia;Plaa del Poble Roman;1;41.401749;2.160703;Propietaris danimals incvics;27;1.3;12;1.7;19;1.9;12;1.7;17;1.8
+1399;6;Grcia;31;la Vila de Grcia;Travessera de Dalt;16;41.408493;2.1522;Fora afluncia de gent;25;2.4;17;1.1;16;2.2;6;1.6;14;3.9
+1400;6;Grcia;31;la Vila de Grcia;Carrer  Domnech;7;41.398945;2.158854;Fora afluncia de gent;27;7.2;12;8.6;19;4.7;12;5.2;17;4.5
+1401;6;Grcia;31;la Vila de Grcia;Carrer Berga;32;41.400951;2.15267;Fora afluncia de gent;27;5.9;13;2.7;16;5.9;9;9.7;16;6.9
+1402;6;Grcia;31;la Vila de Grcia;Carrer Bonavista;10;41.398087;2.159426;Fora afluncia de gent;27;1.9;12;2.4;19;1.5;12;1.1;17;1.3
+1403;6;Grcia;31;la Vila de Grcia;Carrer Bonavista;16;41.398327;2.159835;Fora afluncia de gent;27;1.9;12;5.7;19;2.2;12;2;17;7
+1404;6;Grcia;31;la Vila de Grcia;Carrer Bonavista;30;41.398865;2.160675;Fora afluncia de gent;27;6.9;12;9.1;19;10.9;12;10.3;17;12.3
+1405;6;Grcia;31;la Vila de Grcia;Carrer Gran de Grcia;163;41.402824;2.152439;Fora afluncia de gent;27;7.6;14;6.6;16;2.8;9;3.1;16;4.2
+1406;6;Grcia;31;la Vila de Grcia;Carrer Leopoldo Alas;2;41.402721;2.15585;Fora afluncia de gent;28;2.8;12;1.8;16;4;9;2;15;4.6
+1407;6;Grcia;31;la Vila de Grcia;Carrer Puigmart;52;41.402626;2.160996;Fora afluncia de gent;27;3.8;12;4.1;19;4.4;12;7.2;17;4.7
+1408;6;Grcia;31;la Vila de Grcia;Carrer Sneca;2;41.397606;2.157313;Fora afluncia de gent;27;5.4;12;12.2;19;10.1;12;8.3;17;9.6
+1409;6;Grcia;31;la Vila de Grcia;Carrer Venus;1;41.399944;2.161846;Fora afluncia de gent;27;0.2;12;2.7;19;0.9;12;0.7;17;0.6
+1410;6;Grcia;31;la Vila de Grcia;Plaa Galla Placdia;26;41.399132;2.152917;Fora afluncia de gent;27;5;13;2.6;16;4.6;9;0.7;16;3
+1411;6;Grcia;31;la Vila de Grcia;Plaa Lesseps;1;41.407303;2.149804;Fora afluncia de gent;27;0.7;17;2.4;16;3.3;6;1.4;14;2.1
+1412;6;Grcia;31;la Vila de Grcia;Travessera de Grcia;135;41.400436;2.156365;Fora afluncia de gent;28;2.8;13;2.4;19;1.2;13;1;17;0.6
+1413;6;Grcia;31;la Vila de Grcia;Carrer Josep Torres;15;41.400974;2.161713;Fora afluncia de gent;27;4.3;12;1.3;18;1.5;12;2.7;17;2.2
+1414;6;Grcia;31;la Vila de Grcia;Plaa Gato Prez;1;41.400757;2.161458;Fora afluncia de gent;27;4.2;12;1.8;19;0.7;12;3;17;1.3
+1415;6;Grcia;31;la Vila de Grcia;Carrer Profeta;1;41.401524;2.160628;Fora afluncia de gent;27;1.2;12;0.7;19;0.4;12;0.2;17;1.2
+1416;6;Grcia;31;la Vila de Grcia;Carrer Montseny;17;41.40197;2.15472;Fora afluncia de gent;25;3.2;12;3.4;16;2.9;9;8.4;15;6.3
+1417;6;Grcia;31;la Vila de Grcia;Carrer de les Carolines;4;41.403893;2.151541;Efecte crida;26;5;13;3.4;16;10.5;9;8.2;16;14.5
+1418;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Jardins de Caterina Albert;1;41.403454;2.170255;Propietaris danimals incvics;28;1.6;12;2.2;19;1.6;12;2.3;16;1.3
+1419;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Jardins de la Sedeta;1;41.405464;2.16791;Alt s de lespai pblic;28;0.2;12;0.5;19;0.2;12;0.8;17;0.3
+1420;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Passatge Lavallol;25;41.405376;2.167321;Poca afluncia de gent;28;1.4;12;1.2;19;0.8;12;0.4;17;1
+1421;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Carrer Secretari Coloma;84;41.410191;2.162291;Mal s de contenidors i/o papereres;25;2;17;2.5;16;4;6;4;13;1.9
+1422;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Jardins d'Antoni Puigverd;1;41.404564;2.168922;Alt s de lespai pblic;28;1;12;2;19;1.5;12;2.2;15;0.5
+1423;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Passeig Sant Joan;210;41.404568;2.163276;Alt s de lespai pblic;27;0.6;12;0.8;16;2.1;9;0.8;15;0.7
+1424;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Carrer Crcega;451;41.402245;2.166737;Fora afluncia de gent;27;2.6;12;2;19;3.1;12;3.1;17;4.2
+1425;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Carrer Pare Lanez;40;41.407265;2.165825;Fora afluncia de gent;28;4.1;12;1.1;16;1;9;2.1;16;1.3
+1426;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Passatge Nogus;19;41.407848;2.16643;Fora afluncia de gent;28;1.9;12;0.9;16;1.3;9;0.8;16;2.1
+1427;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Carrer Pare Lanez;56;41.407944;2.166983;Fora afluncia de gent;28;2.1;12;1.1;16;1.2;7;0.7;16;0.5
+1428;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Carrer Pare Lanez;38;41.407124;2.165606;Fora afluncia de gent;28;1.3;12;1.4;16;0.7;9;0.9;16;1.4
+1429;6;Grcia;32;el Camp d'en Grassot i Grcia Nova;Carrer Pare Lanez;12;41.406284;2.164285;Fora afluncia de gent;28;0.4;12;0.7;16;1.5;9;1;16;1.6
+1430;7;Horta-Guinard;33;el Baix Guinard;Parc de les Aiges superior (41.413901; 2.165533);0;41.413929;2.165712;Propietaris danimals incvics;19;5.4;11;7.2;19;7.6;11;5.8;13;5.5
+1431;7;Horta-Guinard;33;el Baix Guinard;Jardins Princeps de Girona (41.410481; 2.168561);0;41.410408;2.168515;Alt s de lespai pblic;20;10.2;10;9.5;14;6.3;10;8.3;14;6.2
+1432;7;Horta-Guinard;34;Can Bar;Carrer d'Albert Llanas;30;41.416996;2.157573;Punt poc accessible per els serveis de neteja;20;2.4;10;2.8;12;4.3;9;6.4;13;5.9
+1433;7;Horta-Guinard;34;Can Bar;Carrer de Josep Serrano;1;41.416813;2.159621;Mal s de contenidors i/o papereres;20;16;10;11.4;12;9.6;9;12.7;13;10.6
+1434;7;Horta-Guinard;34;Can Bar;Plaa de la Font Castellana;1;41.415249;2.166198;Fora afluncia de gent;19;1.1;13;0.2;18;0.5;10;0.9;13;1.1
+1435;7;Horta-Guinard;35;el Guinard;Esbarjo Gossos de J. Federica Montseny (41.418779; 2.175810);0;41.418747;2.175853;Propietaris danimals incvics;19;4.6;16;4.1;19;6.2;14;5.4;16;4.8
+1436;7;Horta-Guinard;35;el Guinard;Mas Guinard (41.418694; 2.174665);0;41.418839;2.174414;Efecte crida;19;7.5;16;12.4;19;9.6;14;9.9;16;10.1
+1437;7;Horta-Guinard;35;el Guinard;Jardins de Federica Montseny (41.418433; 2.175792);0;41.418385;2.175847;Alt s de lespai pblic;19;14.5;16;16.6;19;18.2;14;15;16;15.1
+1438;7;Horta-Guinard;35;el Guinard;Carrer del Juliol;14;41.41777;2.174236;Mal s de contenidors i/o papereres;19;5.6;15;5.5;19;4.9;14;5.9;15;4.7
+1439;7;Horta-Guinard;35;el Guinard;Plaa del Nen de la Rutlla;0;41.41851;2.171903;Fora afluncia de gent;19;2.5;13;3.4;19;1;12;1.4;14;4.3
+1440;7;Horta-Guinard;35;el Guinard;Plaa Guinard;0;41.421528;2.175625;Fora afluncia de gent;19;2.8;16;2.8;18;2.4;13;3.4;16;3.6
+1441;7;Horta-Guinard;35;el Guinard;Carrer de Teodor Lorente;12;41.41909;2.17971;Alt s de lespai pblic;19;2.1;15;1;17;0.6;11;2.2;16;1.2
+1442;7;Horta-Guinard;36;la Font d'en Fargues;Carrer de Mar;2;41.42498;2.160191;Poca afluncia de gent;15;0.4;15;0.6;19;0.2;8;0.2;12;0.7
+1443;7;Horta-Guinard;36;la Font d'en Fargues;Carrer Peris Mencheta;81;41.42498;2.159878;Poca afluncia de gent;16;0.9;15;1.9;19;1.2;8;1.4;11;1.9
+1444;7;Horta-Guinard;37;el Carmel;Carrer de Dante Alighieri;108;41.427116;2.155675;Mala praxis comercial;15;3.6;15;6;19;5.2;8;6.8;12;8.3
+1445;7;Horta-Guinard;37;el Carmel;Plaa de Pastrana;17;41.425106;2.155919;Mala praxis comercial;20;3.5;11;3.4;15;1.4;8;3.1;13;3.8
+1446;7;Horta-Guinard;37;el Carmel;Carrer de Sigenza;29;41.424435;2.154861;Mal s de contenidors i/o papereres;20;6.9;11;4.9;15;4.4;8;6.5;13;11.2
+1447;7;Horta-Guinard;37;el Carmel;Carrer Caldern de la Barca;56;41.421558;2.155449;Presncia danimals i/o alimentadors daquests;19;11.8;11;9.6;15;7.4;10;22.7;12;11.9
+1448;7;Horta-Guinard;37;el Carmel;Carrer de la Conca de Tremp;53;41.422222;2.156702;Fora afluncia de gent;20;10.7;11;7.2;12;6.4;10;8.4;13;5.9
+1449;7;Horta-Guinard;37;el Carmel;Carrer de Batet;1;41.421059;2.150448;Mal s de contenidors i/o papereres;20;7.1;11;3.6;14;6.2;10;8.5;13;7.8
+1450;7;Horta-Guinard;37;el Carmel;Escales Carretera del Carmel (41.418058; 2.157238);0;41.417988;2.157242;Fora afluncia de gent;20;13.8;11;16.4;13;7.3;9;7.3;13;11.6
+1451;7;Horta-Guinard;37;el Carmel;Carrer Sacedn;22;41.425575;2.155313;Fora afluncia de gent;16;0.9;15;4;19;1.9;8;5.1;13;4.1
+1452;7;Horta-Guinard;37;el Carmel;Carrer de la Conca de Tremp;84;41.420776;2.157401;Mal s de contenidors i/o papereres;5;4.4;11;9.8;12;8.6;9;11.3;13;10.2
+1453;7;Horta-Guinard;37;el Carmel;Carrer Caldern de la Barca;33;41.422295;2.155525;Mal s de contenidors i/o papereres;5;9.2;11;4.7;14;4.2;10;5.6;13;13.2
+1454;7;Horta-Guinard;37;el Carmel;Carrer d'Arbs;33;41.421413;2.15751;Mal s de contenidors i/o papereres;5;4.8;11;4.2;13;4;9;4.8;13;4.9
+1455;7;Horta-Guinard;38;la Teixonera;Carrer de Juan Valera;8;41.424118;2.145398;Punt poc accessible per els serveis de neteja;20;13.7;18;12.7;14;8.4;11;9.4;15;18.3
+1456;7;Horta-Guinard;38;la Teixonera;Carrer de Segur;45;41.423248;2.143562;Propietaris danimals incvics;20;4.9;17;4.8;13;5.2;11;5.2;15;5.7
+1457;7;Horta-Guinard;38;la Teixonera;Carrer de la Mare de Du dels Angels;43;41.421505;2.147459;Propietaris danimals incvics;18;6.2;11;5.8;14;4.4;11;6.2;16;8.6
+1458;7;Horta-Guinard;38;la Teixonera;Carrer de la Mare de Du dels Angels;102;41.423012;2.150476;Punt poc accessible per els serveis de neteja;18;7.1;11;11.4;14;11.1;10;15;13;10.5
+1459;7;Horta-Guinard;38;la Teixonera;Passeig de la Mare de Du del Coll;185;41.42194;2.150732;Mal s de contenidors i/o papereres;18;3.9;11;6.3;13;6.7;10;4.1;13;2.9
+1460;7;Horta-Guinard;38;la Teixonera;Carrer de Castellbisbal;58;41.421261;2.145968;Fora afluncia de gent;19;12.7;10;12.7;14;4.8;10;4.8;16;11.3
+1461;7;Horta-Guinard;39;Sant Gens dels Agudells;Carrer d'Idumea;10;41.427631;2.137944;Propietaris danimals incvics;20;7.7;18;5.5;14;3.3;10;1.9;16;4.5
+1462;7;Horta-Guinard;39;Sant Gens dels Agudells;Carrer del Lledoner;3;41.425201;2.138127;Propietaris danimals incvics;20;5.4;18;5;12;5.2;11;4.2;16;5.5
+1463;7;Horta-Guinard;39;Sant Gens dels Agudells;Jard del Lledoner;0;41.424377;2.138816;Propietaris danimals incvics;20;4.6;18;6.3;13;5.6;11;4.2;16;6.3
+1464;7;Horta-Guinard;39;Sant Gens dels Agudells;Jardins del carrer Tir (41.424332; 2.140840);0;41.42429;2.14079;Alt s de lespai pblic;19;6.1;18;5.8;14;7.3;11;6.3;16;7.2
+1465;7;Horta-Guinard;39;Sant Gens dels Agudells;Carrer d'Idumea;14;41.427776;2.137534;Efecte crida;3;8;18;7.6;14;7.9;10;7.3;16;9.1
+1466;7;Horta-Guinard;40;Montbau;Jardins Pedro Muoz Seca (41.431230; 2.143510);0;41.431225;2.143292;Efecte crida;20;0.1;17;2.1;14;1.4;9;1;15;1.5
+1467;7;Horta-Guinard;40;Montbau;Jardins de Montbau (41.432665; 2.142723);0;41.432484;2.142614;Propietaris danimals incvics;19;1.2;18;2.8;14;3.4;9;3.1;16;3.8
+1468;7;Horta-Guinard;40;Montbau;Carrer de Vayreda;7;41.430897;2.140461;Poca afluncia de gent;20;6.1;18;8;13;7.3;9;6.2;16;6.4
+1469;7;Horta-Guinard;41;la Vall d'Hebron;Carrer de Pare Mariana;20;41.430431;2.146788;Fora afluncia de gent;19;3.7;17;2.8;14;1.3;9;1.9;14;2.9
+1470;7;Horta-Guinard;41;la Vall d'Hebron;Carrer Juan de Mena;10;41.431187;2.147922;Fora afluncia de gent;20;0.7;17;1.3;14;0.6;9;1.5;14;1.6
+1471;7;Horta-Guinard;42;la Clota;Riera de Marcell;2;41.430191;2.154779;Fora afluncia de gent;18;1.9;14;3.4;19;9.7;9;7.7;13;8.2
+1472;7;Horta-Guinard;42;la Clota;Cam de Sant Gens d'Horta;28;41.429028;2.155113;Fora afluncia de gent;18;2.7;14;6.2;19;4.9;9;5.4;13;6.5
+1473;7;Horta-Guinard;42;la Clota;Riera de Marcell;12;41.430096;2.153686;Efecte crida;3;2.7;14;5.9;19;4.1;9;3.5;13;6.3
+1474;7;Horta-Guinard;43;Horta;Carrer de Feliu i Codina;64;41.434887;2.162213;Sistema de recollida saturat;16;2.8;15;2.2;18;3.3;8;2.5;12;3.9
+1475;7;Horta-Guinard;43;Horta;Passeig Universal;22;41.437126;2.162374;Mal s de contenidors i/o papereres;16;5.8;15;5.3;19;11.2;9;5.9;12;11.7
+1476;7;Horta-Guinard;43;Horta;Plaa Eivissa;1;41.430229;2.161065;Fora afluncia de gent;18;1.1;15;1.6;19;0.2;9;0.2;12;0.8
+1477;7;Horta-Guinard;43;Horta;Carrer de Feliu i Codina;20;41.432285;2.160372;Fora afluncia de gent;17;1.3;15;1.4;18;0.9;9;0.5;12;2.2
+1478;7;Horta-Guinard;43;Horta;Carrer de Ciutadella;1;41.431492;2.155601;Efecte crida;3;7;14;5.7;19;9;9;8.5;13;13.5
+1479;8;Nou Barris;44;Vilapicina i la Torre Llobeta;Plaa ALVARO CUNQUEIRO;1;41.428345;2.169485;Alt s de lespai pblic;20;9.8;19;19.4;18;15.1;10;13.5;16;15.4
+1480;8;Nou Barris;44;Vilapicina i la Torre Llobeta;Carrer SERRANO;40;41.428864;2.173411;Mal s de contenidors i/o papereres;21;8.6;19;14.4;18;16.8;10;18.9;16;16.9
+1481;8;Nou Barris;44;Vilapicina i la Torre Llobeta;Carrer VILAPICINA;24;41.429878;2.170526;Mal s de contenidors i/o papereres;21;5.2;19;5.4;18;8.8;10;5.9;16;7.3
+1482;8;Nou Barris;45;Porta;Carrer ALLOZA;21;41.431656;2.175134;Mal s de contenidors i/o papereres;22;6.6;19;12.7;18;11.1;10;7;16;10.8
+1483;8;Nou Barris;45;Porta;Carrer Alella;65;41.431522;2.175249;Propietaris danimals incvics;22;5.6;19;6.2;18;7.6;10;7.8;16;7.3
+1484;8;Nou Barris;45;Porta;carrer Alella;10;41.431496;2.180071;Mal s de contenidors i/o papereres;27;9.8;19;7;18;9.4;9;11.9;15;7.7
+1485;8;Nou Barris;45;Porta;Plaa Soller;1;41.433769;2.176045;Alt s de lespai pblic;26;7.8;19;4.5;16;8.2;10;7.5;17;7.2
+1486;8;Nou Barris;45;Porta;Carrer MANUEL SANCHIS I GUARNER;3;41.438091;2.18229;Alt s de lespai pblic;25;6.9;18;7.8;16;6.5;10;7.8;17;6
+1487;8;Nou Barris;45;Porta;Carrer VALLDEMOSSA;55;41.435516;2.17364;Propietaris danimals incvics;26;3.5;18;3.9;16;8.6;10;5.4;17;6.3
+1488;8;Nou Barris;45;Porta;Carrer La Selva;28;41.437153;2.176485;Mal s de contenidors i/o papereres;26;9.7;18;12.9;16;15.8;10;14.6;17;11.8
+1489;8;Nou Barris;45;Porta;Carrer La Selva;50;41.436264;2.17566;Mal s de contenidors i/o papereres;26;7.3;18;8.2;16;4.1;10;9.2;17;6.6
+1490;8;Nou Barris;46;el Tur de la Peira;Plaa BASSES DE LA PEIRA;1;41.43063;2.169201;Propietaris danimals incvics;21;10.8;18;13.4;18;9.8;10;11.1;16;8.7
+1491;8;Nou Barris;46;el Tur de la Peira;Carrer CADI;19;41.431255;2.168446;Mala praxis comercial;20;6.6;18;8.3;18;9.6;10;9.6;16;8.5
+1492;8;Nou Barris;46;el Tur de la Peira;Passeig PEIRA;20;41.4314;2.169981;Alt s de lespai pblic;21;7.6;18;12.9;18;13.8;10;11.5;16;9
+1493;8;Nou Barris;46;el Tur de la Peira;41.432734; 2.165956;0;41.432735;2.16595;Punt poc accessible per els serveis de neteja;20;8.2;18;10.6;18;13.2;10;11.6;16;5.9
+1494;8;Nou Barris;47;Can Peguera;Carrer Ogassa;1;41.435692;2.167685;Alt s de lespai pblic;24;4.3;19;2.2;16;4.1;10;2.8;17;3.3
+1495;8;Nou Barris;47;Can Peguera;Carrer de Capsec;12;41.43499;2.163928;Fora afluncia de gent;20;9.8;18;10.2;18;19.1;10;16.3;16;13
+1496;8;Nou Barris;47;Can Peguera;Plaa de Sant Francesc Xavier;0;41.434357;2.164302;Fora afluncia de gent;20;4;18;4.7;18;11.8;10;5.4;16;6.4
+1497;8;Nou Barris;48;la Guineueta;41.438276; 2.172428;0;41.438274;2.17242;Punt poc accessible per els serveis de neteja;25;4.6;19;2.4;16;1.2;10;1.7;17;1.8
+1498;8;Nou Barris;48;la Guineueta;Passeig VALLDAURA;200;41.438408;2.17174;Alt s de lespai pblic;25;2.6;19;2;16;2.7;10;2;17;2
+1499;8;Nou Barris;48;la Guineueta;Carrer de Vilalba dels Arcs;51;41.4361;2.166821;Problemtica social;24;4.5;19;5.4;16;9.2;10;6;17;5.6
+1500;8;Nou Barris;48;la Guineueta;Rambla del caador-aparcament (41.440216; 2.169547);0;41.440319;2.16967;Fora afluncia de gent;25;2.6;19;2.8;16;4.2;10;5.1;17;4
+1501;8;Nou Barris;49;Canyelles;Carrer de Federico Garca Lorca;42;41.443985;2.16558;Mal s de contenidors i/o papereres;25;3.7;19;4.9;16;8.4;11;7.5;17;9.8
+1502;8;Nou Barris;49;Canyelles;Rda. Guineueta -Crta. Alta de Roquetes (41.4435447; 2.1623399);0;41.443455;2.162607;Fora afluncia de gent;25;6.4;19;7.6;16;7;11;6.7;17;7.4
+1503;8;Nou Barris;50;les Roquetes;Plaa Les Dones de Nou Barris;1;41.447548;2.179339;Propietaris danimals incvics;22;7;18;7.3;18;9.6;10;9.6;13;8.2
+1504;8;Nou Barris;50;les Roquetes;Plaa Roquetes;1;41.448269;2.17643;Propietaris danimals incvics;22;6.5;17;7.5;18;11.9;10;13.9;13;10.5
+1505;8;Nou Barris;51;Verdum;Carrer Casals i Cuber;195;41.441059;2.174869;Mal s de contenidors i/o papereres;22;7.2;18;9.3;18;6.2;8;9;13;10.4
+1506;8;Nou Barris;51;Verdum;Plaa del Verdum;4;41.443398;2.176316;Alt s de lespai pblic;22;3.2;18;8.4;18;6.6;9;4.4;13;5.9
+1507;8;Nou Barris;52;la Prosperitat;Carrer d'Enric Casanovas;49;41.440826;2.179353;Mal s de contenidors i/o papereres;22;13.6;19;15.1;18;21.6;10;25.9;13;14.8
+1508;8;Nou Barris;52;la Prosperitat;Plaa de Harry Walker;1;41.439831;2.181028;Fora afluncia de gent;25;6.1;18;6.4;16;9;10;6.1;17;7
+1509;8;Nou Barris;52;la Prosperitat;Via JULIA;144;41.444206;2.179002;Mal s de contenidors i/o papereres;22;17.9;18;14.7;18;8;10;9.3;13;9.4
+1510;8;Nou Barris;52;la Prosperitat;Plaa de Nou Barris;1;41.445503;2.185481;Alt s de lespai pblic;22;7.4;17;10;18;12.6;10;15.7;13;10
+1511;8;Nou Barris;52;la Prosperitat;Plaa Verda de la Prosperitat;1;41.442551;2.183598;Alt s de lespai pblic;22;5.1;17;7.3;18;7.8;10;7.1;13;6
+1512;8;Nou Barris;52;la Prosperitat;Plaa de Angel Pestaa (41.441430; 2.179345);0;41.44133;2.17945;Fora afluncia de gent;22;1.8;19;3.5;18;4.4;10;5.6;13;2.9
+1513;8;Nou Barris;52;la Prosperitat;Plaa Prosperitat;0;41.439941;2.178816;Fora afluncia de gent;22;4;18;8.2;18;8.9;10;10.3;13;8
+1514;8;Nou Barris;53;la Trinitat Nova;Carrer FOSCA;5;41.447842;2.184432;Propietaris danimals incvics;22;9.3;17;10.1;18;10.4;10;9;13;10.3
+1515;8;Nou Barris;53;la Trinitat Nova;Carrer Aiguablava;34;41.449036;2.182666;Fora afluncia de gent;22;13;17;18.3;18;14.9;10;11.3;13;13.4
+1516;8;Nou Barris;54;Torre Bar;Plaa Eucaliptus;1;41.460152;2.180896;Alt s de lespai pblic;24;3.5;14;3.5;14;5.5;8;2.6;13;3.9
+1517;8;Nou Barris;54;Torre Bar;Carrer SANT FELIU DE CODINES;1;41.459892;2.179418;Efecte crida;23;12.5;13;11.2;14;21.1;8;22.8;13;19.2
+1518;8;Nou Barris;54;Torre Bar;Carrer Escolapi Cancer;1;41.460094;2.181531;Fora afluncia de gent;24;4.8;13;8.7;14;6.8;8;6;13;3.6
+1519;8;Nou Barris;55;Ciutat Meridiana;Carrer AGUDES;132;41.461136;2.1727;Punt poc accessible per els serveis de neteja;22;15.1;13;16.8;14;19.8;8;23.1;13;24.9
+1520;8;Nou Barris;55;Ciutat Meridiana;Carrer PEDRAFORCA;102;41.462795;2.175742;Fora afluncia de gent;23;12.2;13;11.8;14;11.2;8;10.4;13;15.8
+1521;8;Nou Barris;55;Ciutat Meridiana;Carrer Vallcivera;17;41.460415;2.178115;Mal s de contenidors i/o papereres;24;18.8;13;16.4;14;20.7;8;23.4;13;10.9
+1522;8;Nou Barris;55;Ciutat Meridiana;Avinguda Rasos de Peguera;1;41.461918;2.179234;Fora afluncia de gent;24;4.9;13;4.9;14;7.6;8;11.3;13;7.1
+1523;8;Nou Barris;55;Ciutat Meridiana;Carrer de les Agudes;11;41.462822;2.177212;Alt s de lespai pblic;21;16.5;13;14.1;14;16.2;8;10.7;13;11.2
+1524;8;Nou Barris;56;Vallbona;Carrer ORISTA;19;41.463226;2.18438;Mal s de contenidors i/o papereres;23;8;13;6;14;9;8;6.3;13;5.6
+1525;8;Nou Barris;56;Vallbona;Plaa Primer de Maig;0;41.466057;2.185921;Fora afluncia de gent;23;3.1;13;4.5;14;4.7;8;2;13;1.9
+1526;9;Sant Andreu;57;la Trinitat Vella;Carrer Ausona;48;41.452324;2.192142;Mal s de contenidors i/o papereres;18;7.1;16;9.2;14;6.7;8;6.4;17;7.5
+1527;9;Sant Andreu;57;la Trinitat Vella;Carrer Foradada;64;41.452229;2.19181;Mal s de contenidors i/o papereres;18;7.3;16;6.3;14;7.9;8;9.2;17;8.1
+1528;9;Sant Andreu;57;la Trinitat Vella;Carrer Mare de Du de lorda;23;41.451023;2.191688;Mal s de contenidors i/o papereres;18;11;16;15.8;14;10.2;8;13;17;16.8
+1529;9;Sant Andreu;57;la Trinitat Vella;Carrer Mireia;30;41.451374;2.189446;Mal s de contenidors i/o papereres;18;2.6;16;4.1;14;5;8;3.8;17;4.4
+1530;9;Sant Andreu;57;la Trinitat Vella;Carrer Mireia;52;41.452114;2.189511;Mal s de contenidors i/o papereres;18;4.5;16;7.1;14;7.4;8;5.8;17;3.3
+1531;9;Sant Andreu;57;la Trinitat Vella;Carrer Pescola;30;41.453354;2.190359;Problemtica social;18;6.2;16;12.3;14;5.9;8;4.7;17;5.4
+1532;9;Sant Andreu;57;la Trinitat Vella;Carrer Suol i Gras;5;41.45451;2.190336;Mal s de contenidors i/o papereres;18;5.9;16;6.6;14;6;8;4.2;17;2.6
+1533;9;Sant Andreu;57;la Trinitat Vella;Carrer Via Barcino;72;41.452579;2.193895;Punt poc accessible per els serveis de neteja;18;5.6;16;6.4;14;14.2;8;11.4;17;10
+1534;9;Sant Andreu;57;la Trinitat Vella;Carrer Via Barcino;25;41.45303;2.193954;Mal s de contenidors i/o papereres;18;5.4;16;7.6;14;7.3;8;8.5;17;6.8
+1535;9;Sant Andreu;57;la Trinitat Vella;Carrer Vinya Llarga;18;41.451283;2.191073;Poca afluncia de gent;18;10.8;16;9.8;14;7.2;8;6.5;17;9.4
+1536;9;Sant Andreu;57;la Trinitat Vella;Jardins Aiges de Montcada;1;41.455658;2.19001;Propietaris danimals incvics;18;11.1;16;14;14;13;8;9.1;17;9.2
+1537;9;Sant Andreu;57;la Trinitat Vella;Plaa Josep Andreu i Abell;1;41.447971;2.190362;Mal s de contenidors i/o papereres;17;1.5;16;2.1;13;2.8;7;1.5;17;3.2
+1538;9;Sant Andreu;57;la Trinitat Vella;Plaa Tur de la trinitat;1;41.454609;2.192479;Propietaris danimals incvics;18;5.3;16;5.7;14;6.5;8;3.7;17;5.9
+1539;9;Sant Andreu;57;la Trinitat Vella;Ausona;92;41.452999;2.190434;Efecte crida;18;9.3;17;19.1;14;11;8;10.6;17;14.3
+1540;9;Sant Andreu;57;la Trinitat Vella;Carrer Galicia;16;41.449234;2.19068;Fora afluncia de gent;17;6.2;16;10;14;7.6;8;11.3;17;8.9
+1541;9;Sant Andreu;57;la Trinitat Vella;Carrer Finestrelles;49;41.452354;2.190348;Fora afluncia de gent;18;5;16;6.3;14;6.8;8;4.1;17;6.2
+1542;9;Sant Andreu;57;la Trinitat Vella;Carrer Via Barcino;75;41.450104;2.192233;Fora afluncia de gent;18;4.2;16;4.1;14;6.7;8;6.8;17;5.7
+1543;9;Sant Andreu;57;la Trinitat Vella;Parc de la Trinitat;0;41.449181;2.195718;Fora afluncia de gent;18;6.8;17;8.6;14;6.9;8;4.5;17;8.2
+1544;9;Sant Andreu;59;el Bon Pastor;Carrer Albiol;7;41.438324;2.203875;Propietaris danimals incvics;20;7.2;18;9.5;14;7.9;10;6.5;20;7
+1545;9;Sant Andreu;59;el Bon Pastor;Carrer Claramunt;44;41.437004;2.206054;Mal s de la recollida pneumtica;20;3.3;18;4.3;14;2.9;10;5.1;20;6.1
+1546;9;Sant Andreu;59;el Bon Pastor;Carrer Foc Follet;52;41.434444;2.204532;Mal s de contenidors i/o papereres;20;4.2;18;4.1;14;5.7;10;5.6;20;6.3
+1547;9;Sant Andreu;59;el Bon Pastor;Carrer rrius;1;41.435162;2.206993;Efecte crida;20;5.8;19;7.5;14;6.4;10;10.9;20;16.3
+1548;9;Sant Andreu;59;el Bon Pastor;Carrer Sant Adri;188;41.436523;2.207773;Fora afluncia de gent;20;2.3;18;3.3;14;3.1;10;2.7;20;1.4
+1549;9;Sant Andreu;59;el Bon Pastor;Carrer Santander;109;41.434761;2.208014;Propietaris danimals incvics;20;8.4;18;6.9;14;5.9;10;4.8;21;7.7
+1550;9;Sant Andreu;59;el Bon Pastor;Plaa Robert Gerhard;1;41.434864;2.204879;Fora afluncia de gent;20;4.6;18;4.4;14;7.5;10;4.5;20;7
+1551;9;Sant Andreu;59;el Bon Pastor;Plaa Trrega;1;41.437988;2.20571;Fora afluncia de gent;20;4;18;3.4;14;5.8;10;4.1;20;3.2
+1552;9;Sant Andreu;59;el Bon Pastor;Carrer Enric Sanchs;24;41.434429;2.205634;Fora afluncia de gent;21;14.8;19;17.3;14;20.3;10;21.7;20;15.3
+1553;9;Sant Andreu;59;el Bon Pastor;Carrer Estadella;98;41.435806;2.208793;Fora afluncia de gent;20;9.4;18;12.7;14;13;10;18.5;20;5.3
+1554;9;Sant Andreu;59;el Bon Pastor;Carrer Lima;22;41.439594;2.206423;Fora afluncia de gent;20;12.3;18;9.1;14;10.9;10;11;20;10.6
+1555;9;Sant Andreu;59;el Bon Pastor;Carrer Llinars del Valls;10;41.435898;2.207065;Fora afluncia de gent;20;2.4;18;7.1;14;8.4;10;4.6;20;4.2
+1556;9;Sant Andreu;59;el Bon Pastor;Carrer Sant Adri;137;41.436398;2.206256;Fora afluncia de gent;20;1.4;18;1.5;14;1.3;10;4;20;2.3
+1557;9;Sant Andreu;60;Sant Andreu;Avinguda meridiana;550;41.441139;2.186283;Poca afluncia de gent;17;12.1;16;13.5;14;10.5;9;7;17;9
+1558;9;Sant Andreu;60;Sant Andreu;Carrer Eiximenis;85;41.441605;2.189254;Mal s de contenidors i/o papereres;17;5.9;15;5.8;14;5;9;1.9;18;5.6
+1559;9;Sant Andreu;60;Sant Andreu;Carrer Fernando Pesoa;34;41.441765;2.193096;Mal s de contenidors i/o papereres;17;3.7;16;3.4;13;4.5;8;3.3;17;2.9
+1560;9;Sant Andreu;60;Sant Andreu;Carrer Josep Solvila;37;41.431606;2.195359;Propietaris danimals incvics;20;5.1;18;5.7;14;6.1;10;6.1;19;5.9
+1561;9;Sant Andreu;60;Sant Andreu;Carrer Lanzarote;30;41.440403;2.190016;Propietaris danimals incvics;No visitat;No visitat;2;14.5;No visitat;No visitat;4;5.1;7;0
+1562;9;Sant Andreu;60;Sant Andreu;Carrer Llenguadoc;5;41.431171;2.188984;Mal s de contenidors i/o papereres;19;3.3;20;3.3;15;1.6;12;2.4;19;1.8
+1563;9;Sant Andreu;60;Sant Andreu;Carrer Neopatria;82;41.429096;2.189539;Mal s de contenidors i/o papereres;19;4;19;5.2;15;7.9;11;5.4;19;4.1
+1564;9;Sant Andreu;60;Sant Andreu;Carrer Neopatria;56;41.430309;2.189026;Mal s de contenidors i/o papereres;20;3.5;19;4.3;15;5.5;11;6.5;19;3.7
+1565;9;Sant Andreu;60;Sant Andreu;Carrer Parellada;12;41.432404;2.190969;Mala praxis comercial;21;7.2;18;4.7;15;6.9;10;6.4;21;4.8
+1566;9;Sant Andreu;60;Sant Andreu;Carrer Peronella;33;41.431587;2.191527;Poca afluncia de gent;21;3.3;19;4.5;15;4.5;13;4.5;20;5.3
+1567;9;Sant Andreu;60;Sant Andreu;Carrer Sant Narcs;44;41.432766;2.192506;Sistema de recollida saturat;20;5.8;18;6.1;14;6.9;10;8.6;20;10
+1568;9;Sant Andreu;60;Sant Andreu;Carrer Segre;51;41.432861;2.193121;Mal s de contenidors i/o papereres;20;3.7;19;7;14;3.1;10;3.2;19;5.4
+1569;9;Sant Andreu;60;Sant Andreu;Carrer Vall d'Aran;11;41.428288;2.189195;Poca afluncia de gent;20;5.6;19;4.1;15;4.7;11;5;19;4.7
+1570;9;Sant Andreu;60;Sant Andreu;Jardins Gat Parc;1;41.439987;2.191806;Propietaris danimals incvics;16;4.1;17;4.6;13;6.6;9;7;17;5.7
+1571;9;Sant Andreu;60;Sant Andreu;Carrer Cinca;11;41.436337;2.192404;Fora afluncia de gent;20;3.5;18;3.9;18;4.6;11;4.3;21;4.6
+1572;9;Sant Andreu;60;Sant Andreu;Carrer Rovira i Virgili;14;41.428085;2.188977;Fora afluncia de gent;20;6.1;19;5.5;15;5.3;11;5.3;19;3.9
+1573;9;Sant Andreu;61;la Sagrera;Avinguda meridiana;288;41.42152;2.187076;Fora afluncia de gent;17;3.7;16;5.6;18;6.3;12;11.1;19;8.7
+1574;9;Sant Andreu;61;la Sagrera;Carrer comtessa de pardo bazan;1;41.425289;2.185116;Mal s de contenidors i/o papereres;20;5.4;19;7.2;15;7.4;11;8.2;19;4.6
+1575;9;Sant Andreu;61;la Sagrera;Carrer Ferran Turn;12;41.424789;2.192591;Propietaris danimals incvics;20;5;19;3.7;15;5.6;11;5;19;7.5
+1576;9;Sant Andreu;61;la Sagrera;Carrer Filipines;17;41.425049;2.187513;Fora afluncia de gent;20;3.6;19;7.5;15;3.4;11;6.5;19;2.6
+1577;9;Sant Andreu;61;la Sagrera;Carrer Garcilaso;80;41.423206;2.186023;Propietaris danimals incvics;17;4.3;17;5;18;5.7;12;5.6;19;6.7
+1578;9;Sant Andreu;61;la Sagrera;Carrer Mart Molins;30;41.424057;2.189699;Mal s de contenidors i/o papereres;21;3.2;19;3.9;15;4.1;11;3.2;19;2.8
+1579;9;Sant Andreu;61;la Sagrera;Carrer Sant antoni pare claret;496;41.420975;2.18736;Mal s de contenidors i/o papereres;17;4.9;16;5.3;18;7.1;12;7;19;5.3
+1580;9;Sant Andreu;61;la Sagrera;Jardins Merc Rovira;1;41.420967;2.188406;Propietaris danimals incvics;17;4.9;16;4.5;18;5.6;12;5.9;19;5.7
+1581;9;Sant Andreu;61;la Sagrera;Jardins Pepa Colomer;1;41.41925;2.190746;Propietaris danimals incvics;17;8;16;8;18;7.3;12;7.4;19;6.5
+1582;9;Sant Andreu;61;la Sagrera;Parc pegaso;1;41.426929;2.190899;Propietaris danimals incvics;20;6;19;8.5;15;6.4;11;6.4;19;6.4
+1583;9;Sant Andreu;61;la Sagrera;Plaa General Moragues;1;41.418598;2.190964;Alt s de lespai pblic;17;5.5;16;5.6;18;6.1;12;6.6;19;6.1
+1584;9;Sant Andreu;61;la Sagrera;Plaa Jardins Elx;1;41.423389;2.188405;Fora afluncia de gent;17;4.2;16;5.1;18;6.2;13;6.3;19;5.4
+1585;9;Sant Andreu;61;la Sagrera;carrer Ferran Turn;18;41.425091;2.191932;Mal s de contenidors i/o papereres;20;3.9;19;4.4;15;4.7;10;3.8;19;3.2
+1586;9;Sant Andreu;61;la Sagrera;Carrer Hondures;41;41.420708;2.188772;Fora afluncia de gent;17;7.2;16;5.4;18;4.7;13;7.2;19;8
+1587;9;Sant Andreu;61;la Sagrera;Carrer Monlau;6;41.42308;2.190576;Fora afluncia de gent;17;3;16;4.2;18;5.3;12;4.9;19;4.1
+1588;9;Sant Andreu;61;la Sagrera;Plaa Assemblea;0;41.424923;2.188167;Fora afluncia de gent;21;4.1;19;7.9;15;4;11;12;19;3.2
+1589;9;Sant Andreu;62;el Congrs i els Indians;Carrer Jordi de Sant Jordi;23;41.422119;2.182869;Mal s de contenidors i/o papereres;17;4.3;16;4.5;18;8;12;3.9;19;3.9
+1590;9;Sant Andreu;62;el Congrs i els Indians;Carrer riera d'horta;45;41.427742;2.181139;Fora afluncia de gent;20;7.2;19;6;16;7.9;11;3.8;19;6.2
+1591;9;Sant Andreu;62;el Congrs i els Indians;Passatge can Berdura;6;41.420937;2.181342;Propietaris danimals incvics;17;3.4;16;3.5;8;3.9;2;0;7;0
+1592;9;Sant Andreu;62;el Congrs i els Indians;Plaa Canodrom;1;41.427582;2.184191;Propietaris danimals incvics;18;4.5;19;4;15;4.6;11;5.1;19;4.9
+1593;9;Sant Andreu;62;el Congrs i els Indians;Plaa Rom cremat;1;41.422134;2.183305;Alt s de lespai pblic;14;3.1;16;3.5;18;7.6;12;15;19;11.9
+1594;9;Sant Andreu;62;el Congrs i els Indians;Carrer Matanzas;27;41.422165;2.181974;Fora afluncia de gent;17;7.3;16;2.9;19;8.7;12;4.5;20;7.2
+1595;9;Sant Andreu;62;el Congrs i els Indians;Puerto Principe;27;41.421711;2.180757;0;17;8.2;16;4.8;8;1.9;3;0;7;0
+1596;9;Sant Andreu;63;Navas;Carrer Biscaia;426;41.419865;2.183158;Mal s de contenidors i/o papereres;17;4;16;2.3;18;3.2;12;2;19;3.6
+1597;9;Sant Andreu;63;Navas;Carrer concepci arenal;29;41.419659;2.184052;Alt s de lespai pblic;17;9.4;16;1.7;18;5;12;5.5;19;4.6
+1598;9;Sant Andreu;63;Navas;Carrer espronceda;348;41.418304;2.187497;Propietaris danimals incvics;17;5.1;16;6.1;18;7.5;12;9.6;19;6.8
+1599;9;Sant Andreu;63;Navas;Carrer espronceda;325;41.415649;2.190909;Fora afluncia de gent;17;3.8;16;3.1;18;3.4;12;4.7;19;2.5
+1600;9;Sant Andreu;63;Navas;Carrer espronceda;341;41.416435;2.189852;Mal s de contenidors i/o papereres;17;4.3;16;4.8;18;5;12;4.7;19;5.8
+1601;9;Sant Andreu;63;Navas;Carrer indstria;360;41.417747;2.185347;Mal s de contenidors i/o papereres;17;9.4;16;7.8;18;13.1;12;12.1;19;4.9
+1602;9;Sant Andreu;63;Navas;Carrer Juan de Garay;12;41.418076;2.181338;Mal s de contenidors i/o papereres;17;5.3;16;3.9;18;4.6;12;4.5;19;2.7
+1603;9;Sant Andreu;63;Navas;Carrer mallorca;675;41.414986;2.190703;Fora afluncia de gent;17;3.4;16;3.8;18;5.6;12;2.7;19;3.3
+1604;9;Sant Andreu;63;Navas;Carrer Navas de Tolossa;375;41.418995;2.181922;Mal s de contenidors i/o papereres;17;2.1;16;4.9;18;2.8;13;6.1;19;3.6
+1605;9;Sant Andreu;63;Navas;Carrer Passeig Maragall;72;41.418415;2.180576;Propietaris danimals incvics;17;5.6;16;6.4;18;6;12;6.5;19;5.9
+1606;9;Sant Andreu;63;Navas;Carrer sant antoni claret;325;41.419552;2.185997;Mal s de contenidors i/o papereres;17;3.6;16;4.1;18;5.6;12;5;19;6.1
+1607;9;Sant Andreu;63;Navas;Passatge companyia;11;41.420296;2.183354;Poca afluncia de gent;17;4.7;16;5.3;18;8.1;12;5.4;19;4.8
+1608;9;Sant Andreu;63;Navas;Plaa Islndia;1;41.416893;2.188286;Problemtica social;17;3;16;3.2;18;5.2;12;4.1;19;4.9
+1609;9;Sant Andreu;63;Navas;Plaa maria soteras;0;41.416054;2.187465;Mal s de contenidors i/o papereres;17;2.5;16;3.4;18;3.1;12;4;19;1.7
+1610;9;Sant Andreu;63;Navas;Carrer Navas de Tolosa;401;41.419544;2.181202;Fora afluncia de gent;17;3;15;3.3;18;3.6;12;3.2;19;4.5
+1611;10;Sant Mart;64;el Camp de l'Arpa del Clot;Carrer Trinxant;81;41.415386;2.184472;Mal s de contenidors i/o papereres;14;4.9;16;8.5;16;4.8;11;5;17;6.1
+1612;10;Sant Mart;64;el Camp de l'Arpa del Clot;Carrer Indstria;290;41.414604;2.180978;Fora afluncia de gent;14;1.6;15;1.9;16;1.8;11;4.7;17;1.2
+1613;10;Sant Mart;64;el Camp de l'Arpa del Clot;Carrer Finestrat;23;41.411831;2.180976;Mal s de contenidors i/o papereres;15;4.7;15;7.1;16;8.5;11;7.7;17;5.1
+1614;10;Sant Mart;64;el Camp de l'Arpa del Clot;Plaa Can Robacols;1;41.411797;2.183128;Alt s de lespai pblic;15;5.6;15;5.7;16;4.5;11;5.2;17;2.6
+1615;10;Sant Mart;64;el Camp de l'Arpa del Clot;Carrer Dega Bah;2;41.41058;2.182943;Mal s de contenidors i/o papereres;15;3.1;15;3.7;16;3.3;11;5.3;17;5.9
+1616;10;Sant Mart;64;el Camp de l'Arpa del Clot;Carrer Rogent ;41;41.409958;2.183552;Mal s de contenidors i/o papereres;15;3.8;15;5.4;16;4.2;11;7.7;17;1.3
+1617;10;Sant Mart;64;el Camp de l'Arpa del Clot;Carrer Rogent ;1;41.408592;2.186479;Mal s de contenidors i/o papereres;14;4.7;15;3.3;16;5.6;11;7.8;18;4.5
+1618;10;Sant Mart;64;el Camp de l'Arpa del Clot;carrer Indstria;310;41.415165;2.181738;Fora afluncia de gent;14;7.2;14;5.6;16;3.8;11;7.5;17;5
+1619;10;Sant Mart;64;el Camp de l'Arpa del Clot;carrer Indstria;300;41.414806;2.181248;Fora afluncia de gent;No visitat;No visitat;1;4;No visitat;No visitat;7;0;16;5
+1620;10;Sant Mart;64;el Camp de l'Arpa del Clot;carrer Josepa Massanes;9;41.411613;2.183335;Fora afluncia de gent;15;1.9;15;1.2;16;2.8;11;0.9;17;2.8
+1621;10;Sant Mart;64;el Camp de l'Arpa del Clot;carrer Josepa Massanes;3;41.411453;2.183626;Fora afluncia de gent;15;2.6;15;2.2;16;2.1;11;1.9;17;1.7
+1622;10;Sant Mart;64;el Camp de l'Arpa del Clot;carrer Sibelius;1;41.410187;2.186245;Fora afluncia de gent;14;3.9;14;4.8;9;4.3;11;6.9;17;3.6
+1623;10;Sant Mart;64;el Camp de l'Arpa del Clot;Carrer de Trinxant;4;41.412823;2.187772;Fora afluncia de gent;13;4.9;15;4.1;16;3.1;11;6.9;17;2.3
+1624;10;Sant Mart;64;el Camp de l'Arpa del Clot;Carrer de Trinxant;6;41.413177;2.187397;Fora afluncia de gent;13;2.5;16;2.9;16;2;11;3.4;17;1.3
+1625;10;Sant Mart;64;el Camp de l'Arpa del Clot;carrer Xifr;1;41.40836;2.184103;Fora afluncia de gent;15;5.4;15;4.9;16;7.4;11;5.1;17;7.6
+1626;10;Sant Mart;64;el Camp de l'Arpa del Clot;Jardins de Can Miralletes;1;41.413956;2.179034;Fora afluncia de gent;14;3.1;15;3.4;16;3.6;11;5.7;17;6
+1627;10;Sant Mart;64;el Camp de l'Arpa del Clot;carrer Rogent;122;41.411514;2.181704;0;14;2.1;15;2.3;16;2.7;11;7.4;17;1
+1628;10;Sant Mart;65;el Clot;Jardins de Joana Tomas;1;41.41301;2.188086;Problemtica social;13;2.1;17;3.9;16;3.2;11;3.2;17;3
+1629;10;Sant Mart;65;el Clot;Carrer Gabiel Galn;11;41.411438;2.188976;Mal s de contenidors i/o papereres;13;4.8;16;4.4;16;3.5;11;4.6;17;4.4
+1630;10;Sant Mart;65;el Clot;Carrer Rafael Capdevila;1;41.408905;2.188493;Mal s de contenidors i/o papereres;14;7.1;15;4.4;16;4.3;11;4.5;18;5.1
+1631;10;Sant Mart;65;el Clot;Carrer Rossend Nobas;14;41.408367;2.189283;Mal s de contenidors i/o papereres;11;1;2;0.5;13;2.1;11;2;18;2.2
+1632;10;Sant Mart;65;el Clot;Plaa del mercat del clot;1;41.407707;2.188718;Alt s de lespai pblic;14;2.4;15;2.1;16;2.3;11;3.6;18;1.4
+1633;10;Sant Mart;65;el Clot;Carrer clot;42;41.407085;2.187891;Mal s de contenidors i/o papereres;14;5.9;15;11.6;16;7;11;12.4;18;4.1
+1634;10;Sant Mart;65;el Clot;Carrer Rambla de Poblenou;185;41.408005;2.192013;Mal s de contenidors i/o papereres;14;5;15;1.5;16;3.1;11;0.9;18;0.3
+1635;10;Sant Mart;65;el Clot;Carrer Rambla de Poblenou;193;41.408318;2.191571;Mal s de contenidors i/o papereres;14;1.8;15;0.9;16;4.6;11;2.5;18;3.5
+1636;10;Sant Mart;65;el Clot;Parc del Clot;0;41.408005;2.190281;Alt s de lespai pblic;16;5.9;15;6.1;16;6;11;5.7;18;5.7
+1637;10;Sant Mart;65;el Clot;carrer Clot;74;41.408226;2.188422;Fora afluncia de gent;15;4;15;7.3;16;3.5;11;3.1;18;4.1
+1638;10;Sant Mart;65;el Clot;carrer Sant Joan de Malta;33;41.409325;2.191898;Fora afluncia de gent;14;4.5;15;4.6;6;8;11;1.5;18;3.3
+1639;10;Sant Mart;65;el Clot;el clot;36;41.406803;2.187915;0;13;1.1;15;3.1;16;1.6;11;1.3;18;2.6
+1640;10;Sant Mart;65;el Clot;Valncia;671;41.412807;2.190058;Mal s de contenidors i/o papereres;1;0;17;4.8;16;3.3;11;2.2;17;7.9
+1641;10;Sant Mart;66;el Parc i la Llacuna del Poblenou;Carrer Pujades;25;41.393879;2.190139;Mal s de contenidors i/o papereres;20;5.4;16;5.3;18;4.3;12;6.8;18;5.5
+1642;10;Sant Mart;66;el Parc i la Llacuna del Poblenou;Carrer Joan dustria;78;41.393673;2.190718;Mala praxis comercial;20;2.8;18;3;18;5.2;12;8.2;18;5.6
+1643;10;Sant Mart;66;el Parc i la Llacuna del Poblenou;Carrer Pamplona;84;41.396542;2.191681;Fora afluncia de gent;20;2.3;18;2.3;18;3.7;12;0;18;1.3
+1644;10;Sant Mart;66;el Parc i la Llacuna del Poblenou;carrer Pere IV;29;41.394764;2.190769;Fora afluncia de gent;20;13.3;18;8.1;18;5.2;12;9.5;18;13.8
+1645;10;Sant Mart;66;el Parc i la Llacuna del Poblenou;carrer Zamora;70;41.395233;2.190847;Fora afluncia de gent;20;2.4;17;4.2;17;2.5;12;6.1;18;9.1
+1646;10;Sant Mart;66;el Parc i la Llacuna del Poblenou;Sardenya;37;41.39143;2.188955;0;19;4.7;17;1;17;3.1;12;2.9;18;6.6
+1647;10;Sant Mart;67;la Vila Olmpica del Poblenou;carrer  Salvador Espriu;61;41.390144;2.198792;Fora afluncia de gent;20;4.2;18;4.4;17;5.8;11;6.4;18;5.7
+1648;10;Sant Mart;67;la Vila Olmpica del Poblenou;Avinguda Icria;145;41.390991;2.196446;Fora afluncia de gent;20;6.2;18;3.6;18;1;11;5.8;18;2.6
+1649;10;Sant Mart;67;la Vila Olmpica del Poblenou;carrer Doctor Trueta;61;41.391716;2.19403;Fora afluncia de gent;20;6.4;18;4.9;18;6.1;11;3.9;18;10
+1650;10;Sant Mart;67;la Vila Olmpica del Poblenou;Avinguda Icria;170;41.391514;2.197641;Fora afluncia de gent;21;9.8;18;8.1;18;3.9;11;6.5;18;8
+1651;10;Sant Mart;67;la Vila Olmpica del Poblenou;carrer Joan Mir;22;41.390804;2.194458;Fora afluncia de gent;21;3.8;18;2.6;18;4.6;11;4.2;18;5.7
+1652;10;Sant Mart;67;la Vila Olmpica del Poblenou;carrer Llull;102;41.396065;2.195517;Fora afluncia de gent;21;1.4;18;0.8;18;3;12;6.1;18;2.8
+1653;10;Sant Mart;67;la Vila Olmpica del Poblenou;Arquitecte Sert;29;41.392414;2.19691;Mal s de contenidors i/o papereres;3;3.9;18;4.9;18;5.8;11;1.4;18;2.3
+1654;10;Sant Mart;67;la Vila Olmpica del Poblenou;Avinguda Icria;133;41.391064;2.196985;Mal s de contenidors i/o papereres;3;2.7;18;3;18;3.4;11;3;18;3.4
+1655;10;Sant Mart;67;la Vila Olmpica del Poblenou;Moscou;26;41.389599;2.194417;Mal s de contenidors i/o papereres;3;4.4;18;2.8;18;2.5;11;2.2;18;4.1
+1656;10;Sant Mart;68;el Poblenou;Carrer Doctor trueta;143;41.395805;2.199652;Mal s de contenidors i/o papereres;20;2;18;2.8;18;1.3;11;3.4;18;1.9
+1657;10;Sant Mart;68;el Poblenou;Carrer Ciutat granada;17;41.396736;2.200173;Poca afluncia de gent;20;4.5;18;2;18;1.8;11;2.4;18;3.2
+1658;10;Sant Mart;68;el Poblenou;Carrer Doctor trueta;221;41.399235;2.204253;Mala praxis comercial;19;9.1;18;4.7;18;8.3;11;16.7;18;9.8
+1659;10;Sant Mart;68;el Poblenou;Plaa de Sant Bernat Calb;1;41.399529;2.204919;Alt s de lespai pblic;13;0.2;No visitat;No visitat;No visitat;No visitat;9;1.2;18;9.2
+1660;10;Sant Mart;68;el Poblenou;Carrer Rambla de Poblenou;16;41.398376;2.205054;Mal s de contenidors i/o papereres;19;4.8;18;2.8;18;1.2;11;1.3;18;1.8
+1661;10;Sant Mart;68;el Poblenou;Carrer Perell;48;41.398602;2.20628;Poca afluncia de gent;19;1.1;18;1.2;18;1.4;11;1.2;18;2.4
+1662;10;Sant Mart;68;el Poblenou;Carrer Mari Aguil;138;41.399734;2.205503;Alt s de lespai pblic;19;5.8;18;4;18;3.4;11;3.6;18;5.1
+1663;10;Sant Mart;68;el Poblenou;Parc de Poblenou;1;41.397251;2.206889;Alt s de lespai pblic;21;4;18;3;18;2.3;11;3.8;18;4.8
+1664;10;Sant Mart;68;el Poblenou;Carrer pujades;194;41.402157;2.201358;Alt s de lespai pblic;12;3;15;4.5;15;5.9;11;3.3;17;5.5
+1665;10;Sant Mart;68;el Poblenou;Carrer venero;16;41.401733;2.201548;Propietaris danimals incvics;12;2.1;16;1.3;16;3.4;11;3.3;17;2.9
+1666;10;Sant Mart;68;el Poblenou;passatge cant;15;41.402004;2.200379;Propietaris danimals incvics;12;2.4;15;1.2;16;3.3;11;3.2;17;1.1
+1667;10;Sant Mart;68;el Poblenou;Carrer Pallars;232;41.402756;2.200168;Alt s de lespai pblic;11;3.9;15;3.8;16;5.1;11;13.7;17;8.5
+1668;10;Sant Mart;68;el Poblenou;Rambla del Poblenou;108;41.403015;2.199019;Zona turstica;12;1;15;0.9;15;0.1;11;1.9;18;0.1
+1669;10;Sant Mart;68;el Poblenou;carrer Castell;2;41.404621;2.198928;Fora afluncia de gent;12;2;15;3.7;16;2.8;11;8.8;18;3.3
+1670;10;Sant Mart;68;el Poblenou;carrer Lope de Vega;8;41.401424;2.207658;Fora afluncia de gent;22;3.7;15;4.1;15;3.4;12;11.3;20;6.3
+1671;10;Sant Mart;68;el Poblenou;carrer Taulat;93;41.399002;2.205071;Fora afluncia de gent;19;10.2;18;11;18;12.4;11;10.2;18;14.4
+1672;10;Sant Mart;68;el Poblenou;Jardins de Xavier benguerel;1;41.404018;2.199547;Fora afluncia de gent;12;5;16;3.6;16;8.3;11;7;18;7.5
+1673;10;Sant Mart;68;el Poblenou;carrer llull;202;41.401348;2.20281;0;18;5.4;18;3.4;18;7;11;8;18;8.1
+1674;10;Sant Mart;68;el Poblenou;carrer perello ;27;41.399124;2.207184;0;18;7.3;18;7.6;18;3.2;11;8.2;18;12.2
+1675;10;Sant Mart;68;el Poblenou;Joncar;37;41.401402;2.204395;0;16;9.2;18;4.6;18;7.7;11;8.7;17;6.4
+1676;10;Sant Mart;68;el Poblenou;Carrer de Ramon Turr;132;41.396072;2.197981;0;19;4.4;18;4.3;18;2.6;11;5;18;6.8
+1677;10;Sant Mart;68;el Poblenou;Bilbao;11;41.400707;2.206451;0;20;8;16;7.4;15;2.1;12;6.6;20;4.9
+1678;10;Sant Mart;68;el Poblenou;Carrer de Ramon Turr;183;41.399765;2.202621;Mal s de contenidors i/o papereres;11;10;18;5.9;18;7.9;11;7.3;18;7.9
+1679;10;Sant Mart;68;el Poblenou;Espronceda;21;41.402218;2.208555;Mal s de contenidors i/o papereres;4;2.3;15;2.2;15;1.9;12;5.3;20;2.1
+1680;10;Sant Mart;69;Diagonal Mar i el Front Martim del Poblenou;carrer Espronceda;9;41.401447;2.209762;Fora afluncia de gent;22;9;15;9.7;15;6.7;12;8.7;20;9.1
+1681;10;Sant Mart;69;Diagonal Mar i el Front Martim del Poblenou;carrer Provenals;2;41.403706;2.213688;Fora afluncia de gent;22;7.4;15;8.2;15;7.8;12;4.1;20;3.1
+1682;10;Sant Mart;69;Diagonal Mar i el Front Martim del Poblenou;carrer Selva de Mar;37;41.408176;2.209859;Fora afluncia de gent;22;0.6;15;2.3;15;2.5;12;2.7;20;1.5
+1683;10;Sant Mart;69;Diagonal Mar i el Front Martim del Poblenou;Jardins Remedios Var;0;41.403927;2.210419;Fora afluncia de gent;22;1.9;15;2.2;15;2.9;12;1.5;20;1.1
+1684;10;Sant Mart;69;Diagonal Mar i el Front Martim del Poblenou;Plaa Ramon Calsina;0;41.405716;2.212066;Fora afluncia de gent;22;1.8;15;3.9;15;7.2;12;6;20;7.6
+1685;10;Sant Mart;70;el Bess i el Maresme;Carrer perpiny;27;41.42054;2.21308;Mal s de contenidors i/o papereres;22;5.5;15;4.3;15;2.5;13;4.6;20;3.8
+1686;10;Sant Mart;70;el Bess i el Maresme;Carrer Alfons Magnnim;70;41.419312;2.210889;Mal s de contenidors i/o papereres;22;5.3;15;4.2;15;5.1;13;12;20;6.5
+1687;10;Sant Mart;70;el Bess i el Maresme;Carrer Alfons Magnnim;2;41.413723;2.218279;Mal s de la recollida pneumtica;21;8.7;15;4.9;15;5.7;13;3.8;20;4.5
+1688;10;Sant Mart;70;el Bess i el Maresme;Carrer Pere Moragues;13;41.417194;2.215632;Alt s de lespai pblic;21;7.3;15;3.4;15;10.2;13;11.3;20;6.9
+1689;10;Sant Mart;70;el Bess i el Maresme;Plaa dels germans Serra;1;41.416943;2.212877;Alt s de lespai pblic;20;6.6;15;5.8;15;4.6;13;6.5;20;4.9
+1690;10;Sant Mart;70;el Bess i el Maresme;carrer  Marsala;8;41.417336;2.216498;Fora afluncia de gent;19;4.5;15;4.8;15;5.1;13;4.7;20;3.9
+1691;10;Sant Mart;70;el Bess i el Maresme;carrer Bernat Metge;30;41.420593;2.212307;Fora afluncia de gent;22;4.2;15;3.1;15;4.2;13;8.3;20;4.3
+1692;10;Sant Mart;70;el Bess i el Maresme;carrer del Cller;5;41.418556;2.215138;Fora afluncia de gent;21;4.3;15;4.6;15;3.7;13;5.2;20;4.4
+1693;10;Sant Mart;70;el Bess i el Maresme;Ferrer Bassa;28;41.416424;2.216207;Mal s de la recollida pneumtica;4;10.2;15;4.6;15;4.3;13;4.1;20;4.8
+1694;10;Sant Mart;70;el Bess i el Maresme;Otranto;8;41.416359;2.216177;Mal s de contenidors i/o papereres;4;3.3;15;2.6;15;1.8;13;4.2;20;2.4
+1695;10;Sant Mart;70;el Bess i el Maresme;Jaume Huguet;32;41.418861;2.214685;Mal s de contenidors i/o papereres;4;8;15;11.5;15;6.2;13;12.8;20;10.1
+1696;10;Sant Mart;70;el Bess i el Maresme;Cristbal de Moura;257;41.418316;2.215879;Mal s de contenidors i/o papereres;4;9.7;15;10.1;15;6.2;13;9;20;5.4
+1697;10;Sant Mart;71;Provenals del Poblenou;Carrer Joan de Malta;48;41.407776;2.193801;Efecte crida;12;5.7;15;6;16;8.5;11;12.6;18;8.4
+1698;10;Sant Mart;71;Provenals del Poblenou;Carrer Joan de Malta;78;41.406826;2.195001;Mal s de la recollida pneumtica;12;2;15;5.9;16;1.9;11;5.1;18;3.5
+1699;10;Sant Mart;71;Provenals del Poblenou;Carrer Marroc;153;41.413425;2.207212;Mal s de contenidors i/o papereres;22;4.5;15;4.2;15;8.6;12;9.5;18;1.3
+1700;10;Sant Mart;71;Provenals del Poblenou;carrer Espronceda;195;41.409664;2.198861;Fora afluncia de gent;14;5.7;15;4.1;18;4.6;12;6.6;15;3.8
+1701;10;Sant Mart;71;Provenals del Poblenou;Avinguda Diagonal;38;41.409912;2.212619;Mal s de contenidors i/o papereres;4;2;15;2.5;15;2.4;12;2.9;20;2.8
+1702;10;Sant Mart;71;Provenals del Poblenou;Carrer Bac de Roda;168;41.411472;2.198764;Mal s de contenidors i/o papereres;2;9.5;15;6.6;18;5.9;12;11.3;15;4.3
+1703;10;Sant Mart;72;Sant Mart de Provenals;Granvia de les Corts Catalanes;1025;41.413883;2.200076;Mal s de la recollida pneumtica;14;5.1;15;7.3;18;8.6;12;8.2;15;3.6
+1704;10;Sant Mart;72;Sant Mart de Provenals;Parc de Sant Marti;1;41.420139;2.197607;Alt s de lespai pblic;15;2.8;15;4.7;18;5.7;12;7.1;14;3.9
+1705;10;Sant Mart;72;Sant Mart de Provenals;Carrer Concili de Trento;140;41.415222;2.197759;Fora afluncia de gent;15;1.9;15;2.1;18;3.5;12;1.4;15;2.9
+1706;10;Sant Mart;72;Sant Mart de Provenals;carrer Huelva;88;41.418133;2.197247;Fora afluncia de gent;14;2.5;15;1.4;18;3.5;12;2.2;14;1
+1707;10;Sant Mart;72;Sant Mart de Provenals;Gran via de les Corts Catalanes;997;41.412956;2.198617;Fora afluncia de gent;14;0.3;15;0.4;18;0.4;12;1.5;15;1.7
+1708;10;Sant Mart;73;la Verneda i la Pau;Carrer puigcerd;283;41.421635;2.2011;Fora afluncia de gent;15;2.6;15;1.9;18;2.6;12;3.8;15;6.7
+1709;10;Sant Mart;73;la Verneda i la Pau;Plaa de la Pau;1;41.422657;2.208488;Alt s de lespai pblic;15;0.2;16;0.7;18;2.9;12;0.7;15;0.6
+1710;10;Sant Mart;73;la Verneda i la Pau;Carrer Binfar;36;41.426659;2.205694;Poca afluncia de gent;15;8.7;15;9.6;18;9.4;12;5.2;15;7.5
+1711;10;Sant Mart;73;la Verneda i la Pau;Carrer del camp Arriassa;92;41.424892;2.202558;Propietaris danimals incvics;16;2.1;16;3.7;18;1.8;12;3;15;1.4
+1712;10;Sant Mart;73;la Verneda i la Pau;Plaa de la Palmera;1;41.419857;2.205738;Alt s de lespai pblic;14;0.3;16;0.8;18;1;12;0.4;16;0.6
+1713;10;Sant Mart;73;la Verneda i la Pau;passatge Josep Mula;41;41.422935;2.20679;Poca afluncia de gent;15;2.2;15;2.3;18;2.3;12;1.6;15;1.8
+1714;10;Sant Mart;73;la Verneda i la Pau;carrer Rambla Guipscoa;160;41.423126;2.206358;Fora afluncia de gent;15;5.1;15;4;18;8.1;12;8.3;16;3.3
+1715;10;Sant Mart;73;la Verneda i la Pau;Plaa Conxita Badia;1;41.421715;2.206262;Fora afluncia de gent;15;3.5;16;2.6;18;4.7;12;2.6;16;2.4
+1716;10;Sant Mart;73;la Verneda i la Pau;Plaa de la cultura;1;41.421158;2.206991;Fora afluncia de gent;15;6.1;16;5.8;18;5.6;12;5.3;16;4.4
+1717;10;Sant Mart;73;la Verneda i la Pau;Carrer d'Angels Garriga;4;41.42305;2.209535;Fora afluncia de gent;15;2.9;15;5.3;18;5.6;12;5;15;2.9
+1718;10;Sant Mart;73;la Verneda i la Pau;Carrer de Flix Mart Alpera;3;41.423107;2.209688;Fora afluncia de gent;15;7.1;15;3.3;18;6.9;12;5.4;15;3.9
+1719;10;Sant Mart;73;la Verneda i la Pau;Pere Vergs;1;41.422756;2.208969;Mal s de contenidors i/o papereres;2;4;16;2.6;18;1.8;12;1.1;16;4.3
+1720;10;Sant Mart;73;la Verneda i la Pau;Ca n'Oliva;64;41.424751;2.203925;Mal s de contenidors i/o papereres;2;0;15;4.6;18;7.9;12;4.5;15;6.1
+1721;10;Sant Mart;73;la Verneda i la Pau;Ca n'Oliva;46;41.423855;2.205135;Mal s de contenidors i/o papereres;2;5;15;4.9;18;5.6;12;7.4;15;8.5
+1722;10;Sant Mart;73;la Verneda i la Pau;Ca n'Oliva;40;41.423252;2.205862;Mal s de contenidors i/o papereres;2;1.5;15;8.2;18;3.3;12;5.2;15;4.9
+1723;10;Sant Mart;73;la Verneda i la Pau;Camp Arriassa ;131;41.425781;2.201193;Mal s de contenidors i/o papereres;2;2.5;16;5.5;18;6;12;8.8;15;4.1
+1724;10;Sant Mart;73;la Verneda i la Pau;Camp Arriassa ;117;41.425095;2.202078;Mal s de contenidors i/o papereres;2;2.5;15;3.6;18;5;12;2.6;15;1.9
+1725;10;Sant Mart;73;la Verneda i la Pau;Rambla Prim;220;41.423618;2.203584;Mal s de contenidors i/o papereres;2;0;15;2.1;18;5.4;12;4;15;4.4
+1726;10;Sant Mart;73;la Verneda i la Pau;Maresme;200;41.419361;2.206604;Mal s de contenidors i/o papereres;2;0.5;16;3.1;18;4.3;12;2;16;2.4
+1727;10;Sant Mart;73;la Verneda i la Pau;Menorca;29;41.421001;2.198472;Mal s de contenidors i/o papereres;2;21.5;15;9.7;18;7.1;12;6.6;15;6.1
+1728;10;Sant Mart;73;la Verneda i la Pau;Gran Via de les Corts Catalanes ;1129;41.418335;2.205926;Mal s de contenidors i/o papereres;2;0;16;1.3;18;0.9;12;1.4;16;2.2

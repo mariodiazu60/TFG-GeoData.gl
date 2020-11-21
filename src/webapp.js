@@ -233,7 +233,7 @@ function inputController(e) {
       infoInput.style.color = "#70b77e";
     } else if (extension === "csv") {
       (async () => {
-        data = await csv({ checkType: true }).fromString(lector.result);
+        data = await csv({ checkType: true, delimiter: [",", ";"] }).fromString(lector.result);
         filteredData = data;
         docSubido = true;
         leerNombreCampos();
@@ -261,37 +261,15 @@ function leerNombreCampos() {
     nombreCampos[index] = key;
     nombreCamposMostrar[index] = key;
     if (
-      key === "lat" ||
-      key === "Lat" ||
-      key === "LAT" ||
-      key === "lati" ||
-      key === "Lati" ||
-      key === "LATI" ||
-      key === "latitude" ||
-      key === "Latitude" ||
-      key === "LATITUDE" ||
-      key === "latitud" ||
-      key === "Latitud" ||
-      key === "LATITUD"
+      key.toLowerCase() === "lat" || key.toLowerCase() === "lati" || key.toLowerCase() === "latitude" || key.toLowerCase() === "latitud"
+      || key.toLowerCase() === "y" || key.toLowerCase() === "latitud_y"
     ) {
       nombreCampoLat = key;
       console.log("campo lat : " + nombreCampoLat);
     } else if (
-      key === "lon" ||
-      key === "Lon" ||
-      key === "LON" ||
-      key === "lng" ||
-      key === "Lng" ||
-      key === "LNG" ||
-      key === "long" ||
-      key === "Long" ||
-      key === "LONG" ||
-      key === "longitude" ||
-      key === "Longitude" ||
-      key === "LONGITUDE" ||
-      key === "longitud" ||
-      key === "Longitud" ||
-      key === "LONGITUD"
+      key.toLowerCase() === "lon" || key.toLowerCase() === "lng" || key.toLowerCase() === "long" ||
+      key.toLowerCase() === "longitude" || key.toLowerCase() === "longitud" || key.toLowerCase() === "x"
+      || key.toLowerCase() === "longitud_x"
     ) {
       nombreCampoLon = key;
       console.log("campo lon : " + nombreCampoLon);
@@ -303,7 +281,6 @@ function leerNombreCampos() {
     }
     index++;
   }
-
   //Una vez leidos todos los campos montamos el panel de filtros
   addHTMLFiltros();
 }
