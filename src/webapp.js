@@ -34,13 +34,13 @@ map.addControl(
 
 //Objetos para guardar los props de cada capa
 var capaPuntos = {
-  capa: "",
-  mostrar: false,
-  campoColor: "", //Campo por el que colorear
-  valoresCamposColores: [], //Distintos valores del campo a colorear
-  arrayColores: [], //Array de colores para cada valor
-  tam: 3,
-},
+    capa: "",
+    mostrar: false,
+    campoColor: "", //Campo por el que colorear
+    valoresCamposColores: [], //Distintos valores del campo a colorear
+    arrayColores: [], //Array de colores para cada valor
+    tam: 3,
+  },
   capaChinchetas = {
     capa: "",
     mostrar: false,
@@ -53,7 +53,7 @@ var capaPuntos = {
     capa: "",
     mostrar: false,
     anchoCelda: 100,
-    escalaElevacion: 10
+    escalaElevacion: 10,
   },
   capaCalor = {
     capa: "",
@@ -231,6 +231,7 @@ function inputController(e) {
       crearCapas();
       infoInput.innerHTML = "Archivo leído correctamente.";
       infoInput.style.color = "#70b77e";
+      updateLayers();
     } else if (extension === "csv") {
       (async () => {
         data = await csv({ checkType: true, delimiter: [",", ";"] }).fromString(lector.result);
@@ -240,6 +241,7 @@ function inputController(e) {
         crearCapas();
         infoInput.innerHTML = "Archivo leído correctamente.";
         infoInput.style.color = "#70b77e";
+        updateLayers();
       })();
     } else {
       infoInput.style.color = "#fe5f55";
@@ -653,9 +655,9 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[2].style = "display:block";
         //select campo color
         contenedorCapas.children[i].children[3].style = "display:block";
-        contenedorCapas.children[i].children[3].value = capaChinchetas.campoColor;
+        contenedorCapas.children[i].children[3].value =
+          capaChinchetas.campoColor;
         break;
-
 
       case "Calor3D":
         //input ancho celda calor3D
@@ -665,7 +667,8 @@ function HTMLCapasBuilder() {
         //input elevación celda calor3D
         contenedorCapas.children[i].children[20].style = "display:block";
         contenedorCapas.children[i].children[21].style = "display:block";
-        contenedorCapas.children[i].children[21].value = capaCalor3D.escalaElevacion;
+        contenedorCapas.children[i].children[21].value =
+          capaCalor3D.escalaElevacion;
         break;
 
       case "Hexagonos":
@@ -683,7 +686,8 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[10].style = "display:block";
         //input escala hexágonos
         contenedorCapas.children[i].children[11].style = "display:block";
-        contenedorCapas.children[i].children[11].value = capaHex.campoEscalaElevacion;
+        contenedorCapas.children[i].children[11].value =
+          capaHex.campoEscalaElevacion;
         break;
 
       case "Arcos":
@@ -702,7 +706,6 @@ function HTMLCapasBuilder() {
         contenedorCapas.children[i].children[16].style = "display:block";
         contenedorCapas.children[i].children[17].style = "display:block";
         break;
-
     }
 
     //Descativamos el valor de los options del select de los tipo de representación que que ya están activas
@@ -836,9 +839,9 @@ function typeOfInputControler(e) {
     default:
       console.log(
         "El campo " +
-        e.target.value +
-        " es del tipo " +
-        typeof data[0][e.target.value]
+          e.target.value +
+          " es del tipo " +
+          typeof data[0][e.target.value]
       );
       break;
   }
@@ -1106,7 +1109,6 @@ function updateCamposCalor3D(e) {
       capaCalor3D.escalaElevacion = parseInt(e.target.value);
       capaCalor3D.capa.props.elevationScale = capaCalor3D.escalaElevacion;
       break;
-
   }
   updateLayers();
 }
@@ -1151,9 +1153,9 @@ function updateCamposCaminos(e) {
 
   if (
     (capaCaminos.campoLatOrig,
-      capaCaminos.campoLonOrig,
-      capaCaminos.campoLatDestino,
-      capaCaminos.campoLonDestino !== "")
+    capaCaminos.campoLonOrig,
+    capaCaminos.campoLatDestino,
+    capaCaminos.campoLonDestino !== "")
   ) {
     //Centramos el mapa en los datos
     map.flyTo({
@@ -1168,7 +1170,6 @@ function updateCamposCaminos(e) {
   }
 }
 //#endregion
-
 
 function toAscii(value) {
   let sum = 0;
@@ -1482,7 +1483,7 @@ function updateLayers() {
       map.removeLayer("arcos");
     }
   }
-
   map.triggerRepaint();
+  return true;
 }
 //#endregion
