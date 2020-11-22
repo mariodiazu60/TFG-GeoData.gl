@@ -1,5 +1,7 @@
 //#region IMPORTS
 const csv = require("csvtojson");
+var t; //Tostada
+var taux; //Tostada auxiliar
 import { MapboxLayer } from "@deck.gl/mapbox";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { ScatterplotLayer } from "@deck.gl/layers";
@@ -34,13 +36,13 @@ map.addControl(
 
 //Objetos para guardar los props de cada capa
 var capaPuntos = {
-    capa: "",
-    mostrar: false,
-    campoColor: "", //Campo por el que colorear
-    valoresCamposColores: [], //Distintos valores del campo a colorear
-    arrayColores: [], //Array de colores para cada valor
-    tam: 3,
-  },
+  capa: "",
+  mostrar: false,
+  campoColor: "", //Nombre del campo por el que agrupar
+  valoresCamposColores: [], //Distintos valores del campo a agrupar
+  arrayColores: [], //Array de colores para cada valor distinto a agrupar
+  tam: 3, //Tamaño de los puntos
+},
   capaChinchetas = {
     capa: "",
     mostrar: false,
@@ -217,36 +219,87 @@ function inputController(e) {
   }
 
   //Avisamos de que estamos trabajando
-  infoInput.style.color = "#70b77e";
-  infoInput.innerHTML = "Leyendo el archivo...";
+  if (t != undefined) {
+    t.hideToast();
+  }
+  t = Toastify({
+    text: "<p> Leyendo el archivo de datos...</p>",
+    duration: 5000,
+    className: "toast",
+    backgroundColor: "var(--azul)",
+    gravity: "top",
+    position: "center",
+    offset: {
+      y: ".4rem"
+    },
+    onClick: function () { t.hideToast() }
+  }).showToast();
+
   var lector = new FileReader();
   lector.onload = function () {
-    //Comprobar extension, parsear/convertir archivo, obtener lat/lon, crear las capas y mostrar mensaje
+    //Comprobar extension, parsear/convertir archivo, obtener lat/lon, crear las capas y mostrar mensaje    
     let extension = file.name.split(".").pop();
     if (extension === "json" && JSON.parse(lector.result)) {
       data = JSON.parse(lector.result);
       filteredData = data;
       docSubido = true;
+
+      t.hideToast();
+      t = Toastify({
+        text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
+        duration: 5000,
+        className: "toast",
+        backgroundColor: "var(--verde)",
+        gravity: "top",
+        position: "center",
+        offset: {
+          y: ".4rem"
+        },
+        onClick: function () { t.hideToast() }
+      }).showToast();
+
       leerNombreCampos();
       crearCapas();
-      infoInput.innerHTML = "Archivo leído correctamente.";
-      infoInput.style.color = "#70b77e";
       updateLayers();
     } else if (extension === "csv") {
       (async () => {
         data = await csv({ checkType: true, delimiter: [",", ";"] }).fromString(lector.result);
         filteredData = data;
         docSubido = true;
+
+        t.hideToast();
+        t = Toastify({
+          text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
+          duration: 5000,
+          className: "toast",
+          backgroundColor: "var(--verde)",
+          gravity: "top",
+          position: "center",
+          offset: {
+            y: ".4rem"
+          },
+          onClick: function () { t.hideToast() }
+        }).showToast();
+
         leerNombreCampos();
         crearCapas();
-        infoInput.innerHTML = "Archivo leído correctamente.";
-        infoInput.style.color = "#70b77e";
         updateLayers();
       })();
+
     } else {
-      infoInput.style.color = "#fe5f55";
-      infoInput.innerHTML =
-        "¡Vaya! No conseguimos leer tu archivo. Inténtalo con otro archivo.";
+      t.hideToast();
+      t = Toastify({
+        text: "<p>  Puede que el archivo esté dañado o sea un tipo de archivo no aceptado.</p>",
+        duration: 5000,
+        className: "toast",
+        backgroundColor: "var(--rojo)",
+        gravity: "top",
+        position: "center",
+        offset: {
+          y: ".4rem" // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        },
+        onClick: function () { t.hideToast() }
+      }).showToast();
     }
   };
   lector.readAsText(file);
@@ -309,12 +362,25 @@ function stepControler(e) {
     case "0":
       //pasamos al segundo paso siempre que se haya subido un doc
       if (docSubido) {
+        t.hideToast();
         steps[1].classList.add("step-active");
         capasAsistente = true;
       } else {
-        infoInput.innerHTML =
-          "¡Ups! Selecciona un archivo de datos antes de continuar.";
-        infoInput.style.color = "#fe5f55";
+        if (t != undefined) {
+          t.hideToast();
+        }
+        t = Toastify({
+          text: "<p>  Selecciona un archivo de datos antes de continuar.</p>",
+          duration: 5000,
+          className: "toast",
+          backgroundColor: "var(--rojo)",
+          gravity: "top",
+          position: "center",
+          offset: {
+            y: ".4rem"
+          },
+          onClick: function () { t.hideToast() }
+        }).showToast();
       }
       break;
     case "1":
@@ -324,6 +390,9 @@ function stepControler(e) {
     case "2":
       //Si hemos elegido tema pasamos a la web app
       if (temaElegido) {
+        if (t != undefined) {
+          t.hideToast();
+        }
         //Llamamos a capasHTMLAction para generar la interfaz
         capasHTMLAction();
         capasAsistente = false;
@@ -344,8 +413,21 @@ function stepControler(e) {
         //Activamos el último step porque lo desactivamos con el foreach arriba
         //Esto se podría hacer de otra forma (mejorar si da tiempo)
         steps[2].classList.add("step-active");
-        infoTema.innerHTML = "Selecciona un tema para el mapa";
-        infoTema.style.color = "#fe5f55";
+        if (t != undefined) {
+          t.hideToast();
+        }
+        t = Toastify({
+          text: "<p>  Selecciona un tema para el mapa antes de continuar.</p>",
+          duration: 5000,
+          className: "toast",
+          backgroundColor: "var(--rojo)",
+          gravity: "top",
+          position: "center",
+          offset: {
+            y: ".4rem"
+          },
+          onClick: function () { t.hideToast() }
+        }).showToast();
       }
 
       break;
@@ -452,7 +534,9 @@ function expandirMenuControler(e) {
 
 //Se llama desde BTNSCONTROLER() o desde capasHTMLAction() --> Controla la activación y desactivación de las capas
 function capasControler(index, accion) {
+  console.log(index, accion);
   //Según el index activamos o desactivamos la capa que toque
+  //El array de capasActivas se utiliza para saber qué HTML añadir en los filtros y las capas.
   switch (index) {
     case "Puntos": //Capa de puntos
       if (accion === "eliminar") {
@@ -514,6 +598,41 @@ function capasControler(index, accion) {
       break;
   }
 
+  //Tostadas informativas
+  if (accion === "eliminar") {
+    if (t != undefined) {
+      t.hideToast();
+    }
+    t = Toastify({
+      text: "<p> Capa de " + index + " eliminada del mapa.</p>",
+      duration: 5000,
+      className: "toast",
+      backgroundColor: "var(--rojo)",
+      gravity: "top",
+      position: "center",
+      offset: {
+        y: ".4rem"
+      },
+      onClick: function () { t.hideToast() }
+    }).showToast();
+  } else {
+    if (t != undefined) {
+      t.hideToast();
+    }
+    t = Toastify({
+      text: "<p> Capa de " + index + " añadida al mapa.</p>",
+      duration: 5000,
+      className: "toast",
+      backgroundColor: "var(--verde)",
+      gravity: "top",
+      position: "center",
+      offset: {
+        y: ".4rem"
+      },
+      onClick: function () { t.hideToast() }
+    }).showToast();
+  }
+
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
 }
@@ -537,14 +656,14 @@ function capasHTMLAction(e) {
         "<option value=''></option>" + options;
 
       //Añadimos los options al select de altura para la caja de hex.
-      options = ""; //La reusamos porque la línea anterior es el último sitio en el que se usa para el otro select
+      let optionsAltura = ""; //Auxiliar para los options del select de la altura
       for (let i = 0; i < nombreCampos.length; i++) {
         if (
           typeof data[0][nombreCampos[i]] === "number" &&
           nombreCampos[i] != nombreCampoLat &&
           nombreCampos[i] != nombreCampoLon
         ) {
-          options +=
+          optionsAltura +=
             "<option value=" +
             nombreCampos[i] +
             ">" +
@@ -839,9 +958,9 @@ function typeOfInputControler(e) {
     default:
       console.log(
         "El campo " +
-          e.target.value +
-          " es del tipo " +
-          typeof data[0][e.target.value]
+        e.target.value +
+        " es del tipo " +
+        typeof data[0][e.target.value]
       );
       break;
   }
@@ -851,7 +970,6 @@ function typeOfInputControler(e) {
 function filterData() {
   //Antes de filtrar recuperamos todos los filtros
   const cajasFiltros = document.querySelectorAll(".cajaFiltro");
-
   var contadorFiltrosActivos = 0;
   filteredData = data;
   //Iteramos sobre los filtro para filtrar los datos según los filtros activos
@@ -885,7 +1003,18 @@ function filterData() {
               d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value
           );
         } else {
-          console.log("ERROR, AÑADE ALMENOS UN VALOR PARA FILTRAR");
+          taux = Toastify({
+            text: "<p>El filtro del campo " + cajaFiltro.children[0].value + " está vacío. Se ha ignorado al realizar el filtrado.</p>",
+            duration: 5000,
+            className: "toast",
+            backgroundColor: "var(--amarillo)",
+            gravity: "top",
+            position: "center",
+            offset: {
+              y: ".4rem"
+            },
+            onClick: function () { t.hideToast() }
+          }).showToast();
         }
       } else {
         if (cajaFiltro.children[1].value !== "") {
@@ -895,7 +1024,18 @@ function filterData() {
           );
           console.log("filtered data", filteredData);
         } else {
-          console.log("ERROR, AÑADE UN VALOR PARA FILTRAR");
+          taux = Toastify({
+            text: "<p>El filtro del campo " + cajaFiltro.children[0].value + " está vacío. Se ha ignorado al realizar el filtrado.</p>",
+            duration: 5000,
+            className: "toast",
+            backgroundColor: "var(--amarillo)",
+            gravity: "top",
+            position: "center",
+            offset: {
+              y: ".4rem"
+            },
+            onClick: function () { t.hideToast() }
+          }).showToast();
         }
       }
     }
@@ -903,14 +1043,27 @@ function filterData() {
 
   //Si no hay filtros activos igualamos filteredData a los datos originales
   if (contadorFiltrosActivos == 0) {
-    console.log("NO HAY FILTROS ACTIVOS");
+    if (t != undefined) {
+      t.hideToast();
+    }
+    t = Toastify({
+      text: "<p>No hay filtros activos para filtrar los datos.</p>",
+      duration: 5000,
+      className: "toast",
+      backgroundColor: "var(--rojo)",
+      gravity: "top",
+      position: "center",
+      offset: {
+        y: ".4rem"
+      },
+      onClick: function () { t.hideToast() }
+    }).showToast();
     filteredData = data;
+  } else {
+    //Actualizamos el mapa y la infobox para que no se quede con datos viejos
+    updateLayers();
+    infoBoxControler("limpiarInfoBox");
   }
-
-  console.log(filteredData);
-  //Actualizamos el mapa y la infobox para que no se quede con datos viejos
-  updateLayers();
-  infoBoxControler("limpiarInfoBox");
 }
 
 //Controla que panel del menú está activo
@@ -1028,8 +1181,20 @@ function temasControler(e) {
   if (e >= 0 && e < 6) {
     index = e;
     //Informamos de que se ha elegido un tema correctamente
-    infoTema.innerHTML = "¡Tema seleccionado! Puedes continuar.";
-    infoTema.style.color = "#70b77e";
+    if (t != undefined) {
+      t.hideToast();
+    }
+    t = Toastify({
+      text: "<p>  ¡Tema seleccionado! <br> Ya puedes finalizar la configuración.</p>",
+      duration: 5000,
+      className: "toast",
+      backgroundColor: "var(--verde)",
+      gravity: "top",
+      position: "center",
+      offset: {
+        y: ".4rem"
+      },
+    }).showToast();
   } else {
     index = e.target.classList[0];
   }
@@ -1153,9 +1318,9 @@ function updateCamposCaminos(e) {
 
   if (
     (capaCaminos.campoLatOrig,
-    capaCaminos.campoLonOrig,
-    capaCaminos.campoLatDestino,
-    capaCaminos.campoLonDestino !== "")
+      capaCaminos.campoLonOrig,
+      capaCaminos.campoLatDestino,
+      capaCaminos.campoLonDestino !== "")
   ) {
     //Centramos el mapa en los datos
     map.flyTo({
@@ -1205,7 +1370,7 @@ function getValoresCampoColor(capaProps) {
   }
 
   //Cuando tenemos el valor del campo calor y los colores preparados redibujamos el mapa
-  //Y el constructor de la capa llamará a getColors para dibujar con los colores correctos
+  //El constructor de la capa llamará a getColors para dibujar con los colores correctos
   updateLayers();
 }
 
@@ -1484,6 +1649,22 @@ function updateLayers() {
     }
   }
   map.triggerRepaint();
-  return true;
+
+  if (t != undefined) {
+    t.hideToast();
+  }
+  t = Toastify({
+    text: "<p> ¡Mapa generado!</p>",
+    duration: 5000,
+    className: "toast",
+    backgroundColor: "var(--verde)",
+    gravity: "top",
+    position: "center",
+    offset: {
+      y: ".4rem"
+    },
+    onClick: function () { t.hideToast() }
+  }).showToast();
+
 }
 //#endregion

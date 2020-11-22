@@ -48,7 +48,7 @@ select, input {
   --rojo: #fe5f55;
   --verde: #378346;
   --verdeHover: #2d6139;
-  --amarillo: #e8c547;
+  --amarillo: #be9a17;
   --gris: #808080;
 }
 
@@ -732,6 +732,8 @@ text-align: left;
 
 @media (max-width: 1300px) {
 
+
+
   /*Asistente*/
 
   .textoTop {
@@ -874,6 +876,18 @@ text-align: left;
     .cajaCapaActive{
       width: 100%;
     }
+}
 
- 
+/*Clases tostadas*/
+
+.toast{
+  border-radius: 15px!important;
+  width: 20%!important;
+  padding: 2rem .5rem;
+}
+
+
+.toast>p{
+  font-size: 1.2rem;
+  padding: .5rem 0;
 }
