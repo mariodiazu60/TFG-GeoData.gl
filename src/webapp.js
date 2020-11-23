@@ -1003,8 +1003,11 @@ function filterData() {
               d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value
           );
         } else {
+          if (taux !== undefined) {
+            taux.hideToast()
+          }
           taux = Toastify({
-            text: "<p>El filtro del campo " + cajaFiltro.children[0].value + " está vacío. Se ha ignorado al realizar el filtrado.</p>",
+            text: "<p>Hay filtros vacios. Se han ignorado al realizar el filtrado.</p>",
             duration: 5000,
             className: "toast",
             backgroundColor: "var(--amarillo)",
@@ -1013,7 +1016,7 @@ function filterData() {
             offset: {
               y: ".4rem"
             },
-            onClick: function () { t.hideToast() }
+            onClick: function () { taux.hideToast() }
           }).showToast();
         }
       } else {
@@ -1024,8 +1027,11 @@ function filterData() {
           );
           console.log("filtered data", filteredData);
         } else {
+          if (taux !== undefined) {
+            taux.hideToast()
+          }
           taux = Toastify({
-            text: "<p>El filtro del campo " + cajaFiltro.children[0].value + " está vacío. Se ha ignorado al realizar el filtrado.</p>",
+            text: "<p>Hay filtros vacios. Se han ignorado al realizar el filtrado.</p>",
             duration: 5000,
             className: "toast",
             backgroundColor: "var(--amarillo)",
@@ -1034,7 +1040,7 @@ function filterData() {
             offset: {
               y: ".4rem"
             },
-            onClick: function () { t.hideToast() }
+            onClick: function () { taux.hideToast() }
           }).showToast();
         }
       }
@@ -1045,6 +1051,9 @@ function filterData() {
   if (contadorFiltrosActivos == 0) {
     if (t != undefined) {
       t.hideToast();
+    }
+    if (taux != undefined) {
+      taux.hideToast();
     }
     t = Toastify({
       text: "<p>No hay filtros activos para filtrar los datos.</p>",
@@ -1102,7 +1111,7 @@ function paramsInfoBoxControler(e) {
   }
   //Si es "" o verde es que está activo, lo desactivamos, eliminamos del array de campos a mostrar
   //y actualizamos la infoBox
-  //Si me da tiempo hay que cambiar esto porque mirar le color del fondo es una idea malísima. Si cambiara el nombre de esa ver de css no funcionaría.
+  //Si me da tiempo hay que cambiar esto porque mirar le color del fondo es una idea malísima. Si cambiara el nombre de esa var de css no funcionaría.
   if (
     e.target.style.backgroundColor === "" ||
     e.target.style.backgroundColor === "var(--verde)"
@@ -1649,22 +1658,5 @@ function updateLayers() {
     }
   }
   map.triggerRepaint();
-
-  if (t != undefined) {
-    t.hideToast();
-  }
-  t = Toastify({
-    text: "<p> ¡Mapa generado!</p>",
-    duration: 5000,
-    className: "toast",
-    backgroundColor: "var(--verde)",
-    gravity: "top",
-    position: "center",
-    offset: {
-      y: ".4rem"
-    },
-    onClick: function () { t.hideToast() }
-  }).showToast();
-
 }
 //#endregion
