@@ -533,7 +533,7 @@ function expandirMenuControler(e) {
 }
 
 //Se llama desde BTNSCONTROLER() o desde capasHTMLAction() --> Controla la activación y desactivación de las capas
-function capasControler(index, accion) {
+function capasControler(index, accion, showToast) {
   console.log(index, accion);
   //Según el index activamos o desactivamos la capa que toque
   //El array de capasActivas se utiliza para saber qué HTML añadir en los filtros y las capas.
@@ -598,40 +598,45 @@ function capasControler(index, accion) {
       break;
   }
 
-  //Tostadas informativas
-  if (accion === "eliminar") {
+  if (showToast === undefined) {
+    //Tostadas informativas
     if (t != undefined) {
       t.hideToast();
     }
-    t = Toastify({
-      text: "<p> Capa de " + index + " eliminada del mapa.</p>",
-      duration: 5000,
-      className: "toast",
-      backgroundColor: "var(--rojo)",
-      gravity: "top",
-      position: "center",
-      offset: {
-        y: ".4rem"
-      },
-      onClick: function () { t.hideToast() }
-    }).showToast();
-  } else {
-    if (t != undefined) {
-      t.hideToast();
+    if (accion === "eliminar") {
+      t = Toastify({
+        text: "<p> Capa de " + index + " eliminada del mapa.</p>",
+        duration: 5000,
+        className: "toast",
+        backgroundColor: "var(--rojo)",
+        gravity: "top",
+        position: "center",
+        offset: {
+          y: ".4rem"
+        },
+        onClick: function () { t.hideToast() }
+      }).showToast();
+    } else {
+      var textExtra = "";
+      if (index === "Hexagonos" || index === "Arcos") {
+        textExtra = "<br> Para usar esta capa debes completar los campos con *."
+      }
+      t = Toastify({
+        text: "<p> Capa de " + index + " añadida al mapa. " + textExtra + "</p>",
+        duration: 5000,
+        className: "toast",
+        backgroundColor: "var(--verde)",
+        gravity: "top",
+        position: "center",
+        offset: {
+          y: ".4rem"
+        },
+        onClick: function () { t.hideToast() }
+      }).showToast();
+
     }
-    t = Toastify({
-      text: "<p> Capa de " + index + " añadida al mapa.</p>",
-      duration: 5000,
-      className: "toast",
-      backgroundColor: "var(--verde)",
-      gravity: "top",
-      position: "center",
-      offset: {
-        y: ".4rem"
-      },
-      onClick: function () { t.hideToast() }
-    }).showToast();
   }
+
 
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
@@ -720,12 +725,12 @@ function capasHTMLAction(e) {
 //Esta forma es mucho más ineficiente que la primera versión pero es la única que se me ocurre porque chrome no acepta eventos en los <option> :(
 function switchCapas(e) {
   //Borramos las capa que estuvieran previamente activas
-  capasControler("Puntos", "eliminar");
-  capasControler("Chinchetas", "eliminar");
-  capasControler("Calor", "eliminar");
-  capasControler("Calor3D", "eliminar");
-  capasControler("Hexagonos", "eliminar");
-  capasControler("Arcos", "eliminar");
+  capasControler("Puntos", "eliminar", false);
+  capasControler("Chinchetas", "eliminar", false);
+  capasControler("Calor", "eliminar", false);
+  capasControler("Calor3D", "eliminar", false);
+  capasControler("Hexagonos", "eliminar", false);
+  capasControler("Arcos", "eliminar", false);
 
   //Activamos las capas que deban estar activas
   for (let i = 0; i < 6; i++) {

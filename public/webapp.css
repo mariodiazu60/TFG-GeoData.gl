@@ -732,7 +732,11 @@ text-align: left;
 
 @media (max-width: 1300px) {
 
-
+  .toast{
+    border-radius: 15px!important;
+    width: 50%!important;
+    padding: 2rem .5rem;
+  }
 
   /*Asistente*/
 
