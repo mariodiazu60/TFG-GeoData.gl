@@ -1070,18 +1070,35 @@ function filterData() {
     if (t != undefined) {
       t.hideToast();
     }
-    t = Toastify({
-      text: "<p>Filtrado realizado. Los cambios ya se muestran en el mapa.</p>",
-      duration: 6500,
-      className: "toast",
-      backgroundColor: "var(--verde)",
-      gravity: "top",
-      position: "center",
-      offset: {
-        y: ".4rem"
-      },
-      onClick: function () { t.hideToast() }
-    }).showToast();
+
+    if (capasActivas.length > 0) {
+      t = Toastify({
+        text: "<p>Filtrado realizado. Los cambios ya se muestran en el mapa.</p>",
+        duration: 6500,
+        className: "toast",
+        backgroundColor: "var(--verde)",
+        gravity: "top",
+        position: "center",
+        offset: {
+          y: ".4rem"
+        },
+        onClick: function () { t.hideToast() }
+      }).showToast();
+    } else {
+      t = Toastify({
+        text: "<p>Se han filtrado los datos pero no hay ninguna capa de representación activa. Añade una capa de representación para ver los datos filtrados sobre el mapa.</p>",
+        duration: 6500,
+        className: "toast",
+        backgroundColor: "var(--amarillo)",
+        gravity: "top",
+        position: "center",
+        offset: {
+          y: ".4rem"
+        },
+        onClick: function () { t.hideToast() }
+      }).showToast();
+    }
+
   }
 
   //Actualizamos el mapa y la infobox para que no se quede con datos viejos
