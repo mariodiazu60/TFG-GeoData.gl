@@ -604,6 +604,7 @@ function capasControler(index, accion, showToast) {
       t.hideToast();
     }
     if (accion === "eliminar") {
+
       t = Toastify({
         text: "<p> Capa de " + index + " eliminada del mapa.</p>",
         duration: 6500,
@@ -619,7 +620,10 @@ function capasControler(index, accion, showToast) {
     } else {
       var textExtra = "";
       if (index === "Hexagonos" || index === "Arcos") {
-        textExtra = "<br> Para usar esta capa debes completar los campos con *."
+        textExtra = "<br> Para usar esta capa debes completar los campos que tengan *."
+      }
+      if (t != undefined) {
+        t.hideToast();
       }
       t = Toastify({
         text: "<p> Capa de " + index + " añadida al mapa. " + textExtra + "</p>",
@@ -637,7 +641,6 @@ function capasControler(index, accion, showToast) {
     }
   }
 
-
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
 }
@@ -647,6 +650,7 @@ function removeElementCapasActivas(elem) {
   if (index > -1) {
     capasActivas.splice(index, 1);
   }
+
 }
 
 //Se llama desde el botón de borrar/añadir capa, desde el asistente de config --> Cambia la interfaz según lsa capas activas
@@ -1052,7 +1056,7 @@ function filterData() {
       text: "<p>No se está aplicando ningún filtro sobre los datos. Mostrando los datos originales.</p>",
       duration: 6500,
       className: "toast",
-      backgroundColor: "var(--amarillo)",
+      backgroundColor: "var(--azul)",
       gravity: "top",
       position: "center",
       offset: {
