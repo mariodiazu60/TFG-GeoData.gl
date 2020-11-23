@@ -224,7 +224,7 @@ function inputController(e) {
   }
   t = Toastify({
     text: "<p> Leyendo el archivo de datos...</p>",
-    duration: 5000,
+    duration: 6500,
     className: "toast",
     backgroundColor: "var(--azul)",
     gravity: "top",
@@ -247,7 +247,7 @@ function inputController(e) {
       t.hideToast();
       t = Toastify({
         text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
-        duration: 5000,
+        duration: 6500,
         className: "toast",
         backgroundColor: "var(--verde)",
         gravity: "top",
@@ -270,7 +270,7 @@ function inputController(e) {
         t.hideToast();
         t = Toastify({
           text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
-          duration: 5000,
+          duration: 6500,
           className: "toast",
           backgroundColor: "var(--verde)",
           gravity: "top",
@@ -290,7 +290,7 @@ function inputController(e) {
       t.hideToast();
       t = Toastify({
         text: "<p>  Puede que el archivo esté dañado o sea un tipo de archivo no aceptado.</p>",
-        duration: 5000,
+        duration: 6500,
         className: "toast",
         backgroundColor: "var(--rojo)",
         gravity: "top",
@@ -371,7 +371,7 @@ function stepControler(e) {
         }
         t = Toastify({
           text: "<p>  Selecciona un archivo de datos antes de continuar.</p>",
-          duration: 5000,
+          duration: 6500,
           className: "toast",
           backgroundColor: "var(--rojo)",
           gravity: "top",
@@ -418,7 +418,7 @@ function stepControler(e) {
         }
         t = Toastify({
           text: "<p>  Selecciona un tema para el mapa antes de continuar.</p>",
-          duration: 5000,
+          duration: 6500,
           className: "toast",
           backgroundColor: "var(--rojo)",
           gravity: "top",
@@ -606,7 +606,7 @@ function capasControler(index, accion, showToast) {
     if (accion === "eliminar") {
       t = Toastify({
         text: "<p> Capa de " + index + " eliminada del mapa.</p>",
-        duration: 5000,
+        duration: 6500,
         className: "toast",
         backgroundColor: "var(--rojo)",
         gravity: "top",
@@ -623,7 +623,7 @@ function capasControler(index, accion, showToast) {
       }
       t = Toastify({
         text: "<p> Capa de " + index + " añadida al mapa. " + textExtra + "</p>",
-        duration: 5000,
+        duration: 6500,
         className: "toast",
         backgroundColor: "var(--verde)",
         gravity: "top",
@@ -931,8 +931,6 @@ function typeOfInputControler(e) {
   //Ver el tipeof del value del select
   switch (typeof data[0][e.target.value]) {
     case "string":
-      console.log("El campo " + e.target.value + " es un string");
-
       if (input1.classList[1] === "number") {
         //Modificamos el primer input
         input1.value = "";
@@ -946,7 +944,6 @@ function typeOfInputControler(e) {
       }
       break;
     case "number":
-      console.log("El campo " + e.target.value + " es un número");
       if (input1.classList[1] === "text") {
         //Modificamos el primer input
         input1.value = "";
@@ -958,15 +955,6 @@ function typeOfInputControler(e) {
         input2.value = "";
         input2.style.display = "flex";
       }
-      break;
-
-    default:
-      console.log(
-        "El campo " +
-        e.target.value +
-        " es del tipo " +
-        typeof data[0][e.target.value]
-      );
       break;
   }
 }
@@ -1013,7 +1001,7 @@ function filterData() {
           }
           taux = Toastify({
             text: "<p>Hay filtros vacios. Se han ignorado al realizar el filtrado.</p>",
-            duration: 5000,
+            duration: 6500,
             className: "toast",
             backgroundColor: "var(--amarillo)",
             gravity: "top",
@@ -1037,7 +1025,7 @@ function filterData() {
           }
           taux = Toastify({
             text: "<p>Hay filtros vacios. Se han ignorado al realizar el filtrado.</p>",
-            duration: 5000,
+            duration: 6500,
             className: "toast",
             backgroundColor: "var(--amarillo)",
             gravity: "top",
@@ -1061,10 +1049,10 @@ function filterData() {
       taux.hideToast();
     }
     t = Toastify({
-      text: "<p>No hay filtros activos para filtrar los datos.</p>",
-      duration: 5000,
+      text: "<p>No se está aplicando ningún filtro sobre los datos. Mostrando los datos originales.</p>",
+      duration: 6500,
       className: "toast",
-      backgroundColor: "var(--rojo)",
+      backgroundColor: "var(--amarillo)",
       gravity: "top",
       position: "center",
       offset: {
@@ -1074,10 +1062,27 @@ function filterData() {
     }).showToast();
     filteredData = data;
   } else {
-    //Actualizamos el mapa y la infobox para que no se quede con datos viejos
-    updateLayers();
-    infoBoxControler("limpiarInfoBox");
+
+    if (t != undefined) {
+      t.hideToast();
+    }
+    t = Toastify({
+      text: "<p>Filtrado realizado. Los cambios ya se muestran en el mapa.</p>",
+      duration: 6500,
+      className: "toast",
+      backgroundColor: "var(--verde)",
+      gravity: "top",
+      position: "center",
+      offset: {
+        y: ".4rem"
+      },
+      onClick: function () { t.hideToast() }
+    }).showToast();
   }
+
+  //Actualizamos el mapa y la infobox para que no se quede con datos viejos
+  updateLayers();
+  infoBoxControler("limpiarInfoBox");
 }
 
 //Controla que panel del menú está activo
@@ -1200,7 +1205,7 @@ function temasControler(e) {
     }
     t = Toastify({
       text: "<p>  ¡Tema seleccionado! <br> Ya puedes finalizar la configuración.</p>",
-      duration: 5000,
+      duration: 6500,
       className: "toast",
       backgroundColor: "var(--verde)",
       gravity: "top",
