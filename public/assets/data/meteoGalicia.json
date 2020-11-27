@@ -1,6 +1,6 @@
 [
     {
-        "concello": "ABEGONDO",
+        "con cello": "ABEGONDO",
         "estacion": "Mabegondo",
         "idConc": 15001,
         "idEst": 10045,
@@ -81,7 +81,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "MONFERO",
+        "con cello": "MONFERO",
         "estacion": "Marco da Curra",
         "idConc": 15050,
         "idEst": 10046,
@@ -162,7 +162,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "RIBADEO",
+        "con cello": "RIBADEO",
         "estacion": "Pedro Murias",
         "idConc": 27051,
         "idEst": 10047,
@@ -243,7 +243,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "VILARIÑO DE CONSO",
+        "con cello": "VILARIÑO DE CONSO",
         "estacion": "O Invernadeiro",
         "idConc": 32092,
         "idEst": 10048,
@@ -324,7 +324,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "RIBEIRA",
+        "con cello": "RIBEIRA",
         "estacion": "Corrubedo",
         "idConc": 15073,
         "idEst": 10049,
@@ -405,7 +405,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "FERROL",
+        "con cello": "FERROL",
         "estacion": "CIS Ferrol",
         "idConc": 15036,
         "idEst": 10050,
@@ -486,7 +486,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "LOUSAME",
+        "con cello": "LOUSAME",
         "estacion": "Muralla",
         "idConc": 15042,
         "idEst": 10052,
@@ -567,7 +567,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "LUGO",
+        "con cello": "LUGO",
         "estacion": "Campus Lugo",
         "idConc": 27028,
         "idEst": 10053,
@@ -648,7 +648,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "VILALBA",
+        "con cello": "VILALBA",
         "estacion": "Guitiriz-Mirador",
         "idConc": 27065,
         "idEst": 10055,
@@ -729,7 +729,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "MONFORTE DE LEMOS",
+        "con cello": "MONFORTE DE LEMOS",
         "estacion": "Marroxo",
         "idConc": 27031,
         "idEst": 10056,
@@ -810,7 +810,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "MACEDA",
+        "con cello": "MACEDA",
         "estacion": "Alto do Rodicio",
         "idConc": 32043,
         "idEst": 10057,
@@ -891,7 +891,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "VERÍN",
+        "con cello": "VERÍN",
         "estacion": "Verín-Vilamaior",
         "idConc": 32085,
         "idEst": 10058,
@@ -972,7 +972,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "TUI",
+        "con cello": "TUI",
         "estacion": "Monte Aloia",
         "idConc": 36055,
         "idEst": 10060,
@@ -1053,7 +1053,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "LALÍN",
+        "con cello": "LALÍN",
         "estacion": "Mouriscade",
         "idConc": 36024,
         "idEst": 10061,
@@ -1134,7 +1134,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "CERVANTES",
+        "con cello": "CERVANTES",
         "estacion": "Ancares",
         "idConc": 27012,
         "idEst": 10062,
@@ -1215,7 +1215,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "PONTEVEDRA",
+        "con cello": "PONTEVEDRA",
         "estacion": "Lourizán",
         "idConc": 36038,
         "idEst": 10064,
@@ -1296,7 +1296,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "POIO",
+        "con cello": "POIO",
         "estacion": "Castrove",
         "idConc": 36041,
         "idEst": 10067,
@@ -1377,7 +1377,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "VILANOVA DE AROUSA",
+        "con cello": "VILANOVA DE AROUSA",
         "estacion": "Corón",
         "idConc": 36061,
         "idEst": 10085,
@@ -1458,7 +1458,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "FORNELOS DE MONTES",
+        "con cello": "FORNELOS DE MONTES",
         "estacion": "Fornelos de Montes",
         "idConc": 36019,
         "idEst": 10086,
@@ -1539,7 +1539,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "SANTA COMBA",
+        "con cello": "SANTA COMBA",
         "estacion": "Fontecada",
         "idConc": 15077,
         "idEst": 10087,
@@ -1620,7 +1620,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "ABADÍN",
+        "con cello": "ABADÍN",
         "estacion": "Fragavella",
         "idConc": 27001,
         "idEst": 10088,
@@ -1701,7 +1701,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "MELIDE",
+        "con cello": "MELIDE",
         "estacion": "Melide",
         "idConc": 15046,
         "idEst": 10089,
@@ -1782,7 +1782,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "OIA",
+        "con cello": "OIA",
         "estacion": "Castro Vicaludo",
         "idConc": 36036,
         "idEst": 10091,
@@ -1863,7 +1863,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "CEDEIRA",
+        "con cello": "CEDEIRA",
         "estacion": "Punta Candieira",
         "idConc": 15022,
         "idEst": 10092,
@@ -1944,7 +1944,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "MALPICA DE BERGANTIÑOS",
+        "con cello": "MALPICA DE BERGANTIÑOS",
         "estacion": "Malpica",
         "idConc": 15043,
         "idEst": 10093,
@@ -2025,7 +2025,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "MESÍA",
+        "con cello": "MESÍA",
         "estacion": "Olas",
         "idConc": 15047,
         "idEst": 10094,
@@ -2106,7 +2106,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "BOQUEIXÓN",
+        "con cello": "BOQUEIXÓN",
         "estacion": "Sergude",
         "idConc": 15012,
         "idEst": 10095,
@@ -2187,7 +2187,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "CORISTANCO",
+        "con cello": "CORISTANCO",
         "estacion": "Río do Sol",
         "idConc": 15029,
         "idEst": 10096,
@@ -2268,7 +2268,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "ORTIGUEIRA",
+        "con cello": "ORTIGUEIRA",
         "estacion": "Serra da Faladoira",
         "idConc": 15061,
         "idEst": 10097,
@@ -2349,7 +2349,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "SAMOS",
+        "con cello": "SAMOS",
         "estacion": "Abradelo",
         "idConc": 27055,
         "idEst": 10098,
@@ -2430,7 +2430,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "BÓVEDA",
+        "con cello": "BÓVEDA",
         "estacion": "Bóveda",
         "idConc": 27008,
         "idEst": 10099,
@@ -2511,7 +2511,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "QUIROGA",
+        "con cello": "QUIROGA",
         "estacion": "Conchada",
         "idConc": 27050,
         "idEst": 10100,
@@ -2592,7 +2592,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "FRIOL",
+        "con cello": "FRIOL",
         "estacion": "Corno do Boi",
         "idConc": 27020,
         "idEst": 10101,
@@ -2673,7 +2673,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "FOLGOSO DO COUREL",
+        "con cello": "FOLGOSO DO COUREL",
         "estacion": "Courel",
         "idConc": 27017,
         "idEst": 10102,
@@ -2754,7 +2754,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "FOZ",
+        "con cello": "FOZ",
         "estacion": "Foz",
         "idConc": 27019,
         "idEst": 10103,
@@ -2835,7 +2835,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "VIVEIRO",
+        "con cello": "VIVEIRO",
         "estacion": "Penedo do Galo ",
         "idConc": 27066,
         "idEst": 10104,
@@ -2916,7 +2916,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "POL",
+        "con cello": "POL",
         "estacion": "Pol",
         "idConc": 27046,
         "idEst": 10105,
@@ -2997,7 +2997,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "A PONTENOVA",
+        "con cello": "A PONTENOVA",
         "estacion": "A Pontenova",
         "idConc": 27048,
         "idEst": 10106,
@@ -3078,7 +3078,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "GUITIRIZ",
+        "con cello": "GUITIRIZ",
         "estacion": "Sambreixo",
         "idConc": 27022,
         "idEst": 10107,
@@ -3159,7 +3159,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "PORTOMARÍN",
+        "con cello": "PORTOMARÍN",
         "estacion": "Portomarín",
         "idConc": 27049,
         "idEst": 10108,
@@ -3240,7 +3240,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "AVIÓN",
+        "con cello": "AVIÓN",
         "estacion": "Amiudal",
         "idConc": 32004,
         "idEst": 10109,
@@ -3321,7 +3321,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "BALTAR",
+        "con cello": "BALTAR",
         "estacion": "Baltar",
         "idConc": 32005,
         "idEst": 10110,
@@ -3402,7 +3402,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "ENTRIMO",
+        "con cello": "ENTRIMO",
         "estacion": "Entrimo",
         "idConc": 32030,
         "idEst": 10111,
@@ -3483,7 +3483,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "BAÑOS DE MOLGAS",
+        "con cello": "BAÑOS DE MOLGAS",
         "estacion": "Monte Medo",
         "idConc": 32007,
         "idEst": 10113,
@@ -3564,7 +3564,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "RUBIÁ",
+        "con cello": "RUBIÁ",
         "estacion": "As Petarelas",
         "idConc": 32073,
         "idEst": 10114,
@@ -3645,7 +3645,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "A VEIGA",
+        "con cello": "A VEIGA",
         "estacion": "Serra do Eixe",
         "idConc": 32083,
         "idEst": 10115,
@@ -3726,7 +3726,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "VIANA DO BOLO",
+        "con cello": "VIANA DO BOLO",
         "estacion": "Viana do Bolo",
         "idConc": 32086,
         "idEst": 10116,
@@ -3807,7 +3807,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "SAN XOÁN DE RÍO",
+        "con cello": "SAN XOÁN DE RÍO",
         "estacion": "San Xoán de Río",
         "idConc": 32070,
         "idEst": 10117,
@@ -3888,7 +3888,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "BURELA",
+        "con cello": "BURELA",
         "estacion": "Burela",
         "idConc": 27902,
         "idEst": 10118,
@@ -3969,7 +3969,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "MUÍÑOS",
+        "con cello": "MUÍÑOS",
         "estacion": "Xurés",
         "idConc": 32051,
         "idEst": 10119,
@@ -4050,7 +4050,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "COTOBADE",
+        "con cello": "COTOBADE",
         "estacion": "Rebordelo",
         "idConc": 36012,
         "idEst": 10121,
@@ -4131,7 +4131,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "RODEIRO",
+        "con cello": "RODEIRO",
         "estacion": "Serra do Faro",
         "idConc": 36047,
         "idEst": 10122,
@@ -4212,7 +4212,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "SANTIAGO DE COMPOSTELA",
+        "con cello": "SANTIAGO DE COMPOSTELA",
         "estacion": "Santiago-EOAS",
         "idConc": 15078,
         "idEst": 10124,
@@ -4293,7 +4293,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "VIGO",
+        "con cello": "VIGO",
         "estacion": "Illas Cíes",
         "idConc": 36057,
         "idEst": 10125,
@@ -4374,7 +4374,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "BUEU",
+        "con cello": "BUEU",
         "estacion": "Ons",
         "idConc": 36004,
         "idEst": 10126,
@@ -4455,7 +4455,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "CALDAS DE REIS",
+        "con cello": "CALDAS DE REIS",
         "estacion": "Caldas de Reis",
         "idConc": 36005,
         "idEst": 10127,
@@ -4536,7 +4536,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "SANXENXO",
+        "con cello": "SANXENXO",
         "estacion": "Sanxenxo",
         "idConc": 36051,
         "idEst": 10129,
@@ -4617,7 +4617,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "CARBALLEDA DE VALDEORRAS",
+        "con cello": "CARBALLEDA DE VALDEORRAS",
         "estacion": "Lardeira",
         "idConc": 32017,
         "idEst": 10130,
@@ -4698,7 +4698,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "MANZANEDA",
+        "con cello": "MANZANEDA",
         "estacion": "Cabeza de Manzaneda",
         "idConc": 32044,
         "idEst": 10131,
@@ -4779,7 +4779,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "PEDRAFITA DO CEBREIRO",
+        "con cello": "PEDRAFITA DO CEBREIRO",
         "estacion": "O Cebreiro",
         "idConc": 27045,
         "idEst": 10132,
@@ -4860,7 +4860,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "CUNTIS",
+        "con cello": "CUNTIS",
         "estacion": "Xesteiras",
         "idConc": 36015,
         "idEst": 10133,
@@ -4941,7 +4941,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "RIBEIRA",
+        "con cello": "RIBEIRA",
         "estacion": "Sálvora-Pazo",
         "idConc": 15073,
         "idEst": 10134,
@@ -5022,7 +5022,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "CARNOTA",
+        "con cello": "CARNOTA",
         "estacion": "Lira",
         "idConc": 15020,
         "idEst": 10135,
@@ -5103,7 +5103,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "A FONSAGRADA",
+        "con cello": "A FONSAGRADA",
         "estacion": "O Xipro",
         "idConc": 27018,
         "idEst": 10136,
@@ -5184,7 +5184,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "NAVIA DE SUARNA",
+        "con cello": "NAVIA DE SUARNA",
         "estacion": "Ventosa",
         "idConc": 27034,
         "idEst": 10137,
@@ -5265,7 +5265,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "A VEIGA",
+        "con cello": "A VEIGA",
         "estacion": "Xares",
         "idConc": 32083,
         "idEst": 10138,
@@ -5346,7 +5346,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "ZAS",
+        "con cello": "ZAS",
         "estacion": "Coto Muiño",
         "idConc": 15093,
         "idEst": 10139,
@@ -5427,7 +5427,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "NARÓN",
+        "con cello": "NARÓN",
         "estacion": "Aldea Nova",
         "idConc": 15054,
         "idEst": 10141,
@@ -5508,7 +5508,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "VIGO",
+        "con cello": "VIGO",
         "estacion": "Vigo",
         "idConc": 36057,
         "idEst": 10142,
@@ -5589,7 +5589,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "CARIÑO",
+        "con cello": "CARIÑO",
         "estacion": "Cariño",
         "idConc": 15901,
         "idEst": 10143,
@@ -5670,7 +5670,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "ARZÚA",
+        "con cello": "ARZÚA",
         "estacion": "Arzúa",
         "idConc": 15006,
         "idEst": 10144,
@@ -5751,7 +5751,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "CASTRO DE REI",
+        "con cello": "CASTRO DE REI",
         "estacion": "Castro R. de Lea",
         "idConc": 27010,
         "idEst": 10146,
@@ -5832,7 +5832,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "OURENSE",
+        "con cello": "OURENSE",
         "estacion": "Ourense",
         "idConc": 32054,
         "idEst": 10148,
@@ -5913,7 +5913,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "VIMIANZO",
+        "con cello": "VIMIANZO",
         "estacion": "A Gándara",
         "idConc": 15092,
         "idEst": 10153,
@@ -5994,7 +5994,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "REDONDELA",
+        "con cello": "REDONDELA",
         "estacion": "O Viso",
         "idConc": 36045,
         "idEst": 10154,
@@ -6075,7 +6075,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "OURENSE",
+        "con cello": "OURENSE",
         "estacion": "Ourense-Estacións",
         "idConc": 32054,
         "idEst": 10155,
@@ -6156,7 +6156,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "PONTEVEDRA",
+        "con cello": "PONTEVEDRA",
         "estacion": "Pontevedra-Campolongo",
         "idConc": 36038,
         "idEst": 10156,
@@ -6237,7 +6237,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "A CORUÑA",
+        "con cello": "A CORUÑA",
         "estacion": "Coruña-Torre de Hércules",
         "idConc": 15030,
         "idEst": 10157,
@@ -6318,7 +6318,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "LALÍN",
+        "con cello": "LALÍN",
         "estacion": "Lalín",
         "idConc": 36024,
         "idEst": 10158,
@@ -6399,7 +6399,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "VIGO",
+        "con cello": "VIGO",
         "estacion": "Vigo-Campus",
         "idConc": 36057,
         "idEst": 10161,
@@ -6480,7 +6480,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "VIVEIRO",
+        "con cello": "VIVEIRO",
         "estacion": "Borreiros",
         "idConc": 27066,
         "idEst": 10162,
@@ -6561,7 +6561,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "FORCAREI",
+        "con cello": "FORCAREI",
         "estacion": "Forcarei",
         "idConc": 36018,
         "idEst": 10163,
@@ -6642,7 +6642,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "RIOTORTO",
+        "con cello": "RIOTORTO",
         "estacion": "Riotorto",
         "idConc": 27054,
         "idEst": 10164,
@@ -6723,7 +6723,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "O PORRIÑO",
+        "con cello": "O PORRIÑO",
         "estacion": "Atios",
         "idConc": 36039,
         "idEst": 10165,
@@ -6804,7 +6804,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "MONDARIZ",
+        "con cello": "MONDARIZ",
         "estacion": "Gargamala",
         "idConc": 36030,
         "idEst": 10166,
@@ -6885,7 +6885,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "O VALADOURO",
+        "con cello": "O VALADOURO",
         "estacion": "Santa Cruz",
         "idConc": 27063,
         "idEst": 10167,
@@ -6966,7 +6966,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "COSPEITO",
+        "con cello": "COSPEITO",
         "estacion": "Cospeito",
         "idConc": 27015,
         "idEst": 10168,
@@ -7047,7 +7047,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "BAIONA",
+        "con cello": "BAIONA",
         "estacion": "Baiona",
         "idConc": 36003,
         "idEst": 10169,
@@ -7128,7 +7128,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "PORTOMARÍN",
+        "con cello": "PORTOMARÍN",
         "estacion": "Serra Vacaloura",
         "idConc": 27049,
         "idEst": 10170,
@@ -7209,7 +7209,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "MONFORTE DE LEMOS",
+        "con cello": "MONFORTE DE LEMOS",
         "estacion": "Monforte",
         "idConc": 27031,
         "idEst": 10171,
@@ -7290,7 +7290,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "AS NEVES",
+        "con cello": "AS NEVES",
         "estacion": "San Nomedio",
         "idConc": 36034,
         "idEst": 10172,
@@ -7371,7 +7371,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "MURAS",
+        "con cello": "MURAS",
         "estacion": "O Xistral",
         "idConc": 27033,
         "idEst": 10173,
@@ -7452,7 +7452,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "VILALBA",
+        "con cello": "VILALBA",
         "estacion": "Feiranova-Santaballa",
         "idConc": 27065,
         "idEst": 10174,
@@ -7533,7 +7533,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "PEDRAFITA DO CEBREIRO",
+        "con cello": "PEDRAFITA DO CEBREIRO",
         "estacion": "Alto do Poio",
         "idConc": 27045,
         "idEst": 10201,
@@ -7614,7 +7614,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "CHANTADA",
+        "con cello": "CHANTADA",
         "estacion": "Alto do Faro",
         "idConc": 27016,
         "idEst": 10202,
@@ -7695,7 +7695,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "CARBALLEDA DE VALDEORRAS",
+        "con cello": "CARBALLEDA DE VALDEORRAS",
         "estacion": "Casaio",
         "idConc": 32017,
         "idEst": 10204,
@@ -7776,7 +7776,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "VERÍN",
+        "con cello": "VERÍN",
         "estacion": "Verín-Vilela",
         "idConc": 32085,
         "idEst": 10500,
@@ -7857,7 +7857,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "CAMARIÑAS",
+        "con cello": "CAMARIÑAS",
         "estacion": "Camariñas",
         "idConc": 15016,
         "idEst": 10800,
@@ -7938,7 +7938,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "BUEU",
+        "con cello": "BUEU",
         "estacion": "Cabo Udra",
         "idConc": 36004,
         "idEst": 10905,
@@ -8019,7 +8019,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "CANGAS",
+        "con cello": "CANGAS",
         "estacion": "Cangas-Porto",
         "idConc": 36008,
         "idEst": 10906,
@@ -8100,7 +8100,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "A CORUÑA",
+        "con cello": "A CORUÑA",
         "estacion": "Coruña-Dique",
         "idConc": 15030,
         "idEst": 14000,
@@ -8181,7 +8181,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "VIGO",
+        "con cello": "VIGO",
         "estacion": "Porto de Vigo",
         "idConc": 36057,
         "idEst": 14001,
@@ -8262,7 +8262,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "ARTEIXO",
+        "con cello": "ARTEIXO",
         "estacion": "Punta Langosteira",
         "idConc": 15005,
         "idEst": 14003,
@@ -8343,7 +8343,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "A CORUÑA",
+        "con cello": "A CORUÑA",
         "estacion": "Coruña-Bens",
         "idConc": 15030,
         "idEst": 14010,
@@ -8424,7 +8424,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "CARBALLO",
+        "con cello": "CARBALLO",
         "estacion": "Rus",
         "idConc": 15019,
         "idEst": 19001,
@@ -8505,7 +8505,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "VEDRA",
+        "con cello": "VEDRA",
         "estacion": "Pazo de Galegos",
         "idConc": 15089,
         "idEst": 19003,
@@ -8586,7 +8586,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "NARÓN",
+        "con cello": "NARÓN",
         "estacion": "O Val",
         "idConc": 15054,
         "idEst": 19004,
@@ -8667,7 +8667,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "BERGONDO",
+        "con cello": "BERGONDO",
         "estacion": "Guísamo",
         "idConc": 15008,
         "idEst": 19005,
@@ -8748,7 +8748,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "VAL DO DUBRA",
+        "con cello": "VAL DO DUBRA",
         "estacion": "Paramos",
         "idConc": 15088,
         "idEst": 19008,
@@ -8829,7 +8829,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "LOUSAME",
+        "con cello": "LOUSAME",
         "estacion": "Lesende",
         "idConc": 15042,
         "idEst": 19010,
@@ -8910,7 +8910,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "ROIS",
+        "con cello": "ROIS",
         "estacion": "Costa",
         "idConc": 15074,
         "idEst": 19011,
@@ -8991,7 +8991,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "BOIRO",
+        "con cello": "BOIRO",
         "estacion": "Cespón",
         "idConc": 15011,
         "idEst": 19012,
@@ -9072,7 +9072,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "MONDOÑEDO",
+        "con cello": "MONDOÑEDO",
         "estacion": "Vilamor",
         "idConc": 27030,
         "idEst": 19014,
@@ -9153,7 +9153,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "ABADÍN",
+        "con cello": "ABADÍN",
         "estacion": "Labrada",
         "idConc": 27001,
         "idEst": 19015,
@@ -9234,7 +9234,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "VILALBA",
+        "con cello": "VILALBA",
         "estacion": "Lanzós",
         "idConc": 27065,
         "idEst": 19016,
@@ -9315,7 +9315,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "BALEIRA",
+        "con cello": "BALEIRA",
         "estacion": "Fontaneira",
         "idConc": 27004,
         "idEst": 19018,
@@ -9396,7 +9396,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "SARRIA",
+        "con cello": "SARRIA",
         "estacion": "Morelle",
         "idConc": 27057,
         "idEst": 19020,
@@ -9477,7 +9477,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "CHANTADA",
+        "con cello": "CHANTADA",
         "estacion": "San Fiz",
         "idConc": 27016,
         "idEst": 19021,
@@ -9558,7 +9558,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "PANTÓN",
+        "con cello": "PANTÓN",
         "estacion": "Míllara",
         "idConc": 27041,
         "idEst": 19022,
@@ -9639,7 +9639,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "RIBAS DE SIL",
+        "con cello": "RIBAS DE SIL",
         "estacion": "San Clodio",
         "idConc": 27052,
         "idEst": 19023,
@@ -9720,7 +9720,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "ANTAS DE ULLA",
+        "con cello": "ANTAS DE ULLA",
         "estacion": "Olveda",
         "idConc": 27003,
         "idEst": 19024,
@@ -9801,7 +9801,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "LOURENZÁ",
+        "con cello": "LOURENZÁ",
         "estacion": "Lourenzá",
         "idConc": 27027,
         "idEst": 19025,
@@ -9882,7 +9882,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "LEIRO",
+        "con cello": "LEIRO",
         "estacion": "EVEGA Leiro",
         "idConc": 32040,
         "idEst": 19026,
@@ -9963,7 +9963,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "XINZO DE LIMIA",
+        "con cello": "XINZO DE LIMIA",
         "estacion": "Xinzo",
         "idConc": 32032,
         "idEst": 19027,
@@ -10044,7 +10044,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "LAROUCO",
+        "con cello": "LAROUCO",
         "estacion": "Larouco",
         "idConc": 32038,
         "idEst": 19030,
@@ -10125,7 +10125,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "COLES",
+        "con cello": "COLES",
         "estacion": "Pazo de Fontefiz",
         "idConc": 32026,
         "idEst": 19031,
@@ -10206,7 +10206,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "CASTRELO DE MIÑO",
+        "con cello": "CASTRELO DE MIÑO",
         "estacion": "Prado",
         "idConc": 32022,
         "idEst": 19032,
@@ -10287,7 +10287,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "CASTRO CALDELAS",
+        "con cello": "CASTRO CALDELAS",
         "estacion": "Ponte Boga",
         "idConc": 32023,
         "idEst": 19033,
@@ -10368,7 +10368,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "A VEIGA",
+        "con cello": "A VEIGA",
         "estacion": "Corzos",
         "idConc": 32083,
         "idEst": 19037,
@@ -10449,7 +10449,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "LAZA",
+        "con cello": "LAZA",
         "estacion": "Laza",
         "idConc": 32039,
         "idEst": 19038,
@@ -10530,7 +10530,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "RIÓS",
+        "con cello": "RIÓS",
         "estacion": "Riós",
         "idConc": 32071,
         "idEst": 19039,
@@ -10611,7 +10611,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "VILARDEVÓS",
+        "con cello": "VILARDEVÓS",
         "estacion": "A Trabe",
         "idConc": 32091,
         "idEst": 19040,
@@ -10692,7 +10692,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "A MEZQUITA",
+        "con cello": "A MEZQUITA",
         "estacion": "A Mezquita",
         "idConc": 32048,
         "idEst": 19041,
@@ -10773,7 +10773,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "CALVOS DE RANDÍN",
+        "con cello": "CALVOS DE RANDÍN",
         "estacion": "Calvos ",
         "idConc": 32016,
         "idEst": 19042,
@@ -10854,7 +10854,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "A ARNOIA",
+        "con cello": "A ARNOIA",
         "estacion": "Remuíño",
         "idConc": 32003,
         "idEst": 19044,
@@ -10935,7 +10935,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "PONTEAREAS",
+        "con cello": "PONTEAREAS",
         "estacion": "A Granxa",
         "idConc": 36042,
         "idEst": 19045,
@@ -11016,7 +11016,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "VILANOVA DE AROUSA",
+        "con cello": "VILANOVA DE AROUSA",
         "estacion": "Tremoedo",
         "idConc": 36061,
         "idEst": 19046,
@@ -11097,7 +11097,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "O ROSAL",
+        "con cello": "O ROSAL",
         "estacion": "As Eiras",
         "idConc": 36048,
         "idEst": 19047,
@@ -11178,7 +11178,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "ARBO",
+        "con cello": "ARBO",
         "estacion": "Cequeliños",
         "idConc": 36001,
         "idEst": 19048,
@@ -11259,7 +11259,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "VILA DE CRUCES",
+        "con cello": "VILA DE CRUCES",
         "estacion": "Camanzo",
         "idConc": 36059,
         "idEst": 19050,
@@ -11340,7 +11340,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "MOS",
+        "con cello": "MOS",
         "estacion": "Louredo",
         "idConc": 36033,
         "idEst": 19052,
@@ -11421,7 +11421,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "SALCEDA DE CASELAS",
+        "con cello": "SALCEDA DE CASELAS",
         "estacion": "Entenza",
         "idConc": 36049,
         "idEst": 19054,
@@ -11502,7 +11502,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "TUI",
+        "con cello": "TUI",
         "estacion": "Areas",
         "idConc": 36055,
         "idEst": 19055,
@@ -11583,7 +11583,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "MEIS",
+        "con cello": "MEIS",
         "estacion": "Torrequintáns",
         "idConc": 36028,
         "idEst": 19056,
@@ -11664,7 +11664,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "SALVATERRA DE MIÑO",
+        "con cello": "SALVATERRA DE MIÑO",
         "estacion": "Meder",
         "idConc": 36050,
         "idEst": 19057,
@@ -11745,7 +11745,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "SOUTOMAIOR",
+        "con cello": "SOUTOMAIOR",
         "estacion": "Soutomaior",
         "idConc": 36053,
         "idEst": 19058,
@@ -11826,7 +11826,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "MEIS",
+        "con cello": "MEIS",
         "estacion": "Pé Redondo",
         "idConc": 36028,
         "idEst": 19065,
@@ -11907,7 +11907,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "RIBADUMIA",
+        "con cello": "RIBADUMIA",
         "estacion": "Barrantes",
         "idConc": 36046,
         "idEst": 19066,
@@ -11988,7 +11988,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "MEAÑO",
+        "con cello": "MEAÑO",
         "estacion": "Simes",
         "idConc": 36027,
         "idEst": 19068,
@@ -12069,7 +12069,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "O GROVE",
+        "con cello": "O GROVE",
         "estacion": "A Lanzada",
         "idConc": 36022,
         "idEst": 19069,
@@ -12150,7 +12150,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "MEIS",
+        "con cello": "MEIS",
         "estacion": "A Armenteira",
         "idConc": 36028,
         "idEst": 19070,
@@ -12231,7 +12231,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "ORDES",
+        "con cello": "ORDES",
         "estacion": "Ordes",
         "idConc": 15059,
         "idEst": 19071,
@@ -12312,7 +12312,7 @@
         "provincia": "A Coruña"
     },
     {
-        "concello": "PONTE CALDELAS",
+        "con cello": "PONTE CALDELAS",
         "estacion": "Ponte Caldelas",
         "idConc": 36043,
         "idEst": 19072,
@@ -12393,7 +12393,7 @@
         "provincia": "Pontevedra"
     },
     {
-        "concello": "VILAMARTÍN DE VALDEORRAS",
+        "con cello": "VILAMARTÍN DE VALDEORRAS",
         "estacion": "A Portela",
         "idConc": 32088,
         "idEst": 19073,
@@ -12474,7 +12474,7 @@
         "provincia": "Ourense"
     },
     {
-        "concello": "SOBER",
+        "con cello": "SOBER",
         "estacion": "Xabrega",
         "idConc": 27059,
         "idEst": 19074,
@@ -12555,7 +12555,7 @@
         "provincia": "Lugo"
     },
     {
-        "concello": "SANTIAGO DE COMPOSTELA",
+        "con cello": "SANTIAGO DE COMPOSTELA",
         "estacion": "Santiago-San Lázaro",
         "idConc": 15078,
         "idEst": 50500,

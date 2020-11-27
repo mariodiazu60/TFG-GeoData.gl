@@ -235,42 +235,22 @@ function inputController(e) {
     onClick: function () { t.hideToast() }
   }).showToast();
 
-  var lector = new FileReader();
-  lector.onload = function () {
-    //Comprobar extension, parsear/convertir archivo, obtener lat/lon, crear las capas y mostrar mensaje    
-    let extension = file.name.split(".").pop();
-    if (extension === "json" && JSON.parse(lector.result)) {
-      data = JSON.parse(lector.result);
-      filteredData = data;
-      docSubido = true;
-
-      t.hideToast();
-      t = Toastify({
-        text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
-        duration: 6500,
-        className: "toast",
-        backgroundColor: "var(--verde)",
-        gravity: "top",
-        position: "center",
-        offset: {
-          y: ".4rem"
-        },
-        onClick: function () { t.hideToast() }
-      }).showToast();
-
-      leerNombreCampos();
-      crearCapas();
-      updateLayers();
-    } else if (extension === "csv") {
-      (async () => {
-        data = await csv({ checkType: true, delimiter: [",", ";"] }).fromString(lector.result);
+  //Ponemos la lectura en un timeout corto para que de tiempo a la tostada de "estamos trabajando" a mostrarse e informar
+  //Si no se hace, al no salir la tostada, parece que el sistema no responde
+  setTimeout(function () {
+    var lector = new FileReader();
+    lector.onload = function () {
+      //Comprobar extension, parsear/convertir archivo, obtener lat/lon, crear las capas y mostrar mensaje    
+      let extension = file.name.split(".").pop();
+      if (extension === "json" && JSON.parse(lector.result)) {
+        data = JSON.parse(lector.result);
         filteredData = data;
         docSubido = true;
 
         t.hideToast();
         t = Toastify({
           text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
-          duration: 6500,
+          duration: -1,
           className: "toast",
           backgroundColor: "var(--verde)",
           gravity: "top",
@@ -284,25 +264,51 @@ function inputController(e) {
         leerNombreCampos();
         crearCapas();
         updateLayers();
-      })();
+      } else if (extension === "csv") {
+        (async () => {
+          data = await csv({ checkType: true, delimiter: [",", ";"] }).fromString(lector.result);
+          filteredData = data;
+          docSubido = true;
 
-    } else {
-      t.hideToast();
-      t = Toastify({
-        text: "<p>  Puede que el archivo esté dañado o sea un tipo de archivo no aceptado.</p>",
-        duration: 6500,
-        className: "toast",
-        backgroundColor: "var(--rojo)",
-        gravity: "top",
-        position: "center",
-        offset: {
-          y: ".4rem" // vertical axis - can be a number or a string indicating unity. eg: '2em'
-        },
-        onClick: function () { t.hideToast() }
-      }).showToast();
-    }
-  };
-  lector.readAsText(file);
+          t.hideToast();
+          t = Toastify({
+            text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
+            duration: -1,
+            className: "toast",
+            backgroundColor: "var(--verde)",
+            gravity: "top",
+            position: "center",
+            offset: {
+              y: ".4rem"
+            },
+            onClick: function () { t.hideToast() }
+          }).showToast();
+
+          leerNombreCampos();
+          crearCapas();
+          updateLayers();
+        })();
+
+      } else {
+        t.hideToast();
+        t = Toastify({
+          text: "<p>  Puede que el archivo esté dañado o sea un tipo de archivo no aceptado.</p>",
+          duration: 6500,
+          className: "toast",
+          backgroundColor: "var(--rojo)",
+          gravity: "top",
+          position: "center",
+          offset: {
+            y: ".4rem" // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+          onClick: function () { t.hideToast() }
+        }).showToast();
+      }
+    };
+    lector.readAsText(file);
+  }, 250);
+
+
 }
 
 //Se llama desde INPUTCONTROLLER() --> Leemos los campos del documento, los guardamos y añadimos elementos a la interfaz
@@ -334,8 +340,11 @@ function leerNombreCampos() {
       infoParams.innerHTML +=
         " <div class='params'><p>" + nombreCampos[index] + "</p></div>";
     }
+    //Eliminar los espacios en las keys para ahorrarse problemas
+    key = String(key).replace(/ /g, "_");
     index++;
   }
+  console.log(data);
   //Una vez leidos todos los campos montamos el panel de filtros
   addHTMLFiltros();
 }
@@ -1226,7 +1235,7 @@ function temasControler(e) {
     }
     t = Toastify({
       text: "<p>  ¡Tema seleccionado! <br> Ya puedes finalizar la configuración.</p>",
-      duration: 6500,
+      duration: -1,
       className: "toast",
       backgroundColor: "var(--verde)",
       gravity: "top",
@@ -1420,9 +1429,7 @@ function getColors(d, capaProps) {
   }
 
   for (let i = 0; i < capaProps.valoresCamposColores.length; i++) {
-    if (
-      toAscii(d[capaProps.campoColor]) === capaProps.valoresCamposColores[i]
-    ) {
+    if (toAscii(d[capaProps.campoColor]) === capaProps.valoresCamposColores[i]) {
       return capaProps.arrayColores[i];
     }
   }
@@ -1480,8 +1487,8 @@ function crearCapas() {
     cellSize: capaCalor3D.anchoCelda,
     elevationScale: capaCalor3D.escalaElevacion,
     colorDomain: [1, 100],
-    opacity: 0.6,
-    coverage: 0.9,
+    opacity: 0.4,
+    coverage: 1,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     onHover: ({ object, x, y }) => {
       const info = document.getElementById("info");
@@ -1510,7 +1517,7 @@ function crearCapas() {
     id: "heat",
     type: HeatmapLayer,
     data: filteredData,
-    radiusPixels: 50,
+    threshold: .25,
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
   });
 
@@ -1523,7 +1530,7 @@ function crearCapas() {
     getPosition: (d) => [d[nombreCampoLon], d[nombreCampoLat]],
     extruded: true,
     radius: capaHex.campoRadio,
-    opacity: 0.5,
+    opacity: 0.4,
     coverage: 1,
     getFillColor: (d) =>
       d[capaHex.campoAltura] > 30 ? [200, 0, 40, 150] : [255, 255, 0, 100],
