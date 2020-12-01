@@ -1,7 +1,5 @@
 //#region IMPORTS
 const csv = require("csvtojson");
-var t; //Tostada
-var taux; //Tostada auxiliar
 import { MapboxLayer } from "@deck.gl/mapbox";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { ScatterplotLayer } from "@deck.gl/layers";
@@ -96,6 +94,8 @@ var temaElegido = false;
 var lastObjectHovered = null; //último objeto para poder cambiar la info que muestra la infoBox
 var capasAsistente = true; //Flag para indicar al controlador de las capas que estamos activando y desactivando desde el asistente
 var options; //Nos guardamos el html de los options con los campos del doc para usarlo cada vez que se necesite
+var t; //Tostada
+var taux; //Tostada auxiliar
 //#endregion
 
 //#region SELECTORES ASISTENTE DE CONFIGURACIÓN
@@ -218,25 +218,10 @@ function inputController(e) {
     return;
   }
 
-  //Avisamos de que estamos trabajando
-  if (t != undefined) {
-    t.hideToast();
-  }
-  t = Toastify({
-    text: "<p> Leyendo el archivo de datos...</p>",
-    duration: 6500,
-    className: "toast",
-    backgroundColor: "var(--azul)",
-    gravity: "top",
-    position: "center",
-    offset: {
-      y: ".4rem"
-    },
-    onClick: function () { t.hideToast() }
-  }).showToast();
-
+  //Avisamos de que se está trabajando
+  tostada(true, false, "var(--azul)", 6500, "Leyendo el archivo de datos...");
   //Ponemos la lectura en un timeout corto para que de tiempo a la tostada de "estamos trabajando" a mostrarse e informar
-  //Si no se hace, al no salir la tostada, parece que el sistema no responde
+  //Si no se hace, al no salir la tostada, parece que el sistema no responde y se ha quedado bloqueado
   setTimeout(function () {
     var lector = new FileReader();
     lector.onload = function () {
@@ -246,21 +231,7 @@ function inputController(e) {
         data = JSON.parse(lector.result);
         filteredData = data;
         docSubido = true;
-
-        t.hideToast();
-        t = Toastify({
-          text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
-          duration: -1,
-          className: "toast",
-          backgroundColor: "var(--verde)",
-          gravity: "top",
-          position: "center",
-          offset: {
-            y: ".4rem"
-          },
-          onClick: function () { t.hideToast() }
-        }).showToast();
-
+        tostada(true, false, "var(--verde)", -1, "¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.");
         leerNombreCampos();
         crearCapas();
         updateLayers();
@@ -269,47 +240,20 @@ function inputController(e) {
           data = await csv({ checkType: true, delimiter: [",", ";"] }).fromString(lector.result);
           filteredData = data;
           docSubido = true;
-
-          t.hideToast();
-          t = Toastify({
-            text: "<p>  ¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.</p>",
-            duration: -1,
-            className: "toast",
-            backgroundColor: "var(--verde)",
-            gravity: "top",
-            position: "center",
-            offset: {
-              y: ".4rem"
-            },
-            onClick: function () { t.hideToast() }
-          }).showToast();
-
+          tostada(true, false, "var(--verde)", -1, "¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.");
           leerNombreCampos();
           crearCapas();
           updateLayers();
         })();
 
       } else {
-        t.hideToast();
-        t = Toastify({
-          text: "<p>  Puede que el archivo esté dañado o sea un tipo de archivo no aceptado.</p>",
-          duration: 6500,
-          className: "toast",
-          backgroundColor: "var(--rojo)",
-          gravity: "top",
-          position: "center",
-          offset: {
-            y: ".4rem" // vertical axis - can be a number or a string indicating unity. eg: '2em'
-          },
-          onClick: function () { t.hideToast() }
-        }).showToast();
+        tostada(true, false, "var(--rojo)", -1, "No se ha podido leer el archivo. <br> Puede que esté dañado o sea de un tipo no aceptado.");
       }
     };
     lector.readAsText(file);
   }, 250);
-
-
 }
+
 
 //Se llama desde INPUTCONTROLLER() --> Leemos los campos del documento, los guardamos y añadimos elementos a la interfaz
 function leerNombreCampos() {
@@ -375,21 +319,7 @@ function stepControler(e) {
         steps[1].classList.add("step-active");
         capasAsistente = true;
       } else {
-        if (t != undefined) {
-          t.hideToast();
-        }
-        t = Toastify({
-          text: "<p>  Selecciona un archivo de datos antes de continuar.</p>",
-          duration: 6500,
-          className: "toast",
-          backgroundColor: "var(--rojo)",
-          gravity: "top",
-          position: "center",
-          offset: {
-            y: ".4rem"
-          },
-          onClick: function () { t.hideToast() }
-        }).showToast();
+        tostada(true, false, "var(--rojo)", 6500, "Selecciona un archivo de datos antes de continuar.");
       }
       break;
     case "1":
@@ -422,23 +352,8 @@ function stepControler(e) {
         //Activamos el último step porque lo desactivamos con el foreach arriba
         //Esto se podría hacer de otra forma (mejorar si da tiempo)
         steps[2].classList.add("step-active");
-        if (t != undefined) {
-          t.hideToast();
-        }
-        t = Toastify({
-          text: "<p>  Selecciona un tema para el mapa antes de continuar.</p>",
-          duration: 6500,
-          className: "toast",
-          backgroundColor: "var(--rojo)",
-          gravity: "top",
-          position: "center",
-          offset: {
-            y: ".4rem"
-          },
-          onClick: function () { t.hideToast() }
-        }).showToast();
+        tostada(true, false, "var(--rojo)", 6500, "Selecciona un tema para el mapa antes de continuar.");
       }
-
       break;
   }
 }
@@ -608,48 +523,19 @@ function capasControler(index, accion, showToast) {
   }
 
   if (showToast === undefined) {
-    //Tostadas informativas
-    if (t != undefined) {
-      t.hideToast();
-    }
+    let text = ""
     if (accion === "eliminar") {
-
-      t = Toastify({
-        text: "<p> Capa de " + index + " eliminada del mapa.</p>",
-        duration: 6500,
-        className: "toast",
-        backgroundColor: "var(--rojo)",
-        gravity: "top",
-        position: "center",
-        offset: {
-          y: ".4rem"
-        },
-        onClick: function () { t.hideToast() }
-      }).showToast();
+      text = "Capa de " + index + " eliminada del mapa."
+      tostada(true, false, "var(--rojo)", 6500, text);
     } else {
-      var textExtra = "";
+      let textExtra = "";
       if (index === "Hexagonos" || index === "Arcos") {
         textExtra = "<br> Para usar esta capa debes completar los campos que tengan *."
       }
-      if (t != undefined) {
-        t.hideToast();
-      }
-      t = Toastify({
-        text: "<p> Capa de " + index + " añadida al mapa. " + textExtra + "</p>",
-        duration: 6500,
-        className: "toast",
-        backgroundColor: "var(--verde)",
-        gravity: "top",
-        position: "center",
-        offset: {
-          y: ".4rem"
-        },
-        onClick: function () { t.hideToast() }
-      }).showToast();
-
+      text = "Capa de " + index + " añadida al mapa. " + textExtra;
+      tostada(true, false, "var(--verde)", 6500, text);
     }
   }
-
   //Llamamos a update layer para que redibujar el mapa.
   updateLayers();
 }
@@ -1009,21 +895,7 @@ function filterData() {
               d[cajaFiltro.children[0].value] >= cajaFiltro.children[1].value
           );
         } else {
-          if (taux !== undefined) {
-            taux.hideToast()
-          }
-          taux = Toastify({
-            text: "<p>Hay filtros vacios. Se han ignorado al realizar el filtrado.</p>",
-            duration: 6500,
-            className: "toast",
-            backgroundColor: "var(--amarillo)",
-            gravity: "top",
-            position: "center",
-            offset: {
-              y: ".4rem"
-            },
-            onClick: function () { taux.hideToast() }
-          }).showToast();
+          tostada(false, true, "var(--amarillo)", 6500, "Hay filtros vacios. Se han ignorado al realizar el filtrado.");
         }
       } else {
         if (cajaFiltro.children[1].value !== "") {
@@ -1033,21 +905,7 @@ function filterData() {
           );
           console.log("filtered data", filteredData);
         } else {
-          if (taux !== undefined) {
-            taux.hideToast()
-          }
-          taux = Toastify({
-            text: "<p>Hay filtros vacios. Se han ignorado al realizar el filtrado.</p>",
-            duration: 6500,
-            className: "toast",
-            backgroundColor: "var(--amarillo)",
-            gravity: "top",
-            position: "center",
-            offset: {
-              y: ".4rem"
-            },
-            onClick: function () { taux.hideToast() }
-          }).showToast();
+          tostada(false, true, "var(--amarillo)", 6500, "Hay filtros vacios. Se han ignorado al realizar el filtrado.");
         }
       }
     }
@@ -1055,59 +913,14 @@ function filterData() {
 
   //Si no hay filtros activos igualamos filteredData a los datos originales
   if (contadorFiltrosActivos == 0) {
-    if (t != undefined) {
-      t.hideToast();
-    }
-    if (taux != undefined) {
-      taux.hideToast();
-    }
-    t = Toastify({
-      text: "<p>No se está aplicando ningún filtro sobre los datos. Mostrando los datos originales.</p>",
-      duration: 6500,
-      className: "toast",
-      backgroundColor: "var(--azul)",
-      gravity: "top",
-      position: "center",
-      offset: {
-        y: ".4rem"
-      },
-      onClick: function () { t.hideToast() }
-    }).showToast();
+    tostada(true, true, "var(--azul)", 6500, "No se está aplicando ningún filtro sobre los datos. Mostrando los datos originales.");
     filteredData = data;
   } else {
-
-    if (t != undefined) {
-      t.hideToast();
-    }
-
     if (capasActivas.length > 0) {
-      t = Toastify({
-        text: "<p>Filtrado realizado. Los cambios ya se muestran en el mapa.</p>",
-        duration: 6500,
-        className: "toast",
-        backgroundColor: "var(--verde)",
-        gravity: "top",
-        position: "center",
-        offset: {
-          y: ".4rem"
-        },
-        onClick: function () { t.hideToast() }
-      }).showToast();
+      tostada(true, false, "var(--verde)", 6500, "Filtrado realizado. Los cambios ya se muestran en el mapa.");
     } else {
-      t = Toastify({
-        text: "<p>Se han filtrado los datos pero no hay ninguna capa de representación activa. Añade una capa de representación para ver los datos filtrados sobre el mapa.</p>",
-        duration: 6500,
-        className: "toast",
-        backgroundColor: "var(--amarillo)",
-        gravity: "top",
-        position: "center",
-        offset: {
-          y: ".4rem"
-        },
-        onClick: function () { t.hideToast() }
-      }).showToast();
+      tostada(true, false, "var(--amarillo)", 6500, "Se han filtrado los datos pero no hay ninguna capa de representación activa para mostrarlos.");
     }
-
   }
 
   //Actualizamos el mapa y la infobox para que no se quede con datos viejos
@@ -1230,20 +1043,7 @@ function temasControler(e) {
   if (e >= 0 && e < 6) {
     index = e;
     //Informamos de que se ha elegido un tema correctamente
-    if (t != undefined) {
-      t.hideToast();
-    }
-    t = Toastify({
-      text: "<p>  ¡Tema seleccionado! <br> Ya puedes finalizar la configuración.</p>",
-      duration: -1,
-      className: "toast",
-      backgroundColor: "var(--verde)",
-      gravity: "top",
-      position: "center",
-      offset: {
-        y: ".4rem"
-      },
-    }).showToast();
+    tostada(true, false, "var(--verde)", -1, "¡Tema seleccionado! <br> Ya puedes finalizar la configuración.");
   } else {
     index = e.target.classList[0];
   }
@@ -1698,3 +1498,27 @@ function updateLayers() {
   map.triggerRepaint();
 }
 //#endregion
+
+
+function tostada(hideT, hideTaux, color, tiempo, texto) {
+  if (hideT) {
+    if (t != undefined) {
+      t.hideToast();
+    }
+  }
+  if (hideTaux) {
+    if (taux != undefined) {
+      taux.hideToast();
+    }
+  }
+  t = Toastify({
+    text: "<p>" + texto + "</p>",
+    duration: tiempo,
+    className: "toast",
+    backgroundColor: color,
+    gravity: "top",
+    position: "center",
+    offset: { y: ".4rem" },
+    onClick: function () { t.hideToast() }
+  }).showToast();
+}
