@@ -577,7 +577,7 @@ function capasHTMLAction(e) {
       }
       //Input altura hexágonos
       contenedorCapas.children[i].children[7].innerHTML =
-        "<option value=''></option>" + options;
+        "<option value=''></option>" + optionsAltura;
       //Input coordenas arcos
       contenedorCapas.children[i].children[13].innerHTML =
         "<option value=''></option>" + options;
