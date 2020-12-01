@@ -28,8 +28,9 @@ map.addControl(
     language: "es-ES",
     placeholder: "Buscar ciudad o región...",
     mapboxgl: mapboxgl,
+    types: "country,region,district,place,region,postcode"
   }),
-  "top-left"
+  "top-left",
 );
 
 //Objetos para guardar los props de cada capa
@@ -99,6 +100,7 @@ var taux; //Tostada auxiliar
 //#endregion
 
 //#region SELECTORES ASISTENTE DE CONFIGURACIÓN
+let logo = document.getElementById("logo");
 const asistente = document.getElementById("asistente");
 const btnsSiguiente = document.querySelectorAll(".btn-asistente");
 const steps = document.querySelectorAll(".step");
@@ -109,6 +111,7 @@ const input = document.getElementById("inputArchivo");
 const infoInput = document.getElementById("infoInput");
 const infoTema = document.getElementById("infoTema");
 const sectionMap = document.getElementById("map");
+
 //#endregion
 
 //#region SELECTORES MENÚ
@@ -1054,21 +1057,27 @@ function temasControler(e) {
   switch (index) {
     case "0":
       map.setStyle(account + "ckfzbshld135b19qx61b9midj");
+      logo.style.color = "var(--white)";
       break;
     case "1":
       map.setStyle(account + "ckfzc1hj713al19niu6ixn421");
+      logo.style.color = "var(--fondo)";
       break;
     case "2":
       map.setStyle(account + "ckfzc2og7138519ml3rpgkmyy");
+      logo.style.color = "var(--fondo)";
       break;
     case "3":
       map.setStyle(account + "ckfzbxsid07i319o3q6w1ru39");
+      logo.style.color = "var(--fondo)";
       break;
     case "4":
       map.setStyle(account + "ckfzc6vsx13fb19nydfwx65fw");
+      logo.style.color = "var(--white)";
       break;
     case "5":
       map.setStyle(account + "ckfzc89xt07rg19o3ljldgzv0");
+      logo.style.color = "var(--white)";
       break;
     default:
       break;

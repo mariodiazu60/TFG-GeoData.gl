@@ -66,6 +66,17 @@ ul {
   height: 100vh;
 }
 
+#logo{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 21;
+  margin: 1rem;
+  font-family: "Barlow Bold Italic", sans-serif;
+  font-size: 2rem;
+  overflow: visible;
+}
+
 /*MODAL ASISTENTE*/
 #asistente {
   display: flex;

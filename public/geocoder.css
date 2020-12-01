@@ -10,7 +10,12 @@
 .mapboxgl-marker {
   display: none;
 }
+.mapboxgl-ctrl-top-left{
+  margin-top: 3rem;
+  margin-left: .2rem;
+}
 .mapboxgl-ctrl-geocoder {
+  margin-top: 3rem;
   font-size: 18px;
   line-height: 24px;
   font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -28,7 +33,7 @@
   width: 100%;
   border: 0;
   background-color: transparent;
-  margin: 0;
+  margin-top: 0;
   height: 50px;
   color:white;
   color: white;
@@ -36,6 +41,16 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.mapboxgl-ctrl-top-left a {
+  border: 2px #2a2e47 solid;
+  width: 100%;
+}
+
+.active > a{
+  border: 2px white solid;
+  width: 100%;
 }
 
 .mapboxgl-ctrl-geocoder--input::-ms-clear {
