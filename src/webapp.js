@@ -567,12 +567,7 @@ function capasHTMLAction(e) {
           nombreCampos[i] != nombreCampoLat &&
           nombreCampos[i] != nombreCampoLon
         ) {
-          optionsAltura +=
-            "<option value=" +
-            nombreCampos[i] +
-            ">" +
-            nombreCampos[i] +
-            "</option>";
+          optionsAltura += "<option value=" + nombreCampos[i] + ">" + nombreCampos[i] + "</option>";
         }
       }
       //Input altura hexágonos
