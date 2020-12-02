@@ -82,6 +82,8 @@ var capaPuntos = {
 //#endregion
 
 //#region VARIABLES GLOBALES
+var lonFound = false;
+var latFound = false; //Flags para saber si se han encontrado las coordenadas de manera automática
 var data; //Aquí guardamos el contenido del archivo en forma de json
 var filteredData; //Aquí guardamos el contenido del archivo en forma de json
 var capasActivas = []; //Array con las capas activas en cada momento
@@ -100,7 +102,11 @@ var taux; //Tostada auxiliar
 //#endregion
 
 //#region SELECTORES ASISTENTE DE CONFIGURACIÓN
-let logo = document.getElementById("logo");
+const modal = document.getElementById("modal");
+const btnModal = document.getElementById("btnModal");
+const latMod = document.getElementById("latModal");
+const lonMod = document.getElementById("lonModal");
+const logo = document.getElementById("logo");
 const asistente = document.getElementById("asistente");
 const btnsSiguiente = document.querySelectorAll(".btn-asistente");
 const steps = document.querySelectorAll(".step");
@@ -108,8 +114,6 @@ const btnsRepreContainer = document.getElementById("representacion-btns");
 const btnsTemaContainer = document.getElementById("tema-btns");
 const temaBtns = document.querySelectorAll(".tema-btn");
 const input = document.getElementById("inputArchivo");
-const infoInput = document.getElementById("infoInput");
-const infoTema = document.getElementById("infoTema");
 const sectionMap = document.getElementById("map");
 
 //#endregion
@@ -149,6 +153,12 @@ const lonDestino = document.querySelectorAll(".inputLonDestino");
 //#endregion
 
 //#region LISTENERS
+btnModal.addEventListener("click", () => {
+  modalController(true);
+});
+
+latMod.addEventListener("change", guardarCoords);
+lonMod.addEventListener("change", guardarCoords);
 btnsSiguiente.forEach((btn) => btn.addEventListener("click", stepControler)); //Controlamos las etapas del asistente (Asistente)
 input.addEventListener("change", inputController); //Controlamos si suben un archivo (Asistente)
 btnsRepreContainer.addEventListener("click", btnsControler); //Controlamos los btns del tipo de representación (Asistente)
@@ -234,7 +244,6 @@ function inputController(e) {
         data = JSON.parse(lector.result);
         filteredData = data;
         docSubido = true;
-        tostada(true, false, "var(--verde)", -1, "¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.");
         leerNombreCampos();
         crearCapas();
         updateLayers();
@@ -243,7 +252,6 @@ function inputController(e) {
           data = await csv({ checkType: true, delimiter: [",", ";"] }).fromString(lector.result);
           filteredData = data;
           docSubido = true;
-          tostada(true, false, "var(--verde)", -1, "¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.");
           leerNombreCampos();
           crearCapas();
           updateLayers();
@@ -265,6 +273,8 @@ function leerNombreCampos() {
 
   //Iteramos sobre los nombres de los campos buscando lat y lon
   let index = 0;
+  latFound = false;
+  lonFound = false;
   for (var key in data[0]) {
     nombreCampos[index] = key;
     nombreCamposMostrar[index] = key;
@@ -272,6 +282,7 @@ function leerNombreCampos() {
       key.toLowerCase() === "lat" || key.toLowerCase() === "lati" || key.toLowerCase() === "latitude" || key.toLowerCase() === "latitud"
       || key.toLowerCase() === "y" || key.toLowerCase() === "latitud_y"
     ) {
+      latFound = true;
       nombreCampoLat = key;
       console.log("campo lat : " + nombreCampoLat);
     } else if (
@@ -279,21 +290,52 @@ function leerNombreCampos() {
       key.toLowerCase() === "longitude" || key.toLowerCase() === "longitud" || key.toLowerCase() === "x"
       || key.toLowerCase() === "longitud_x"
     ) {
+      lonFound = true;
       nombreCampoLon = key;
       console.log("campo lon : " + nombreCampoLon);
     } else {
       //Si el campo no es ni lat ni lon añadimos el campo en todos los sitios del menu de config
       //En la caja de seleccion de datos
       infoParams.innerHTML +=
-        " <div class='params'><p>" + nombreCampos[index] + "</p></div>";
+        "<div class='params'><p>" + nombreCampos[index] + "</p></div>";
+      //En el modal por si no se encuentran las coords auto.
+      latMod.innerHTML += "<option value=" + nombreCampos[index] + ">" + nombreCampos[index] + "</option>";
+      lonMod.innerHTML += "<option value=" + nombreCampos[index] + ">" + nombreCampos[index] + "</option>";
+
     }
     //Eliminar los espacios en las keys para ahorrarse problemas
     key = String(key).replace(/ /g, "_");
     index++;
   }
+
+  if (latFound && lonFound) {
+    tostada(true, false, "var(--verde)", -1, "¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.");
+  } else {
+    modalController(false);
+    tostada(true, false, "var(--amarillo)", -1, "Se ha leído el archivo. <br> Pero no se han encontrado las columnas de latitud y longitud. <br> Selecciónalas en los desplegables de abajo, por favor.");
+  }
   console.log(data);
   //Una vez leidos todos los campos montamos el panel de filtros
   addHTMLFiltros();
+}
+
+function guardarCoords(e) {
+  if (e.target.id === "latModal") {
+    nombreCampoLat = e.target.value;
+  }
+  else if (e.target.id === "lonModal") {
+    nombreCampoLon = e.target.value;
+  }
+}
+
+function modalController(apagar) {
+  if (apagar) {
+    modal.style.display = "none";
+    tostada(true, false, "var(--verde)", -1, " Ya puedes continuar con el siguiente paso.");
+  }
+  else {
+    modal.style.display = "flex";
+  }
 }
 
 //Se llama desde los los botones del asistente "Siguiente/Anterior Paso" --> Controla en qué paso del asistente estamos
