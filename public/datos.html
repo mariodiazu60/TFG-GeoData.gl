@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="datos.css" />
     <title>GeoData.gl</title>
 </head>
 
@@ -22,6 +22,89 @@
             </nav>
         </header>
 
+        <section id="infoDatos">
+            <h2>¿Cómo deben ser los archivos?</h2>
+            <p>Los archivos deben tener una estructura concreta para poder ser leídos por la web app.
+                <br>
+                En primer lugar, deben tener los datos de latitud y longitud en dos columnas separadas.
+                <br>
+                <br>
+                Para que la web app localize de manera automática las coordenadas,
+                el nombre de los campos de las coordenadas deben ser los siguientes:
+                <br>
+                (también serían
+                válidos en mayúsculas o con mayúsculas y minúsculas mezcladas)
+            </p>
+
+            <p>Nombres para el campo de la latitud:</p>
+            <ul>
+                <li>- lat</li>
+                <li>- lati</li>
+                <li>- latitude</li>
+                <li>- latitud</li>
+                <li>- y</li>
+                <li>- latitud_y</li>
+            </ul>
+
+            <p>
+                <br>
+                Nombres para el campo de la longitud:
+            </p>
+            <ul>
+                <li>- lon</li>
+                <li>- lng</li>
+                <li>- long</li>
+                <li>- longitude</li>
+                <li>- longitud</li>
+                <li>- x</li>
+                <li>- longitud_x</li>
+            </ul>
+
+            <p>
+                Si los nombres no corresponden con ninguno de la lista, cuando subas el archivo, la web app te pedirá
+                que indicaques
+                manualmente cúales son los campos en los que se encuentran las coordenas.
+                <br><br><br>
+            </p>
+
+            <h3>Archivos CSV</h3>
+            <p>El único requisito para poder utilizar un archivo CSV es que el archivo cuente con cabecera.
+                <br><br>
+            </p>
+
+            <p>Ejemplo de un sencillo pero válido archivo CSV:</p>
+            <img src="./assets/imgs/ejemplocsv.PNG" alt="ejemplo de archivo csv válido">
+            <p>Como se puede ver, la línea número uno es la cabecera, que da nombre a los valores de las
+                líneas siguientes. <br></p>
+            <p>Además, como los campos de las coordenas cumplen con los nombres mencionados anteriormente (Lat y Lon),
+                la web app
+                será capaz de encontrar las coordenas de manera automática.
+                <br><br><br>
+            </p>
+
+
+            <h3>Archivos Json</h3>
+            <p>El único requisito para poder utilizar un archivo JSON es que los ítems a representar no estén anidados.
+                <br><br>
+            </p>
+            <p>Ejemplo de un sencillo pero válido archivo JSON:</p>
+            <img src="./assets/imgs/ejemplojson.PNG" height="700px" width="85%" alt="ejemplo de archivo json válido">
+            <p>Como se puede ver, cada ítem está limitado por llaves ( { ... } ) y está separado por comas ( {...} ,
+                {...})
+                del anterior y del siguiente item. <br>
+            </p>
+            <p>Además, como los campos de las coordenas cumplen con los nombres mencionados anteriormente (lat y lon),
+                la web app
+                será capaz de encontrar las coordenas de manera automática.
+
+                <br><br><br>
+                En la siguiente sección hay varios archivos de datos que se pueden utilizar para probar la aplicación y
+                ver su estructura.
+                <br>
+                Además, cada archivo tienen un enlace para descargar el archivo y otro para acudiar al portal de datos
+                abiertos del que se ha extraído.
+            </p>
+        </section>
 
         <section class="sectionDatos">
             <div class="cajaDatos">

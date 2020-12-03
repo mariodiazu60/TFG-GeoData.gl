@@ -1,0 +1,146 @@
+/*DATOS HTML*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+a{
+    color: var(--white);
+    text-decoration: none;
+}
+:root{
+    --white : #f8f8f8;
+    --azul  :   #779ED2;
+    --fondo: #2a2e47;
+}
+
+@font-face {
+    font-family: "Barlow Regular";
+    src: url("./assets/fonts/Barlow/Barlow-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Barlow Medium";
+    src: url("./assets/fonts/Barlow/Barlow-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Barlow Semibold";
+    src: url("./assets/fonts/Barlow/Barlow-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Barlow Bold";
+    src: url("./assets/fonts/Barlow/Barlow-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Barlow Bold Italic";
+    src: url("./assets/fonts/Barlow/Barlow-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: "Barlow Black";
+    src: url("./assets/fonts/Barlow/Barlow-Black.ttf");
+}
+
+
+/*HEADER*/
+header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 13vh;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    color: var(--white);
+    font-family: "Barlow Bold";
+}
+
+    header h1{
+        flex: 1 1 auto;
+        font-family: "Barlow Bold Italic";
+    }
+
+    header nav{
+        flex: 1.35 1 auto;
+    }
+
+    header nav ul{
+        display: flex;
+        justify-content: start;
+    }
+        header nav ul li{
+            padding: 0 2.5rem;
+        }
+/*HEADER*/
+
+
+/*FONDO*/
+#fondo{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./assets/imgs/fondo.png);
+    background-position: top;
+    background-size: cover;
+
+}
+/*FONDO*/
+
+
+
+#infoDatos{
+    font-family: "Barlow Regular", sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 2rem;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    background-color: var(--fondo);
+    border: var(--white) solid 2px;
+}
+#infoDatos h2, h3{
+font-family: "Barlow Medium", sans-serif;
+font-size: 2.5rem;
+}
+
+#infoDatos p{
+    margin: 1rem 0;
+    width: 85%;
+}
+
+.cajaDatos {
+    font-family: "Barlow Regular", sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border: solid 1px white;
+    margin: 2rem 1rem;
+    padding: 1rem;
+    color: #f8f8f8;
+    background-color: var(--fondo);
+}
+.cajaDatos>h2, .cajaDatos>p, .cajaDatos>a {
+    padding: 1rem;
+}
+
+.cajaDatos>p, .cajaDatos>a {
+    font-size: 1.3rem;
+}
+
+.cajaDatos>a, .cajaDatos>p>a  {
+    font-size: 1.3rem;
+    color: var(--azul);
+    text-decoration: underline;
+}
+.sectionDatos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
