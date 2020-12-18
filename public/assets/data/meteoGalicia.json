@@ -3,24 +3,24 @@
         "concello": "ABEGONDO",
         "estacion": "Mabegondo",
         "idEst": 10045,
-        "lat": 43.2414,
-        "lon": -8.26223,
+        "lat-x": 43.2414,
+        "lon-y": -8.26223,
         "provincia": "A Coruña"
     },
     {
         "concello": "MONFERO",
         "estacion": "Marco da Curra",
         "idEst": 10046,
-        "lat": 43.3431,
-        "lon": -7.8944,
+        "lat-x": 43.3431,
+        "lon-y": -7.8944,
         "provincia": "A Coruña"
     },
     {
         "concello": "RIBADEO",
         "estacion": "Pedro Murias",
         "idEst": 10047,
-        "lat": 43.5407,
-        "lon": -7.08302,
+        "lat-x": 43.5407,
+        "lon-y": -7.08302,
         "provincia": "Lugo"
     }
 ]

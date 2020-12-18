@@ -312,7 +312,7 @@ function leerNombreCampos() {
     tostada(true, false, "var(--verde)", -1, "¡Archivo leído correctamente! <br> Puedes continuar con el siguiente paso.");
   } else {
     modalController(false);
-    tostada(true, false, "var(--amarillo)", -1, "Se ha leído el archivo. <br> Pero no se han encontrado las columnas de latitud y longitud. <br> Selecciónalas en los desplegables de abajo, por favor.");
+    tostada(true, false, "var(--amarillo)", -1, "Se ha leído el archivo. <br> Por desgracia, no se han encontrado las columnas de latitud y longitud automáticamente. <br> Selecciónalas en los desplegables de abajo, por favor.");
   }
   console.log(data);
   //Una vez leidos todos los campos montamos el panel de filtros
