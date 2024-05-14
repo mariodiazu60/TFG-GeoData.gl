@@ -13,7 +13,7 @@ import { ArcLayer } from "@deck.gl/layers";
 //#region VARIABLES DEL MAPA
 var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 mapboxgl.accessToken =
-  "pk.eyJ1IjoibWRuNiIsImEiOiJja2ZsZHRoMXAyMHk5MnlvMzJ3azliNzVoIn0.TVyz96dtNAH7PtNb8Yw_2g";
+  "";
 const account = "mapbox://styles/mdn6/";
 var map = new mapboxgl.Map({
   container: "map",
